@@ -1,17 +1,20 @@
 
-![](./img/logo.png)
+![](./img/barra.jpg)
 
 ### Welcome to mlearner's documentation!
 
 **mlearner (machine learning extensions) is a Python library of useful tools for the day-to-day data science tasks.**
 
 
-[![DOI](http://joss.theoj.org/papers/10.21105/joss.00638/status.svg)](https://doi.org/10.21105/joss.00638)
-[![PyPI version](https://badge.fury.io/py/mlearner.svg)](http://badge.fury.io/py/mlearner)
+[![Build Status](https://travis-ci.org/jaisenbe58r/mlearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/mlearner)
+[![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/mlearner/branch/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/68209df46c8240b887db5ae5fa3cb410)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
+[![Coverage Status](https://coveralls.io/repos/jaisenbe58r/mlearner/badge.svg?branch=master&service=github)](https://coveralls.io/github/jaisenbe58r/mlearner?branch=master)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 ![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
-[![License](https://img.shields.io/badge/license-BSD-blue.svg)](./license)
-[![Discuss](https://img.shields.io/badge/discuss-google_group-blue.svg)](https://groups.google.com/forum/#!forum/mlearner)
+![Python 3.7](https://img.shields.io/badge/python-3.8-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)
+[![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/HUxahg)
 
 <hr>
 
