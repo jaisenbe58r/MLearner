@@ -62,7 +62,7 @@ The mlearner version on PyPI may always be one step behind; you can install the 
 pip install git+git://github.com/jaisenbe58r/mlearner.git#egg=mlearner
 ```
 
-Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/mlearnerer and install mlearner from your local drive via
+Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/mlearner and install mlearner from your local drive via
 
 ```bash
 python setup.py install

@@ -193,7 +193,7 @@ def test_override_metric_with_support():
 def test_on_df_with_missing_entries():
     # this is a data frame where information about
     # antecedents and consequents have been cropped
-    # see https://github.com/jaisenbe58r/mlearnerer/issues/390
+    # see https://github.com/jaisenbe58r/mlearner/issues/390
     # for more details
     dict = {'itemsets': [['177', '176'], ['177', '179'],
                          ['176', '178'], ['176', '179'],
@@ -210,7 +210,7 @@ def test_on_df_with_missing_entries():
 def test_on_df_with_missing_entries_support_only():
     # this is a data frame where information about
     # antecedents and consequents have been cropped
-    # see https://github.com/jaisenbe58r/mlearnerer/issues/390
+    # see https://github.com/jaisenbe58r/mlearner/issues/390
     # for more details
     dict = {'itemsets': [['177', '176'], ['177', '179'],
                          ['176', '178'], ['176', '179'],
