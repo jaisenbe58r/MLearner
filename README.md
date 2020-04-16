@@ -9,7 +9,7 @@
 ![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)
 [![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/yHCCa2)
 
-![](./docs/sources/img/logo.png)
+![](./docs/sources/img/logo_full.png)
 
 
 **mlearner (machine learning for data enginnering) is a Python library of useful tools for the day-to-day data science tasks.**
