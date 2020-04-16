@@ -1,0 +1,51 @@
+site_name: mlearn
+site_url: http://jaisenbe58r.github.io/mlearn
+site_author: Jaime Sendra Berenguer
+site_description: A library consisting of useful tools and extensions for the day-to-day data science tasks.
+
+
+repo_url: https://github.com/jaisenbe58r/MLearn
+repo_name: GitHub
+edit_uri: docs/sources/user_guide/
+
+
+#include_search: true # not necessary for this theme
+docs_dir: sources
+
+theme:
+    name: null
+    custom_dir: 'custom_theme/'
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - mdx_math:
+      enable_dollar_delimiter: True #for use of inline $..$
+extra_javascript:
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+  - mathjaxhelper.js
+extra_css:
+  - cinder/css/base.css
+  - cinder/css/bootstrap-custom.css
+  - cinder/css/bootstrap-custom.min.css
+  - cinder/css/cinder.css
+  - cinder/css/font-awesome-4.0.3.css
+  - cinder/css/highlight.css
+
+# google_analytics: ['UA-38457794-2', 'jaisenbe58r.github.io/mlearn/']
+
+nav:
+- Home: index.md
+- User Guide:
+  - USER_GUIDE_INDEX.md
+  - preprocessing:
+    - user_guide/preprocesing/copy_transformer.md
+
+- Installation: installation.md
+- About:
+  - Release Notes: CHANGELOG.md
+  - How To Contribute: CONTRIBUTING.md
+  - Contributors: contributors.md
+  - License: license.md
+  - Citing mlearn: cite.md
+  - Discuss: discuss.md

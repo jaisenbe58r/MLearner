@@ -1,0 +1,11 @@
+include *.txt
+include *.md
+include *.cfg
+include *.pkl
+recursive-include ./mlextend/*
+
+include ./requirements.txt
+exclude *.log
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
