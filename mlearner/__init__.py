@@ -4,4 +4,4 @@
 #
 # License: MIT
 
-__version__ = '0.0.2dev5'
+__version__ = '0.0.4dev0'
