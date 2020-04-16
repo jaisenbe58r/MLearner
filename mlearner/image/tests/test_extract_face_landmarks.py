@@ -1,10 +1,10 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.image import extract_face_landmarks
+from mlearner.image import extract_face_landmarks
 import imageio
 import numpy as np
 import os
@@ -23,7 +23,7 @@ def rgb2gray(rgb):
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_defaults():
-    img = imageio.imread('mlearn/image/tests/data/lena-small.png')
+    img = imageio.imread('mlearner/image/tests/data/lena-small.png')
     landmarks1 = extract_face_landmarks(img)
     landmarks2 = extract_face_landmarks(np.asarray(img))
     np.testing.assert_array_equal(landmarks1, landmarks2)
@@ -45,7 +45,7 @@ def test_defaults():
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_jpg():
-    img = imageio.imread('mlearn/image/tests/data/lena-small.jpg')
+    img = imageio.imread('mlearner/image/tests/data/lena-small.jpg')
     landmarks1 = extract_face_landmarks(img)
     landmarks2 = extract_face_landmarks(np.asarray(img))
     np.testing.assert_array_equal(landmarks1, landmarks2)
@@ -74,7 +74,7 @@ def test_jpg():
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_grayscale():
-    img = imageio.imread('mlearn/image/tests/data/lena-small.png')
+    img = imageio.imread('mlearner/image/tests/data/lena-small.png')
     img = rgb2gray(img)
     assert img.ndim == 2
     landmarks1 = extract_face_landmarks(img)

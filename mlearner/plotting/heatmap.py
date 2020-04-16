@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting decision regions of classifiers.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -66,7 +66,7 @@ def heatmap(matrix,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/heatmap/
+    http://rasbt.github.io/mlearner/user_guide/plotting/heatmap/
 
     """
 

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Bootstrap functions
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -109,7 +109,7 @@ def bootstrap_point632_score(estimator, X, y, n_splits=200,
     Examples
     --------
     >>> from sklearn import datasets, linear_model
-    >>> from mlearn.evaluate import bootstrap_point632_score
+    >>> from mlearner.evaluate import bootstrap_point632_score
     >>> iris = datasets.load_iris()
     >>> X = iris.data
     >>> y = iris.target
@@ -124,7 +124,7 @@ def bootstrap_point632_score(estimator, X, y, n_splits=200,
     95% Confidence interval: [0.90, 0.98]
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/bootstrap_point632_score/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/bootstrap_point632_score/
 
     """
     if not isinstance(n_splits, int) or n_splits < 1:

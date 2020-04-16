@@ -1,7 +1,7 @@
 # IPython Notebook to Markdown conversion script
 #
 # Jaime Sendra Berenguer
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -257,8 +257,8 @@ def generate_api_docs(package, api_dir, clean=False,
     ignore_packages : iterable or None (default: None)
         Iterable (list, set, tuple) that contains the names of packages
         and subpackages to ignore or skip. For instance, if the
-        images subpackage in mlearn is supposed to be split, provide the
-        argument `{mlearn.image}`.
+        images subpackage in mlearner is supposed to be split, provide the
+        argument `{mlearner.image}`.
 
     """
     if printlog:
@@ -417,10 +417,10 @@ if __name__ == "__main__":
         formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('-n', '--package_name',
-                        default='mlearn',
+                        default='mlearner',
                         help='Name of the package')
     parser.add_argument('-d', '--package_dir',
-                        default='../../mlearn/',
+                        default='../../mlearner/',
                         help="Path to the package's enclosing directory")
     parser.add_argument('-o1', '--output_module_api',
                         default='../docs/sources/api_modules',
@@ -442,11 +442,11 @@ if __name__ == "__main__":
     parser.add_argument('--ignore_packages',
                         default='',
                         help='Ignores subpackages listed via this option.'
-                             ' For example, to ignore mlearn.image,'
-                             ' type "mlearn.image".'
+                             ' For example, to ignore mlearner.image,'
+                             ' type "mlearner.image".'
                              ' For multiple subpackages, separate them via,'
                              ' commas. For example,'
-                             ' "mlearn.image,mlearn.plotting".')
+                             ' "mlearner.image,mlearner.plotting".')
 
     args = parser.parse_args()
 
@@ -462,6 +462,6 @@ if __name__ == "__main__":
                                      out_dir=args.output_subpackage_api,
                                      printlog=not(args.silent),
                                      clean=args.clean,
-                                     str_above_header=('mlearn'
+                                     str_above_header=('mlearner'
                                                        ' version: %s \n' % (
                                                         package.__version__)))

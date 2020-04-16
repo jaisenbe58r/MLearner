@@ -1,26 +1,26 @@
 
 ![](./img/logo.png)
 
-### Welcome to mlearn's documentation!
+### Welcome to mlearner's documentation!
 
-**mlearn (machine learning extensions) is a Python library of useful tools for the day-to-day data science tasks.**
+**mlearner (machine learning extensions) is a Python library of useful tools for the day-to-day data science tasks.**
 
 
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00638/status.svg)](https://doi.org/10.21105/joss.00638)
-[![PyPI version](https://badge.fury.io/py/mlearn.svg)](http://badge.fury.io/py/mlearn)
+[![PyPI version](https://badge.fury.io/py/mlearner.svg)](http://badge.fury.io/py/mlearner)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 ![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](./license)
-[![Discuss](https://img.shields.io/badge/discuss-google_group-blue.svg)](https://groups.google.com/forum/#!forum/mlearn)
+[![Discuss](https://img.shields.io/badge/discuss-google_group-blue.svg)](https://groups.google.com/forum/#!forum/mlearner)
 
 <hr>
 
 ## Links
 
-- **Documentation:** [http://jaisenbe58r.github.io/mlearn](http://jaisenbe58r.github.io/mlearn)
-- Source code repository: [https://github.com/jaisenbe58r/MLearn](https://github.com/jaisenbe58r/MLearn)
-- PyPI: [https://pypi.python.org/pypi/mlearn](https://pypi.python.org/pypi/mlearn)
-- Questions? Check out the [Google Groups mailing list](https://groups.google.com/forum/#!forum/mlearn)
+- **Documentation:** [http://jaisenbe58r.github.io/mlearner](http://jaisenbe58r.github.io/mlearner)
+- Source code repository: [https://github.com/jaisenbe58r/mlearnerer](https://github.com/jaisenbe58r/mlearnerer)
+- PyPI: [https://pypi.python.org/pypi/mlearner](https://pypi.python.org/pypi/mlearner)
+- Questions? Check out the [Google Groups mailing list](https://groups.google.com/forum/#!forum/mlearner)
 
 <hr>
 
@@ -35,9 +35,9 @@ import itertools
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-from mlearn.classifier import EnsembleVoteClassifier
-from mlearn.data import iris_data
-from mlearn.plotting import plot_decision_regions
+from mlearner.classifier import EnsembleVoteClassifier
+from mlearner.data import iris_data
+from mlearner.plotting import plot_decision_regions
 
 # Initializing Classifiers
 clf1 = LogisticRegression(random_state=0)
@@ -77,14 +77,14 @@ plt.show()
 
 ![](./img/ensemble_decision_regions_2d.png)
 
-If you use mlearn as part of your workflow in a scientific publication, please consider citing the mlearn repository with the following DOI:
+If you use mlearner as part of your workflow in a scientific publication, please consider citing the mlearner repository with the following DOI:
 
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00638/status.svg)](https://doi.org/10.21105/joss.00638)
 
 ```
-@article{raschkas_2018_mlearn,
+@article{raschkas_2018_mlearner,
   author       = {Sebastian Raschka},
-  title        = {mlearn: Providing machine learning and data science 
+  title        = {mlearner: Providing machine learning and data science 
                   utilities and extensions to Python’s  
                   scientific computing stack},
   journal      = {The Journal of Open Source Software},
@@ -101,12 +101,12 @@ If you use mlearn as part of your workflow in a scientific publication, please c
 
 ## License
 
-- This project is released under a permissive new BSD open source license ([LICENSE-BSD3.txt](https://github.com/jaisenbe58r/MLearn/blob/master/LICENSE-BSD3.txt)) and commercially usable. There is no warranty; not even for merchantability or fitness for a particular purpose.
+- This project is released under a permissive new BSD open source license ([LICENSE-BSD3.txt](https://github.com/jaisenbe58r/mlearnerer/blob/master/LICENSE-BSD3.txt)) and commercially usable. There is no warranty; not even for merchantability or fitness for a particular purpose.
 - In addition, you may use, copy, modify and redistribute all artistic creative works (figures and images) included in this distribution under the directory
-according to the terms and conditions of the Creative Commons Attribution 4.0 International License.  See the file [LICENSE-CC-BY.txt](https://github.com/jaisenbe58r/MLearn/blob/master/LICENSE-CC-BY.txt) for details. (Computer-generated graphics such as the plots produced by matplotlib fall under the BSD license mentioned above).
+according to the terms and conditions of the Creative Commons Attribution 4.0 International License.  See the file [LICENSE-CC-BY.txt](https://github.com/jaisenbe58r/mlearnerer/blob/master/LICENSE-CC-BY.txt) for details. (Computer-generated graphics such as the plots produced by matplotlib fall under the BSD license mentioned above).
 
 ## Contact
 
-I received a lot of feedback and questions about mlearn recently, and I thought that it would be worthwhile to set up a public communication channel. Before you write an email with a question about mlearn, please consider posting it here since it can also be useful to others! Please join the [Google Groups Mailing List](https://groups.google.com/forum/#!forum/mlearn)!
+I received a lot of feedback and questions about mlearner recently, and I thought that it would be worthwhile to set up a public communication channel. Before you write an email with a question about mlearner, please consider posting it here since it can also be useful to others! Please join the [Google Groups Mailing List](https://groups.google.com/forum/#!forum/mlearner)!
 
-If Google Groups is not for you, please feel free to write me an [email](mailto:mail@sebastianraschka.com) or consider filing an issue on [GitHub's issue tracker](https://github.com/jaisenbe58r/MLearn/issues) for new feature requests or bug reports. In addition, I setup a [Gitter channel](https://gitter.im/jaisenbe58r/mlearn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) for live discussions.
+If Google Groups is not for you, please feel free to write me an [email](mailto:mail@sebastianraschka.com) or consider filing an issue on [GitHub's issue tracker](https://github.com/jaisenbe58r/mlearnerer/issues) for new feature requests or bug reports. In addition, I setup a [Gitter channel](https://gitter.im/jaisenbe58r/mlearner?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) for live discussions.

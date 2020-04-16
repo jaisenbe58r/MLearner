@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Function for processing names.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -44,7 +44,7 @@ def generalize_names(name, output_sep=' ', firstname_output_letters=1):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/text/generalize_names/
+    http://rasbt.github.io/mlearner/user_guide/text/generalize_names/
 
     """
     # set first and last name positions
@@ -98,7 +98,7 @@ def generalize_names(name, output_sep=' ', firstname_output_letters=1):
 def generalize_names_duplcheck(df, col_name):
     """ Generalizes names and removes duplicates.
 
-    Description : Applies mlearn.text.generalize_names to a DataFrame
+    Description : Applies mlearner.text.generalize_names to a DataFrame
     with 1 first name letter by default
     and uses more first name letters if duplicates are detected.
 
@@ -120,7 +120,7 @@ def generalize_names_duplcheck(df, col_name):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/text/generalize_names_duplcheck/
+    http://rasbt.github.io/mlearner/user_guide/text/generalize_names_duplcheck/
 
     """
     df_new = df.copy()

@@ -1,9 +1,9 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # License: BSD 3 clause
 import numpy as np
-from mlearn.evaluate import accuracy_score
+from mlearner.evaluate import accuracy_score
 from numpy.testing import assert_almost_equal
 
 

@@ -1,7 +1,7 @@
 # Soft Voting/Majority Rule classifier
 
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of an meta-classification algorithm for majority voting.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -66,7 +66,7 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
         For instance, if any form of cross-validation is performed
         this would require the re-fitting classifiers to training folds, which
         would raise a NotFitterError if fit_base_estimators=False.
-        (New in mlearn v0.6.)
+        (New in mlearner v0.6.)
 
     Attributes
     ----------
@@ -83,7 +83,7 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
     >>> from sklearn.linear_model import LogisticRegression
     >>> from sklearn.naive_bayes import GaussianNB
     >>> from sklearn.ensemble import RandomForestClassifier
-    >>> from mlearn.sklearn import EnsembleVoteClassifier
+    >>> from mlearner.sklearn import EnsembleVoteClassifier
     >>> clf1 = LogisticRegression(random_seed=1)
     >>> clf2 = RandomForestClassifier(random_seed=1)
     >>> clf3 = GaussianNB()
@@ -106,7 +106,7 @@ class EnsembleVoteClassifier(BaseEstimator, ClassifierMixin, TransformerMixin):
     >>>
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/EnsembleVoteClassifier/
+    http://rasbt.github.io/mlearner/user_guide/classifier/EnsembleVoteClassifier/
     """
 
     def __init__(self, clfs, voting='hard',

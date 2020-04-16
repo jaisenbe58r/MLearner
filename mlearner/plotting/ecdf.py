@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting decision regions of classifiers.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -52,7 +52,7 @@ def ecdf(x, y_label='ECDF', x_label=None, ax=None, percentile=None,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/ecdf/
+    http://rasbt.github.io/mlearner/user_guide/plotting/ecdf/
 
     """
     if ax is None:

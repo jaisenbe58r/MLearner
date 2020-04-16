@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Principal Component Analysis for dimensionality reduction.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -51,7 +51,7 @@ class PrincipalComponentAnalysis(_BaseModel):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_extraction/PrincipalComponentAnalysis/
+    http://rasbt.github.io/mlearner/user_guide/feature_extraction/PrincipalComponentAnalysis/
 
     """
     def __init__(self, n_components=None, solver='svd', whitening=False):

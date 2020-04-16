@@ -1,3 +1,3 @@
-# Citing mlearn
+# Citing mlearner
 
-If you use mlearn as part of your workflow in a scientific publication, please consider citing the mlearn repository with the following DOI:
+If you use mlearner as part of your workflow in a scientific publication, please consider citing the mlearner repository with the following DOI:

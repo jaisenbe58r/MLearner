@@ -1,5 +1,5 @@
-from mlearn.text import tokenizer_words_and_emoticons
-from mlearn.text import tokenizer_emoticons
+from mlearner.text import tokenizer_words_and_emoticons
+from mlearner.text import tokenizer_emoticons
 
 
 def test_tokenizer_words_and_emoticons_1():

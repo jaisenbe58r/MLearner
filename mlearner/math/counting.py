@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Functions for different counting operations.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -35,7 +35,7 @@ def num_combinations(n, k, with_replacement=False):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/math/num_combinations/
+    http://rasbt.github.io/mlearner/user_guide/math/num_combinations/
 
     """
     if with_replacement:
@@ -69,7 +69,7 @@ def num_permutations(n, k, with_replacement=False):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/math/num_permutations/
+    http://rasbt.github.io/mlearner/user_guide/math/num_permutations/
 
     """
     if with_replacement:

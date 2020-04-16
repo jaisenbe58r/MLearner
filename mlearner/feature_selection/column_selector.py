@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Object for selecting a dataset column in scikit-learn pipelines.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -33,7 +33,7 @@ class ColumnSelector(BaseEstimator):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_selection/ColumnSelector/
+    http://rasbt.github.io/mlearner/user_guide/feature_selection/ColumnSelector/
 
     """
 

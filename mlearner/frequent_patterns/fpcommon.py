@@ -78,7 +78,7 @@ def valid_input_check(df):
 
     if f"{type(df)}" == "<class 'pandas.core.frame.SparseDataFrame'>":
         msg = ("SparseDataFrame support has been deprecated in pandas 1.0,"
-               " and is no longer supported in mlearn. "
+               " and is no longer supported in mlearner. "
                " Please"
                " see the pandas migration guide at"
                " https://pandas.pydata.org/pandas-docs/"

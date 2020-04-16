@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.utils import check_Xy
+from mlearner.utils import check_Xy
 
 
 def shuffle_arrays_unison(arrays, random_seed=None):
@@ -26,7 +26,7 @@ def shuffle_arrays_unison(arrays, random_seed=None):
     --------
 
     >>> import numpy as np
-    >>> from mlearn.preprocessing import shuffle_arrays_unison
+    >>> from mlearner.preprocessing import shuffle_arrays_unison
     >>> X1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
     >>> y1 = np.array([1, 2, 3])
     >>> X2, y2 = shuffle_arrays_unison(arrays=[X1, y1], random_seed=3)
@@ -35,7 +35,7 @@ def shuffle_arrays_unison(arrays, random_seed=None):
     >>>
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/shuffle_arrays_unison/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/shuffle_arrays_unison/
     """
     if random_seed:
         np.random.seed(random_seed)
@@ -79,7 +79,7 @@ def shuffled_split(X, y, shuffle=True, train_size=0.75, random_seed=None):
          Target values for testing.
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/shuffled_split/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/shuffled_split/
 
     """
     check_Xy(X, y, y_int=False)

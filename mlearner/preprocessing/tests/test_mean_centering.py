@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -7,7 +7,7 @@
 
 import numpy as np
 import pytest
-from mlearn.preprocessing import MeanCenterer
+from mlearner.preprocessing import MeanCenterer
 
 
 def test_fitting_error():

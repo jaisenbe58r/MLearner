@@ -1,4 +1,4 @@
-from mlearn.data import iris_data
+from mlearner.data import iris_data
 import pytest
 import numpy as np
 import os

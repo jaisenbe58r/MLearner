@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Feature Importance Estimation Through Permutation
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -14,8 +14,8 @@ from sklearn.svm import SVC
 from sklearn.svm import SVR
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
-from mlearn.utils import assert_raises
-from mlearn.evaluate import feature_importance_permutation
+from mlearner.utils import assert_raises
+from mlearner.evaluate import feature_importance_permutation
 
 
 def test_num_rounds_not_int():

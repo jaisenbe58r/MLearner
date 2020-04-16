@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of the ADAptive LInear NEuron classification algorithm.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -55,7 +55,7 @@ class Adaline(_BaseModel, _IterativeModel, _Classifier):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/Adaline/
+    http://rasbt.github.io/mlearner/user_guide/classifier/Adaline/
 
     """
     def __init__(self, eta=0.01, epochs=50,

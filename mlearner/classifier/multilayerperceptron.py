@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of a Multi-layer Perceptron in Tensorflow
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -76,7 +76,7 @@ class MultiLayerPerceptron(_BaseModel, _IterativeModel,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/MultiLayerPerceptron/
+    http://rasbt.github.io/mlearner/user_guide/classifier/MultiLayerPerceptron/
 
     """
 

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -23,10 +23,10 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
-from mlearn.classifier import StackingClassifier
-from mlearn.data import iris_data
-from mlearn.externals.estimator_checks import NotFittedError
-from mlearn.utils import assert_raises
+from mlearner.classifier import StackingClassifier
+from mlearner.data import iris_data
+from mlearner.externals.estimator_checks import NotFittedError
+from mlearner.utils import assert_raises
 
 X, y = iris_data()
 X = X[:, 1:3]

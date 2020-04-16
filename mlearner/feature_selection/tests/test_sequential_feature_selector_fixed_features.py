@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -8,8 +8,8 @@
 import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
-from mlearn.feature_selection import SequentialFeatureSelector as SFS
-from mlearn.utils import assert_raises
+from mlearner.feature_selection import SequentialFeatureSelector as SFS
+from mlearner.utils import assert_raises
 
 
 iris = load_iris()

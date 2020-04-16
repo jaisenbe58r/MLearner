@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Feature Importance Estimation Through Permutation
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -56,7 +56,7 @@ def feature_importance_permutation(X, y, predict_method,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/feature_importance_permutation/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/feature_importance_permutation/
 
     """
 

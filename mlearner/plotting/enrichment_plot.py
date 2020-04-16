@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting enrichment plots.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -63,7 +63,7 @@ def enrichment_plot(df, colors='bgrkcy', markers=' ', linestyles='-',
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/enrichment_plot/
+    http://rasbt.github.io/mlearner/user_guide/plotting/enrichment_plot/
 
     """
     if isinstance(df, pd.Series):

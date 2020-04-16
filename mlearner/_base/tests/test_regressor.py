@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn._base import _BaseModel
-from mlearn._base import _Regressor
+from mlearner._base import _BaseModel
+from mlearner._base import _Regressor
 import numpy as np
-from mlearn.utils import assert_raises
+from mlearner.utils import assert_raises
 
 
 class BlankRegressor(_BaseModel, _Regressor):

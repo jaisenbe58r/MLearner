@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Function for plotting linear regression fits via scikit-learn and matplotlib.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -52,7 +52,7 @@ def plot_linear_regression(X, y, model=LinearRegression(),
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/plot_linear_regression/
+    http://rasbt.github.io/mlearner/user_guide/plotting/plot_linear_regression/
 
     """
     if isinstance(X, list):

@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
-from mlearn.preprocessing import standardize
+from mlearner.preprocessing import standardize
 import pandas as pd
 import numpy as np
 

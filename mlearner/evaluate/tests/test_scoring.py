@@ -1,10 +1,10 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.evaluate import scoring
+from mlearner.evaluate import scoring
 import numpy as np
 
 

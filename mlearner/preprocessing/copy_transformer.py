@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A Class that returns a copy of a dataset in a scikit-learn pipeline.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -15,7 +15,7 @@ class CopyTransformer(BaseEstimator):
     """Transformer that returns a copy of the input array
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/CopyTransformer/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/CopyTransformer/
 
     """
     def __init__(self):

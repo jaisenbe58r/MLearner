@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Functions for tokenizing text data.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -18,7 +18,7 @@ def tokenizer_words_and_emoticons(text):
     ['this', 'is', 'a', 'test', ':)', ':(', ':-)']
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/text/tokenizer_words_and_emoticons/
+    http://rasbt.github.io/mlearner/user_guide/text/tokenizer_words_and_emoticons/
 
     """
     text = re.sub('<[^>]*>', '', text)
@@ -36,7 +36,7 @@ def tokenizer_emoticons(text):
     [':)', ':(', ':-)']
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/text/tokenizer_emoticons/
+    http://rasbt.github.io/mlearner/user_guide/text/tokenizer_emoticons/
 
     """
     text = re.sub('<[^>]*>', '', text)

@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.evaluate import bootstrap_point632_score
-from mlearn.utils import assert_raises
-from mlearn.data import iris_data
+from mlearner.evaluate import bootstrap_point632_score
+from mlearner.utils import assert_raises
+from mlearner.data import iris_data
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 

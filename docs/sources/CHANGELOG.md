@@ -3,7 +3,7 @@
 ---
 
 The CHANGELOG for the current development version is available at
-[https://github.com/jaisenbe58r/MLearn/blob/master/docs/sources/CHANGELOG.md](https://github.com/jaisenbe58r/MLearn/blob/master/docs/sources/CHANGELOG.md).
+[https://github.com/jaisenbe58r/mlearnerer/blob/master/docs/sources/CHANGELOG.md](https://github.com/jaisenbe58r/mlearnerer/blob/master/docs/sources/CHANGELOG.md).
 
 ---
 

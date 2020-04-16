@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Matplotlib wrapper for creating scatterplots from data w. mult. categories.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -48,7 +48,7 @@ def category_scatter(x, y, label_col, data,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/category_scatter/
+    http://rasbt.github.io/mlearner/user_guide/plotting/category_scatter/
 
     """
     fig = plt.figure()

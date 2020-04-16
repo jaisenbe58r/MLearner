@@ -4,7 +4,7 @@ if sys.version_info < (3, 0):
     from nose.plugins.skip import SkipTest
     raise SkipTest
 
-from mlearn.text import generalize_names
+from mlearner.text import generalize_names
 
 
 def test_generalize_names():

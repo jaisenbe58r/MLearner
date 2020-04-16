@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of Rosenblatt's perceptron algorithm for classification.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -48,7 +48,7 @@ class Perceptron(_BaseModel, _IterativeModel, _Classifier):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/Perceptron/
+    http://rasbt.github.io/mlearner/user_guide/classifier/Perceptron/
 
     """
     def __init__(self, eta=0.1, epochs=50, random_seed=None,

@@ -1,7 +1,7 @@
 # IPython Notebook to Markdown conversion script
 #
 # Jaime Sendra Berenguer
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #

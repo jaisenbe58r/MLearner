@@ -1,12 +1,12 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
-from mlearn.regressor import LinearRegression
-from mlearn.data import boston_housing_data
+from mlearner.regressor import LinearRegression
+from mlearner.data import boston_housing_data
 import numpy as np
 from numpy.testing import assert_almost_equal
 from sklearn.base import clone

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -36,7 +36,7 @@ def proportion_difference(proportion_1, proportion_2, n_1, n_2=None):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/proportion_difference/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/proportion_difference/
 
     """
     if n_2 is None:

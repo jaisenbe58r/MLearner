@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of the mulitnomial logistic regression algorithm for
 # classification.
@@ -56,7 +56,7 @@ def checkerboard_plot(ary,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/checkerboard_plot/
+    http://rasbt.github.io/mlearner/user_guide/plotting/checkerboard_plot/
 
     """
 

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -7,10 +7,10 @@
 import numpy as np
 from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
-from mlearn.feature_selection import SequentialFeatureSelector as SFS
-from mlearn.evaluate import RandomHoldoutSplit
-from mlearn.evaluate import PredefinedHoldoutSplit
-from mlearn.data import iris_data
+from mlearner.feature_selection import SequentialFeatureSelector as SFS
+from mlearner.evaluate import RandomHoldoutSplit
+from mlearner.evaluate import PredefinedHoldoutSplit
+from mlearner.data import iris_data
 
 
 X, y = iris_data()

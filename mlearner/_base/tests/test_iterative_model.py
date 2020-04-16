@@ -1,10 +1,10 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn._base import _IterativeModel
+from mlearner._base import _IterativeModel
 import numpy as np
 
 

@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2016
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.evaluate import lift_score
-from mlearn.evaluate.lift_score import support
+from mlearner.evaluate import lift_score
+from mlearner.evaluate.lift_score import support
 from numpy.testing import assert_array_equal, assert_raises
 import numpy as np
 

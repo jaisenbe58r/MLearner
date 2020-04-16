@@ -1,7 +1,7 @@
 # Stacking classifier
 
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # An ensemble-learning meta-classifier for stacking
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -88,7 +88,7 @@ class StackingClassifier(_BaseXComposition, _BaseStackingClassifier,
         For instance, if any form of cross-validation is performed
         this would require the re-fitting classifiers to training folds, which
         would raise a NotFitterError if fit_base_estimators=False.
-        (New in mlearn v0.6.)
+        (New in mlearner v0.6.)
 
     Attributes
     ----------
@@ -104,7 +104,7 @@ class StackingClassifier(_BaseXComposition, _BaseStackingClassifier,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/StackingClassifier/
+    http://rasbt.github.io/mlearner/user_guide/classifier/StackingClassifier/
     """
 
     def __init__(self, classifiers, meta_classifier,

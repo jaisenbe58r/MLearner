@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for loading the open-source MNIST.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -29,7 +29,7 @@ def mnist_data():
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/data/mnist_data/
+    http://rasbt.github.io/mlearner/user_guide/data/mnist_data/
 
     """
     tmp = np.genfromtxt(fname=DATA_PATH, delimiter=',')

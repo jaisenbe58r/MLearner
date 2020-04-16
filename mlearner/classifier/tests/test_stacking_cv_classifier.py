@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Authors: Sebastian Raschka <sebastianraschka.com>
 #          Reiichiro Nakano <github.com/reiinakano>
 #
@@ -25,10 +25,10 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
-from mlearn.classifier import StackingCVClassifier
-from mlearn.data import iris_data
-from mlearn.externals.estimator_checks import NotFittedError
-from mlearn.utils import assert_raises
+from mlearner.classifier import StackingCVClassifier
+from mlearner.data import iris_data
+from mlearner.externals.estimator_checks import NotFittedError
+from mlearner.utils import assert_raises
 
 X_iris, y_iris = iris_data()
 X_iris = X_iris[:, 1:3]

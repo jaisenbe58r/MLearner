@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.preprocessing import DenseTransformer
+from mlearner.preprocessing import DenseTransformer
 from sklearn.datasets import load_iris
 from sklearn.pipeline import make_pipeline
 from sklearn.ensemble import RandomForestClassifier

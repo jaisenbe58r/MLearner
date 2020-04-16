@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -35,7 +35,7 @@ def mcnemar_table(y_target, y_model1, y_model2):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/mcnemar_table/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/mcnemar_table/
 
     """
     for ary in (y_target, y_model1, y_model2):
@@ -118,7 +118,7 @@ def mcnemar_tables(y_target, *y_model_predictions):
     -----------
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/mcnemar_tables/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/mcnemar_tables/
 
     """
     model_lens = set()
@@ -190,7 +190,7 @@ def mcnemar(ary, corrected=True, exact=False):
     -----------
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/mcnemar/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/mcnemar/
 
     """
 

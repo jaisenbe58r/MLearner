@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
 import numpy as np
-from mlearn.math import vectorspace_orthonormalization
-from mlearn.math import vectorspace_dimensionality
+from mlearner.math import vectorspace_orthonormalization
+from mlearner.math import vectorspace_dimensionality
 
 
 def test_vectorspace_orthonormalization():

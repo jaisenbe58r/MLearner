@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of the mulitnomial logistic regression algorithm for
 # classification.
@@ -62,7 +62,7 @@ class SoftmaxRegression(_BaseModel, _IterativeModel,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/SoftmaxRegression/
+    http://rasbt.github.io/mlearner/user_guide/classifier/SoftmaxRegression/
 
     """
     def __init__(self, eta=0.01, epochs=50,

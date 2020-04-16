@@ -1,7 +1,7 @@
 # IPython Notebook to Markdown conversion script
 #
 # Jaime Sendra Berenguer
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -11,7 +11,7 @@
 import yaml
 import os
 import subprocess
-from mlearn import __version__
+from mlearner import __version__
 
 yaml_path = "./mkdocs.yml"
 source_path = os.path.join(os.path.dirname(yaml_path), 'sources')
@@ -58,7 +58,7 @@ def gen_title(fname):
 
 with open(md_out_path, 'w') as f_out:
     meta = r"""---
-title: mlearn %s
+title: mlearner %s
 subtitle: Library Documentation
 author: Sebastian Raschka
 header-includes:
@@ -93,7 +93,7 @@ header-includes:
                 f_out.write(line)
             f_out.write('\n\n')
 
-subprocess.check_call(['pandoc', '-N', 'temp.md', '--output=mlearn.pdf',
+subprocess.check_call(['pandoc', '-N', 'temp.md', '--output=mlearner.pdf',
                        '--toc',
                        '--normalize', '--smart', '--latex-engine=xelatex',
                        '--toc-depth=4', '--highlight-style=pygments',

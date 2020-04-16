@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Principal Component Analysis for dimensionality reduction.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -38,7 +38,7 @@ class RBFKernelPCA(_BaseModel):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_extraction/RBFKernelPCA/
+    http://rasbt.github.io/mlearner/user_guide/feature_extraction/RBFKernelPCA/
 
     """
     def __init__(self, gamma=15.0, n_components=None, copy_X=True):

@@ -1,14 +1,14 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import sys
-from mlearn.evaluate import paired_ttest_resampled
-from mlearn.utils import assert_raises
-from mlearn.data import iris_data
-from mlearn.data import boston_housing_data
+from mlearner.evaluate import paired_ttest_resampled
+from mlearner.utils import assert_raises
+from mlearner.data import iris_data
+from mlearner.data import boston_housing_data
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import Ridge

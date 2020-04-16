@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A class for transforming sparse numpy arrays into dense arrays.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -16,7 +16,7 @@ class DenseTransformer(BaseEstimator):
     Convert a sparse array into a dense array.
 
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/DenseTransformer/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/DenseTransformer/
 
     """
 

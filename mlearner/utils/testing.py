@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A counter class for printing the progress of an iterator.
 # Author: Sebastian Raschka <sebastianraschka.com>

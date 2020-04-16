@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for fetching the open-source MNIST dataset.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -30,7 +30,7 @@ def loadlocal_mnist(images_path, labels_path):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/data/loadlocal_mnist/
+    http://rasbt.github.io/mlearner/user_guide/data/loadlocal_mnist/
 
     """
     with open(labels_path, 'rb') as lbpath:

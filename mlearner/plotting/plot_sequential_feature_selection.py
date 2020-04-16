@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Algorithm for plotting sequential feature selection.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -22,7 +22,7 @@ def plot_sequential_feature_selection(metric_dict,
 
     Parameters
     ----------
-    metric_dict : mlearn.SequentialFeatureSelector.get_metric_dict() object
+    metric_dict : mlearner.SequentialFeatureSelector.get_metric_dict() object
     figsize : tuple (default: None)
         Height and width of the figure
     kind : str (default: "std_dev")
@@ -50,7 +50,7 @@ def plot_sequential_feature_selection(metric_dict,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/plot_sequential_feature_selection/
+    http://rasbt.github.io/mlearner/user_guide/plotting/plot_sequential_feature_selection/
 
     """
 

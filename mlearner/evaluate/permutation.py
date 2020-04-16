@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Nonparametric Permutation Test
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -63,7 +63,7 @@ def permutation_test(x, y, func='x_mean != y_mean', method='exact',
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/permutation_test/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/permutation_test/
 
     """
 

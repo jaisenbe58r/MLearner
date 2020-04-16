@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -29,7 +29,7 @@ def one_hot(y, num_labels='auto', dtype='float'):
     Examples
     ----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/one_hot/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/one_hot/
 
     """
     if not (num_labels == 'auto' or isinstance(num_labels, int)):

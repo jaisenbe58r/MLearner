@@ -1,7 +1,7 @@
 # Stacking regressor
 
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # An ensemble-learning meta-regressor for stacking regression
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -81,7 +81,7 @@ class StackingRegressor(_BaseXComposition, RegressorMixin, TransformerMixin):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/regressor/StackingRegressor/
+    http://rasbt.github.io/mlearner/user_guide/regressor/StackingRegressor/
 
     """
     def __init__(self, regressors, meta_regressor, verbose=0,

@@ -1,4 +1,4 @@
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Steve Harenberg <harenbergsd@gmail.com>
 #
 # License: BSD 3 clause
@@ -20,7 +20,7 @@ def fpgrowth(df, min_support=0.5, use_colnames=False, max_len=None, verbose=0):
            user_guide/sparse.html#sparse-data-structures)
 
       Please note that the old pandas SparseDataFrame format
-      is no longer supported in mlearn >= 0.17.2.
+      is no longer supported in mlearner >= 0.17.2.
 
       The allowed values are either 0/1 or True/False.
       For example,

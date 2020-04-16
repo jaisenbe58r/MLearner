@@ -1,6 +1,6 @@
 # Sebastian Raschka 2014-2020
 # contributor: Vahid Mirjalili
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A counter class for printing the progress of an iterator.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -13,13 +13,13 @@ import os
 import warnings
 from .utils import check_exists, download_url, extract_file
 
-predictor_path = '~/mlearn_data/shape_predictor_68_face_landmarks.dat'
+predictor_path = '~/mlearner_data/shape_predictor_68_face_landmarks.dat'
 predictor_url = ("http://dlib.net/files/"
                  "shape_predictor_68_face_landmarks.dat.bz2")
 
 if not check_exists(predictor_path):
-    download_url(predictor_url, save_path='~/mlearn_data/')
-    extract_file('~/mlearn_data/shape_predictor_68_face_landmarks.dat.bz2')
+    download_url(predictor_url, save_path='~/mlearner_data/')
+    extract_file('~/mlearner_data/shape_predictor_68_face_landmarks.dat.bz2')
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(os.path.expanduser(predictor_path))
@@ -58,7 +58,7 @@ def extract_face_landmarks(img, return_dtype=np.int32):
     Examples
     ----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/sources/image/extract_face_landmarks.ipynb
+    http://rasbt.github.io/mlearner/user_guide/sources/image/extract_face_landmarks.ipynb
 
     """
     faces = detector(img, 1)  # detecting faces

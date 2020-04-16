@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Object for selecting a dataset column in scikit-learn pipelines.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -8,7 +8,7 @@
 
 import numpy as np
 import pandas as pd
-from mlearn.feature_selection import ColumnSelector
+from mlearner.feature_selection import ColumnSelector
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn import datasets
 from sklearn.pipeline import make_pipeline

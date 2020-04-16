@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Matplotlib wrapper for generating stacked barplots.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -46,7 +46,7 @@ def stacked_barplot(df, bar_width='auto', colors='bgrcky',
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/stacked_barplot/
+    http://rasbt.github.io/mlearner/user_guide/plotting/stacked_barplot/
 
     """
     # Setting the positions and width for the bars

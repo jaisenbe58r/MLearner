@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.evaluate import cochrans_q
-from mlearn.evaluate import mcnemar_table
-from mlearn.evaluate import mcnemar
-from mlearn.utils import assert_raises
+from mlearner.evaluate import cochrans_q
+from mlearner.evaluate import mcnemar_table
+from mlearner.evaluate import mcnemar
+from mlearner.utils import assert_raises
 import numpy as np
 
 

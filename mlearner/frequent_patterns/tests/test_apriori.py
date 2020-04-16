@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -8,7 +8,7 @@ import unittest
 import numpy as np
 from test_fpbase import FPTestEdgeCases, FPTestErrors, \
                         FPTestEx1All, FPTestEx2All, FPTestEx3All
-from mlearn.frequent_patterns import apriori
+from mlearner.frequent_patterns import apriori
 
 
 def apriori_wrapper_low_memory(*args, **kwargs):

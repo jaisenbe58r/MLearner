@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -33,7 +33,7 @@ def cochrans_q(y_target, *y_model_predictions):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/cochrans_q/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/cochrans_q/
 
     """
 

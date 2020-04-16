@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
-from mlearn.preprocessing import minmax_scaling
+from mlearner.preprocessing import minmax_scaling
 import pandas as pd
 import numpy as np
 

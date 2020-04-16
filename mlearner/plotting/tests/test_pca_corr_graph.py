@@ -1,6 +1,6 @@
 import pytest
-from mlearn.plotting import plot_pca_correlation_graph
-from mlearn.data import iris_data
+from mlearner.plotting import plot_pca_correlation_graph
+from mlearner.data import iris_data
 from sklearn.decomposition.pca import PCA
 
 

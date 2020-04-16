@@ -1,9 +1,9 @@
 from distutils.core import setup
 from os.path import realpath, dirname, join
 from setuptools import setup, find_packages
-import mlearn
+import mlearner
 
-VERSION = mlearn.__version__
+VERSION = mlearner.__version__
 PROJECT_ROOT = dirname(realpath(__file__))
 
 REQUIREMENTS_FILE = join(PROJECT_ROOT, 'requirements.txt')
@@ -15,15 +15,15 @@ install_reqs.append('setuptools')
 
 
 setup(
-  name = 'mlearn',         # How you named your package folder (MyLib)
-  packages = ['mlearn'],   # Chose the same as "name"
+  name = 'mlearner',         # How you named your package folder (MyLib)
+  packages = ['mlearner'],   # Chose the same as "name"
   version = VERSION,      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Machine Learning Library Extensions',   # Give a short description about your library
   author = 'Jaime Sendra',                   # Type in your name
   author_email = 'jaisenberafel@gmail.com',      # Type in your E-Mail
-  url = 'https://github.com/jaisenbe58r/MLearn',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/jaisenbe58r/MLearn/archive/v0.0.2.tar.gz',    # I explain this later on
+  url = 'https://github.com/jaisenbe58r/mlearnerer',   # Provide either the link to your github or to your website
+  download_url = 'https://github.com/jaisenbe58r/mlearnerer/archive/v0.0.2.tar.gz',    # I explain this later on
   keywords = ['SOME', 'MEANINGFULL', 'KEYWORDS'],   # Keywords that define your package best
   package_data={'': [
                     'README.md',
@@ -57,24 +57,24 @@ setup(
     A library of Python tools and extensions for data science.
     Contact
     =============
-    If you have any questions or comments about mlearn,
+    If you have any questions or comments about mlearner,
     please feel free to contact me via
     eMail: mail@sebastianraschka.com
     or Twitter: https://twitter.com/jaisenbe58r
-    This project is hosted at https://github.com/jaisenbe58r/MLearn
-    The documentation can be found at http://jaisenbe58r.github.io/mlearn/
+    This project is hosted at https://github.com/jaisenbe58r/mlearnerer
+    The documentation can be found at http://jaisenbe58r.github.io/mlearner/
     """)
 
 # setup(
-#   name = 'mlearn',         # How you named your package folder (MyLib)
-#   packages = ['mlearn'],   # Chose the same as "name"
+#   name = 'mlearner',         # How you named your package folder (MyLib)
+#   packages = ['mlearner'],   # Chose the same as "name"
 #   version = '0.1',      # Start with a small number and increase it with every change you make
 #   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
 #   description = 'TYPE YOUR DESCRIPTION HERE',   # Give a short description about your library
 #   author = 'YOUR NAME',                   # Type in your name
 #   author_email = 'jaisenberafel@gmail.com',      # Type in your E-Mail
-#   url = 'https://github.com/jaisenbe58r/MLearn',   # Provide either the link to your github or to your website
-#   download_url = 'https://github.com/jaisenbe58r/MLearn/archive/v0.0.1.tar.gz',    # I explain this later on
+#   url = 'https://github.com/jaisenbe58r/mlearnerer',   # Provide either the link to your github or to your website
+#   download_url = 'https://github.com/jaisenbe58r/mlearnerer/archive/v0.0.1.tar.gz',    # I explain this later on
 #   keywords = ['SOME', 'MEANINGFULL', 'KEYWORDS'],   # Keywords that define your package best
 #   install_requires=[            # I get to this in a second
 #           'validators',

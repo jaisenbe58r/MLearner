@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Algorithm for sequential feature selection.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -139,7 +139,7 @@ class SequentialFeatureSelector(_BaseXComposition, MetaEstimatorMixin):
         `fixed_features` is not `None`, make sure that the number of
         features to be selected is greater than `len(fixed_features)`.
         In other words, ensure that `k_features > len(fixed_features)`.
-        New in mlearn v. 0.18.0.
+        New in mlearner v. 0.18.0.
 
     Attributes
     ----------
@@ -171,7 +171,7 @@ class SequentialFeatureSelector(_BaseXComposition, MetaEstimatorMixin):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_selection/SequentialFeatureSelector/
+    http://rasbt.github.io/mlearner/user_guide/feature_selection/SequentialFeatureSelector/
 
     """
     def __init__(self, estimator, k_features=1,

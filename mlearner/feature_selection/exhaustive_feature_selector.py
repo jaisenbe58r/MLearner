@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Algorithm for exhaustive feature selection.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -146,7 +146,7 @@ class ExhaustiveFeatureSelector(BaseEstimator, MetaEstimatorMixin):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_selection/ExhaustiveFeatureSelector/
+    http://rasbt.github.io/mlearner/user_guide/feature_selection/ExhaustiveFeatureSelector/
 
     """
     def __init__(self, estimator, min_features=1, max_features=1,

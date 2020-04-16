@@ -1,18 +1,18 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.preprocessing import CopyTransformer
+from mlearner.preprocessing import CopyTransformer
 from sklearn.datasets import load_iris
 from sklearn.pipeline import make_pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.feature_extraction.text import TfidfTransformer
 from scipy.sparse import issparse
-from mlearn.utils import assert_raises
+from mlearner.utils import assert_raises
 import sys
 from sklearn.model_selection import GridSearchCV
 

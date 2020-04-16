@@ -1,10 +1,10 @@
-site_name: mlearn
-site_url: http://jaisenbe58r.github.io/mlearn
+site_name: mlearner
+site_url: http://jaisenbe58r.github.io/mlearner
 site_author: Jaime Sendra Berenguer
 site_description: A library consisting of useful tools and extensions for the day-to-day data science tasks.
 
 
-repo_url: https://github.com/jaisenbe58r/MLearn
+repo_url: https://github.com/jaisenbe58r/mlearnerer
 repo_name: GitHub
 edit_uri: docs/sources/user_guide/
 
@@ -32,7 +32,7 @@ extra_css:
   - cinder/css/font-awesome-4.0.3.css
   - cinder/css/highlight.css
 
-# google_analytics: ['UA-38457794-2', 'jaisenbe58r.github.io/mlearn/']
+# google_analytics: ['UA-38457794-2', 'jaisenbe58r.github.io/mlearner/']
 
 nav:
 - Home: index.md
@@ -47,5 +47,5 @@ nav:
   - How To Contribute: CONTRIBUTING.md
   - Contributors: contributors.md
   - License: license.md
-  - Citing mlearn: cite.md
+  - Citing mlearner: cite.md
   - Discuss: discuss.md

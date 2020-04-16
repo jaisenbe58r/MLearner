@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for searching files in local directories.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -39,7 +39,7 @@ def find_files(substring, path, recursive=False,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/file_io/find_files/
+    http://rasbt.github.io/mlearner/user_guide/file_io/find_files/
 
     """
     def check_file(f, path):

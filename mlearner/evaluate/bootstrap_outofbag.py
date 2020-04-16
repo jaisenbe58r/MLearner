@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Bootstrap functions
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -34,7 +34,7 @@ class BootstrapOutOfBag(object):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/BootstrapOutOfBag/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/BootstrapOutOfBag/
 
     """
 

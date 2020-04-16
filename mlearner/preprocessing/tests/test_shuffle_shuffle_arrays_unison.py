@@ -1,12 +1,12 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
 import numpy as np
-from mlearn.preprocessing import shuffle_arrays_unison
+from mlearner.preprocessing import shuffle_arrays_unison
 
 
 def test_shuffle_arrays_unison():

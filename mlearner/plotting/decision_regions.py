@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting decision regions of classifiers.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -9,7 +9,7 @@
 from itertools import cycle
 import matplotlib.pyplot as plt
 import numpy as np
-from mlearn.utils import check_Xy, format_kwarg_dictionaries
+from mlearner.utils import check_Xy, format_kwarg_dictionaries
 import warnings
 from math import floor
 from math import ceil
@@ -125,7 +125,7 @@ def plot_decision_regions(X, y, clf,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/plot_decision_regions/
+    http://rasbt.github.io/mlearner/user_guide/plotting/plot_decision_regions/
 
     """
 

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # A function for plotting a confusion matrix.
@@ -63,7 +63,7 @@ def plot_confusion_matrix(conf_mat,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/plot_confusion_matrix/
+    http://rasbt.github.io/mlearner/user_guide/plotting/plot_confusion_matrix/
     """
     if not (show_absolute or show_normed):
         raise AssertionError('Both show_absolute and show_normed are False')

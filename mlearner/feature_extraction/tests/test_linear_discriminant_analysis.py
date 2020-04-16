@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -7,9 +7,9 @@
 import numpy as np
 import pytest
 from numpy.testing import assert_almost_equal
-from mlearn.feature_extraction import LinearDiscriminantAnalysis as LDA
-from mlearn.data import iris_data
-from mlearn.preprocessing import standardize
+from mlearner.feature_extraction import LinearDiscriminantAnalysis as LDA
+from mlearner.data import iris_data
+from mlearner.preprocessing import standardize
 
 X, y = iris_data()
 X = standardize(X)

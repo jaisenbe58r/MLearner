@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import numpy as np
-from mlearn.frequent_patterns import fpmax
+from mlearner.frequent_patterns import fpmax
 from test_fpbase import FPTestEdgeCases, FPTestErrors, FPTestEx1, FPTestEx2, \
     FPTestEx3All
 from test_fpbase import compare_dataframes

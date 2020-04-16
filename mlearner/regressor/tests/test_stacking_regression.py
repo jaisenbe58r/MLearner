@@ -1,14 +1,14 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import pytest
 import numpy as np
-from mlearn.externals.estimator_checks import NotFittedError
-from mlearn.utils import assert_raises
-from mlearn.regressor import StackingRegressor
+from mlearner.externals.estimator_checks import NotFittedError
+from mlearner.utils import assert_raises
+from mlearner.regressor import StackingRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
 from sklearn.linear_model import Lasso

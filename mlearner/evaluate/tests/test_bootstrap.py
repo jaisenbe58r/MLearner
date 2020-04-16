@@ -1,12 +1,12 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.evaluate import bootstrap
-from mlearn.utils import assert_raises
+from mlearner.evaluate import bootstrap
+from mlearner.utils import assert_raises
 
 
 def test_defaults():

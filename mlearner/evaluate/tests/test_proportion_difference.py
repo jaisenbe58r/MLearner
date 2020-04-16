@@ -1,10 +1,10 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.evaluate import proportion_difference
+from mlearner.evaluate import proportion_difference
 import numpy as np
 
 

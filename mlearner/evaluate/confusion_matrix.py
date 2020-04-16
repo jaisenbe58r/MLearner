@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for generating a confusion matrix.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -34,7 +34,7 @@ def confusion_matrix(y_target, y_predicted, binary=False, positive_label=1):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/confusion_matrix/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/confusion_matrix/
 
     """
     if not isinstance(y_target, np.ndarray):

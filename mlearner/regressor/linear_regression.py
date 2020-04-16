@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Base Regressor (Regressor Parent Class)
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -63,7 +63,7 @@ class LinearRegression(_BaseModel, _IterativeModel, _Regressor):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/regressor/LinearRegression/
+    http://rasbt.github.io/mlearner/user_guide/regressor/LinearRegression/
 
     """
     def __init__(self, method='direct', eta=0.01, epochs=50,

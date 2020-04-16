@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for creating a multiplexer dataset for classification.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -14,7 +14,7 @@ def make_multiplexer_dataset(address_bits=2, sample_size=100,
                              random_seed=None):
     """Function to create a binary n-bit multiplexer dataset.
 
-    New in mlearn v0.9
+    New in mlearner v0.9
 
     Parameters
     ---------------
@@ -62,7 +62,7 @@ def make_multiplexer_dataset(address_bits=2, sample_size=100,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/data/make_multiplexer_dataset
+    http://rasbt.github.io/mlearner/user_guide/data/make_multiplexer_dataset
 
     """
     if not isinstance(address_bits, int):

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -8,8 +8,8 @@
 
 import numpy as np
 import sys
-from mlearn.data import make_multiplexer_dataset
-from mlearn.utils import assert_raises
+from mlearner.data import make_multiplexer_dataset
+from mlearner.utils import assert_raises
 
 
 def test_defaults():

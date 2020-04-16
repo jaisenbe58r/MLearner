@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -9,14 +9,14 @@ import numpy as np
 import pandas as pd
 from distutils.version import LooseVersion as Version
 from numpy.testing import assert_almost_equal
-from mlearn.feature_selection import ExhaustiveFeatureSelector as EFS
+from mlearner.feature_selection import ExhaustiveFeatureSelector as EFS
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from mlearn.classifier import SoftmaxRegression
+from mlearner.classifier import SoftmaxRegression
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LinearRegression
 from sklearn.datasets import load_boston
-from mlearn.utils import assert_raises
+from mlearner.utils import assert_raises
 from sklearn.model_selection import GroupKFold
 from sklearn import __version__ as sklearn_version
 

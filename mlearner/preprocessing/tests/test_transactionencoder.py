@@ -1,14 +1,14 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
 from scipy.sparse import csr_matrix
-from mlearn.preprocessing import TransactionEncoder
+from mlearner.preprocessing import TransactionEncoder
 from sklearn.base import clone
-from mlearn.utils import assert_raises
+from mlearner.utils import assert_raises
 
 
 dataset = [['Apple', 'Beer', 'Rice', 'Chicken'],

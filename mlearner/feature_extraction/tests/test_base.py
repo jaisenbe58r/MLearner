@@ -1,12 +1,12 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
 import pytest
-from mlearn.feature_extraction.base  import _BaseFeatureExtractor
+from mlearner.feature_extraction.base  import _BaseFeatureExtractor
 
 
 X, y = np.array([[1, 2], [4, 5], [3, 9]]), np.array([1, 2, 3])

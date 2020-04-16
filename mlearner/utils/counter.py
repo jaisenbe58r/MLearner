@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A counter class for printing the progress of an iterator.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -53,7 +53,7 @@ class Counter(object):
     The counter was last updated 0 seconds ago.
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/utils/Counter/
+    http://rasbt.github.io/mlearner/user_guide/utils/Counter/
 
     """
     def __init__(self, stderr=False, start_newline=True, precision=0,

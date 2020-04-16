@@ -4,7 +4,7 @@
 # dnc1994.com/2016/05/rank-10-percent-in-first-kaggle-competition-en/#Stacking
 #
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # An ensemble-learning meta-regressor for out-of-fold stacking regression
 # Authors:
@@ -30,7 +30,7 @@ import numpy as np
 class StackingCVRegressor(_BaseXComposition, RegressorMixin, TransformerMixin):
     """A 'Stacking Cross-Validation' regressor for scikit-learn estimators.
 
-    New in mlearn v0.7.0
+    New in mlearner v0.7.0
 
     Parameters
     ----------
@@ -109,7 +109,7 @@ class StackingCVRegressor(_BaseXComposition, RegressorMixin, TransformerMixin):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/regressor/StackingCVRegressor/
+    http://rasbt.github.io/mlearner/user_guide/regressor/StackingCVRegressor/
 
     """
     def __init__(self, regressors, meta_regressor, cv=5,

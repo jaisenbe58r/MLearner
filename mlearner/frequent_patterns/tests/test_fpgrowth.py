@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 from test_fpbase import FPTestEdgeCases, FPTestErrors, \
                         FPTestEx1All, FPTestEx2All, FPTestEx3All
-from mlearn.frequent_patterns import fpgrowth
+from mlearner.frequent_patterns import fpgrowth
 
 
 class TestEdgeCases(unittest.TestCase, FPTestEdgeCases):

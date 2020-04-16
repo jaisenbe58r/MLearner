@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Function for generating association rules
 #
@@ -73,7 +73,7 @@ def association_rules(df, metric="confidence",
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/frequent_patterns/association_rules/
+    http://rasbt.github.io/mlearner/user_guide/frequent_patterns/association_rules/
 
     """
 

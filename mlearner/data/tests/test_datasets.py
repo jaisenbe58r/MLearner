@@ -1,17 +1,17 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
-from mlearn.data import iris_data
-from mlearn.data import wine_data
-from mlearn.data import autompg_data
-from mlearn.data import mnist_data
-from mlearn.data import boston_housing_data
-from mlearn.data import three_blobs_data
+from mlearner.data import iris_data
+from mlearner.data import wine_data
+from mlearner.data import autompg_data
+from mlearner.data import mnist_data
+from mlearner.data import boston_housing_data
+from mlearner.data import three_blobs_data
 
 
 def test_import_wine_data():

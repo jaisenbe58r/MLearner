@@ -36,7 +36,7 @@ def generate_new_combinations(old_combinations):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/frequent_patterns/generate_new_combinations/
+    http://rasbt.github.io/mlearner/user_guide/frequent_patterns/generate_new_combinations/
 
     """
 
@@ -105,7 +105,7 @@ def generate_new_combinations_low_memory(old_combinations, X, min_support,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/frequent_patterns/generate_new_combinations/
+    http://rasbt.github.io/mlearner/user_guide/frequent_patterns/generate_new_combinations/
 
     """
 
@@ -144,7 +144,7 @@ def apriori(df, min_support=0.5, use_colnames=False, max_len=None, verbose=0,
            user_guide/sparse.html#sparse-data-structures)
 
       Please note that the old pandas SparseDataFrame format
-      is no longer supported in mlearn >= 0.17.2.
+      is no longer supported in mlearner >= 0.17.2.
 
       The allowed values are either 0/1 or True/False.
       For example,
@@ -200,7 +200,7 @@ def apriori(df, min_support=0.5, use_colnames=False, max_len=None, verbose=0,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/frequent_patterns/apriori/
+    http://rasbt.github.io/mlearner/user_guide/frequent_patterns/apriori/
 
     """
 
@@ -224,7 +224,7 @@ def apriori(df, min_support=0.5, use_colnames=False, max_len=None, verbose=0,
         Examples
         -----------
         For usage examples, please see
-        http://rasbt.github.io/mlearn/user_guide/frequent_patterns/apriori/
+        http://rasbt.github.io/mlearner/user_guide/frequent_patterns/apriori/
 
         """
         out = (np.sum(_x, axis=0) / _n_rows)

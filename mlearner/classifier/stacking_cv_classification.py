@@ -1,7 +1,7 @@
 # Stacking CV classifier
 
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # An ensemble-learning meta-classifier for stacking
 # Authors: Reiichiro Nakano <github.com/reiinakano>
@@ -28,7 +28,7 @@ class StackingCVClassifier(_BaseXComposition, _BaseStackingClassifier,
 
     """A 'Stacking Cross-Validation' classifier for scikit-learn estimators.
 
-    New in mlearn v0.4.3
+    New in mlearner v0.4.3
 
     Parameters
     ----------
@@ -137,7 +137,7 @@ class StackingCVClassifier(_BaseXComposition, _BaseStackingClassifier,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/StackingCVClassifier/
+    http://rasbt.github.io/mlearner/user_guide/classifier/StackingCVClassifier/
 
     """
 

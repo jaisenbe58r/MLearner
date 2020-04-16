@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -7,7 +7,7 @@
 import numpy as np
 import pytest
 from numpy.testing import assert_almost_equal
-from mlearn.feature_extraction import RBFKernelPCA as KPCA
+from mlearner.feature_extraction import RBFKernelPCA as KPCA
 from sklearn.datasets import make_moons
 
 X1, y1 = make_moons(n_samples=50, random_state=1)

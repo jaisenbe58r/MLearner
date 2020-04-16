@@ -2,7 +2,7 @@
 #
 # Sebastian Raschka 2014-2020
 #
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Eike Dehling <e.e.dehling@gmail.com>
 #
 # License: BSD 3 clause
@@ -11,9 +11,9 @@ import random
 import pytest
 import numpy as np
 from scipy import sparse
-from mlearn.externals.estimator_checks import NotFittedError
-from mlearn.regressor import StackingCVRegressor
-from mlearn.utils import assert_raises
+from mlearner.externals.estimator_checks import NotFittedError
+from mlearner.regressor import StackingCVRegressor
+from mlearner.utils import assert_raises
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.svm import SVR

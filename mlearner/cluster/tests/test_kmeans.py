@@ -1,12 +1,12 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.data import three_blobs_data
-from mlearn.cluster import Kmeans
-from mlearn.utils import assert_raises
+from mlearner.data import three_blobs_data
+from mlearner.cluster import Kmeans
+from mlearner.utils import assert_raises
 import numpy as np
 from sklearn.base import clone
 

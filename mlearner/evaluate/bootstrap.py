@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Bootstrap functions
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -56,7 +56,7 @@ def bootstrap(x, func, num_rounds=1000, ci=0.95, ddof=1, seed=None):
     Examples
     --------
 
-    >>> from mlearn.evaluate import bootstrap
+    >>> from mlearner.evaluate import bootstrap
     >>> rng = np.random.RandomState(123)
     >>> x = rng.normal(loc=5., size=100)
     >>> original, std_err, ci_bounds = bootstrap(x,
@@ -72,7 +72,7 @@ def bootstrap(x, func, num_rounds=1000, ci=0.95, ddof=1, seed=None):
     >>>
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/bootstrap/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/bootstrap/
 
     """
     if ci <= 0 or ci >= 1:

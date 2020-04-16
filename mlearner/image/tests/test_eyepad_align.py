@@ -1,11 +1,11 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.image import EyepadAlign
-from mlearn.image import extract_face_landmarks
+from mlearner.image import EyepadAlign
+from mlearner.image import extract_face_landmarks
 import imageio
 import numpy as np
 import os
@@ -20,7 +20,7 @@ else:
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_defaults():
-    path = 'mlearn/image/tests/data/'
+    path = 'mlearner/image/tests/data/'
     eyepad = EyepadAlign()
     target_image = imageio.imread(os.path.join(path,
                                                'celeba-subset/000001.jpg'))
@@ -54,7 +54,7 @@ def test_defaults():
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_fit2dir():
-    path = 'mlearn/image/tests/data/'
+    path = 'mlearner/image/tests/data/'
     eyepad = EyepadAlign()
     eyepad.fit_directory(target_img_dir=os.path.join(path, 'celeba-subset/'),
                          target_width=178,
@@ -90,7 +90,7 @@ def test_fit2dir():
 
 @pytest.mark.skipif(TRAVIS, reason="DLIB download too slow")
 def test_empty_dir():
-    path = 'mlearn/image/tests/data/'
+    path = 'mlearner/image/tests/data/'
     eyepad = EyepadAlign()
 
     def tmp_func():

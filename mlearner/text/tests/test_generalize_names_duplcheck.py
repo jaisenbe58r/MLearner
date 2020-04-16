@@ -5,8 +5,8 @@ if sys.version_info < (3, 0):
     raise SkipTest
 
 from data_names import csv
-from mlearn.text import generalize_names_duplcheck
-from mlearn.text import generalize_names
+from mlearner.text import generalize_names_duplcheck
+from mlearner.text import generalize_names
 from io import StringIO
 import pandas as pd
 

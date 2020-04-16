@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting learning curves of classifiers.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -62,7 +62,7 @@ def plot_learning_curves(X_train, y_train,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/plot_learning_curves/
+    http://rasbt.github.io/mlearner/user_guide/plotting/plot_learning_curves/
 
     """
     if scoring != 'misclassification error':

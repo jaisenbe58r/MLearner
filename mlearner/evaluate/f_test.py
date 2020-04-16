@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -35,7 +35,7 @@ def ftest(y_target, *y_model_predictions):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/ftest/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/ftest/
 
     """
 
@@ -158,7 +158,7 @@ def combined_ftest_5x2cv(estimator1, estimator2, X, y,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/combined_ftest_5x2cv/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/combined_ftest_5x2cv/
 
     """
     rng = np.random.RandomState(random_seed)

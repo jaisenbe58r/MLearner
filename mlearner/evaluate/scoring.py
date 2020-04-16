@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for scoring predictions.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -7,8 +7,8 @@
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.evaluate.confusion_matrix import confusion_matrix
-from mlearn.evaluate.accuracy import accuracy_score
+from mlearner.evaluate.confusion_matrix import confusion_matrix
+from mlearner.evaluate.accuracy import accuracy_score
 
 
 def _error(true, pred):
@@ -66,7 +66,7 @@ def scoring(y_target, y_predicted, metric='error',
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/scoring/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/scoring/
 
     """
     implemented = {'error',

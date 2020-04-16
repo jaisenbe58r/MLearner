@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for loading the open-source Wine dataset.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -46,7 +46,7 @@ def wine_data():
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/data/wine_data
+    http://rasbt.github.io/mlearner/user_guide/data/wine_data
 
     """
     tmp = np.loadtxt(DATA_PATH, delimiter=',')

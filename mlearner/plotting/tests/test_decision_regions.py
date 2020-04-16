@@ -1,14 +1,14 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.utils import assert_raises
-from mlearn.plotting import plot_decision_regions
-from mlearn.data import iris_data
-from mlearn.classifier import SoftmaxRegression
+from mlearner.utils import assert_raises
+from mlearner.plotting import plot_decision_regions
+from mlearner.data import iris_data
+from mlearner.classifier import SoftmaxRegression
 import matplotlib.pyplot as plt
 
 plt.switch_backend('agg')

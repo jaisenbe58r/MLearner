@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
@@ -74,7 +74,7 @@ def paired_ttest_resampled(estimator1, estimator2, X, y,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/paired_ttest_resampled/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/paired_ttest_resampled/
 
     """
     if (not isinstance(test_size, int) and not isinstance(test_size, float)):
@@ -185,7 +185,7 @@ def paired_ttest_kfold_cv(estimator1, estimator2, X, y,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/paired_ttest_kfold_cv/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/paired_ttest_kfold_cv/
 
     """
 
@@ -279,7 +279,7 @@ def paired_ttest_5x2cv(estimator1, estimator2, X, y,
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/evaluate/paired_ttest_5x2cv/
+    http://rasbt.github.io/mlearner/user_guide/evaluate/paired_ttest_5x2cv/
 
     """
     rng = np.random.RandomState(random_seed)

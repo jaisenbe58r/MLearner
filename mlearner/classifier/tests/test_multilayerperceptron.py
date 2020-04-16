@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
-from mlearn.classifier import MultiLayerPerceptron as MLP
-from mlearn.data import iris_data
+from mlearner.classifier import MultiLayerPerceptron as MLP
+from mlearner.data import iris_data
 import numpy as np
-from mlearn.utils import assert_raises
+from mlearner.utils import assert_raises
 from sklearn.base import clone
 
 

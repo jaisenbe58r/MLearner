@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Implementation of the logistic regression algorithm for classification.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -58,7 +58,7 @@ class LogisticRegression(_BaseModel, _IterativeModel, _Classifier):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/classifier/LogisticRegression/
+    http://rasbt.github.io/mlearner/user_guide/classifier/LogisticRegression/
 
     """
     def __init__(self, eta=0.01, epochs=50,

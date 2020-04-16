@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -16,9 +16,9 @@ from sklearn.model_selection import GridSearchCV, cross_val_score
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
-from mlearn.classifier import EnsembleVoteClassifier
-from mlearn.data import iris_data
-from mlearn.utils import assert_raises
+from mlearner.classifier import EnsembleVoteClassifier
+from mlearner.data import iris_data
+from mlearner.utils import assert_raises
 
 X, y = iris_data()
 X = X[:, 1:3]

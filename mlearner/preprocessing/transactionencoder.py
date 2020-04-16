@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -24,7 +24,7 @@ class TransactionEncoder(BaseEstimator, TransformerMixin):
     Examples
     ------------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/TransactionEncoder/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/TransactionEncoder/
 
     """
     def __init__(self):

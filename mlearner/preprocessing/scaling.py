@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Classes for column-based scaling of datasets
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -32,7 +32,7 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     Examples
     ----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/minmax_scaling/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/minmax_scaling/
 
     """
     ary_new = array.astype(float)
@@ -98,7 +98,7 @@ def standardize(array, columns=None, ddof=0, return_params=False, params=None):
     Examples
     ----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/standardize/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/standardize/
 
     """
     ary_new = array.astype(float)

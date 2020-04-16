@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 import numpy as np
-from mlearn.classifier import SoftmaxRegression
-from mlearn.data import iris_data
-from mlearn.utils import assert_raises
+from mlearner.classifier import SoftmaxRegression
+from mlearner.data import iris_data
+from mlearner.utils import assert_raises
 from sklearn.base import clone
 
 

@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for loading the open-source Iris Flower dataset.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -64,7 +64,7 @@ def iris_data(version='uci'):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/data/iris_data/
+    http://rasbt.github.io/mlearner/user_guide/data/iris_data/
 
     """
     if version == "uci":

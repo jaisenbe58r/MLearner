@@ -1,5 +1,5 @@
 
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for plotting a PCA correlation circle
 # File Author: Gabriel Azevedo Ferreira <az.fe.gabriel@gmail.com>
@@ -7,8 +7,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from mlearn.externals.adjust_text import adjust_text
-from mlearn.feature_extraction import PrincipalComponentAnalysis
+from mlearner.externals.adjust_text import adjust_text
+from mlearner.feature_extraction import PrincipalComponentAnalysis
 
 
 def corr2_coeff(A, B):
@@ -75,7 +75,7 @@ def plot_pca_correlation_graph(X, variables_names, dimensions=(1, 2),
         Optional.
         `X_pca` is the matrix of the transformed components from X.
         If not provided, the function computes PCA automatically using
-        mlearn.feature_extraction.PrincipalComponentAnalysis
+        mlearner.feature_extraction.PrincipalComponentAnalysis
         Expected `n_componentes >= max(dimensions)`
 
     explained_variance : 1 dimension np.ndarray, length = n_components

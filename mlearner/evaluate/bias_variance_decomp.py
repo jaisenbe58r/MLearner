@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Nonparametric Permutation Test
 # Author: Sebastian Raschka <sebastianraschka.com>

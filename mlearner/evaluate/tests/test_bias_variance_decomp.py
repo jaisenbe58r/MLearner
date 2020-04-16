@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Nonparametric Permutation Test
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -7,13 +7,13 @@
 # License: BSD 3 clause
 
 
-from mlearn.evaluate import bias_variance_decomp
+from mlearner.evaluate import bias_variance_decomp
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import BaggingClassifier
 from sklearn.ensemble import BaggingRegressor
-from mlearn.data import iris_data
-from mlearn.data import boston_housing_data
+from mlearner.data import iris_data
+from mlearner.data import boston_housing_data
 from sklearn.model_selection import train_test_split
 
 

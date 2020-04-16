@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A class to apply column-based mean centering to a dataset.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -22,7 +22,7 @@ class MeanCenterer(object):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/preprocessing/MeanCenterer/
+    http://rasbt.github.io/mlearner/user_guide/preprocessing/MeanCenterer/
 
     """
     def __init__(self):

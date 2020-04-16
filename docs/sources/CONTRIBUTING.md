@@ -2,28 +2,28 @@
 
 ---
 
-I would be very happy about any kind of contributions that help to improve and extend the functionality of mlearn.
+I would be very happy about any kind of contributions that help to improve and extend the functionality of mlearner.
 
 
 ## Quick Contributor Checklist
 
-This is a quick checklist about the different steps of a typical contribution to mlearn (and
+This is a quick checklist about the different steps of a typical contribution to mlearner (and
 other open source projects). Consider copying this list to a local text file (or the issue tracker)
 and checking off items as you go.
 
 1. [ ]  Open a new "issue" on GitHub to discuss the new feature / bug fix  
-2. [ ]  Fork the mlearn repository from GitHub (if not already done earlier)
+2. [ ]  Fork the mlearner repository from GitHub (if not already done earlier)
 3. [ ]  Create and check out a new topic branch (please don't make modifications in the master branch)
 4. [ ]  Implement the new feature or apply the bug-fix  
-5. [ ]  Add appropriate unit test functions in `mlearn/*/tests`
-6. [ ]  Run `PYTHONPATH='.' pytest ./mlearn -sv` and make sure that all unit tests pass  
-7. [ ]  Check for style issues by running `flake8 ./mlearn` (you may want to run `pytest` again after you made modifications to the code)
+5. [ ]  Add appropriate unit test functions in `mlearner/*/tests`
+6. [ ]  Run `PYTHONPATH='.' pytest ./mlearner -sv` and make sure that all unit tests pass  
+7. [ ]  Check for style issues by running `flake8 ./mlearner` (you may want to run `pytest` again after you made modifications to the code)
 8. [ ]  Add a note about the modification/contribution to the `./docs/sources/changelog.md` file  
-9. [ ]  Modify documentation in the appropriate location under `mlearn/docs/sources/`  
+9. [ ]  Modify documentation in the appropriate location under `mlearner/docs/sources/`  
 10. [ ]  Push the topic branch to the server and create a pull request
-11. [ ]  Check the Travis-CI build passed at [https://travis-ci.org/jaisenbe58r/mlearn](https://travis-ci.org/jaisenbe58r/mlearn)
-12. [ ]  Check/improve the unit test coverage at [https://coveralls.io/github/jaisenbe58r/mlearn](https://coveralls.io/github/jaisenbe58r/mlearn)
-13. [ ]  Check/improve the code health at [https://landscape.io/github/jaisenbe58r/mlearn](https://landscape.io/github/jaisenbe58r/mlearn)
+11. [ ]  Check the Travis-CI build passed at [https://travis-ci.org/jaisenbe58r/mlearner](https://travis-ci.org/jaisenbe58r/mlearner)
+12. [ ]  Check/improve the unit test coverage at [https://coveralls.io/github/jaisenbe58r/mlearner](https://coveralls.io/github/jaisenbe58r/mlearner)
+13. [ ]  Check/improve the code health at [https://landscape.io/github/jaisenbe58r/mlearner](https://landscape.io/github/jaisenbe58r/mlearner)
 
 <hr>
 
@@ -37,16 +37,16 @@ and checking off items as you go.
 
 ![](./img/contributing/new_issue.png)
 
-- Fork the `mlearn` repository from the GitHub web interface.
+- Fork the `mlearner` repository from the GitHub web interface.
 
 ![](./img/contributing/fork.png)
 
-- Clone the `mlearn` repository to your local machine by executing
- ```git clone https://github.com/<your_username>/mlearn.git```
+- Clone the `mlearner` repository to your local machine by executing
+ ```git clone https://github.com/<your_username>/mlearner.git```
 
 ## Syncing an Existing Fork
 
-If you already forked mlearn earlier, you can bring you "Fork" up to date
+If you already forked mlearner earlier, you can bring you "Fork" up to date
 with the master branch as follows:
 
 #### 1. Configuring a remote that points to the upstream repository on GitHub
@@ -60,13 +60,13 @@ $ git remote -v
 If you see something like
 
 ```bash
-origin	https://github.com/<your username>/mlearn.git (fetch)
-origin	https://github.com/<your username>/mlearn.git (push)
+origin	https://github.com/<your username>/mlearner.git (fetch)
+origin	https://github.com/<your username>/mlearner.git (push)
 ```
 you need to specify a new remote *upstream* repository via
 
 ```bash
-$ git remote add upstream https://github.com/jaisenbe58r/MLearn.git
+$ git remote add upstream https://github.com/jaisenbe58r/mlearnerer.git
 ```
 
 Now, verify the new upstream repository you've specified for your fork by executing
@@ -78,10 +78,10 @@ $ git remote -v
 You should see following output if everything is configured correctly:
 
 ```bash
-origin	https://github.com/<your username>/mlearn.git (fetch)
-origin	https://github.com/<your username>/mlearn.git (push)
-upstream	https://github.com/jaisenbe58r/MLearn.git (fetch)
-upstream	https://github.com/jaisenbe58r/MLearn.git (push)
+origin	https://github.com/<your username>/mlearner.git (fetch)
+origin	https://github.com/<your username>/mlearner.git (push)
+upstream	https://github.com/jaisenbe58r/mlearnerer.git (fetch)
+upstream	https://github.com/jaisenbe58r/mlearnerer.git (push)
 ```
 
 #### 2. Syncing your Fork
@@ -99,11 +99,11 @@ remote: Counting objects: xx, done.
 remote: Compressing objects: 100% (xx/xx), done.
 remote: Total xx (delta xx), reused xx (delta x)
 Unpacking objects: 100% (xx/xx), done.
-From https://github.com/jaisenbe58r/MLearn
+From https://github.com/jaisenbe58r/mlearnerer
  * [new branch]      master     -> upstream/master
 ```
 
-This means that the commits to the `jaisenbe58r/mlearn` master branch are now
+This means that the commits to the `jaisenbe58r/mlearner` master branch are now
 stored in the local branch `upstream/master`.
 
 If you are not already on your local project's master branch, execute
@@ -137,7 +137,7 @@ Listed below are the 9 typical steps of a contribution.
 #### 1. Discussing the Feature or Modification
 
 Before you start coding, please discuss the new feature, bugfix, or other modification to the project
-on the project's [issue tracker](https://github.com/jaisenbe58r/MLearn/issues). Before you open a "new issue," please
+on the project's [issue tracker](https://github.com/jaisenbe58r/mlearnerer/issues). Before you open a "new issue," please
 do a quick search to see if a similar issue has been submitted already.
 
 #### 2. Creating a new feature branch
@@ -163,14 +163,14 @@ Now it's time to modify existing code or to contribute new code to the project.
 Add the respective unit tests and check if they pass:
 
 ```bash
-$ PYTHONPATH='.' pytest ./mlearn ---with-coverage
+$ PYTHONPATH='.' pytest ./mlearner ---with-coverage
 ```
 
 
 #### 5. Documenting changes
 
-Please add an entry to the `mlearn/docs/sources/changelog.md` file.
-If it is a new feature, it would also be nice if you could update the documentation in appropriate location in `mlearn/sources`.
+Please add an entry to the `mlearner/docs/sources/changelog.md` file.
+If it is a new feature, it would also be nice if you could update the documentation in appropriate location in `mlearner/sources`.
 
 
 #### 6. Committing changes
@@ -267,26 +267,26 @@ Go to your GitHub repository online, select the new feature branch, and submit a
 
 ## Building the documentation
 
-The documentation is built via [MkDocs](http://www.mkdocs.org); to ensure that the documentation is rendered correctly, you can view the documentation locally by executing `mkdocs serve` from the `mlearn/docs` directory.
+The documentation is built via [MkDocs](http://www.mkdocs.org); to ensure that the documentation is rendered correctly, you can view the documentation locally by executing `mkdocs serve` from the `mlearner/docs` directory.
 
 For example,
 
 ```bash
-~/github/mlearn/docs$ mkdocs serve
+~/github/mlearner/docs$ mkdocs serve
 ```
 
 ### 1. Building the API documentation
 
-To build the API documentation, navigate to `mlearn/docs` and execute the `make_api.py` file from this directory via
+To build the API documentation, navigate to `mlearner/docs` and execute the `make_api.py` file from this directory via
 
 ```python
-~/github/mlearn/docs$ python make_api.py
+~/github/mlearner/docs$ python make_api.py
 ```
 
 This should place the API documentation into the correct directories into the two directories:
 
-- `mlearn/docs/sources/api_modules`
-- `mlearn/docs/sources/api_subpackes`
+- `mlearner/docs/sources/api_modules`
+- `mlearner/docs/sources/api_subpackes`
 
 ### 2. Editing the User Guide
 
@@ -297,12 +297,12 @@ The documents containing code examples for the "User Guide" are generated from I
 3. Convert the notebook to markdown using the `ipynb2markdown.py` converter
 
 ```python
-~/github/mlearn/docs$ python ipynb2markdown.py --ipynb_path ./sources/user_guide/subpackage/notebookname.ipynb
+~/github/mlearner/docs$ python ipynb2markdown.py --ipynb_path ./sources/user_guide/subpackage/notebookname.ipynb
 ```
 
 **Note**  
 
-If you are adding a new document, please also include it in the pages section in the `mlearn/docs/mkdocs.yml` file.
+If you are adding a new document, please also include it in the pages section in the `mlearner/docs/mkdocs.yml` file.
 
 
 
@@ -311,24 +311,24 @@ If you are adding a new document, please also include it in the pages section in
 First, please check the documenation via localhost (http://127.0.0.1:8000/):
 
 ```bash
-~/github/mlearn/docs$ mkdocs serve
+~/github/mlearner/docs$ mkdocs serve
 ```
 
-Next, build the static HTML files of the mlearn documentation via
+Next, build the static HTML files of the mlearner documentation via
 
 ```bash
-~/github/mlearn/docs$ mkdocs build --clean
+~/github/mlearner/docs$ mkdocs build --clean
 ```
 
 To deploy the documentation, execute
 
 ```bash
-~/github/mlearn/docs$ mkdocs gh-deploy --clean
+~/github/mlearner/docs$ mkdocs gh-deploy --clean
 ```
 
 ### 4. Generate a PDF of the documentation
 
-To generate a PDF version of the documentation, simply `cd` into the `mlearn/docs` directory and execute:
+To generate a PDF version of the documentation, simply `cd` into the `mlearner/docs` directory and execute:
 
 ```bash
 python md2pdf.py
@@ -341,13 +341,13 @@ python md2pdf.py
 Assuming we are using `conda`, create a new python environment via
 
 ```bash
-$ conda create -n 'mlearn-testing' python=3 numpy scipy pandas
+$ conda create -n 'mlearner-testing' python=3 numpy scipy pandas
 ```
 
 Next, activate the environment by executing
 
 ```bash
-$ source activate mlearn-testing
+$ source activate mlearner-testing
 ```
 
 ### 2. Installing the package from local files
@@ -364,7 +364,7 @@ the `--record files.txt` flag will create a `files.txt` file listing the locatio
 Try to import the package to see if it works, for example, by executing
 
 ```bash
-$ python -c 'import mlearn; print(mlearn.__file__)'
+$ python -c 'import mlearner; print(mlearner.__file__)'
 ```
 
 If everything seems to be fine, remove the installation via
@@ -376,13 +376,13 @@ $ cat files.txt | xargs rm -rf ; rm files.txt
 Next, test if `pip` is able to install the packages. First, navigate to a different directory, and from there, install the package:
 
 ```bash
-$ pip install mlearn
+$ pip install mlearner
 ```
 
 and uninstall it again
 
 ```bash
-$ pip uninstall mlearn
+$ pip uninstall mlearner
 ```
 
 ### 3. Deploying the package
@@ -396,13 +396,13 @@ $ python setup.py sdist bdist_wheel upload -r https://testpypi.python.org/pypi
 Test if it can be installed from there by executing
 
 ```bash
-$ pip install -i https://testpypi.python.org/pypi mlearn
+$ pip install -i https://testpypi.python.org/pypi mlearner
 ```
 
 and uninstall it
 
 ```bash
-$ pip uninstall mlearn
+$ pip uninstall mlearner
 ```
 
 After this dry-run succeeded, repeat this process using the "real" PyPI:
@@ -416,9 +416,9 @@ $ python setup.py sdist bdist_wheel upload
 Finally, to cleanup our local drive, remove the virtual testing environment via
 
 ```bash
-$ conda remove --name 'mlearn-testing' --all
+$ conda remove --name 'mlearner-testing' --all
 ```
 
 ### 5. Updating the conda-forge recipe
 
-Once a new version of mlearn has been uploaded to PyPI, update the conda-forge build recipe at https://github.com/conda-forge/mlearn-feedstock by changing the version number in the `recipe/meta.yaml` file appropriately.
+Once a new version of mlearner has been uploaded to PyPI, update the conda-forge build recipe at https://github.com/conda-forge/mlearner-feedstock by changing the version number in the `recipe/meta.yaml` file appropriately.

@@ -1,6 +1,6 @@
 # Sebastian Raschka 2014-2020
 # contributor: Vahid Mirjalili
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A class for transforming face images.
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -58,7 +58,7 @@ class EyepadAlign(object):
     target_width_ : the width of the transformed output image.
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/image/EyepadAlign/
+    http://rasbt.github.io/mlearner/user_guide/image/EyepadAlign/
 
     Returns
     -------
@@ -200,7 +200,7 @@ class EyepadAlign(object):
         ---------
         target_landmarks : np.array, shape=(height, width)
             NumPy array containing the locations of the facial landmarks
-            as determined by `mlearn.image.extract_face_landmarks`
+            as determined by `mlearner.image.extract_face_landmarks`
 
         target_height : int
             image height

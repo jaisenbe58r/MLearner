@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
@@ -22,9 +22,9 @@ from sklearn.model_selection import GridSearchCV, GroupKFold
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
 
-from mlearn.classifier import SoftmaxRegression
-from mlearn.feature_selection import SequentialFeatureSelector as SFS
-from mlearn.utils import assert_raises
+from mlearner.classifier import SoftmaxRegression
+from mlearner.feature_selection import SequentialFeatureSelector as SFS
+from mlearner.utils import assert_raises
 
 from distutils.version import LooseVersion as Version
 from sklearn import __version__ as sklearn_version

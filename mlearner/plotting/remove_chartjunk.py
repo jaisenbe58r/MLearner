@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # A function for removing chart junk from matplotlib plots
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -27,7 +27,7 @@ def remove_borders(axes, left=False, bottom=False, right=True, top=True):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/plotting/remove_chartjunk/
+    http://rasbt.github.io/mlearner/user_guide/plotting/remove_chartjunk/
 
     """
     for ax in axes:

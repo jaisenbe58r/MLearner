@@ -1,5 +1,5 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 #
 # Linear Discriminant Analysis for dimensionality reduction
 # Author: Sebastian Raschka <sebastianraschka.com>
@@ -32,7 +32,7 @@ class LinearDiscriminantAnalysis(_BaseModel):
     Examples
     -----------
     For usage examples, please see
-    http://rasbt.github.io/mlearn/user_guide/feature_extraction/LinearDiscriminantAnalysis/
+    http://rasbt.github.io/mlearner/user_guide/feature_extraction/LinearDiscriminantAnalysis/
 
     """
     def __init__(self, n_discriminants=None):

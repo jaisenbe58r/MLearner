@@ -1,13 +1,13 @@
 # Sebastian Raschka 2014-2020
-# mlearn Machine Learning Library Extensions
+# mlearner Machine Learning Library Extensions
 # Author: Sebastian Raschka <sebastianraschka.com>
 #
 # License: BSD 3 clause
 
 
-from mlearn.math import factorial
-from mlearn.math import num_permutations
-from mlearn.math import num_combinations
+from mlearner.math import factorial
+from mlearner.math import num_permutations
+from mlearner.math import num_combinations
 
 
 def test_factorial():
