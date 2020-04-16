@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Jaime Sendra Berenguer">
+  <link rel="canonical" href="http://jaisenbe58r.github.io/mlearner/CONTRIBUTING/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>How To Contribute - mlearner</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "How To Contribute";
+    var mkdocs_page_input_path = "CONTRIBUTING.md";
+    var mkdocs_page_url = "/mlearner/CONTRIBUTING/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> mlearner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../USER_GUIDE_INDEX/">User Guide Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">preprocessing</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../user_guide/preprocesing/copy_transformer.md">None</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG/">Release Notes</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">How To Contribute</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#quick-contributor-checklist">Quick Contributor Checklist</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributors/">Contributors</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../license/">License</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cite/">Citing mlearner</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../discuss/">Discuss</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">mlearner</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>About &raquo;</li>
+        
+      
+    
+    <li>How To Contribute</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jaisenbe58r/mlearnerer/docs/sources/user_guide/CONTRIBUTING.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="how-to-contribute">How to Contribute</h1>
+<hr />
+<p>I would be very happy about any kind of contributions that help to improve and extend the functionality of mlearner.</p>
+<h2 id="quick-contributor-checklist">Quick Contributor Checklist</h2>
+<p>This is a quick checklist about the different steps of a typical contribution to mlearner (and
+other open source projects). Consider copying this list to a local text file (or the issue tracker)
+and checking off items as you go.</p>
+<ol>
+<li>[ ]  Open a new "issue" on GitHub to discuss the new feature / bug fix  </li>
+<li>[ ]  Fork the mlearner repository from GitHub (if not already done earlier)</li>
+<li>[ ]  Create and check out a new topic branch (please don't make modifications in the master branch)</li>
+<li>[ ]  Implement the new feature or apply the bug-fix  </li>
+<li>[ ]  Add appropriate unit test functions in <code>mlearner/*/tests</code></li>
+<li>[ ]  Run <code>PYTHONPATH='.' pytest ./mlearner -sv</code> and make sure that all unit tests pass  </li>
+<li>[ ]  Check for style issues by running <code>flake8 ./mlearner</code> (you may want to run <code>pytest</code> again after you made modifications to the code)</li>
+<li>[ ]  Add a note about the modification/contribution to the <code>./docs/sources/changelog.md</code> file  </li>
+<li>[ ]  Modify documentation in the appropriate location under <code>mlearner/docs/sources/</code>  </li>
+<li>[ ]  Push the topic branch to the server and create a pull request</li>
+<li>[ ]  Check the Travis-CI build passed at <a href="https://travis-ci.org/rasbt/mlearner">https://travis-ci.org/rasbt/mlearner</a></li>
+<li>[ ]  Check/improve the unit test coverage at <a href="https://coveralls.io/github/rasbt/mlearner">https://coveralls.io/github/rasbt/mlearner</a></li>
+<li>[ ]  Check/improve the code health at <a href="https://landscape.io/github/rasbt/mlearner">https://landscape.io/github/rasbt/mlearner</a></li>
+</ol>
+<hr>
+
+<h1 id="tips-for-contributors">Tips for Contributors</h1>
+<h2 id="getting-started-creating-a-new-issue-and-forking-the-repository">Getting Started - Creating a New Issue and Forking the Repository</h2>
+<ul>
+<li>If you don't have a <a href="https://github.com">GitHub</a> account, yet, please create one to contribute to this project.</li>
+<li>Please submit a ticket for your issue to discuss the fix or new feature before too much time and effort is spent for the implementation.</li>
+</ul>
+<p><img alt="" src="../img/contributing/new_issue.png" /></p>
+<ul>
+<li>Fork the <code>mlearner</code> repository from the GitHub web interface.</li>
+</ul>
+<p><img alt="" src="../img/contributing/fork.png" /></p>
+<ul>
+<li>Clone the <code>mlearner</code> repository to your local machine by executing
+ <code>git clone https://github.com/&lt;your_username&gt;/mlearner.git</code></li>
+</ul>
+<h2 id="syncing-an-existing-fork">Syncing an Existing Fork</h2>
+<p>If you already forked mlearner earlier, you can bring you "Fork" up to date
+with the master branch as follows:</p>
+<h4 id="1-configuring-a-remote-that-points-to-the-upstream-repository-on-github">1. Configuring a remote that points to the upstream repository on GitHub</h4>
+<p>List the current configured remote repository of your fork by executing</p>
+<pre><code class="bash">$ git remote -v
+</code></pre>
+
+<p>If you see something like</p>
+<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/mlearner.git (fetch)
+origin  https://github.com/&lt;your username&gt;/mlearner.git (push)
+</code></pre>
+
+<p>you need to specify a new remote <em>upstream</em> repository via</p>
+<pre><code class="bash">$ git remote add upstream https://github.com/rasbt/mlearner.git
+</code></pre>
+
+<p>Now, verify the new upstream repository you've specified for your fork by executing</p>
+<pre><code class="bash">$ git remote -v
+</code></pre>
+
+<p>You should see following output if everything is configured correctly:</p>
+<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/mlearner.git (fetch)
+origin  https://github.com/&lt;your username&gt;/mlearner.git (push)
+upstream    https://github.com/rasbt/mlearner.git (fetch)
+upstream    https://github.com/rasbt/mlearner.git (push)
+</code></pre>
+
+<h4 id="2-syncing-your-fork">2. Syncing your Fork</h4>
+<p>First, fetch the updates of the original project's master branch by executing:</p>
+<pre><code class="bash">$ git fetch upstream
+</code></pre>
+
+<p>You should see the following output</p>
+<pre><code class="bash">remote: Counting objects: xx, done.
+remote: Compressing objects: 100% (xx/xx), done.
+remote: Total xx (delta xx), reused xx (delta x)
+Unpacking objects: 100% (xx/xx), done.
+From https://github.com/rasbt/mlearner
+ * [new branch]      master     -&gt; upstream/master
+</code></pre>
+
+<p>This means that the commits to the <code>rasbt/mlearner</code> master branch are now
+stored in the local branch <code>upstream/master</code>.</p>
+<p>If you are not already on your local project's master branch, execute</p>
+<pre><code class="bash">$ git checkout master
+</code></pre>
+
+<p>Finally, merge the changes in upstream/master to your local master branch by
+executing</p>
+<pre><code class="bash">$ git merge upstream/master
+</code></pre>
+
+<p>which will give you an output that looks similar to</p>
+<pre><code class="bash">Updating xxx...xxx
+Fast-forward
+SOME FILE1                    |    12 +++++++
+SOME FILE2                    |    10 +++++++
+2 files changed, 22 insertions(+),
+</code></pre>
+
+<h2 id="the-main-workflow-making-changes-in-a-new-topic-branch">*The Main Workflow - Making Changes in a New Topic Branch</h2>
+<p>Listed below are the 9 typical steps of a contribution.</p>
+<h4 id="1-discussing-the-feature-or-modification">1. Discussing the Feature or Modification</h4>
+<p>Before you start coding, please discuss the new feature, bugfix, or other modification to the project
+on the project's <a href="https://github.com/rasbt/mlearner/issues">issue tracker</a>. Before you open a "new issue," please
+do a quick search to see if a similar issue has been submitted already.</p>
+<h4 id="2-creating-a-new-feature-branch">2. Creating a new feature branch</h4>
+<p>Please avoid working directly on the master branch but create a new feature branch:</p>
+<pre><code class="bash">$ git branch &lt;new_feature&gt;
+</code></pre>
+
+<p>Switch to the new feature branch by executing</p>
+<pre><code class="bash">$ git checkout &lt;new_feature&gt;
+</code></pre>
+
+<h4 id="3-developing-the-new-feature-bug-fix">3. Developing the new feature / bug fix</h4>
+<p>Now it's time to modify existing code or to contribute new code to the project.</p>
+<h4 id="4-testing-your-code">4. Testing your code</h4>
+<p>Add the respective unit tests and check if they pass:</p>
+<pre><code class="bash">$ PYTHONPATH='.' pytest ./mlearner ---with-coverage
+</code></pre>
+
+<h4 id="5-documenting-changes">5. Documenting changes</h4>
+<p>Please add an entry to the <code>mlearner/docs/sources/changelog.md</code> file.
+If it is a new feature, it would also be nice if you could update the documentation in appropriate location in <code>mlearner/sources</code>.</p>
+<h4 id="6-committing-changes">6. Committing changes</h4>
+<p>When you are ready to commit the changes, please provide a meaningful <code>commit</code> message:</p>
+<pre><code class="bash">$ git add &lt;modifies_files&gt; # or `git add .`
+$ git commit -m '&lt;meaningful commit message&gt;'
+</code></pre>
+
+<h4 id="7-optional-squashing-commits">7. Optional: squashing commits</h4>
+<p>If you made multiple smaller commits, it would be nice if you could group them into a larger, summarizing commit. First, list your recent commit via</p>
+<p><strong>Note</strong><br />
+<strong>Due to the improved GitHub UI, this is no longer necessary/encouraged.</strong></p>
+<pre><code class="bash">$ git log
+</code></pre>
+
+<p>which will list the commits from newest to oldest in the following format by default:</p>
+<pre><code class="bash">commit 046e3af8a9127df8eac879454f029937c8a31c41
+Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Date:   Tue Nov 24 03:46:37 2015 -0500
+
+    fixed setup.py
+
+commit c3c00f6ba0e8f48bbe1c9081b8ae3817e57ecc5c
+Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Date:   Tue Nov 24 03:04:39 2015 -0500
+
+        documented feature x
+
+commit d87934fe8726c46f0b166d6290a3bf38915d6e75
+Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Date:   Tue Nov 24 02:44:45 2015 -0500
+
+        added support for feature x
+</code></pre>
+
+<p>Assuming that it would make sense to group these 3 commits into one, we can execute</p>
+<pre><code class="bash">$ git rebase -i HEAD~3
+</code></pre>
+
+<p>which will bring our default git editor with the following contents:</p>
+<pre><code class="bash">pick d87934f added support for feature x
+pick c3c00f6 documented feature x
+pick 046e3af fixed setup.py
+</code></pre>
+
+<p>Since <code>c3c00f6</code> and <code>046e3af</code> are related to the original commit of <code>feature x</code>, let's keep the <code>d87934f</code> and squash the 2 following commits into this initial one by changes the lines to</p>
+<pre><code>pick d87934f added support for feature x
+squash c3c00f6 documented feature x
+squash 046e3af fixed setup.py
+</code></pre>
+
+<p>Now, save the changes in your editor. Now, quitting the editor will apply the <code>rebase</code> changes, and the editor will open a second time, prompting you to enter a new commit message. In this case, we could enter <code>support for feature x</code> to summarize the contributions.</p>
+<h4 id="8-uploading-changes">8. Uploading changes</h4>
+<p>Push your changes to a topic branch to the git server by executing:</p>
+<pre><code class="bash">$ git push origin &lt;feature_branch&gt;
+</code></pre>
+
+<h4 id="9-submitting-a-pull-request">9. Submitting a <code>pull request</code></h4>
+<p>Go to your GitHub repository online, select the new feature branch, and submit a new pull request:</p>
+<p><img alt="" src="../img/contributing/pull_request.png" /></p>
+<hr>
+
+<h1 id="notes-for-developers">Notes for Developers</h1>
+<h2 id="building-the-documentation">Building the documentation</h2>
+<p>The documentation is built via <a href="http://www.mkdocs.org">MkDocs</a>; to ensure that the documentation is rendered correctly, you can view the documentation locally by executing <code>mkdocs serve</code> from the <code>mlearner/docs</code> directory.</p>
+<p>For example,</p>
+<pre><code class="bash">~/github/mlearner/docs$ mkdocs serve
+</code></pre>
+
+<h3 id="1-building-the-api-documentation">1. Building the API documentation</h3>
+<p>To build the API documentation, navigate to <code>mlearner/docs</code> and execute the <code>make_api.py</code> file from this directory via</p>
+<pre><code class="python">~/github/mlearner/docs$ python make_api.py
+</code></pre>
+
+<p>This should place the API documentation into the correct directories into the two directories:</p>
+<ul>
+<li><code>mlearner/docs/sources/api_modules</code></li>
+<li><code>mlearner/docs/sources/api_subpackes</code></li>
+</ul>
+<h3 id="2-editing-the-user-guide">2. Editing the User Guide</h3>
+<p>The documents containing code examples for the "User Guide" are generated from IPython Notebook files. In order to convert a IPython notebook file to markdown after editing, please follow the following steps:</p>
+<ol>
+<li>Modify or edit the existing notebook.</li>
+<li>Execute all cells in the current notebook and make sure that no errors occur.</li>
+<li>Convert the notebook to markdown using the <code>ipynb2markdown.py</code> converter</li>
+</ol>
+<pre><code class="python">~/github/mlearner/docs$ python ipynb2markdown.py --ipynb_path ./sources/user_guide/subpackage/notebookname.ipynb
+</code></pre>
+
+<p><strong>Note</strong>  </p>
+<p>If you are adding a new document, please also include it in the pages section in the <code>mlearner/docs/mkdocs.yml</code> file.</p>
+<h3 id="3-building-static-html-files-of-the-documentation">3. Building static HTML files of the documentation</h3>
+<p>First, please check the documenation via localhost (http://127.0.0.1:8000/):</p>
+<pre><code class="bash">~/github/mlearner/docs$ mkdocs serve
+</code></pre>
+
+<p>Next, build the static HTML files of the mlearner documentation via</p>
+<pre><code class="bash">~/github/mlearner/docs$ mkdocs build --clean
+</code></pre>
+
+<p>To deploy the documentation, execute</p>
+<pre><code class="bash">~/github/mlearner/docs$ mkdocs gh-deploy --clean
+</code></pre>
+
+<h3 id="4-generate-a-pdf-of-the-documentation">4. Generate a PDF of the documentation</h3>
+<p>To generate a PDF version of the documentation, simply <code>cd</code> into the <code>mlearner/docs</code> directory and execute:</p>
+<pre><code class="bash">python md2pdf.py
+</code></pre>
+
+<h2 id="uploading-a-new-version-to-pypi">Uploading a new version to PyPI</h2>
+<h3 id="1-creating-a-new-testing-environment">1. Creating a new testing environment</h3>
+<p>Assuming we are using <code>conda</code>, create a new python environment via</p>
+<pre><code class="bash">$ conda create -n 'mlearner-testing' python=3 numpy scipy pandas
+</code></pre>
+
+<p>Next, activate the environment by executing</p>
+<pre><code class="bash">$ source activate mlearner-testing
+</code></pre>
+
+<h3 id="2-installing-the-package-from-local-files">2. Installing the package from local files</h3>
+<p>Test the installation by executing</p>
+<pre><code class="bash">$ python setup.py install --record files.txt
+</code></pre>
+
+<p>the <code>--record files.txt</code> flag will create a <code>files.txt</code> file listing the locations where these files will be installed.</p>
+<p>Try to import the package to see if it works, for example, by executing</p>
+<pre><code class="bash">$ python -c 'import mlearner; print(mlearner.__file__)'
+</code></pre>
+
+<p>If everything seems to be fine, remove the installation via</p>
+<pre><code class="bash">$ cat files.txt | xargs rm -rf ; rm files.txt
+</code></pre>
+
+<p>Next, test if <code>pip</code> is able to install the packages. First, navigate to a different directory, and from there, install the package:</p>
+<pre><code class="bash">$ pip install mlearner
+</code></pre>
+
+<p>and uninstall it again</p>
+<pre><code class="bash">$ pip uninstall mlearner
+</code></pre>
+
+<h3 id="3-deploying-the-package">3. Deploying the package</h3>
+<p>Consider deploying the package to the PyPI test server first. The setup instructions can be found <a href="https://wiki.python.org/moin/TestPyPI">here</a>.</p>
+<pre><code class="bash">$ python setup.py sdist bdist_wheel upload -r https://testpypi.python.org/pypi
+</code></pre>
+
+<p>Test if it can be installed from there by executing</p>
+<pre><code class="bash">$ pip install -i https://testpypi.python.org/pypi mlearner
+</code></pre>
+
+<p>and uninstall it</p>
+<pre><code class="bash">$ pip uninstall mlearner
+</code></pre>
+
+<p>After this dry-run succeeded, repeat this process using the "real" PyPI:</p>
+<pre><code class="bash">$ python setup.py sdist bdist_wheel upload
+</code></pre>
+
+<h3 id="4-removing-the-virtual-environment">4. Removing the virtual environment</h3>
+<p>Finally, to cleanup our local drive, remove the virtual testing environment via</p>
+<pre><code class="bash">$ conda remove --name 'mlearner-testing' --all
+</code></pre>
+
+<h3 id="5-updating-the-conda-forge-recipe">5. Updating the conda-forge recipe</h3>
+<p>Once a new version of mlearner has been uploaded to PyPI, update the conda-forge build recipe at https://github.com/conda-forge/mlearner-feedstock by changing the version number in the <code>recipe/meta.yaml</code> file appropriately.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributors/" class="btn btn-neutral float-right" title="Contributors">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../CHANGELOG/" class="btn btn-neutral" title="Release Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jaisenbe58r/mlearnerer/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../CHANGELOG/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contributors/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
