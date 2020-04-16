@@ -35,7 +35,7 @@ extra_css:
   - cinder/css/highlight.css
 
 copyright: Copyright &copy; 2014-2019 <a href="http://sebastianraschka.com">Sebastian Raschka</a>
-google_analytics: ['UA-38457794-2', 'rasbt.github.io/mlearner/']
+google_analytics: ['UA-163860068-1', 'rasbt.github.io/mlearner/']
 
 nav:
 - Home: index.md
