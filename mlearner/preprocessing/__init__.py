@@ -1,8 +1,8 @@
-# Sebastian Raschka 2014-2020
-# mlearner Machine Learning Library Extensions
-# Author: Sebastian Raschka <sebastianraschka.com>
+# Jaime Sendra Berenguer-2020
+# MLearner Machine Learning Library Extensions
+# Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 #
-# License: BSD 3 clause
+# License: MIT
 
 from .mean_centering import MeanCenterer
 from .shuffle import shuffle_arrays_unison

@@ -1,7 +1,7 @@
-# Sebastian Raschka 2014-2020
-# mlearner Machine Learning Library Extensions
-# Author: Sebastian Raschka <sebastianraschka.com>
+# Jaime Sendra Berenguer-2020
+# MLearner Machine Learning Library Extensions
+# Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 #
-# License: BSD 3 clause
+# License: MIT
 
-__version__ = '0.18.0dev0'
+__version__ = '0.0.2dev5'
