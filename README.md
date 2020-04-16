@@ -1,4 +1,4 @@
-[![DOI](http://joss.theoj.org/papers/10.21105/joss.00638/status.svg)](https://doi.org/10.21105/joss.00638)
+
 [![Build Status](https://travis-ci.org/jaisenbe58r/mlearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/mlearner)
 [![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/mlearner/branch/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a199e28871c477d9ecf6e200b4977b9)](https://www.codacy.com/manual/jaisenbe58r/mlearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/mlearner&amp;utm_campaign=Badge_Grade)
@@ -7,9 +7,9 @@
 ![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
 ![Python 3.7](https://img.shields.io/badge/python-3.8-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)
-[![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/yHCCa2)
+[![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/HUxahg)
 
-![](./docs/sources/img/logo_full.jpg)
+![](./docs/sources/img/barra.jpg)
 
 
 **mlearner (machine learning for data enginnering) is a Python library of useful tools for the day-to-day data science tasks.**
