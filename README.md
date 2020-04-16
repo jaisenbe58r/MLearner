@@ -68,9 +68,6 @@ Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/mlear
 python setup.py install
 ```
 
-<br>
-<br>
-
 
 ---
 
