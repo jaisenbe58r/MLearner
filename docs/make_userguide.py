@@ -14,7 +14,7 @@ import os.path
 s = "# User Guide Index"
 
 yml_cont = open('mkdocs.yml', 'r')
-usr_gd = yaml.load(yml_cont)['pages'][1]['User Guide']
+usr_gd = yaml.load(yml_cont)['nav'][1]['User Guide']
 for dct in usr_gd[1:]:
     subpk = list(dct.keys())[0]
     s += '\n\n## `%s`' % subpk

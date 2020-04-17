@@ -44,6 +44,7 @@ nav:
   - USER_GUIDE_INDEX.md
   - utils:
     - user_guide/utils/Counter.md
+
 - API:
   - api_subpackages/mlearner.utils.md
 

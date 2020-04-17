@@ -35,7 +35,7 @@ def get_leaf_nodes(tree):
     else:
         mkdocs.append(tree)
 
-get_leaf_nodes(tree['pages'])
+get_leaf_nodes(tree['nav'])
 mkdocs = [s for s in mkdocs if 'api_subpackages' not in s and
           'USER_GUIDE_INDEX.md' not in s]
 
