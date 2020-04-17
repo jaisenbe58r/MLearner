@@ -5,7 +5,6 @@
 
 MLearner is a Python library of useful tools for the day-to-day data science tasks.
 
-<hr>
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
