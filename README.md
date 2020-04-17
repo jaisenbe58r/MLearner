@@ -21,6 +21,7 @@
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
 
 
+
 ![](./docs/sources/img/barra.jpg)
 
 
@@ -28,7 +29,11 @@
 
 <br>
 
-Jaime Sendra - 2020
+Jaime Sendra Berenguer - Spain - 2020
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](www.linkedin.com/in/jaisenbe)
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/jaisenbe58r)
+
+
 
 <br>
 
