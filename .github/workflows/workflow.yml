@@ -1,4 +1,4 @@
-name: workflow for Codecov
+name: Codecov
 on: [push]
 jobs:
   run:
@@ -8,7 +8,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v1.0.6
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           file: ./coverage.xml # optional
