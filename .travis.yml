@@ -10,7 +10,7 @@ before_install:
   - pip install -r requirements.txt
 install:
   - pip install ".[test]" . # install package + test dependencies
-script: pytest # run tests
+script: pytest --cov=./ --cov-report=xml # run tests
 after_success:
   - codecov # submit coverage
   - bash <(curl -s https://codecov.io/bash)
