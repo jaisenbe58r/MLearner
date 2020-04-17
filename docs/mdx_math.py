@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from markdown.inlinepatterns import Pattern
+from markdown.extensions import Extension
+from markdown.util import AtomicString, etree
+
 '''
 Math extension for Python-Markdown
 ==================================
@@ -39,10 +43,6 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
 OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 SUCH DAMAGE.
 """
-
-from markdown.inlinepatterns import Pattern
-from markdown.extensions import Extension
-from markdown.util import AtomicString, etree
 
 
 class MathExtension(Extension):

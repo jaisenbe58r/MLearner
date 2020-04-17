@@ -22,7 +22,8 @@ theme:
 markdown_extensions:
   - tables
   - fenced_code
-
+  - mdx_math:
+      enable_dollar_delimiter: True #for use of inline $..$
 extra_javascript:
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
   - mathjaxhelper.js
@@ -34,7 +35,7 @@ extra_css:
   - cinder/css/font-awesome-4.0.3.css
   - cinder/css/highlight.css
 
-copyright: Copyright &copy; 2014-2019 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a>
+copyright: Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a>
 google_analytics: ['UA-163860068-1', 'jaisenbe58r.github.io/MLearner/']
 
 nav:

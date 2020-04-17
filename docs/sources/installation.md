@@ -55,7 +55,7 @@ if you added conda-forge to your channels (`conda config --add channels conda-fo
 The mlearner version on PyPI may always one step behind; you can install the latest development version from the GitHub repository by executing
 
 ```bash
-pip install git+git://github.com/rasbt/mlearner.git
+pip install git+git://github.com/jaisenbe58r/mlearner.git
 ```
 
 Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/MLearner and install mlearner from your local drive via

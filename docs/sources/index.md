@@ -26,6 +26,7 @@ MLearner is a Python library of useful tools for the day-to-day data science tas
 [![GitHub issues](https://img.shields.io/github/issues/jaisenbe58r/MLearner.svg)](https://GitHub.com/jaisenbe58r/MLearner/issues/)
 [![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/HUxahg)
 [![GitHubIssues](https://img.shields.io/badge/issue_tracking-github-violet.svg)](https://github.com/jaisenbe58r/MLearner/issues)
+[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/coMLearner/community#)
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
 
 <hr>
@@ -75,4 +76,5 @@ SOFTWARE.
 
 I received a lot of feedback and questions about mlearner recently, and I thought that it would be worthwhile to set up a public communication channel. Before you write an email with a question about mlearner, please consider posting it here since it can also be useful to others! Please join the [Discord group MLearner](https://discordapp.com/invite/HUxahg)
 
-If Google Groups is not for you, please feel free to write me an [email](mailto:jaisenberafel@gmail.com) or consider filing an issue on [GitHub's issue tracker](https://github.com/jaisenbe58r/MLearner/issues) for new feature requests or bug reports. In addition, I setup a [Gitter channel](https://gitter.im/rasbt/mlearner?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) for live discussions.
+If Google Groups is not for you, please feel free to write me an [email](mailto:jaisenberafel@gmail.com) or consider filing an issue on [GitHub's issue tracker](https://github.com/jaisenbe58r/MLearner/issues) for new feature requests or bug reports. In addition, I setup a [Gitter channel](https://gitter.im/coMLearner/community#) for live discussions.
+
