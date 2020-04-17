@@ -1,5 +1,10 @@
 
-![](./docs/sources/img/Carpeta.PNG)
+![Carpeta](./docs/sources/img/Carpeta.PNG)
+
+---
+# MLearner: Machine Learning for Data Engineer
+<br>
+
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
@@ -26,9 +31,9 @@
 
 
 
-**mlearner (machine learning for data enginnering) is a Python library of useful tools for the day-to-day data science tasks.**
+**MLearner is a Python library of useful tools for the day-to-day data science tasks.**
 
-<br>
+
 
 Jaime Sendra Berenguer - Spain - 2020
 [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](www.linkedin.com/in/jaisenbe)
