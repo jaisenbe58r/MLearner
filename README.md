@@ -1,4 +1,6 @@
 
+![](./docs/sources/img/carpeta.jpg)
+
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
@@ -22,7 +24,6 @@
 
 
 
-![](./docs/sources/img/barra.jpg)
 
 
 **mlearner (machine learning for data enginnering) is a Python library of useful tools for the day-to-day data science tasks.**

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
     <meta name="author" content="Jaime Sendra Berenguer"> 
-    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/utils/Counter/">
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.utils/Counter/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
     <title>Counter - mlearner</title>
@@ -107,7 +107,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -123,8 +123,8 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">Counter</a>
+<li >
+    <a href="../../../user_guide/utils/Counter/">Counter</a>
 </li>
 
         
@@ -211,17 +211,7 @@
                         </a>
                     </li>
 
-                <!--
-                    <li >
-                        <a rel="next" href="../../../USER_GUIDE_INDEX/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../../../api_subpackages/mlearner.utils/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>-->
+                <!---->
                     <li>
                         <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
                     </li>
@@ -235,12 +225,72 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#hola">hola</a></li>
+        <li class="first-level active"><a href="#counter">Counter</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
+                 <!--   -->
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="hola">hola</h2></div>
+<h2 id="counter">Counter</h2>
+<p><em>Counter(stderr=False, start_newline=True, precision=0, name=None)</em></p>
+<p>Class to display the progress of for-loop iterators.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>stderr</code> : bool (default: True)</p>
+<p>Prints output to sys.stderr if True; uses sys.stdout otherwise.</p>
+</li>
+<li>
+<p><code>start_newline</code> : bool (default: True)</p>
+<p>Prepends a new line to the counter, which prevents overwriting counters
+if multiple counters are printed in succession.
+precision: int (default: 0)
+Sets the number of decimal places when displaying the time elapsed in
+seconds.</p>
+</li>
+<li>
+<p><code>name</code> : string (default: None)</p>
+<p>Prepends the specified name before the counter to allow distinguishing
+between multiple counters.</p>
+</li>
+</ul>
+<p><strong>Attributes</strong></p>
+<ul>
+<li>
+<p><code>curr_iter</code> : int</p>
+<p>The current iteration.</p>
+</li>
+<li>
+<p><code>start_time</code> : float</p>
+<p>The system's time in seconds when the Counter was initialized.</p>
+</li>
+<li>
+<p><code>end_time</code> : float</p>
+<p>The system's time in seconds when the Counter was last updated.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code>&gt;&gt;&gt; cnt = Counter()
+&gt;&gt;&gt; for i in range(20):
+...     # do some computation
+...     time.sleep(0.1)
+...     cnt.update()
+20 iter | 2 sec
+&gt;&gt;&gt; print('The counter was initialized.'
+' %d seconds ago.' % (time.time() - cnt.start_time))
+The counter was initialized 2 seconds ago
+&gt;&gt;&gt; print('The counter was last updated'
+' %d seconds ago.' % (time.time() - cnt.end_time))
+The counter was last updated 0 seconds ago.
+</code></pre>
+<p>For more usage examples, please see
+<a href="http://rasbt.github.io/mlxtend/user_guide/utils/Counter/">http://rasbt.github.io/mlxtend/user_guide/utils/Counter/</a></p>
+<h3 id="methods">Methods</h3>
+<hr>
+
+<p><em>update()</em></p>
+<p>Print current iteration and time elapsed.</p></div>
         
         
     </div>
