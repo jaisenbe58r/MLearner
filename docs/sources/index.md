@@ -6,15 +6,29 @@
 **mlearner (machine learning extensions) is a Python library of useful tools for the day-to-day data science tasks.**
 
 
-[![Build Status](https://travis-ci.org/jaisenbe58r/mlearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/mlearner)
+
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+![Python](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue)
+[![GitHub release](https://img.shields.io/github/release/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/releases/)
+[![GitHub commits](https://img.shields.io/github/commits-since/jaisenbe58r/mlearner/v0.0.5.svg)](https://GitHub.com/jaisenbe58r/mlearner/commit/)
+[![PyPI Latest Release](https://badge.fury.io/py/matplotlib.svg)](https://pypi.org/project/mlearner/)
 [![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/mlearner/branch/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/68209df46c8240b887db5ae5fa3cb410)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/jaisenbe58r/mlearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/mlearner)
+[![codecov](https://codecov.io/gh/jaisenbe58r/MLearner/branch/master/graph/badge.svg)](https://codecov.io/gh/jaisenbe58r/MLearner)
 [![Coverage Status](https://coveralls.io/repos/github/jaisenbe58r/MLearner/badge.svg?branch=master)](https://coveralls.io/github/jaisenbe58r/MLearner?branch=master)
-![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
-![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
-![Python 3.7](https://img.shields.io/badge/python-3.8-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)
+[![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)](https://github.com/jaisenbe58r/mlearner/blob/master/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
+[![DOI](https://zenodo.org/badge/256283484.svg)](https://zenodo.org/badge/latestdoi/256283484)
+[![GitHub contributors](https://img.shields.io/github/contributors/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/issues/)
 [![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/HUxahg)
+[![GitHubIssues](https://img.shields.io/badge/issue_tracking-github-violet.svg)](https://github.com/jaisenbe58r/MLearner/issues)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
+
+
 
 <hr>
 
