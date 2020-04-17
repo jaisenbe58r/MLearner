@@ -1,5 +1,5 @@
 
-![](./img/carpeta.png)
+![](./img/Carpeta.PNG)
 <hr>
 ## Welcome to MLearner's documentation!
 
