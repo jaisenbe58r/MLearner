@@ -4,6 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/mlearner/branch/master)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3509134.svg)](https://doi.org/10.5281/zenodo.3509134)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/68209df46c8240b887db5ae5fa3cb410)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/jaisenbe58r/MLearner/branch/master/graph/badge.svg)](https://codecov.io/gh/jaisenbe58r/MLearner)
 [![Coverage Status](https://coveralls.io/repos/github/jaisenbe58r/MLearner/badge.svg?branch=master)](https://coveralls.io/github/jaisenbe58r/MLearner?branch=master)
 ![Python 3.8](https://img.shields.io/badge/python-3.6-blue.svg)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
