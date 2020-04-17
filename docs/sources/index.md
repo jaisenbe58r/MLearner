@@ -1,6 +1,6 @@
 
 ![](./img/Carpeta.PNG)
-<hr>
+
 ## Welcome to MLearner's documentation!
 
 MLearner is a Python library of useful tools for the day-to-day data science tasks.
