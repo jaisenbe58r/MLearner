@@ -15,6 +15,7 @@ scikit-image
 
 # testing
 pytest>=4.6.6,<5.0.0
+pytest-cov
 
 # doc
 mkdocs
