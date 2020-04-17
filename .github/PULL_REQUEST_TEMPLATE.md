@@ -23,5 +23,5 @@ Fixes #366
 <!--NOTE  
 Due to the improved GitHub UI, the squashing of commits is no longer necessary.
 Please DO NOT SQUASH commits since they help with keeping track of the changes during the discussion).
-For more information and instructions, please see http://jaisenbe58r.github.io/mlearner/contributing/  
+For more information and instructions, please see https://jaisenbe58r.github.io/MLearner//contributing/  
 -->

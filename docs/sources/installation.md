@@ -58,7 +58,7 @@ The mlearner version on PyPI may always one step behind; you can install the lat
 pip install git+git://github.com/rasbt/mlearner.git
 ```
 
-Or, you can fork the GitHub repository from https://github.com/rasbt/mlearner and install mlearner from your local drive via
+Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/MLearner and install mlearner from your local drive via
 
 ```bash
 python setup.py install

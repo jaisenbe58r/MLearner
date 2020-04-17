@@ -4,7 +4,7 @@ If you use mlearner as part of your workflow in a scientific publication, please
 
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00638/status.svg)](https://doi.org/10.21105/joss.00638)
 
-- Raschka, Sebastian (2018) [mlearner: Providing machine learning and data science utilities and extensions to Python's scientific computing stack](http://jaisenbe58r.github.io/mlearner/).  
+- Raschka, Sebastian (2018) [mlearner: Providing machine learning and data science utilities and extensions to Python's scientific computing stack](https://jaisenbe58r.github.io/MLearner//).  
 J Open Source Softw 3(24).
 
 ```

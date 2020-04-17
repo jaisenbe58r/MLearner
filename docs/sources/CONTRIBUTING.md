@@ -66,7 +66,7 @@ origin	https://github.com/<your username>/mlearner.git (push)
 you need to specify a new remote *upstream* repository via
 
 ```bash
-$ git remote add upstream https://github.com/rasbt/mlearner.git
+$ git remote add upstream https://github.com/jaisenbe58r/MLearner.git
 ```
 
 Now, verify the new upstream repository you've specified for your fork by executing
@@ -80,8 +80,8 @@ You should see following output if everything is configured correctly:
 ```bash
 origin	https://github.com/<your username>/mlearner.git (fetch)
 origin	https://github.com/<your username>/mlearner.git (push)
-upstream	https://github.com/rasbt/mlearner.git (fetch)
-upstream	https://github.com/rasbt/mlearner.git (push)
+upstream	https://github.com/jaisenbe58r/MLearner.git (fetch)
+upstream	https://github.com/jaisenbe58r/MLearner.git (push)
 ```
 
 #### 2. Syncing your Fork
@@ -99,7 +99,7 @@ remote: Counting objects: xx, done.
 remote: Compressing objects: 100% (xx/xx), done.
 remote: Total xx (delta xx), reused xx (delta x)
 Unpacking objects: 100% (xx/xx), done.
-From https://github.com/rasbt/mlearner
+From https://github.com/jaisenbe58r/MLearner
  * [new branch]      master     -> upstream/master
 ```
 
@@ -137,7 +137,7 @@ Listed below are the 9 typical steps of a contribution.
 #### 1. Discussing the Feature or Modification
 
 Before you start coding, please discuss the new feature, bugfix, or other modification to the project
-on the project's [issue tracker](https://github.com/rasbt/mlearner/issues). Before you open a "new issue," please
+on the project's [issue tracker](https://github.com/jaisenbe58r/MLearner/issues). Before you open a "new issue," please
 do a quick search to see if a similar issue has been submitted already.
 
 #### 2. Creating a new feature branch

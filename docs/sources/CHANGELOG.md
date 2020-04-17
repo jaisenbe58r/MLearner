@@ -3,7 +3,7 @@
 ---
 
 The CHANGELOG for the current development version is available at
-[https://github.com/rasbt/mlearner/blob/master/docs/sources/CHANGELOG.md](https://github.com/rasbt/mlearner/blob/master/docs/sources/CHANGELOG.md).
+[https://github.com/jaisenbe58r/MLearner/blob/master/docs/sources/CHANGELOG.md](https://github.com/jaisenbe58r/MLearner/blob/master/docs/sources/CHANGELOG.md).
 
 ---
 
@@ -12,9 +12,9 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.18.0.zip)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.18.0.zip)
 
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.18.0.tar.gz)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.18.0.tar.gz)
 
 
 ##### New Features
@@ -23,19 +23,19 @@ The CHANGELOG for the current development version is available at
 
 ##### Changes
 
-- Implemented both `use_clones` and `fit_base_estimators` (previously `refit` in `EnsembleVoteClassifier`) for `EnsembleVoteClassifier` and `StackingClassifier`. ([#670](https://github.com/rasbt/mlearner/pull/670) via [Katrina Ni](https://github.com/nilichen))
+- Implemented both `use_clones` and `fit_base_estimators` (previously `refit` in `EnsembleVoteClassifier`) for `EnsembleVoteClassifier` and `StackingClassifier`. ([#670](https://github.com/jaisenbe58r/MLearner/pull/670) via [Katrina Ni](https://github.com/nilichen))
 
 ##### Bug Fixes
 
-- Fix axis DeprecationWarning in matplotlib v3.1.0 and newer. ([#673](https://github.com/rasbt/mlearner/pull/673))
+- Fix axis DeprecationWarning in matplotlib v3.1.0 and newer. ([#673](https://github.com/jaisenbe58r/MLearner/pull/673))
 
 ### Version 0.17.2 (02-24-2020)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.17.2.zip)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.2.zip)
 
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.17.2.tar.gz)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.2.tar.gz)
 
 
 ##### New Features
@@ -45,8 +45,8 @@ The CHANGELOG for the current development version is available at
 ##### Changes
 
 - The previously deprecated `OnehotTransactions` has been removed in favor of the `TransactionEncoder.`
-- Removed `SparseDataFrame` support in frequent pattern mining functions in favor of pandas >=1.0's new way for working sparse data. If you used `SparseDataFrame` formats, please see pandas' migration guide at https://pandas.pydata.org/pandas-docs/stable/user_guide/sparse.html#migrating. ([#667](https://github.com/rasbt/mlearner/pull/667))
-- The `plot_confusion_matrix.py` now also accepts a matplotlib figure and axis as input to which the confusion matrix plot can be added. ([#671](https://github.com/rasbt/mlearner/pull/634) via [Vahid Mirjalili](https://github.com/vmirly))
+- Removed `SparseDataFrame` support in frequent pattern mining functions in favor of pandas >=1.0's new way for working sparse data. If you used `SparseDataFrame` formats, please see pandas' migration guide at https://pandas.pydata.org/pandas-docs/stable/user_guide/sparse.html#migrating. ([#667](https://github.com/jaisenbe58r/MLearner/pull/667))
+- The `plot_confusion_matrix.py` now also accepts a matplotlib figure and axis as input to which the confusion matrix plot can be added. ([#671](https://github.com/jaisenbe58r/MLearner/pull/634) via [Vahid Mirjalili](https://github.com/vmirly))
 
 ##### Bug Fixes
 
@@ -59,29 +59,29 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.17.1.zip)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.1.zip)
 
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.17.1.tar.gz)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.1.tar.gz)
 
 ##### New Features
 
-- The `SequentialFeatureSelector` now supports using pre-specified feature sets via the `fixed_features` parameter. ([#578](https://github.com/rasbt/mlearner/pull/578))
-- Adds a new `accuracy_score` function to `mlearner.evaluate` for computing basic classifcation accuracy, per-class accuracy, and average per-class accuracy. ([#624](https://github.com/rasbt/mlearner/pull/624) via [Deepan Das](https://github.com/deepandas11))
-- `StackingClassifier` and `StackingCVClassifier`now have a `decision_function` method, which serves as a preferred choice over `predict_proba` in calculating roc_auc and average_precision scores when the meta estimator is a linear model or support vector classifier. ([#634](https://github.com/rasbt/mlearner/pull/634) via [Qiang Gu](https://github.com/qiagu))
+- The `SequentialFeatureSelector` now supports using pre-specified feature sets via the `fixed_features` parameter. ([#578](https://github.com/jaisenbe58r/MLearner/pull/578))
+- Adds a new `accuracy_score` function to `mlearner.evaluate` for computing basic classifcation accuracy, per-class accuracy, and average per-class accuracy. ([#624](https://github.com/jaisenbe58r/MLearner/pull/624) via [Deepan Das](https://github.com/deepandas11))
+- `StackingClassifier` and `StackingCVClassifier`now have a `decision_function` method, which serves as a preferred choice over `predict_proba` in calculating roc_auc and average_precision scores when the meta estimator is a linear model or support vector classifier. ([#634](https://github.com/jaisenbe58r/MLearner/pull/634) via [Qiang Gu](https://github.com/qiagu))
 
 ##### Changes
 
-- Improve the runtime performance for the `apriori` frequent itemset generating function when `low_memory=True`. Setting `low_memory=False` (default) is still faster for small itemsets, but `low_memory=True` can be much faster for large itemsets and requires less memory.  Also, input validation for  `apriori`, ̀ fpgrowth` and `fpmax` takes a significant amount of time when input pandas DataFrame is large; this is now dramatically reduced when input contains boolean values (and not zeros/ones), which is the case when using `TransactionEncoder`. ([#619](https://github.com/rasbt/mlearner/pull/619) via [Denis Barbier](https://github.com/dbarbier))
-- Add support for newer sparse pandas DataFrame for frequent itemset algorithms. Also, input validation for  `apriori`, ̀ fpgrowth` and `fpmax` runs much faster on sparse DataFrame when input pandas DataFrame contains integer values. ([#621](https://github.com/rasbt/mlearner/pull/621) via [Denis Barbier](https://github.com/dbarbier))
-- Let `fpgrowth` and `fpmax` directly work on sparse DataFrame, they were previously converted into dense Numpy arrays. ([#622](https://github.com/rasbt/mlearner/pull/622) via [Denis Barbier](https://github.com/dbarbier))
+- Improve the runtime performance for the `apriori` frequent itemset generating function when `low_memory=True`. Setting `low_memory=False` (default) is still faster for small itemsets, but `low_memory=True` can be much faster for large itemsets and requires less memory.  Also, input validation for  `apriori`, ̀ fpgrowth` and `fpmax` takes a significant amount of time when input pandas DataFrame is large; this is now dramatically reduced when input contains boolean values (and not zeros/ones), which is the case when using `TransactionEncoder`. ([#619](https://github.com/jaisenbe58r/MLearner/pull/619) via [Denis Barbier](https://github.com/dbarbier))
+- Add support for newer sparse pandas DataFrame for frequent itemset algorithms. Also, input validation for  `apriori`, ̀ fpgrowth` and `fpmax` runs much faster on sparse DataFrame when input pandas DataFrame contains integer values. ([#621](https://github.com/jaisenbe58r/MLearner/pull/621) via [Denis Barbier](https://github.com/dbarbier))
+- Let `fpgrowth` and `fpmax` directly work on sparse DataFrame, they were previously converted into dense Numpy arrays. ([#622](https://github.com/jaisenbe58r/MLearner/pull/622) via [Denis Barbier](https://github.com/dbarbier))
 
 ##### Bug Fixes
-- Fixes a bug in `mlearner.plotting.plot_pca_correlation_graph` that caused the explaind variances not summing up to 1. Also, improves the runtime performance of the correlation computation and adds a missing function argument for the explained variances (eigenvalues) if users provide their own principal components. ([#593](https://github.com/rasbt/mlearner/issues/593) via [Gabriel Azevedo Ferreira](https://github.com/Gabriel-Azevedo-Ferreira))
-- Behavior of `fpgrowth` and `apriori` consistent for edgecases such as `min_support=0`. ([#573](https://github.com/rasbt/mlearner/pull/573) via [Steve Harenberg](https://github.com/harenbergsd))
-- `fpmax` returns an empty data frame now instead of raising an error if the frequent itemset set is empty. ([#573](https://github.com/rasbt/mlearner/pull/573) via [Steve Harenberg](https://github.com/harenbergsd))
-- Fixes and issue in `mlearner.plotting.plot_confusion_matrix`, where the font-color choice for medium-dark cells was not ideal and hard to read. [#588](https://github.com/rasbt/mlearner/pull/588) via [sohrabtowfighi](https://github.com/sohrabtowfighi))
-- The `svd` mode of `mlearner.feature_extraction.PrincipalComponentAnalysis` now also *n-1* degrees of freedom instead of *n* d.o.f. when computing the eigenvalues to match the behavior of `eigen`. [#595](https://github.com/rasbt/mlearner/pull/595)
-- Disable input validation for `StackingCVClassifier` because it causes issues if pipelines are used as input. [#606](https://github.com/rasbt/mlearner/pull/606)
+- Fixes a bug in `mlearner.plotting.plot_pca_correlation_graph` that caused the explaind variances not summing up to 1. Also, improves the runtime performance of the correlation computation and adds a missing function argument for the explained variances (eigenvalues) if users provide their own principal components. ([#593](https://github.com/jaisenbe58r/MLearner/issues/593) via [Gabriel Azevedo Ferreira](https://github.com/Gabriel-Azevedo-Ferreira))
+- Behavior of `fpgrowth` and `apriori` consistent for edgecases such as `min_support=0`. ([#573](https://github.com/jaisenbe58r/MLearner/pull/573) via [Steve Harenberg](https://github.com/harenbergsd))
+- `fpmax` returns an empty data frame now instead of raising an error if the frequent itemset set is empty. ([#573](https://github.com/jaisenbe58r/MLearner/pull/573) via [Steve Harenberg](https://github.com/harenbergsd))
+- Fixes and issue in `mlearner.plotting.plot_confusion_matrix`, where the font-color choice for medium-dark cells was not ideal and hard to read. [#588](https://github.com/jaisenbe58r/MLearner/pull/588) via [sohrabtowfighi](https://github.com/sohrabtowfighi))
+- The `svd` mode of `mlearner.feature_extraction.PrincipalComponentAnalysis` now also *n-1* degrees of freedom instead of *n* d.o.f. when computing the eigenvalues to match the behavior of `eigen`. [#595](https://github.com/jaisenbe58r/MLearner/pull/595)
+- Disable input validation for `StackingCVClassifier` because it causes issues if pipelines are used as input. [#606](https://github.com/jaisenbe58r/MLearner/pull/606)
 
 
 
@@ -89,155 +89,155 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.17.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.17.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.17.0.tar.gz)
 
 ##### New Features
 
 - Added an enhancement to the existing `iris_data()` such that both the UCI Repository version of the Iris dataset as well as the corrected, original
-  version of the dataset can be loaded, which has a slight difference in two data points (consistent with Fisher's paper; this is also the same as in R). (via [#539](https://github.com/rasbt/mlearner/pull/532) via [janismdhanbad](https://github.com/janismdhanbad))
-- Added optional `groups` parameter to `SequentialFeatureSelector` and `ExhaustiveFeatureSelector` `fit()` methods for forwarding to sklearn CV ([#537](https://github.com/rasbt/mlearner/pull/537) via [arc12](https://github.com/qiaguhttps://github.com/arc12))
-- Added a new `plot_pca_correlation_graph` function to the `mlearner.plotting` submodule for plotting a PCA correlation graph. ([#544](https://github.com/rasbt/mlearner/pull/544) via [Gabriel-Azevedo-Ferreira](https://github.com/qiaguhttps://github.com/Gabriel-Azevedo-Ferreira))
-- Added a `zoom_factor` parameter to the `mlxten.plotting.plot_decision_region` function that allows users to zoom in and out of the decision region plots. ([#545](https://github.com/rasbt/mlearner/pull/545))
-- Added a function `fpgrowth` that implements the FP-Growth algorithm for mining frequent itemsets as a drop-in replacement for the existing `apriori` algorithm. ([#550](https://github.com/rasbt/mlearner/pull/550) via [Steve Harenberg](https://github.com/harenbergsd))
-- New `heatmap` function in `mlearner.plotting`.  ([#552](https://github.com/rasbt/mlearner/pull/552))
-- Added a function `fpmax` that implements the FP-Max algorithm for mining maximal itemsets as a drop-in replacement for the `fpgrowth` algorithm. ([#553](https://github.com/rasbt/mlearner/pull/553) via [Steve Harenberg](https://github.com/harenbergsd))
-- New `figsize` parameter for the `plot_decision_regions` function in `mlearner.plotting`. ([#555](https://github.com/rasbt/mlearner/pull/555) via [Mirza Hasanbasic](https://github.com/kazyka))
-- New `low_memory` option for the `apriori` frequent itemset generating function. Setting `low_memory=False` (default) uses a substantially optimized version of the algorithm that is 3-6x faster than the original implementation (`low_memory=True`). ([#567](https://github.com/rasbt/mlearner/pull/567) via [jmayse](https://github.com/jmayse))
-- Added numerically stable OLS methods which uses `QR decomposition` and `Singular Value Decomposition` (SVD) methods to `LinearRegression` in `mlearner.regressor.linear_regression`. ([#575](https://github.com/rasbt/mlearner/pull/575) via [PuneetGrov3r](https://github.com/PuneetGrov3r))
+  version of the dataset can be loaded, which has a slight difference in two data points (consistent with Fisher's paper; this is also the same as in R). (via [#539](https://github.com/jaisenbe58r/MLearner/pull/532) via [janismdhanbad](https://github.com/janismdhanbad))
+- Added optional `groups` parameter to `SequentialFeatureSelector` and `ExhaustiveFeatureSelector` `fit()` methods for forwarding to sklearn CV ([#537](https://github.com/jaisenbe58r/MLearner/pull/537) via [arc12](https://github.com/qiaguhttps://github.com/arc12))
+- Added a new `plot_pca_correlation_graph` function to the `mlearner.plotting` submodule for plotting a PCA correlation graph. ([#544](https://github.com/jaisenbe58r/MLearner/pull/544) via [Gabriel-Azevedo-Ferreira](https://github.com/qiaguhttps://github.com/Gabriel-Azevedo-Ferreira))
+- Added a `zoom_factor` parameter to the `mlxten.plotting.plot_decision_region` function that allows users to zoom in and out of the decision region plots. ([#545](https://github.com/jaisenbe58r/MLearner/pull/545))
+- Added a function `fpgrowth` that implements the FP-Growth algorithm for mining frequent itemsets as a drop-in replacement for the existing `apriori` algorithm. ([#550](https://github.com/jaisenbe58r/MLearner/pull/550) via [Steve Harenberg](https://github.com/harenbergsd))
+- New `heatmap` function in `mlearner.plotting`.  ([#552](https://github.com/jaisenbe58r/MLearner/pull/552))
+- Added a function `fpmax` that implements the FP-Max algorithm for mining maximal itemsets as a drop-in replacement for the `fpgrowth` algorithm. ([#553](https://github.com/jaisenbe58r/MLearner/pull/553) via [Steve Harenberg](https://github.com/harenbergsd))
+- New `figsize` parameter for the `plot_decision_regions` function in `mlearner.plotting`. ([#555](https://github.com/jaisenbe58r/MLearner/pull/555) via [Mirza Hasanbasic](https://github.com/kazyka))
+- New `low_memory` option for the `apriori` frequent itemset generating function. Setting `low_memory=False` (default) uses a substantially optimized version of the algorithm that is 3-6x faster than the original implementation (`low_memory=True`). ([#567](https://github.com/jaisenbe58r/MLearner/pull/567) via [jmayse](https://github.com/jmayse))
+- Added numerically stable OLS methods which uses `QR decomposition` and `Singular Value Decomposition` (SVD) methods to `LinearRegression` in `mlearner.regressor.linear_regression`. ([#575](https://github.com/jaisenbe58r/MLearner/pull/575) via [PuneetGrov3r](https://github.com/PuneetGrov3r))
 
 ##### Changes
 
-- Now uses the latest joblib library under the hood for multiprocessing instead of `sklearn.externals.joblib`. ([#547](https://github.com/rasbt/mlearner/pull/547))
-- Changes to `StackingCVClassifier` and `StackingCVRegressor` such that first-level models are allowed to generate output of non-numeric type. ([#562](https://github.com/rasbt/mlearner/pull/562))
+- Now uses the latest joblib library under the hood for multiprocessing instead of `sklearn.externals.joblib`. ([#547](https://github.com/jaisenbe58r/MLearner/pull/547))
+- Changes to `StackingCVClassifier` and `StackingCVRegressor` such that first-level models are allowed to generate output of non-numeric type. ([#562](https://github.com/jaisenbe58r/MLearner/pull/562))
 
 
 ##### Bug Fixes
 
 - Fixed documentation of `iris_data()` under `iris.py` by adding a note about differences in the iris data in R and UCI machine learning repo.
-- Make sure that if the `'svd'` mode is used in PCA, the number of eigenvalues is the same as when using `'eigen'` (append 0's zeros in that case) ([#565](https://github.com/rasbt/mlearner/pull/565))
+- Make sure that if the `'svd'` mode is used in PCA, the number of eigenvalues is the same as when using `'eigen'` (append 0's zeros in that case) ([#565](https://github.com/jaisenbe58r/MLearner/pull/565))
 
 ### Version 0.16.0 (05/12/2019)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.16.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.16.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.16.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.16.0.tar.gz)
 
 ##### New Features
 
-- `StackingCVClassifier` and `StackingCVRegressor` now support `random_state` parameter, which, together with `shuffle`, controls the randomness in the cv splitting. ([#523](https://github.com/rasbt/mlearner/pull/523) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- `StackingCVClassifier` and `StackingCVRegressor` now support `random_state` parameter, which, together with `shuffle`, controls the randomness in the cv splitting. ([#523](https://github.com/jaisenbe58r/MLearner/pull/523) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
 - `StackingCVClassifier` and `StackingCVRegressor` now have a new `drop_last_proba` parameter. It drops the last "probability" column in the feature set since if `True`,
-        because it is redundant: p(y_c) = 1 - p(y_1) + p(y_2) + ... + p(y_{c-1}). This can be useful for meta-classifiers that are sensitive to perfectly collinear features. ([#532](https://github.com/rasbt/mlearner/pull/532))
-- Other stacking estimators, including `StackingClassifier`, `StackingCVClassifier` and `StackingRegressor`, support grid search over the `regressors` and even a single base regressor. ([#522](https://github.com/rasbt/mlearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
-- Adds multiprocessing support to `StackingCVClassifier`. ([#522](https://github.com/rasbt/mlearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
-- Adds multiprocessing support to `StackingCVRegressor`. ([#512](https://github.com/rasbt/mlearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
--  Now, the `StackingCVRegressor` also enables grid search over the `regressors` and even a single base regressor. When there are level-mixed parameters, `GridSearchCV` will try to replace hyperparameters in a top-down order (see the [documentation](http://jaisenbe58r.github.io/mlearner/user_guide/regressor/StackingCVRegressor/) for examples details). ([#515](https://github.com/rasbt/mlearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
-- Adds a `verbose` parameter to `apriori` to show the current iteration number as well as the itemset size currently being sampled. ([#519](https://github.com/rasbt/mlearner/pull/519)
-- Adds an optional `class_name` parameter to the confusion matrix function to display class names on the axis as tick marks. ([#487](https://github.com/rasbt/mlearner/pull/487) via [sandpiturtle](https://github.com/qiaguhttps://github.com/sandpiturtle))
-- Adds a `pca.e_vals_normalized_` attribute to PCA for storing the eigenvalues also in normalized form; this is commonly referred to as variance explained ratios. [#545](https://github.com/rasbt/mlearner/pull/545)
+        because it is redundant: p(y_c) = 1 - p(y_1) + p(y_2) + ... + p(y_{c-1}). This can be useful for meta-classifiers that are sensitive to perfectly collinear features. ([#532](https://github.com/jaisenbe58r/MLearner/pull/532))
+- Other stacking estimators, including `StackingClassifier`, `StackingCVClassifier` and `StackingRegressor`, support grid search over the `regressors` and even a single base regressor. ([#522](https://github.com/jaisenbe58r/MLearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- Adds multiprocessing support to `StackingCVClassifier`. ([#522](https://github.com/jaisenbe58r/MLearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- Adds multiprocessing support to `StackingCVRegressor`. ([#512](https://github.com/jaisenbe58r/MLearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+-  Now, the `StackingCVRegressor` also enables grid search over the `regressors` and even a single base regressor. When there are level-mixed parameters, `GridSearchCV` will try to replace hyperparameters in a top-down order (see the [documentation](https://jaisenbe58r.github.io/MLearner//user_guide/regressor/StackingCVRegressor/) for examples details). ([#515](https://github.com/jaisenbe58r/MLearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- Adds a `verbose` parameter to `apriori` to show the current iteration number as well as the itemset size currently being sampled. ([#519](https://github.com/jaisenbe58r/MLearner/pull/519)
+- Adds an optional `class_name` parameter to the confusion matrix function to display class names on the axis as tick marks. ([#487](https://github.com/jaisenbe58r/MLearner/pull/487) via [sandpiturtle](https://github.com/qiaguhttps://github.com/sandpiturtle))
+- Adds a `pca.e_vals_normalized_` attribute to PCA for storing the eigenvalues also in normalized form; this is commonly referred to as variance explained ratios. [#545](https://github.com/jaisenbe58r/MLearner/pull/545)
 
 ##### Changes
 
-- Due to new features, restructuring, and better scikit-learn support (for `GridSearchCV`, etc.) the `StackingCVRegressor`'s meta regressor is now being accessed via `'meta_regressor__*` in the parameter grid. E.g., if a `RandomForestRegressor` as meta- egressor was previously tuned via `'randomforestregressor__n_estimators'`, this has now changed to `'meta_regressor__n_estimators'`. ([#515](https://github.com/rasbt/mlearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
-- The same change mentioned above is now applied to other stacking estimators, including `StackingClassifier`, `StackingCVClassifier` and `StackingRegressor`. ([#522](https://github.com/rasbt/mlearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
-- Automatically performs mean centering for PCA solver 'SVD' such that using SVD is always equal to using the covariance matrix approach [#545](https://github.com/rasbt/mlearner/pull/545)
+- Due to new features, restructuring, and better scikit-learn support (for `GridSearchCV`, etc.) the `StackingCVRegressor`'s meta regressor is now being accessed via `'meta_regressor__*` in the parameter grid. E.g., if a `RandomForestRegressor` as meta- egressor was previously tuned via `'randomforestregressor__n_estimators'`, this has now changed to `'meta_regressor__n_estimators'`. ([#515](https://github.com/jaisenbe58r/MLearner/pull/512) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- The same change mentioned above is now applied to other stacking estimators, including `StackingClassifier`, `StackingCVClassifier` and `StackingRegressor`. ([#522](https://github.com/jaisenbe58r/MLearner/pull/522) via [Qiang Gu](https://github.com/qiaguhttps://github.com/qiagu))
+- Automatically performs mean centering for PCA solver 'SVD' such that using SVD is always equal to using the covariance matrix approach [#545](https://github.com/jaisenbe58r/MLearner/pull/545)
 
 ##### Bug Fixes
 
-- The `feature_selection.ColumnSelector` now also supports column names of type `int` (in addition to `str` names) if the input is a pandas DataFrame.  ([#500](https://github.com/rasbt/mlearner/pull/500) via [tetrar124](https://github.com/tetrar124)
-- Fix unreadable labels in `plot_confusion_matrix` for imbalanced datasets if `show_absolute=True` and `show_normed=True`. ([#504](https://github.com/rasbt/mlearner/pull/504))
-- Raises a more informative error if a `SparseDataFrame` is passed to `apriori` and the dataframe has integer column names that don't start with `0` due to current limitations of the `SparseDataFrame` implementation in pandas. ([#503](https://github.com/rasbt/mlearner/pull/503))
-- SequentialFeatureSelector now supports DataFrame as input for all operating modes (forward/backward/floating). [#506](https://github.com/rasbt/mlearner/pull/506)
-- `mlearner.evaluate.feature_importance_permutation` now correctly accepts scoring functions with proper function signature as `metric` argument. [#528](https://github.com/rasbt/mlearner/pull/528)
+- The `feature_selection.ColumnSelector` now also supports column names of type `int` (in addition to `str` names) if the input is a pandas DataFrame.  ([#500](https://github.com/jaisenbe58r/MLearner/pull/500) via [tetrar124](https://github.com/tetrar124)
+- Fix unreadable labels in `plot_confusion_matrix` for imbalanced datasets if `show_absolute=True` and `show_normed=True`. ([#504](https://github.com/jaisenbe58r/MLearner/pull/504))
+- Raises a more informative error if a `SparseDataFrame` is passed to `apriori` and the dataframe has integer column names that don't start with `0` due to current limitations of the `SparseDataFrame` implementation in pandas. ([#503](https://github.com/jaisenbe58r/MLearner/pull/503))
+- SequentialFeatureSelector now supports DataFrame as input for all operating modes (forward/backward/floating). [#506](https://github.com/jaisenbe58r/MLearner/pull/506)
+- `mlearner.evaluate.feature_importance_permutation` now correctly accepts scoring functions with proper function signature as `metric` argument. [#528](https://github.com/jaisenbe58r/MLearner/pull/528)
 
 ### Version 0.15.0 (01-19-2019)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.15.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.15.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.15.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.15.0.tar.gz)
 
 ##### New Features
 
-- Adds a new transformer class to `mlearner.image`, `EyepadAlign`, that aligns face images based on the location of the eyes. ([#466](https://github.com/rasbt/mlearner/pull/466) by [Vahid Mirjalili](https://github.com/vmirly))
-- Adds a new function, `mlearner.evaluate.bias_variance_decomp` that decomposes the loss of a regressor or classifier into bias and variance terms. ([#470](https://github.com/rasbt/mlearner/pull/470))
-- Adds a `whitening` parameter to `PrincipalComponentAnalysis`, to optionally whiten the transformed data such that the features have unit variance. ([#475](https://github.com/rasbt/mlearner/pull/475))
+- Adds a new transformer class to `mlearner.image`, `EyepadAlign`, that aligns face images based on the location of the eyes. ([#466](https://github.com/jaisenbe58r/MLearner/pull/466) by [Vahid Mirjalili](https://github.com/vmirly))
+- Adds a new function, `mlearner.evaluate.bias_variance_decomp` that decomposes the loss of a regressor or classifier into bias and variance terms. ([#470](https://github.com/jaisenbe58r/MLearner/pull/470))
+- Adds a `whitening` parameter to `PrincipalComponentAnalysis`, to optionally whiten the transformed data such that the features have unit variance. ([#475](https://github.com/jaisenbe58r/MLearner/pull/475))
 
 ##### Changes
 
-- Changed the default solver in `PrincipalComponentAnalysis` to `'svd'` instead of `'eigen'` to improve numerical stability. ([#474](https://github.com/rasbt/mlearner/pull/474))
-- The `mlearner.image.extract_face_landmarks` now returns `None` if no facial landmarks were detected instead of an array of all zeros. ([#466](https://github.com/rasbt/mlearner/pull/466))
+- Changed the default solver in `PrincipalComponentAnalysis` to `'svd'` instead of `'eigen'` to improve numerical stability. ([#474](https://github.com/jaisenbe58r/MLearner/pull/474))
+- The `mlearner.image.extract_face_landmarks` now returns `None` if no facial landmarks were detected instead of an array of all zeros. ([#466](https://github.com/jaisenbe58r/MLearner/pull/466))
 
 
 ##### Bug Fixes
 
-- The eigenvectors maybe have not been sorted in certain edge cases if solver was `'eigen'` in `PrincipalComponentAnalysis` and `LinearDiscriminantAnalysis`. ([#477](https://github.com/rasbt/mlearner/pull/477), [#478](https://github.com/rasbt/mlearner/pull/478))
+- The eigenvectors maybe have not been sorted in certain edge cases if solver was `'eigen'` in `PrincipalComponentAnalysis` and `LinearDiscriminantAnalysis`. ([#477](https://github.com/jaisenbe58r/MLearner/pull/477), [#478](https://github.com/jaisenbe58r/MLearner/pull/478))
 
 
 ### Version 0.14.0 (11-09-2018)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.14.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.14.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.14.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.14.0.tar.gz)
 
 ##### New Features
 
-- Added a `scatterplotmatrix` function to the `plotting` module. ([#437](https://github.com/rasbt/mlearner/pull/437))
-- Added `sample_weight` option to `StackingRegressor`, `StackingClassifier`, `StackingCVRegressor`, `StackingCVClassifier`, `EnsembleVoteClassifier`. ([#438](https://github.com/rasbt/mlearner/issues/438))
-- Added a `RandomHoldoutSplit` class to perform a random train/valid split without rotation in `SequentialFeatureSelector`, scikit-learn `GridSearchCV` etc. ([#442](https://github.com/rasbt/mlearner/pull/442))
-- Added a `PredefinedHoldoutSplit` class to perform a train/valid split, based on user-specified indices, without rotation in `SequentialFeatureSelector`, scikit-learn `GridSearchCV` etc. ([#443](https://github.com/rasbt/mlearner/pull/443))
-- Created a new `mlearner.image` submodule for working on image processing-related tasks. ([#457](https://github.com/rasbt/mlearner/pull/457))
-- Added a new convenience function `extract_face_landmarks` based on `dlib` to `mlearner.image`. ([#458](https://github.com/rasbt/mlearner/pull/458))
-- Added a `method='oob'` option to the `mlearner.evaluate.bootstrap_point632_score` method to compute the classic out-of-bag bootstrap estimate ([#459](https://github.com/rasbt/mlearner/pull/459))
-- Added a `method='.632+'` option to the `mlearner.evaluate.bootstrap_point632_score` method to compute the .632+ bootstrap estimate that addresses the optimism bias of the .632 bootstrap ([#459](https://github.com/rasbt/mlearner/pull/459))
-- Added a new `mlearner.evaluate.ftest` function to perform an F-test for comparing the accuracies of two or more classification models. ([#460](https://github.com/rasbt/mlearner/pull/460))
-- Added a new `mlearner.evaluate.combined_ftest_5x2cv` function to perform an combined 5x2cv F-Test for comparing the performance of two models. ([#461](https://github.com/rasbt/mlearner/pull/461))
-- Added a new `mlearner.evaluate.difference_proportions` test for comparing two proportions (e.g., classifier accuracies) ([#462](https://github.com/rasbt/mlearner/pull/462))
+- Added a `scatterplotmatrix` function to the `plotting` module. ([#437](https://github.com/jaisenbe58r/MLearner/pull/437))
+- Added `sample_weight` option to `StackingRegressor`, `StackingClassifier`, `StackingCVRegressor`, `StackingCVClassifier`, `EnsembleVoteClassifier`. ([#438](https://github.com/jaisenbe58r/MLearner/issues/438))
+- Added a `RandomHoldoutSplit` class to perform a random train/valid split without rotation in `SequentialFeatureSelector`, scikit-learn `GridSearchCV` etc. ([#442](https://github.com/jaisenbe58r/MLearner/pull/442))
+- Added a `PredefinedHoldoutSplit` class to perform a train/valid split, based on user-specified indices, without rotation in `SequentialFeatureSelector`, scikit-learn `GridSearchCV` etc. ([#443](https://github.com/jaisenbe58r/MLearner/pull/443))
+- Created a new `mlearner.image` submodule for working on image processing-related tasks. ([#457](https://github.com/jaisenbe58r/MLearner/pull/457))
+- Added a new convenience function `extract_face_landmarks` based on `dlib` to `mlearner.image`. ([#458](https://github.com/jaisenbe58r/MLearner/pull/458))
+- Added a `method='oob'` option to the `mlearner.evaluate.bootstrap_point632_score` method to compute the classic out-of-bag bootstrap estimate ([#459](https://github.com/jaisenbe58r/MLearner/pull/459))
+- Added a `method='.632+'` option to the `mlearner.evaluate.bootstrap_point632_score` method to compute the .632+ bootstrap estimate that addresses the optimism bias of the .632 bootstrap ([#459](https://github.com/jaisenbe58r/MLearner/pull/459))
+- Added a new `mlearner.evaluate.ftest` function to perform an F-test for comparing the accuracies of two or more classification models. ([#460](https://github.com/jaisenbe58r/MLearner/pull/460))
+- Added a new `mlearner.evaluate.combined_ftest_5x2cv` function to perform an combined 5x2cv F-Test for comparing the performance of two models. ([#461](https://github.com/jaisenbe58r/MLearner/pull/461))
+- Added a new `mlearner.evaluate.difference_proportions` test for comparing two proportions (e.g., classifier accuracies) ([#462](https://github.com/jaisenbe58r/MLearner/pull/462))
 
 
 ##### Changes
 
-- Addressed deprecations warnings in NumPy 0.15. ([#425](https://github.com/rasbt/mlearner/pull/425))
-- Because of complications in PR ([#459](https://github.com/rasbt/mlearner/pull/459)), Python 2.7 was now dropped; since official support for Python 2.7 by the Python Software Foundation is ending in approx. 12 months anyways, this re-focussing will hopefully free up some developer time with regard to not having to worry about backward compatibility
+- Addressed deprecations warnings in NumPy 0.15. ([#425](https://github.com/jaisenbe58r/MLearner/pull/425))
+- Because of complications in PR ([#459](https://github.com/jaisenbe58r/MLearner/pull/459)), Python 2.7 was now dropped; since official support for Python 2.7 by the Python Software Foundation is ending in approx. 12 months anyways, this re-focussing will hopefully free up some developer time with regard to not having to worry about backward compatibility
 
 ##### Bug Fixes
 
-- Fixed an issue with a missing import in `mlearner.plotting.plot_confusion_matrix`. ([#428](https://github.com/rasbt/mlearner/pull/428))
+- Fixed an issue with a missing import in `mlearner.plotting.plot_confusion_matrix`. ([#428](https://github.com/jaisenbe58r/MLearner/pull/428))
 
 ### Version 0.13.0 (2018-07-20)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.13.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.13.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.13.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.13.0.tar.gz)
 
 ##### New Features
 
-- A meaningful error message is now raised when a cross-validation generator is used with `SequentialFeatureSelector`. ([#377](https://github.com/rasbt/mlearner/pull/377))
-- The `SequentialFeatureSelector` now accepts custom feature names via the `fit` method for more interpretable feature subset reports. ([#379](https://github.com/rasbt/mlearner/pull/379))
-- The `SequentialFeatureSelector` is now also compatible with Pandas DataFrames and uses DataFrame column-names for more interpretable feature subset reports. ([#379](https://github.com/rasbt/mlearner/pull/379))
-- `ColumnSelector` now works with Pandas DataFrames columns. ([#378](https://github.com/rasbt/mlearner/pull/378) by [Manuel Garrido](https://github.com/manugarri))
-- The `ExhaustiveFeatureSelector` estimator in `mlearner.feature_selection` now is safely stoppable mid-process by control+c. ([#380](https://github.com/rasbt/mlearner/pull/380))
-- Two new functions, `vectorspace_orthonormalization` and `vectorspace_dimensionality` were added to `mlearner.math` to use the Gram-Schmidt process to convert a set of linearly independent vectors into a set of orthonormal basis vectors, and to compute the dimensionality of a vectorspace, respectively. ([#382](https://github.com/rasbt/mlearner/pull/382))
-- `mlearner.frequent_patterns.apriori` now supports pandas `SparseDataFrame`s to generate frequent itemsets. ([#404](https://github.com/rasbt/mlearner/pull/404) via [Daniel Morales](https://github.com/rasbt/mlearner/pull/404))
+- A meaningful error message is now raised when a cross-validation generator is used with `SequentialFeatureSelector`. ([#377](https://github.com/jaisenbe58r/MLearner/pull/377))
+- The `SequentialFeatureSelector` now accepts custom feature names via the `fit` method for more interpretable feature subset reports. ([#379](https://github.com/jaisenbe58r/MLearner/pull/379))
+- The `SequentialFeatureSelector` is now also compatible with Pandas DataFrames and uses DataFrame column-names for more interpretable feature subset reports. ([#379](https://github.com/jaisenbe58r/MLearner/pull/379))
+- `ColumnSelector` now works with Pandas DataFrames columns. ([#378](https://github.com/jaisenbe58r/MLearner/pull/378) by [Manuel Garrido](https://github.com/manugarri))
+- The `ExhaustiveFeatureSelector` estimator in `mlearner.feature_selection` now is safely stoppable mid-process by control+c. ([#380](https://github.com/jaisenbe58r/MLearner/pull/380))
+- Two new functions, `vectorspace_orthonormalization` and `vectorspace_dimensionality` were added to `mlearner.math` to use the Gram-Schmidt process to convert a set of linearly independent vectors into a set of orthonormal basis vectors, and to compute the dimensionality of a vectorspace, respectively. ([#382](https://github.com/jaisenbe58r/MLearner/pull/382))
+- `mlearner.frequent_patterns.apriori` now supports pandas `SparseDataFrame`s to generate frequent itemsets. ([#404](https://github.com/jaisenbe58r/MLearner/pull/404) via [Daniel Morales](https://github.com/jaisenbe58r/MLearner/pull/404))
 - The `plot_confusion_matrix` function now has the ability to show normalized confusion matrix coefficients in addition to or instead of absolute confusion matrix coefficients with or without a colorbar. The text display method has been changed so that the full range of the colormap is used. The default size is also now set based on the number of classes.
-- Added support for merging the meta features with the original input features in `StackingRegressor` (via `use_features_in_secondary`) like it is already supported in the other Stacking classes. ([#418](https://github.com/rasbt/mlearner/pull/418))
-- Added a `support_only` to the `association_rules` function, which allow constructing association rules (based on the support metric only) for cropped input DataFrames that don't contain a complete set of antecedent and consequent support values. ([#421](https://github.com/rasbt/mlearner/pull/421))
+- Added support for merging the meta features with the original input features in `StackingRegressor` (via `use_features_in_secondary`) like it is already supported in the other Stacking classes. ([#418](https://github.com/jaisenbe58r/MLearner/pull/418))
+- Added a `support_only` to the `association_rules` function, which allow constructing association rules (based on the support metric only) for cropped input DataFrames that don't contain a complete set of antecedent and consequent support values. ([#421](https://github.com/jaisenbe58r/MLearner/pull/421))
 
 ##### Changes
 
-- Itemsets generated with `apriori` are now `frozenset`s ([#393](https://github.com/rasbt/mlearner/issues/393) by [William Laney](https://github.com/WLaney) and [#394](https://github.com/rasbt/mlearner/issues/394))
-- Now raises an error if a input DataFrame to `apriori` contains non 0, 1, True, False values. [#419](https://github.com/rasbt/mlearner/issues/419))
+- Itemsets generated with `apriori` are now `frozenset`s ([#393](https://github.com/jaisenbe58r/MLearner/issues/393) by [William Laney](https://github.com/WLaney) and [#394](https://github.com/jaisenbe58r/MLearner/issues/394))
+- Now raises an error if a input DataFrame to `apriori` contains non 0, 1, True, False values. [#419](https://github.com/jaisenbe58r/MLearner/issues/419))
 
 ##### Bug Fixes
 
-- Allow mlearner estimators to be cloned via scikit-learn's `clone` function. ([#374](https://github.com/rasbt/mlearner/pull/374))
-- Fixes bug to allow the correct use of `refit=False` in `StackingRegressor` and `StackingCVRegressor`  ([#384](https://github.com/rasbt/mlearner/pull/384) and ([#385](https://github.com/rasbt/mlearner/pull/385)) by [selay01](https://github.com/selay01))
-- Allow `StackingClassifier` to work with sparse matrices when `use_features_in_secondary=True`  ([#408](https://github.com/rasbt/mlearner/issues/408) by [Floris Hoogenbook](https://github.com/FlorisHoogenboom))
-- Allow `StackingCVRegressor` to work with sparse matrices when `use_features_in_secondary=True`  ([#416](https://github.com/rasbt/mlearner/issues/416))
-- Allow `StackingCVClassifier` to work with sparse matrices when `use_features_in_secondary=True`  ([#417](https://github.com/rasbt/mlearner/issues/417))
+- Allow mlearner estimators to be cloned via scikit-learn's `clone` function. ([#374](https://github.com/jaisenbe58r/MLearner/pull/374))
+- Fixes bug to allow the correct use of `refit=False` in `StackingRegressor` and `StackingCVRegressor`  ([#384](https://github.com/jaisenbe58r/MLearner/pull/384) and ([#385](https://github.com/jaisenbe58r/MLearner/pull/385)) by [selay01](https://github.com/selay01))
+- Allow `StackingClassifier` to work with sparse matrices when `use_features_in_secondary=True`  ([#408](https://github.com/jaisenbe58r/MLearner/issues/408) by [Floris Hoogenbook](https://github.com/FlorisHoogenboom))
+- Allow `StackingCVRegressor` to work with sparse matrices when `use_features_in_secondary=True`  ([#416](https://github.com/jaisenbe58r/MLearner/issues/416))
+- Allow `StackingCVClassifier` to work with sparse matrices when `use_features_in_secondary=True`  ([#417](https://github.com/jaisenbe58r/MLearner/issues/417))
 
 
 
@@ -245,30 +245,30 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.12.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.12.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.12.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.12.0.tar.gz)
 
 ##### New Features
 
--  A new `feature_importance_permuation` function to compute the feature importance in classifiers and regressors via the *permutation importance* method ([#358](https://github.com/rasbt/mlearner/pull/358))
--  The fit method of the `ExhaustiveFeatureSelector` now optionally accepts `**fit_params` for the estimator that is used for the feature selection. ([#354](https://github.com/rasbt/mlearner/pull/354) by Zach Griffith)
+-  A new `feature_importance_permuation` function to compute the feature importance in classifiers and regressors via the *permutation importance* method ([#358](https://github.com/jaisenbe58r/MLearner/pull/358))
+-  The fit method of the `ExhaustiveFeatureSelector` now optionally accepts `**fit_params` for the estimator that is used for the feature selection. ([#354](https://github.com/jaisenbe58r/MLearner/pull/354) by Zach Griffith)
 -  The fit method of the `SequentialFeatureSelector` now optionally accepts
-`**fit_params` for the estimator that is used for the feature selection. ([#350](https://github.com/rasbt/mlearner/pull/350) by Zach Griffith)
+`**fit_params` for the estimator that is used for the feature selection. ([#350](https://github.com/jaisenbe58r/MLearner/pull/350) by Zach Griffith)
 
 
 ##### Changes
 
 
-- Replaced `plot_decision_regions` colors by a colorblind-friendly palette and adds contour lines for decision regions. ([#348](https://github.com/rasbt/mlearner/issues/348))
-- All stacking estimators now raise `NonFittedErrors` if any method for inference is called prior to fitting the estimator. ([#353](https://github.com/rasbt/mlearner/issues/353))
-- Renamed the `refit` parameter of both the `StackingClassifier` and `StackingCVClassifier` to `use_clones` to be more explicit and less misleading. ([#368](https://github.com/rasbt/mlearner/pull/368))
+- Replaced `plot_decision_regions` colors by a colorblind-friendly palette and adds contour lines for decision regions. ([#348](https://github.com/jaisenbe58r/MLearner/issues/348))
+- All stacking estimators now raise `NonFittedErrors` if any method for inference is called prior to fitting the estimator. ([#353](https://github.com/jaisenbe58r/MLearner/issues/353))
+- Renamed the `refit` parameter of both the `StackingClassifier` and `StackingCVClassifier` to `use_clones` to be more explicit and less misleading. ([#368](https://github.com/jaisenbe58r/MLearner/pull/368))
 
 
 ##### Bug Fixes
 
-- Various changes in the documentation and documentation tools to fix formatting issues ([#363](https://github.com/rasbt/mlearner/pull/363))
-- Fixes a bug where the `StackingCVClassifier`'s meta features were not stored in the original order when `shuffle=True` ([#370](https://github.com/rasbt/mlearner/pull/370))
-- Many documentation improvements, including links to the User Guides in the API docs ([#371](https://github.com/rasbt/mlearner/pull/371))
+- Various changes in the documentation and documentation tools to fix formatting issues ([#363](https://github.com/jaisenbe58r/MLearner/pull/363))
+- Fixes a bug where the `StackingCVClassifier`'s meta features were not stored in the original order when `shuffle=True` ([#370](https://github.com/jaisenbe58r/MLearner/pull/370))
+- Many documentation improvements, including links to the User Guides in the API docs ([#371](https://github.com/jaisenbe58r/MLearner/pull/371))
 
 
 
@@ -276,37 +276,37 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.11.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.11.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.11.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.11.0.tar.gz)
 
 ##### New Features
 
 -   New function implementing the resampled paired t-test procedure (`paired_ttest_resampled`)
-    to compare the performance of two models. ([#323](https://github.com/rasbt/mlearner/issues/323))
+    to compare the performance of two models. ([#323](https://github.com/jaisenbe58r/MLearner/issues/323))
 -   New function implementing the k-fold paired t-test procedure (`paired_ttest_kfold_cv`)
     to compare the performance of two models
-    (also called k-hold-out paired t-test). ([#324](https://github.com/rasbt/mlearner/issues/324))
+    (also called k-hold-out paired t-test). ([#324](https://github.com/jaisenbe58r/MLearner/issues/324))
 -   New function implementing the 5x2cv paired t-test procedure (`paired_ttest_5x2cv`) proposed by Dieterrich (1998)
-    to compare the performance of two models. ([#325](https://github.com/rasbt/mlearner/issues/325))
-- A `refit` parameter was added to stacking classes (similar to the `refit` parameter in the `EnsembleVoteClassifier`), to support classifiers and regressors that follow the scikit-learn API but are not compatible with scikit-learn's `clone` function. ([#322](https://github.com/rasbt/mlearner/issues/322))
-- The `ColumnSelector` now has a `drop_axis` argument to use it in pipelines with `CountVectorizers`. ([#333](https://github.com/rasbt/mlearner/pull/333))
+    to compare the performance of two models. ([#325](https://github.com/jaisenbe58r/MLearner/issues/325))
+- A `refit` parameter was added to stacking classes (similar to the `refit` parameter in the `EnsembleVoteClassifier`), to support classifiers and regressors that follow the scikit-learn API but are not compatible with scikit-learn's `clone` function. ([#322](https://github.com/jaisenbe58r/MLearner/issues/322))
+- The `ColumnSelector` now has a `drop_axis` argument to use it in pipelines with `CountVectorizers`. ([#333](https://github.com/jaisenbe58r/MLearner/pull/333))
 
 ##### Changes
 
 
-- Raises an informative error message if `predict` or `predict_meta_features` is called prior to calling the `fit` method in `StackingRegressor` and `StackingCVRegressor`. ([#315](https://github.com/rasbt/mlearner/issues/315))
-- The `plot_decision_regions` function now automatically determines the optimal setting based on the feature dimensions and supports anti-aliasing. The old `res`  parameter has been deprecated. ([#309](https://github.com/rasbt/mlearner/pull/309) by [Guillaume Poirier-Morency](https://github.com/arteymix))
-- Apriori code is faster due to optimization in `onehot transformation` and the amount of candidates generated by the `apriori` algorithm. ([#327](https://github.com/rasbt/mlearner/pull/327) by [Jakub Smid](https://github.com/jaksmid))
-- The `OnehotTransactions` class (which is typically often used in combination with the `apriori` function for association rule mining) is now more memory efficient as it uses boolean arrays instead of integer arrays. In addition, the `OnehotTransactions` class can be now be provided with `sparse` argument to generate sparse representations of the `onehot` matrix to further improve memory efficiency. ([#328](https://github.com/rasbt/mlearner/pull/328) by [Jakub Smid](https://github.com/jaksmid))
-- The `OneHotTransactions` has been deprecated and replaced by the `TransactionEncoder`. ([#332](https://github.com/rasbt/mlearner/pull/332)
-- The `plot_decision_regions` function now has three new parameters, `scatter_kwargs`, `contourf_kwargs`, and `scatter_highlight_kwargs`, that can be used to modify the plotting style. ([#342](https://github.com/rasbt/mlearner/pull/342) by [James Bourbeau](https://github.com/jrbourbeau))
+- Raises an informative error message if `predict` or `predict_meta_features` is called prior to calling the `fit` method in `StackingRegressor` and `StackingCVRegressor`. ([#315](https://github.com/jaisenbe58r/MLearner/issues/315))
+- The `plot_decision_regions` function now automatically determines the optimal setting based on the feature dimensions and supports anti-aliasing. The old `res`  parameter has been deprecated. ([#309](https://github.com/jaisenbe58r/MLearner/pull/309) by [Guillaume Poirier-Morency](https://github.com/arteymix))
+- Apriori code is faster due to optimization in `onehot transformation` and the amount of candidates generated by the `apriori` algorithm. ([#327](https://github.com/jaisenbe58r/MLearner/pull/327) by [Jakub Smid](https://github.com/jaksmid))
+- The `OnehotTransactions` class (which is typically often used in combination with the `apriori` function for association rule mining) is now more memory efficient as it uses boolean arrays instead of integer arrays. In addition, the `OnehotTransactions` class can be now be provided with `sparse` argument to generate sparse representations of the `onehot` matrix to further improve memory efficiency. ([#328](https://github.com/jaisenbe58r/MLearner/pull/328) by [Jakub Smid](https://github.com/jaksmid))
+- The `OneHotTransactions` has been deprecated and replaced by the `TransactionEncoder`. ([#332](https://github.com/jaisenbe58r/MLearner/pull/332)
+- The `plot_decision_regions` function now has three new parameters, `scatter_kwargs`, `contourf_kwargs`, and `scatter_highlight_kwargs`, that can be used to modify the plotting style. ([#342](https://github.com/jaisenbe58r/MLearner/pull/342) by [James Bourbeau](https://github.com/jrbourbeau))
 
 
 ##### Bug Fixes
 
-- Fixed issue when class labels were provided to the `EnsembleVoteClassifier` when `refit` was set to `false`. ([#322](https://github.com/rasbt/mlearner/issues/322))
-- Allow arrays with 16-bit and 32-bit precision in `plot_decision_regions` function. ([#337](https://github.com/rasbt/mlearner/issues/337))
-- Fixed bug that raised an indexing error if the number of items was <= 1 when computing association rules using the conviction metric. ([#340](https://github.com/rasbt/mlearner/issues/340))
+- Fixed issue when class labels were provided to the `EnsembleVoteClassifier` when `refit` was set to `false`. ([#322](https://github.com/jaisenbe58r/MLearner/issues/322))
+- Allow arrays with 16-bit and 32-bit precision in `plot_decision_regions` function. ([#337](https://github.com/jaisenbe58r/MLearner/issues/337))
+- Fixed bug that raised an indexing error if the number of items was <= 1 when computing association rules using the conviction metric. ([#340](https://github.com/jaisenbe58r/MLearner/issues/340))
 
 
 
@@ -314,51 +314,51 @@ The CHANGELOG for the current development version is available at
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.10.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.10.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.10.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.10.0.tar.gz)
 
 ##### New Features
 
 - New `store_train_meta_features` parameter for `fit` in StackingCVRegressor. if True, train meta-features are stored in `self.train_meta_features_`.
-    New `pred_meta_features` method for `StackingCVRegressor`. People can get test meta-features using this method. ([#294](https://github.com/rasbt/mlearner/pull/294) via [takashioya](https://github.com/takashioya))
-- The new `store_train_meta_features` attribute and `pred_meta_features` method for the `StackingCVRegressor` were also added to the `StackingRegressor`, `StackingClassifier`, and `StackingCVClassifier` ([#299](https://github.com/rasbt/mlearner/pull/299) & [#300](https://github.com/rasbt/mlearner/pull/300))
-- New function (`evaluate.mcnemar_tables`) for creating multiple 2x2 contigency from model predictions arrays that can be used in multiple McNemar (post-hoc) tests or Cochran's Q or F tests, etc. ([#307](https://github.com/rasbt/mlearner/issues/307))
-- New function (`evaluate.cochrans_q`) for performing Cochran's Q test to compare the accuracy of multiple classifiers. ([#310](https://github.com/rasbt/mlearner/issues/310))
+    New `pred_meta_features` method for `StackingCVRegressor`. People can get test meta-features using this method. ([#294](https://github.com/jaisenbe58r/MLearner/pull/294) via [takashioya](https://github.com/takashioya))
+- The new `store_train_meta_features` attribute and `pred_meta_features` method for the `StackingCVRegressor` were also added to the `StackingRegressor`, `StackingClassifier`, and `StackingCVClassifier` ([#299](https://github.com/jaisenbe58r/MLearner/pull/299) & [#300](https://github.com/jaisenbe58r/MLearner/pull/300))
+- New function (`evaluate.mcnemar_tables`) for creating multiple 2x2 contigency from model predictions arrays that can be used in multiple McNemar (post-hoc) tests or Cochran's Q or F tests, etc. ([#307](https://github.com/jaisenbe58r/MLearner/issues/307))
+- New function (`evaluate.cochrans_q`) for performing Cochran's Q test to compare the accuracy of multiple classifiers. ([#310](https://github.com/jaisenbe58r/MLearner/issues/310))
 
 ##### Changes
 
-- Added `requirements.txt` to `setup.py`. ([#304](https://github.com/rasbt/mlearner/issues/304) via [Colin Carrol](https://github.com/ColCarroll))
+- Added `requirements.txt` to `setup.py`. ([#304](https://github.com/jaisenbe58r/MLearner/issues/304) via [Colin Carrol](https://github.com/ColCarroll))
 
 
 ##### Bug Fixes
 
-- Improved numerical stability for p-values computed via the the exact McNemar test ([#306](https://github.com/rasbt/mlearner/issues/306))
-- `nose` is not required to use the library ([#302](https://github.com/rasbt/mlearner/issues/302))
+- Improved numerical stability for p-values computed via the the exact McNemar test ([#306](https://github.com/jaisenbe58r/MLearner/issues/306))
+- `nose` is not required to use the library ([#302](https://github.com/jaisenbe58r/MLearner/issues/302))
 
 ### Version 0.9.1 (2017-11-19)
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.9.1.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.9.1.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.9.1.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.9.1.tar.gz)
 
 ##### New Features
 
-- Added `mlearner.evaluate.bootstrap_point632_score` to evaluate the performance of estimators using the .632 bootstrap. ([#283](https://github.com/rasbt/mlearner/pull/283))
-- New `max_len` parameter for the frequent itemset generation via the `apriori` function to allow for early stopping. ([#270](https://github.com/rasbt/mlearner/pull/270))
+- Added `mlearner.evaluate.bootstrap_point632_score` to evaluate the performance of estimators using the .632 bootstrap. ([#283](https://github.com/jaisenbe58r/MLearner/pull/283))
+- New `max_len` parameter for the frequent itemset generation via the `apriori` function to allow for early stopping. ([#270](https://github.com/jaisenbe58r/MLearner/pull/270))
 
 ##### Changes
 
-- All feature index tuples in `SequentialFeatureSelector` or now in sorted order. ([#262](https://github.com/rasbt/mlearner/pull/262))
+- All feature index tuples in `SequentialFeatureSelector` or now in sorted order. ([#262](https://github.com/jaisenbe58r/MLearner/pull/262))
 - The `SequentialFeatureSelector` now runs the continuation of the floating inclusion/exclusion as described in Novovicova & Kittler (1994).
 Note that this didn't cause any difference in performance on any of the test scenarios but could lead to better performance in certain edge cases.
-([#262](https://github.com/rasbt/mlearner/pull/262))
-- `utils.Counter` now accepts a name variable to help distinguish between multiple counters, time precision can be set with the 'precision' kwarg and the new attribute end_time holds the time the last iteration completed. ([#278](https://github.com/rasbt/mlearner/pull/278) via [Mathew Savage](https://github.com/matsavage))
+([#262](https://github.com/jaisenbe58r/MLearner/pull/262))
+- `utils.Counter` now accepts a name variable to help distinguish between multiple counters, time precision can be set with the 'precision' kwarg and the new attribute end_time holds the time the last iteration completed. ([#278](https://github.com/jaisenbe58r/MLearner/pull/278) via [Mathew Savage](https://github.com/matsavage))
 
 
 ##### Bug Fixes
 
-- Fixed an deprecation error that occured with McNemar test when using SciPy 1.0. ([#283](https://github.com/rasbt/mlearner/pull/283))
+- Fixed an deprecation error that occured with McNemar test when using SciPy 1.0. ([#283](https://github.com/jaisenbe58r/MLearner/pull/283))
 
 
 ### Version 0.9.0 (2017-10-21)
@@ -366,52 +366,52 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.9.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.9.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.9.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.9.0.tar.gz)
 
 ##### New Features
 
-- Added `evaluate.permutation_test`, a permutation test for hypothesis testing (or A/B testing) to test if two samples come from the same distribution. Or in other words, a procedure to test the null hypothesis that that two groups are not significantly different (e.g., a treatment and a control group). ([#250](https://github.com/rasbt/mlearner/pull/250))
-- Added `'leverage'` and `'conviction` as evaluation metrics to the `frequent_patterns.association_rules` function. ([#246](https://github.com/rasbt/mlearner/pull/246) & [#247](https://github.com/rasbt/mlearner/pull/247))
-- Added a `loadings_` attribute to `PrincipalComponentAnalysis` to compute the factor loadings of the features on the principal components. ([#251](https://github.com/rasbt/mlearner/pull/251))
-- Allow grid search over classifiers/regressors in ensemble and stacking estimators. ([#259](https://github.com/rasbt/mlearner/pull/259))
-- New `make_multiplexer_dataset` function that creates a dataset generated by a n-bit Boolean multiplexer for evaluating supervised learning algorithms. ([#263](https://github.com/rasbt/mlearner/pull/263))
-- Added a new `BootstrapOutOfBag` class, an implementation of the out-of-bag bootstrap to evaluate supervised learning algorithms. ([#265](https://github.com/rasbt/mlearner/pull/265))
-- The parameters for `StackingClassifier`, `StackingCVClassifier`, `StackingRegressor`, `StackingCVRegressor`, and `EnsembleVoteClassifier` can now be tuned using scikit-learn's `GridSearchCV` ([#254](https://github.com/rasbt/mlearner/pull/254) via [James Bourbeau](https://github.com/jrbourbeau))
+- Added `evaluate.permutation_test`, a permutation test for hypothesis testing (or A/B testing) to test if two samples come from the same distribution. Or in other words, a procedure to test the null hypothesis that that two groups are not significantly different (e.g., a treatment and a control group). ([#250](https://github.com/jaisenbe58r/MLearner/pull/250))
+- Added `'leverage'` and `'conviction` as evaluation metrics to the `frequent_patterns.association_rules` function. ([#246](https://github.com/jaisenbe58r/MLearner/pull/246) & [#247](https://github.com/jaisenbe58r/MLearner/pull/247))
+- Added a `loadings_` attribute to `PrincipalComponentAnalysis` to compute the factor loadings of the features on the principal components. ([#251](https://github.com/jaisenbe58r/MLearner/pull/251))
+- Allow grid search over classifiers/regressors in ensemble and stacking estimators. ([#259](https://github.com/jaisenbe58r/MLearner/pull/259))
+- New `make_multiplexer_dataset` function that creates a dataset generated by a n-bit Boolean multiplexer for evaluating supervised learning algorithms. ([#263](https://github.com/jaisenbe58r/MLearner/pull/263))
+- Added a new `BootstrapOutOfBag` class, an implementation of the out-of-bag bootstrap to evaluate supervised learning algorithms. ([#265](https://github.com/jaisenbe58r/MLearner/pull/265))
+- The parameters for `StackingClassifier`, `StackingCVClassifier`, `StackingRegressor`, `StackingCVRegressor`, and `EnsembleVoteClassifier` can now be tuned using scikit-learn's `GridSearchCV` ([#254](https://github.com/jaisenbe58r/MLearner/pull/254) via [James Bourbeau](https://github.com/jrbourbeau))
 
 ##### Changes
 
-- The `'support'` column returned by `frequent_patterns.association_rules` was changed to compute the support of "antecedant union consequent", and new `antecedant support'` and `'consequent support'` column were added to avoid ambiguity. ([#245](https://github.com/rasbt/mlearner/pull/245))
-- Allow the `OnehotTransactions` to be cloned via scikit-learn's `clone` function, which is required by e.g., scikit-learn's `FeatureUnion` or `GridSearchCV` (via [Iaroslav Shcherbatyi](https://github.com/iaroslav-ai)). ([#249](https://github.com/rasbt/mlearner/pull/249))
+- The `'support'` column returned by `frequent_patterns.association_rules` was changed to compute the support of "antecedant union consequent", and new `antecedant support'` and `'consequent support'` column were added to avoid ambiguity. ([#245](https://github.com/jaisenbe58r/MLearner/pull/245))
+- Allow the `OnehotTransactions` to be cloned via scikit-learn's `clone` function, which is required by e.g., scikit-learn's `FeatureUnion` or `GridSearchCV` (via [Iaroslav Shcherbatyi](https://github.com/iaroslav-ai)). ([#249](https://github.com/jaisenbe58r/MLearner/pull/249))
 
 ##### Bug Fixes
 
-- Fix issues with `self._init_time` parameter in `_IterativeModel` subclasses. ([#256](https://github.com/rasbt/mlearner/pull/256))
-- Fix imprecision bug that occurred in `plot_ecdf` when run on Python 2.7. ([264](https://github.com/rasbt/mlearner/pull/264))
-- The vectors from SVD in `PrincipalComponentAnalysis` are now being scaled so that the eigenvalues via `solver='eigen'` and `solver='svd'` now store eigenvalues that have the same magnitudes. ([#251](https://github.com/rasbt/mlearner/pull/251))
+- Fix issues with `self._init_time` parameter in `_IterativeModel` subclasses. ([#256](https://github.com/jaisenbe58r/MLearner/pull/256))
+- Fix imprecision bug that occurred in `plot_ecdf` when run on Python 2.7. ([264](https://github.com/jaisenbe58r/MLearner/pull/264))
+- The vectors from SVD in `PrincipalComponentAnalysis` are now being scaled so that the eigenvalues via `solver='eigen'` and `solver='svd'` now store eigenvalues that have the same magnitudes. ([#251](https://github.com/jaisenbe58r/MLearner/pull/251))
 
 ### Version 0.8.0 (2017-09-09)
 
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.8.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.8.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.8.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.8.0.tar.gz)
 
 ##### New Features
 
-- Added a `mlearner.evaluate.bootstrap` that implements the ordinary nonparametric bootstrap to bootstrap a single statistic (for example, the mean. median, R^2 of a regression fit, and so forth) [#232](https://github.com/rasbt/mlearner/pull/232)
-- `SequentialFeatureSelecor`'s `k_features` now accepts a string argument "best" or "parsimonious" for more "automated" feature selection. For instance, if "best" is provided, the feature selector will return the feature subset with the best cross-validation performance. If "parsimonious" is provided as an argument, the smallest feature subset that is within one standard error of the cross-validation performance will be selected. [#238](https://github.com/rasbt/mlearner/pull/238)
+- Added a `mlearner.evaluate.bootstrap` that implements the ordinary nonparametric bootstrap to bootstrap a single statistic (for example, the mean. median, R^2 of a regression fit, and so forth) [#232](https://github.com/jaisenbe58r/MLearner/pull/232)
+- `SequentialFeatureSelecor`'s `k_features` now accepts a string argument "best" or "parsimonious" for more "automated" feature selection. For instance, if "best" is provided, the feature selector will return the feature subset with the best cross-validation performance. If "parsimonious" is provided as an argument, the smallest feature subset that is within one standard error of the cross-validation performance will be selected. [#238](https://github.com/jaisenbe58r/MLearner/pull/238)
 
 ##### Changes
 
-- `SequentialFeatureSelector` now uses `np.nanmean` over normal mean to support scorers that may return `np.nan`  [#211](https://github.com/rasbt/mlearner/pull/211) (via [mrkaiser](https://github.com/mrkaiser))
-- The `skip_if_stuck` parameter was removed from `SequentialFeatureSelector` in favor of a more efficient implementation comparing the conditional inclusion/exclusion results (in the floating versions) to the performances of previously sampled feature sets that were cached [#237](https://github.com/rasbt/mlearner/pull/237)
-- `ExhaustiveFeatureSelector` was modified to consume substantially less memory [#195](https://github.com/rasbt/mlearner/pull/195) (via [Adam Erickson](https://github.com/adam-erickson))
+- `SequentialFeatureSelector` now uses `np.nanmean` over normal mean to support scorers that may return `np.nan`  [#211](https://github.com/jaisenbe58r/MLearner/pull/211) (via [mrkaiser](https://github.com/mrkaiser))
+- The `skip_if_stuck` parameter was removed from `SequentialFeatureSelector` in favor of a more efficient implementation comparing the conditional inclusion/exclusion results (in the floating versions) to the performances of previously sampled feature sets that were cached [#237](https://github.com/jaisenbe58r/MLearner/pull/237)
+- `ExhaustiveFeatureSelector` was modified to consume substantially less memory [#195](https://github.com/jaisenbe58r/MLearner/pull/195) (via [Adam Erickson](https://github.com/adam-erickson))
 
 ##### Bug Fixes
 
-- Fixed a bug where the `SequentialFeatureSelector` selected a feature subset larger than then specified via the `k_features` tuple max-value [#213](https://github.com/rasbt/mlearner/pull/213)
+- Fixed a bug where the `SequentialFeatureSelector` selected a feature subset larger than then specified via the `k_features` tuple max-value [#213](https://github.com/jaisenbe58r/MLearner/pull/213)
 
 
 ### Version 0.7.0 (2017-06-22)
@@ -420,27 +420,27 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.7.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.7.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.7.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.7.0.tar.gz)
 
 ##### New Features
 
-- New [mlearner.plotting.ecdf](http://jaisenbe58r.github.io/mlearner/user_guide/plotting/ecdf/) function for plotting empirical cumulative distribution functions ([#196](https://github.com/rasbt/mlearner/pull/196)).
-- New [`StackingCVRegressor`](http://jaisenbe58r.github.io/mlearner/user_guide/regressor/StackingCVRegressor/) for stacking regressors with out-of-fold predictions to prevent overfitting ([#201](https://github.com/rasbt/mlearner/pull/201)via [Eike Dehling](https://github.com/EikeDehling)).
+- New [mlearner.plotting.ecdf](https://jaisenbe58r.github.io/MLearner//user_guide/plotting/ecdf/) function for plotting empirical cumulative distribution functions ([#196](https://github.com/jaisenbe58r/MLearner/pull/196)).
+- New [`StackingCVRegressor`](https://jaisenbe58r.github.io/MLearner//user_guide/regressor/StackingCVRegressor/) for stacking regressors with out-of-fold predictions to prevent overfitting ([#201](https://github.com/jaisenbe58r/MLearner/pull/201)via [Eike Dehling](https://github.com/EikeDehling)).
 
 ##### Changes
 
 - The TensorFlow estimator have been removed from mlearner, since TensorFlow has now very convenient ways to build on estimators, which render those implementations obsolete.
-- `plot_decision_regions` now supports plotting decision regions for more than 2 training features [#189](https://github.com/rasbt/mlearner/pull/189), via [James Bourbeau](https://github.com/jrbourbeau)).
-- Parallel execution in `mlearner.feature_selection.SequentialFeatureSelector` and `mlearner.feature_selection.ExhaustiveFeatureSelector` is now performed over different feature subsets instead of the different cross-validation folds to better utilize machines with multiple processors if the number of features is large ([#193](https://github.com/rasbt/mlearner/pull/193), via [@whalebot-helmsman](https://github.com/whalebot-helmsman)).
-- Raise meaningful error messages if pandas `DataFrame`s or Python lists of lists are fed into the `StackingCVClassifer` as a `fit` arguments ([198](https://github.com/rasbt/mlearner/pull/198)).
-- The `n_folds` parameter of the `StackingCVClassifier` was changed to `cv` and can now accept any kind of cross validation technique that is available from scikit-learn. For example, `StackingCVClassifier(..., cv=StratifiedKFold(n_splits=3))` or `StackingCVClassifier(..., cv=GroupKFold(n_splits=3))` ([#203](https://github.com/rasbt/mlearner/pull/203), via [Konstantinos Paliouras](https://github.com/sque)).
+- `plot_decision_regions` now supports plotting decision regions for more than 2 training features [#189](https://github.com/jaisenbe58r/MLearner/pull/189), via [James Bourbeau](https://github.com/jrbourbeau)).
+- Parallel execution in `mlearner.feature_selection.SequentialFeatureSelector` and `mlearner.feature_selection.ExhaustiveFeatureSelector` is now performed over different feature subsets instead of the different cross-validation folds to better utilize machines with multiple processors if the number of features is large ([#193](https://github.com/jaisenbe58r/MLearner/pull/193), via [@whalebot-helmsman](https://github.com/whalebot-helmsman)).
+- Raise meaningful error messages if pandas `DataFrame`s or Python lists of lists are fed into the `StackingCVClassifer` as a `fit` arguments ([198](https://github.com/jaisenbe58r/MLearner/pull/198)).
+- The `n_folds` parameter of the `StackingCVClassifier` was changed to `cv` and can now accept any kind of cross validation technique that is available from scikit-learn. For example, `StackingCVClassifier(..., cv=StratifiedKFold(n_splits=3))` or `StackingCVClassifier(..., cv=GroupKFold(n_splits=3))` ([#203](https://github.com/jaisenbe58r/MLearner/pull/203), via [Konstantinos Paliouras](https://github.com/sque)).
 
 ##### Bug Fixes
 
-- `SequentialFeatureSelector` now correctly accepts a `None` argument for the `scoring` parameter to infer the default scoring metric from scikit-learn classifiers and regressors ([#171](https://github.com/rasbt/mlearner/pull/171)).
-- The `plot_decision_regions` function now supports pre-existing axes objects generated via matplotlib's `plt.subplots`. ([#184](https://github.com/rasbt/mlearner/pull/184), [see example](http://jaisenbe58r.github.io/mlearner/user_guide/plotting/plot_decision_regions/#example-6-working-with-existing-axes-objects-using-subplots))
-- Made `math.num_combinations` and `math.num_permutations` numerically stable for large numbers of combinations and permutations ([#200](https://github.com/rasbt/mlearner/pull/200)).
+- `SequentialFeatureSelector` now correctly accepts a `None` argument for the `scoring` parameter to infer the default scoring metric from scikit-learn classifiers and regressors ([#171](https://github.com/jaisenbe58r/MLearner/pull/171)).
+- The `plot_decision_regions` function now supports pre-existing axes objects generated via matplotlib's `plt.subplots`. ([#184](https://github.com/jaisenbe58r/MLearner/pull/184), [see example](https://jaisenbe58r.github.io/MLearner//user_guide/plotting/plot_decision_regions/#example-6-working-with-existing-axes-objects-using-subplots))
+- Made `math.num_combinations` and `math.num_permutations` numerically stable for large numbers of combinations and permutations ([#200](https://github.com/jaisenbe58r/MLearner/pull/200)).
 
 
 ### Version 0.6.0 (2017-03-18)
@@ -448,8 +448,8 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.6.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.6.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.6.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.6.0.tar.gz)
 
 ##### New Features
 
@@ -471,8 +471,8 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.5.1.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.5.1.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.5.1.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.5.1.tar.gz)
 
 ##### New Features
 
@@ -500,8 +500,8 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.5.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.5.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.5.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.5.0.tar.gz)
 
 ##### New Features
 
@@ -530,8 +530,8 @@ Note that this didn't cause any difference in performance on any of the test sce
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.4.2.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.4.2.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.4.2.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.4.2.tar.gz)
 - [PDF documentation](http://sebastianraschka.com/pdf/mlearner-latest.pdf)
 
 ##### New Features
@@ -563,8 +563,8 @@ imput arrays via `transform` and `fit_transform`
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.4.1.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.4.1.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.4.1.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.4.1.tar.gz)
 - [PDF documentation](http://sebastianraschka.com/pdf/mlearner-0.4.1.pdf)
 
 ##### New Features
@@ -613,8 +613,8 @@ imput arrays via `transform` and `fit_transform`
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.3.0.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.3.0.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.3.0.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.3.0.tar.gz)
 
 ##### New Features
 
@@ -645,8 +645,8 @@ imput arrays via `transform` and `fit_transform`
 
 ##### Downloads
 
-- [Source code (zip)](https://github.com/rasbt/mlearner/archive/v0.2.9.zip)
-- [Source code (tar.gz)](https://github.com/rasbt/mlearner/archive/v0.2.9.tar.gz)
+- [Source code (zip)](https://github.com/jaisenbe58r/MLearner/archive/v0.2.9.zip)
+- [Source code (tar.gz)](https://github.com/jaisenbe58r/MLearner/archive/v0.2.9.tar.gz)
 
 ##### New Features
 

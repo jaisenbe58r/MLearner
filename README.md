@@ -3,19 +3,19 @@
 
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 ![Python](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue)
-[![GitHub release](https://img.shields.io/github/release/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/releases/)
-[![GitHub commits](https://img.shields.io/github/commits-since/jaisenbe58r/mlearner/v0.0.5.svg)](https://GitHub.com/jaisenbe58r/mlearner/commit/)
+[![GitHub release](https://img.shields.io/github/release/jaisenbe58r/MLearner.svg)](https://GitHub.com/jaisenbe58r/MLearner/releases/)
+[![GitHub commits](https://img.shields.io/github/commits-since/jaisenbe58r/MLearner/v0.0.5.svg)](https://GitHub.com/jaisenbe58r/MLearner/commit/)
 [![PyPI Latest Release](https://badge.fury.io/py/matplotlib.svg)](https://pypi.org/project/mlearner/)
-[![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/mlearner/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/MLearner/branch/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/68209df46c8240b887db5ae5fa3cb410)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/jaisenbe58r/mlearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/mlearner)
+[![Build Status](https://travis-ci.org/jaisenbe58r/MLearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/MLearner)
 [![codecov](https://codecov.io/gh/jaisenbe58r/MLearner/branch/master/graph/badge.svg)](https://codecov.io/gh/jaisenbe58r/MLearner)
 [![Coverage Status](https://coveralls.io/repos/github/jaisenbe58r/MLearner/badge.svg?branch=master)](https://coveralls.io/github/jaisenbe58r/MLearner?branch=master)
-[![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)](https://github.com/jaisenbe58r/mlearner/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)](https://github.com/jaisenbe58r/MLearner/blob/master/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
 [![DOI](https://zenodo.org/badge/256283484.svg)](https://zenodo.org/badge/latestdoi/256283484)
-[![GitHub contributors](https://img.shields.io/github/contributors/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/graphs/contributors/)
-[![GitHub issues](https://img.shields.io/github/issues/jaisenbe58r/mlearner.svg)](https://GitHub.com/jaisenbe58r/mlearner/issues/)
+[![GitHub contributors](https://img.shields.io/github/contributors/jaisenbe58r/MLearner.svg)](https://GitHub.com/jaisenbe58r/MLearner/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/jaisenbe58r/MLearner.svg)](https://GitHub.com/jaisenbe58r/MLearner/issues/)
 [![Discuss](https://img.shields.io/badge/discuss-DISCORD-PURPLE.svg)](https://discord.gg/HUxahg)
 [![GitHubIssues](https://img.shields.io/badge/issue_tracking-github-violet.svg)](https://github.com/jaisenbe58r/MLearner/issues)
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
@@ -39,10 +39,10 @@ Jaime Sendra Berenguer - Spain - 2020
 
 ## Links
 
-- **Documentation:** [http://jaisenbe58r.github.io/mlearner](http://jaisenbe58r.github.io/mlearner)
+- **Documentation:** [https://jaisenbe58r.github.io/MLearner/](https://jaisenbe58r.github.io/MLearner/)
 - PyPI: [https://pypi.python.org/pypi/mlearner](https://pypi.python.org/pypi/mlearner)
-- Changelog: [http://jaisenbe58r.github.io/mlearner/CHANGELOG](http://jaisenbe58r.github.io/mlearner/CHANGELOG)
-- Contributing: [http://jaisenbe58r.github.io/mlearner/CONTRIBUTING](http://jaisenbe58r.github.io/mlearner/CONTRIBUTING)
+- Changelog: [https://jaisenbe58r.github.io/MLearner//CHANGELOG](https://jaisenbe58r.github.io/MLearner//CHANGELOG)
+- Contributing: [https://jaisenbe58r.github.io/MLearner//CONTRIBUTING](https://jaisenbe58r.github.io/MLearner//CONTRIBUTING)
 - Questions? Check out the [Google Groups mailing list](https://groups.google.com/forum/#!forum/mlearner)
 
 <br>
@@ -76,10 +76,10 @@ conda install -c conda-forge mlearner
 The mlearner version on PyPI may always be one step behind; you can install the latest development version from the GitHub repository by executing
 
 ```bash
-pip install git+git://github.com/jaisenbe58r/mlearner.git#egg=mlearner
+pip install git+git://github.com/jaisenbe58r/MLearner.git#egg=mlearner
 ```
 
-Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/mlearner and install mlearner from your local drive via
+Or, you can fork the GitHub repository from https://github.com/jaisenbe58r/MLearner and install mlearner from your local drive via
 
 ```bash
 python setup.py install
