@@ -20,5 +20,12 @@ coverage:
         target: auto
         threshold: 1%
 
+notify:
+    gitter:
+      default:
+        url: "https://webhooks.gitter.im/e/8c0d0617855d51cb8d17"
+        threshold: 1%
+
+
 ignore:
 - "**/setup.py"
