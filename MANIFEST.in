@@ -2,7 +2,7 @@ include *.txt
 include *.md
 include *.cfg
 include *.pkl
-recursive-include ./mlextend/*
+recursive-include ./mlearner/*
 
 include ./requirements.txt
 exclude *.log

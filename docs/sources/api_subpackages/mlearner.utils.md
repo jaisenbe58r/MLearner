@@ -55,7 +55,7 @@ Class to display the progress of for-loop iterators.
     The counter was last updated 0 seconds ago.
 
 For more usage examples, please see
-[http://rasbt.github.io/mlxtend/user_guide/utils/Counter/](http://rasbt.github.io/mlxtend/user_guide/utils/Counter/)
+[http://rasbt.github.io/mlearner/user_guide/utils/Counter/](http://rasbt.github.io/mlearner/user_guide/utils/Counter/)
 
 ### Methods
 
