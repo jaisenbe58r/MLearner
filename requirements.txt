@@ -9,7 +9,7 @@ scipy
 xgboost
 lightgbm
 catboost
-
+scikit-image
 
 
 # testing

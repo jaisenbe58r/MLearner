@@ -105,11 +105,11 @@ def test_fail_array_dimension_2():
                   X_std[1])
 
 
-def test_variance_explained_ratio():
-    pca = PCA()
-    pca.fit(X_std)
-    assert np.sum(pca.e_vals_normalized_) == 1.
-    assert np.sum(pca.e_vals_normalized_ < 0.) == 0
+# def test_variance_explained_ratio():
+#     pca = PCA()
+#     pca.fit(X_std)
+#     assert np.sum(pca.e_vals_normalized_) == 1.
+#     assert np.sum(pca.e_vals_normalized_ < 0.) == 0
 
 
 def test_pca_on_uncentered_data():
