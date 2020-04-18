@@ -15,6 +15,7 @@ import numpy as np
 
 
 def test_minmax_scaling_arrayerror():
+    """Test minmax type"""
     try:
         ary = [[1, 2], [3, 4]]
         minmax_scaling(ary, [1, 's2'])
@@ -22,6 +23,7 @@ def test_minmax_scaling_arrayerror():
         pass
     else:
         raise AssertionError
+
 
 def test_pandas_minmax_scaling():
     """Test minmax scaling numpy"""
