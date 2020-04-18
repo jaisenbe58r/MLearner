@@ -6,7 +6,7 @@ MLearner Machine Learning Library Extensions
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 
-License: MIT
+License: MIT.
 """
 
 from mlearner.preprocessing import minmax_scaling
@@ -15,7 +15,7 @@ import numpy as np
 
 
 def test_minmax_scaling_arrayerror():
-    """Test minmax type"""
+    """Test minmax type."""
     try:
         ary = [[1, 2], [3, 4]]
         minmax_scaling(ary, [1, 's2'])
@@ -26,7 +26,7 @@ def test_minmax_scaling_arrayerror():
 
 
 def test_pandas_minmax_scaling():
-    """Test minmax scaling numpy"""
+    """Test minmax scaling numpy."""
     s1 = pd.Series([1, 2, 3, 4, 5, 6], index=(range(6)))
     s2 = pd.Series([10, 9, 8, 7, 6, 5], index=(range(6)))
     df = pd.DataFrame(s1, columns=['s1'])
@@ -55,7 +55,7 @@ def test_pandas_minmax_scaling():
 
 
 def test_numpy_minmax_scaling():
-    """Test minmax scaling numpy"""
+    """Test minmax scaling numpy."""
     ary = np.array([[1, 10], [2, 9], [3, 8], [4, 7], [5, 6], [6, 5]])
 
     df_out1 = minmax_scaling(ary, [0, 1], min_val=0, max_val=1)
