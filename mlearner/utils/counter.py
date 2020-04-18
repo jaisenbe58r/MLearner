@@ -84,7 +84,7 @@ class Counter(object):
             self.stream.write('\n')
 
     def update(self):
-        """rint current iteration and time elapsed."""
+        """Print current iteration and time elapsed."""
         self.curr_iter += 1
 
         self.end_time = time.time()
