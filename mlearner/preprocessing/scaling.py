@@ -16,9 +16,9 @@ import numpy as np
 
 
 def minmax_scaling(array, columns, min_val=0, max_val=1):
-    
-""".
-in max scaling of pandas' DataFrames.
+
+    """.
+    in max scaling of pandas' DataFrames.
 
     Parameters
     --------

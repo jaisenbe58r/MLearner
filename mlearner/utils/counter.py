@@ -16,9 +16,8 @@ import sys
 
 
 class Counter(object):
-    
-""".
-lass to display the progress of for-loop iterators.
+    """.
+    Class to display the progress of for-loop iterators.
 
     Parameters
     --------
@@ -85,9 +84,7 @@ lass to display the progress of for-loop iterators.
             self.stream.write('\n')
 
     def update(self):
-        
-""".
-rint current iteration and time elapsed."""
+        """rint current iteration and time elapsed."""
         self.curr_iter += 1
 
         self.end_time = time.time()
