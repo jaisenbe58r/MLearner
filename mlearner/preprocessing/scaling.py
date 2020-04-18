@@ -57,3 +57,4 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
                                 (max_val - min_val) + min_val)
 
     return ary_newt[:, columns]
+    
