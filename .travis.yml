@@ -36,7 +36,7 @@ dist: trusty
 env:
   global:
     # Directory where tests are run from
-    - TEST_DIR=/tmp/sklearn
+    - TEST_DIR=/tmp/mlearner
     - OMP_NUM_THREADS=4
     - OPENBLAS_NUM_THREADS=4
 
@@ -61,9 +61,14 @@ install:
 
 script:
     - bash ci/.travis_test.sh
+    - bash pytest --cov=./ --cov-report=xml # run tests
 
 after_success:
     - if [[ "$COVERAGE" == "true" ]]; then coveralls || echo "failed"; fi
+    - bash codecov # submit coverage
+    - bash curl -s https://codecov.io/bash
+
+
 
 notifications:
     email:
@@ -71,7 +76,7 @@ notifications:
           - mail@sebastianraschka.com
     webhooks:
       urls:
-        - "https://webhooks.gitter.im/e/24d207e7c060eea433dd"
+        - https://webhooks.gitter.im/e/24d207e7c060eea433dd
       on_success: change  # options: [always|never|change] default: always
       on_failure: always  # options: [always|never|change] default: always
       on_start: never     # options: [always|never|change] default: always
