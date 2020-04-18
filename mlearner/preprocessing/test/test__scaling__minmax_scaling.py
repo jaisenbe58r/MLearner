@@ -44,7 +44,7 @@ def test_pandas_minmax_scaling():
 
     np.testing.assert_allclose(df_out1.values, ary_out1, rtol=1e-03)
     # assert((df_out2.values == ary_out2).all())
-    np.testing.assert_array_equal(df_out2.values, ary_out2)
+    np.testing.assert_array_equal(df_out2, ary_out2)
 
 
 def test_numpy_minmax_scaling():
@@ -69,4 +69,4 @@ def test_numpy_minmax_scaling():
 
     np.testing.assert_allclose(df_out1, ary_out1, rtol=1e-03)
     # assert((df_out2 == ary_out2).all())
-    np.testing.assert_array_equal(df_out2.values, ary_out2)
+    np.testing.assert_array_equal(df_out2, ary_out2)
