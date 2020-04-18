@@ -21,12 +21,15 @@ install:
   - conda install imageio
   - conda install scikit-image
   - conda install -c conda-forge codacy-coverage
+  - conda install coveralls
   # - conda install -f -y -q --name py37 -c conda-forge --file requirements.txt
 
 test_script:
   - set PYTHONPATH=%PYTHONPATH%;%CD%
   - pytest -sv --ignore=mlearner/plotting
   - python-codacy-coverage -r coverage.xml
+  - coverage run --source=mypkg -m pytest ./
+  - coveralls
 
 notifications:
 
