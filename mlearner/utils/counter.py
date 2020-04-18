@@ -1,5 +1,4 @@
 # Jaime Sendra Berenguer-2020.
-# 
 # MLearner Machine Learning Library Extensions
 # Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 # License: MIT
@@ -9,9 +8,7 @@ import sys
 
 
 class Counter(object):
-
-    """
-    Class to display the progress of for-loop iterators.
+    """Class to display the progress of for-loop iterators.
 
     Parameters
     --------
