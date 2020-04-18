@@ -1,4 +1,5 @@
-"""Jaime Sendra Berenguer-2020
+"""Jaime Sendra Berenguer-2020.
+
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 
@@ -52,7 +53,7 @@ class Counter(object):
 
     For more usage examples, please see
     http://rasbt.github.io/mlearner/user_guide/utils/Counter/"""
-    
+
     def __init__(self, stderr=False, start_newline=True, precision=0, name=None):
         if stderr:
             self.stream = sys.stderr
