@@ -45,3 +45,4 @@ doc/_build
 .idea
 © 2020 GitHub, Inc.
 
+.coveralls.yml
