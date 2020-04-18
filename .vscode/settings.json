@@ -13,8 +13,8 @@
         "mlearner"
     ],
     "python.pythonPath": "C:\\Users\\AUTIS\\Anaconda3\\envs\\Tensorflow 2.0\\python.exe",
-    "python.linting.pylintEnabled": false,
+    "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "python.linting.banditEnabled": false
+    "python.linting.banditEnabled": true
 }
