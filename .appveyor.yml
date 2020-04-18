@@ -5,7 +5,7 @@ environment:
     - PYTHON_VERSION: "3.7"
       MINICONDA: C:/Miniconda37-x64
       CODACY_PROJECT_TOKEN:
-        secure: FcWnITc0nqvz5sFrQRtUrvKnBmLG+CvSWD0S3WzfT1o=
+        secure: JfpMzloSBcpMIIXy+cJEBmJBpzHWIX/GOitqMufqfeG20oEL0G59QtHK8ZR2nemk
 init:
   - ECHO %PYTHON_VERSION% %MINICONDA%
   - ECHO conda --version
