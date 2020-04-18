@@ -1,5 +1,10 @@
 comment: false
 
+codecov:
+  notify:
+    require_ci_to_pass: no
+    after_n_builds: 1
+
 coverage:
   status:
     project:
@@ -19,12 +24,11 @@ coverage:
         # https://github.com/codecov/browser-extension
         target: auto
         threshold: 1%
-
-notify:
-    gitter:
-      default:
-        url: "https://webhooks.gitter.im/e/8c0d0617855d51cb8d17"
-        threshold: 1%
+  notify:
+      gitter:
+        default:
+          url: "https://webhooks.gitter.im/e/8c0d0617855d51cb8d17"
+          threshold: 1%
 
 
 ignore:
