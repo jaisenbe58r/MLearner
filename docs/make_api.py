@@ -39,12 +39,14 @@ def docstring_to_markdown(docstring):
     """Convert a Python object's docstring to markdown
 
     Parameters
-    ----------
+    --------
+
     docstring : str
         The docstring body.
 
     Returns
-    ----------
+    --------
+
     clean_lst : list
         The markdown formatted docstring as lines (str) in a Python list.
 
@@ -105,7 +107,8 @@ def object_to_markdownpage(obj_name, obj, s=''):
     """Generate the markdown documentation of a Python object.
 
     Parameters
-    ----------
+    --------
+
     obj_name : str
         Name of the Python object.
     obj : object
@@ -159,7 +162,8 @@ def import_package(rel_path_to_package, package_name):
     """Imports a python package into the current namespace.
 
     Parameters
-    ----------
+    --------
+
     rel_path_to_package : str
         Path to the package containing director relative from this script's
         directory.
@@ -186,7 +190,8 @@ def get_subpackages(package):
     """Return subpackages of a package.
 
     Parameters
-    ----------
+    --------
+
     package : python package object
 
     Returns
@@ -201,7 +206,8 @@ def get_modules(package):
     """Return modules of a package.
 
     Parameters
-    ----------
+    --------
+
     package : python package object
 
     Returns
@@ -216,7 +222,8 @@ def get_functions_and_classes(package):
     """Retun lists of functions and classes from a package.
 
     Parameters
-    ----------
+    --------
+
     package : python package object
 
     Returns
@@ -240,13 +247,15 @@ def generate_api_docs(package, api_dir, clean=False,
     """Generate a module level API documentation of a python package.
 
     Description
-    -----------
+    --------
+-
     Generates markdown API files for each module in a Python package whereas
     the structure is as follows:
     `package/package.subpackage/package.subpackage.module.md`
 
     Parameters
-    -----------
+    --------
+-
     package : Python package object
     api_dir : str
         Output directory path for the top-level package directory
@@ -335,7 +344,8 @@ def summarize_methdods_and_functions(api_modules, out_dir,
     """Generates subpacke-level summary files.
 
     Description
-    -----------
+    --------
+-
     A function to generate subpacke-level summary markdown API files from
     a module-level API documentation previously created via the
     `generate_api_docs` function.
@@ -343,7 +353,8 @@ def summarize_methdods_and_functions(api_modules, out_dir,
         package/package.subpackage.md
 
     Parameters
-    ----------
+    --------
+
     api_modules : str
         Path to the API documentation crated via `generate_api_docs`
     out_dir : str

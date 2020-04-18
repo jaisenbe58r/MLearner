@@ -1,4 +1,6 @@
+
 """Jaime Sendra Berenguer-2020.
+
 
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
@@ -13,7 +15,8 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     """Min max scaling of pandas' DataFrames.
 
     Parameters
-    ----------
+    --------
+
     array : pandas DataFrame or NumPy ndarray, shape = [n_rows, n_columns].
     columns : array-like, shape = [n_columns]
         Array-like with column names, e.g., ['col1', 'col2', ...]
@@ -24,12 +27,14 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
         maximum value after rescaling.
 
     Returns
-    ----------
+    --------
+
     df_new : pandas DataFrame object.
         Copy of the array or DataFrame with rescaled columns.
 
     Examples
-    ----------
+    --------
+
     For usage examples, please see
     http://jaisenbe58r.github.io/mlearner/user_guide/preprocessing/minmax_scaling/
 

@@ -1,4 +1,6 @@
+
 """Jaime Sendra Berenguer-2020.
+
 
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
@@ -13,7 +15,8 @@ class Counter(object):
     """Class to display the progress of for-loop iterators.
 
     Parameters
-    ----------
+    --------
+
     stderr : bool (default: True)
         Prints output to sys.stderr if True; uses sys.stdout otherwise.
     start_newline : bool (default: True)
@@ -27,7 +30,8 @@ class Counter(object):
         between multiple counters.
 
     Attributes
-    ----------
+    --------
+
     curr_iter : int
         The current iteration.
     start_time : float
