@@ -7,7 +7,6 @@ environment:
 init:
   - ECHO %PYTHON_VERSION% %MINICONDA%
   - ECHO conda --version
-  - export CODACY_PROJECT_TOKEN=GdDjegi4fe2u4dnVgx2Z
 
 install:
   - set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%
