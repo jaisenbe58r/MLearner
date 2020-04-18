@@ -1,10 +1,8 @@
-"""
-Jaime Sendra Berenguer-2020
+"""Jaime Sendra Berenguer-2020
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 
-License: MIT
-"""
+License: MIT"""
 
 from .counter import Counter
 # from .testing import assert_raises

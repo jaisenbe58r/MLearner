@@ -14,7 +14,7 @@ MLearner is a Python library of useful tools for the day-to-day data science tas
 [![GitHub commits](https://img.shields.io/github/commits-since/jaisenbe58r/MLearner/v0.0.5.svg)](https://GitHub.com/jaisenbe58r/MLearner/commit/)
 [![PyPI Latest Release](https://badge.fury.io/py/matplotlib.svg)](https://pypi.org/project/mlearner/)
 [![Build status](https://ci.appveyor.com/api/projects/status/7vx20e0h5dxcyla2/branch/master?svg=true)](https://ci.appveyor.com/project/jaisenbe58r/MLearner/branch/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/68209df46c8240b887db5ae5fa3cb410)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f5b0302acc04a3dac74d6815fdf66e5)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/jaisenbe58r/MLearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/MLearner)
 [![codecov](https://codecov.io/gh/jaisenbe58r/MLearner/branch/master/graph/badge.svg)](https://codecov.io/gh/jaisenbe58r/MLearner)
 [![Coverage Status](https://coveralls.io/repos/github/jaisenbe58r/MLearner/badge.svg?branch=master)](https://coveralls.io/github/jaisenbe58r/MLearner?branch=master)

@@ -1,10 +1,8 @@
-"""
-Jaime Sendra Berenguer-2020
+"""Jaime Sendra Berenguer-2020
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 
-License: MIT
-"""
+License: MIT"""
 
 import pandas as pd
 import numpy as np

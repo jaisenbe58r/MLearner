@@ -1,10 +1,8 @@
-"""
-Jaime Sendra Berenguer-2020
+"""Jaime Sendra Berenguer-2020
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 
-License: MIT
-"""
+License: MIT"""
 
 import time
 import sys
@@ -56,8 +54,7 @@ class Counter(object):
     http://rasbt.github.io/mlearner/user_guide/utils/Counter/
 
     """
-    def __init__(self, stderr=False, start_newline=True, precision=0,
-                 name=None):
+    def __init__(self, stderr=False, start_newline=True, precision=0, name=None):
         if stderr:
             self.stream = sys.stderr
         else:
