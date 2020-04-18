@@ -1,10 +1,10 @@
-# Jaime Sendra Berenguer 2020
-# MLearner Machine Learning Library Extensions
-#
-# Scaling columns
-# Author: Jaime Sendra Berenguer <jaisenberafel@gmail.com>
-#
-# License: MIT
+"""
+Jaime Sendra Berenguer-2020
+MLearner Machine Learning Library Extensions
+Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
+
+License: MIT
+"""
 
 import pandas as pd
 import numpy as np

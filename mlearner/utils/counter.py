@@ -1,10 +1,10 @@
-# Sebastian Raschka 2014-2020
-# mlearner Machine Learning Library Extensions
-#
-# A counter class for printing the progress of an iterator.
-# Author: Sebastian Raschka <sebastianraschka.com>
-#
-# License: BSD 3 clause
+"""
+Jaime Sendra Berenguer-2020
+MLearner Machine Learning Library Extensions
+Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
+
+License: MIT
+"""
 
 import time
 import sys
