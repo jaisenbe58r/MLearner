@@ -50,16 +50,19 @@ if [ "${IMAGE}" = "true" ]; then
         pip install dlib
         pip install imageio
         pip install scikit-image
+        pip install coverage
     else
         pip install dlib=="$DLIB_VERSION"
         pip install imageio=="$IMAGEIO_VERSION"
         pip install scikit-image=="$SKIMAGE_VERSION"
+        pip install coverage
     fi
 fi
 
 if [ "${COVERAGE}" = "true" ]; then
     conda install pytest-cov
     conda install coveralls
+    conda install coverage
 fi
 
 python --version
