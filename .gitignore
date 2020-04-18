@@ -42,3 +42,4 @@ doc/_build
 .idea
 © 2020 GitHub, Inc.
 coverage.xml
+mlearner/__main__.py

@@ -4,14 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "Python: Archivo actual",
             "type": "python",
             "request": "launch",
-            "program": "mlearner",
-            "console": "integratedTerminal"
+            "program": "mlearner\\preprocessing\\test\\test__scaling__minmax_scaling.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
         },
-
     ]
 }

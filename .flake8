@@ -19,6 +19,7 @@ ignore =
     E122, E127, E131,
     E265, E266,
     E305, E306,
+    E501,
     E722, E741,
     F841,
     # Some new flake8 ignores:

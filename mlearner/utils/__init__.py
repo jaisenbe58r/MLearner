@@ -1,8 +1,9 @@
-# Sebastian Raschka 2014-2020
-# mlearner Machine Learning Library Extensions
-# Author: Sebastian Raschka <sebastianraschka.com>
+# Jaime Sendra Berenguer 2020
+# MLearner Machine Learning Library Extensions
 #
-# License: BSD 3 clause
+# Author: Jaime Sendra Berenguer <jaisenberafel@gmail.com>
+#
+# License: MIT
 
 from .counter import Counter
 # from .testing import assert_raises
