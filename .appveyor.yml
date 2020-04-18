@@ -29,7 +29,7 @@ test_script:
   - set PYTHONPATH=%PYTHONPATH%;%CD%
   - pytest -sv --ignore=mlearner/plotting
   - pytest --cov=./ --cov-report=xml
-  - python-codacy-coverage -r coverage.xml
+  # - python-codacy-coverage -r coverage.xml
   - coverage run --source=mlearner -m pytest ./
   - coveralls
 
