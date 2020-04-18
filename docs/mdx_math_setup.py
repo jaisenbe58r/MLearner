@@ -33,7 +33,9 @@ SUCH DAMAGE.
 from distutils.core import setup
 
 long_description = \
-"""This extension adds math formulas support to Python-Markdown_
+
+""".
+his extension adds math formulas support to Python-Markdown_
 (works with version 2.6 or newer).
 
 .. _Python-Markdown: https://github.com/waylan/Python-Markdown

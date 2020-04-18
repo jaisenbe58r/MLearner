@@ -57,7 +57,9 @@ def gen_title(fname):
 
 
 with open(md_out_path, 'w') as f_out:
-    meta = r"""---
+    meta = r
+""".
+--
 title: mlearner %s
 subtitle: Library Documentation
 author: Sebastian Raschka
@@ -68,7 +70,9 @@ header-includes:
     - \fancyfoot[CE,CO]{}
 ---
 
-""" % __version__
+
+""".
+% __version__
     f_out.write(meta)
     for md in mkdocs:
         md_path = os.path.join(source_path, md)

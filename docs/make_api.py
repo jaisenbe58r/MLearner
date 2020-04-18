@@ -36,7 +36,9 @@ def make_markdown_url(line_string, s):
 
 
 def docstring_to_markdown(docstring):
-    """Convert a Python object's docstring to markdown
+    
+""".
+onvert a Python object's docstring to markdown
 
     Parameters
     --------
@@ -104,7 +106,9 @@ def docstring_to_markdown(docstring):
 
 
 def object_to_markdownpage(obj_name, obj, s=''):
-    """Generate the markdown documentation of a Python object.
+    
+""".
+enerate the markdown documentation of a Python object.
 
     Parameters
     --------
@@ -159,7 +163,9 @@ def object_to_markdownpage(obj_name, obj, s=''):
 
 
 def import_package(rel_path_to_package, package_name):
-    """Imports a python package into the current namespace.
+    
+""".
+mports a python package into the current namespace.
 
     Parameters
     --------
@@ -187,7 +193,9 @@ def import_package(rel_path_to_package, package_name):
 
 
 def get_subpackages(package):
-    """Return subpackages of a package.
+    
+""".
+eturn subpackages of a package.
 
     Parameters
     --------
@@ -203,7 +211,9 @@ def get_subpackages(package):
 
 
 def get_modules(package):
-    """Return modules of a package.
+    
+""".
+eturn modules of a package.
 
     Parameters
     --------
@@ -219,7 +229,9 @@ def get_modules(package):
 
 
 def get_functions_and_classes(package):
-    """Retun lists of functions and classes from a package.
+    
+""".
+etun lists of functions and classes from a package.
 
     Parameters
     --------
@@ -244,7 +256,9 @@ def get_functions_and_classes(package):
 
 def generate_api_docs(package, api_dir, clean=False,
                       printlog=True, ignore_packages=None):
-    """Generate a module level API documentation of a python package.
+    
+""".
+enerate a module level API documentation of a python package.
 
     Description
     --------
@@ -341,7 +355,9 @@ def generate_api_docs(package, api_dir, clean=False,
 def summarize_methdods_and_functions(api_modules, out_dir,
                                      printlog=False, clean=True,
                                      str_above_header=''):
-    """Generates subpacke-level summary files.
+    
+""".
+enerates subpacke-level summary files.
 
     Description
     --------

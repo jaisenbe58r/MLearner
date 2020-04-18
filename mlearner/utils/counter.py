@@ -1,4 +1,6 @@
+
 """.
+
 Jaime Sendra Berenguer-2020.
 
 MLearner Machine Learning Library Extensions
@@ -14,7 +16,9 @@ import sys
 
 
 class Counter(object):
-    """Class to display the progress of for-loop iterators.
+    
+""".
+lass to display the progress of for-loop iterators.
 
     Parameters
     --------
@@ -81,7 +85,9 @@ class Counter(object):
             self.stream.write('\n')
 
     def update(self):
-        """Print current iteration and time elapsed."""
+        
+""".
+rint current iteration and time elapsed."""
         self.curr_iter += 1
 
         self.end_time = time.time()

@@ -31,7 +31,7 @@ test_script:
   - pytest --cov=./ --cov-report=xml
   # - python-codacy-coverage -r coverage.xml
   # - coverage run --source=mlearner -m pytest ./
-  # - coveralls
+  - coveralls
 
 notifications:
 
