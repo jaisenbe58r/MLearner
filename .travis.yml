@@ -63,7 +63,6 @@ script:
     - bash ci/.travis_test.sh
     # - bash coverage run -m unittest discover
 
-
 after_success:
     - if [[ "$COVERAGE" == "true" ]]; then coveralls || echo "failed"; fi
     - bash <(curl -s https://codecov.io/bash)
