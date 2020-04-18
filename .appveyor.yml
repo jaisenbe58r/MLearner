@@ -4,6 +4,7 @@ environment:
   matrix:
     - PYTHON_VERSION: "3.7"
       MINICONDA: C:/Miniconda37-x64
+      CODACY_PROJECT_TOKEN: GdDjegi4fe2u4dnVgx2Z
 init:
   - ECHO %PYTHON_VERSION% %MINICONDA%
   - ECHO conda --version
