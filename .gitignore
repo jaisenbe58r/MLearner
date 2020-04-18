@@ -3,14 +3,17 @@
 .pytest_cache/
 
 # Documentation builds
-# docs/site/
-# docs/mlearner.pdf
+docs/site/
+docs/mlearner.pdf
 
 # Temporary documentation files
-# docs/sources/user_guide/*.md
-# docs/sources/user_guide/*/*.md
+docs/sources/user_guide/*.md
+docs/sources/user_guide/*/*.md
 # docs/sources/api_modules/
 # docs/sources/api_subpackages/
+docs/sources/api_modules/
+docs/sources/api_subpackages/
+
 
 # PyPI
 build/
@@ -41,5 +44,4 @@ doc/_build
 .DS_store
 .idea
 © 2020 GitHub, Inc.
-coverage.xml
-mlearner/__main__.py
+
