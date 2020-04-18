@@ -61,19 +61,14 @@ install:
 
 script:
     - bash ci/.travis_test.sh
-    - bash pytest --cov=./ --cov-report=xml # run tests
 
 after_success:
     - if [[ "$COVERAGE" == "true" ]]; then coveralls || echo "failed"; fi
-    - bash codecov # submit coverage
-    - bash curl -s https://codecov.io/bash
-
-
 
 notifications:
     email:
       recipients:
-          - mail@sebastianraschka.com
+          - jaisenberafel@gmail.com.com
     webhooks:
       urls:
         - https://webhooks.gitter.im/e/24d207e7c060eea433dd
