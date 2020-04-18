@@ -8,7 +8,7 @@ import sys
 
 
 class Counter(object):
-    
+
     """Class to display the progress of for-loop iterators.
 
     Parameters
