@@ -3,15 +3,15 @@ name: codacy-analysis-cli
 on: ["push"]
 
 jobs:
-  # codacy-coverage-reporter:
-  #   runs-on: ubuntu-latest
-  #   name: codacy-coverage-reporter
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Run codacy-coverage-reporter
-  #       uses: codacy/codacy-coverage-reporter-action@0.1.0
-  #       with:
-  #         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+  codacy-coverage-reporter:
+    runs-on: ubuntu-latest
+    name: codacy-coverage-reporter
+    steps:
+      - uses: actions/checkout@master
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@0.1.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
   codacy-analysis-cli:
     runs-on: ubuntu-latest
@@ -22,5 +22,3 @@ jobs:
         uses: mrfyda/codacy-analysis-cli-action@v1.0
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-
-
