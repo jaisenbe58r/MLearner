@@ -1,5 +1,6 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""
+Jaime Sendra Berenguer-2020.
 
 MLearner Machine Learning Library Extensions
 
@@ -40,7 +41,7 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     --------
 
     For usage examples, please see
-    http://jaisenbe58r.github.io/mlearner/user_guide/preprocessing/minmax_scaling/
+    http://jaisenbe58r.github.io/mlearner/user_guide/preprocessing/minmax_scaling/.
 
     """
     ary_new = array.astype(float)
