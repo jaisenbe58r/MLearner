@@ -65,8 +65,7 @@ if [ "${COVERAGE}" = "true" ]; then
     conda install pytest-cov
     conda install coveralls
     conda install coverage
-    conda install codacy-coverage
-fi
+    conda install -c conda-forge codacy-coverage
 
 python --version
 python -c "import pandas; print('pandas %s' % pandas.__version__)"
