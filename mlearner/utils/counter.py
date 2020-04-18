@@ -1,5 +1,4 @@
-
-""".
+"""
 Jaime Sendra Berenguer-2020.
 
 MLearner Machine Learning Library Extensions
@@ -60,10 +59,11 @@ class Counter(object):
     The counter was last updated 0 seconds ago.
 
     For more usage examples, please see
-    http://rasbt.github.io/mlearner/user_guide/utils/Counter/
+    http://rasbt.github.io/mlearner/user_guide/utils/Counter/.
     """
 
     def __init__(self, stderr=False, start_newline=True, precision=0, name=None):
+        """Counter."""
         if stderr:
             self.stream = sys.stderr
         else:
