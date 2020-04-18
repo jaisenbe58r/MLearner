@@ -1,8 +1,14 @@
-# Sebastian Raschka 2014-2020
-# mlxtend Machine Learning Library Extensions
-# Author: Sebastian Raschka <sebastianraschka.com>
-#
-# License: BSD 3 clause
+
+""".
+Jaime Sendra Berenguer-2020.
+
+MLearner Machine Learning Library Extensions
+
+MLearner Machine Learning Library Extensions
+Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
+
+License: MIT
+"""
 
 from mlearner.preprocessing import minmax_scaling
 import pandas as pd
