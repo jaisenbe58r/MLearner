@@ -41,6 +41,3 @@ notifications:
     message: "{{message}}, {{commitId}}, ..."
     on_build_status_changed: true
 
-
-
-    python-codacy-coverage -c $APPVEYOR_REPO_COMMIT -d $APPVEYOR_BUILD_FOLDER -r coverage.xml
