@@ -7,6 +7,7 @@ environment:
 init:
   - ECHO %PYTHON_VERSION% %MINICONDA%
   - ECHO conda --version
+  - export CODACY_PROJECT_TOKEN=GdDjegi4fe2u4dnVgx2Z
 
 install:
   - set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%
@@ -18,11 +19,13 @@ install:
   - conda install -c conda-forge dlib=19.17
   - conda install imageio
   - conda install scikit-image
+  - conda install codacy-coverage
   # - conda install -f -y -q --name py37 -c conda-forge --file requirements.txt
 
 test_script:
   - set PYTHONPATH=%PYTHONPATH%;%CD%
   - pytest -sv --ignore=mlearner/plotting
+  - python-codacy-coverage -c $APPVEYOR_REPO_COMMIT -d $APPVEYOR_BUILD_FOLDER -r coverage.xml
 
 notifications:
 
@@ -37,3 +40,7 @@ notifications:
     subject: 'Build {{status}}'
     message: "{{message}}, {{commitId}}, ..."
     on_build_status_changed: true
+
+
+
+    python-codacy-coverage -c $APPVEYOR_REPO_COMMIT -d $APPVEYOR_BUILD_FOLDER -r coverage.xml

@@ -11,6 +11,7 @@ xgboost
 lightgbm
 catboost
 scikit-image
+codacy-coverage
 
 
 # testing
