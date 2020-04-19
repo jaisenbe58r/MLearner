@@ -11,7 +11,8 @@ DATA_PATH = os.path.join(this_dir, "data", "wine.csv")
 
 
 def wine_data():
-    """Wine dataset.
+    """
+    Wine dataset.
 
     Source: https://archive.ics.uci.edu/ml/datasets/Wine
     Number of samples: 178
