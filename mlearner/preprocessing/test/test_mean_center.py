@@ -15,11 +15,9 @@ listX1 = X1.tolist()
 pdX1 = pd.DataFrame(data=X1)
 
 X1_out = np.array([[-1.5, -1.5, -1.5], [1.5,  1.5,  1.5]])
-listX1_out = X1_out.tolist()
 pdX1_out = pd.DataFrame(data=X1_out)
 
 X2 = np.array([[1.0, 'N', 3.0], [4.0, 'Y', 6.0]])
-listX2 = X2.tolist()
 pdX2 = pd.DataFrame(data=X2)
 
 
@@ -52,3 +50,16 @@ def test_columns_categorical_pandas():
     mc = MeanCenterer()
     with pytest.raises(NameError):
         mc.fit(pdX2)
+
+
+def test_invalid_tpe_fit():
+    mc = MeanCenterer()
+    with pytest.raises(NameError):
+        mc.fit(listX1)
+
+
+def test_invalid_tpe_transform():
+    mc = MeanCenterer()
+    mc.fit(X1)
+    with pytest.raises(NameError):
+        mc.transform(listX1)
