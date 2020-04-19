@@ -17,7 +17,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f5b0302acc04a3dac74d6815fdf66e5)](https://www.codacy.com/manual/jaisenbe58r/MLearner?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaisenbe58r/MLearner&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/jaisenbe58r/MLearner.svg?branch=master)](https://travis-ci.org/jaisenbe58r/MLearner)
 [![codecov](https://codecov.io/gh/jaisenbe58r/MLearner/branch/master/graph/badge.svg)](https://codecov.io/gh/jaisenbe58r/MLearner)
-[![Coverage Status](https://coveralls.io/repos/github/jaisenbe58r/MLearner/badge.svg?branch=master)](https://coveralls.io/github/jaisenbe58r/MLearner?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-ORANGE.svg)](https://github.com/jaisenbe58r/MLearner/blob/master/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
 [![DOI](https://zenodo.org/badge/256283484.svg)](https://zenodo.org/badge/latestdoi/256283484)
