@@ -5,12 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Archivo actual",
+            "name": "Python: Módulo",
             "type": "python",
             "request": "launch",
-            "program": "mlearner\\preprocessing\\test\\test__scaling__minmax_scaling.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "module": "mlearner"
         },
+        // {
+        //     "name": "Python: Archivo actual",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "program": "mlearner\\data\\wine.py",
+        //     "console": "integratedTerminal",
+        //     "cwd": "${workspaceFolder}"
+        // },
     ]
 }
