@@ -2,4 +2,3 @@
 
 ## `utils`
 - [Counter](user_guide/utils/Counter.md)
-- [hola](hola)

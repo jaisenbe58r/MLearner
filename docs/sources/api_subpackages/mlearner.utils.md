@@ -1,4 +1,4 @@
-mlearner version: 0.1.0dev0 
+mlearner version: 0.1.2dev1 
 ## Counter
 
 *Counter(stderr=False, start_newline=True, precision=0, name=None)*
@@ -6,6 +6,7 @@ mlearner version: 0.1.0dev0
 Class to display the progress of for-loop iterators.
 
 **Parameters**
+
 
 - `stderr` : bool (default: True)
 
@@ -25,6 +26,7 @@ Class to display the progress of for-loop iterators.
     between multiple counters.
 
 **Attributes**
+
 
 - `curr_iter` : int
 
@@ -55,7 +57,7 @@ Class to display the progress of for-loop iterators.
     The counter was last updated 0 seconds ago.
 
 For more usage examples, please see
-[http://rasbt.github.io/mlearner/user_guide/utils/Counter/](http://rasbt.github.io/mlearner/user_guide/utils/Counter/)
+[http://rasbt.github.io/mlearner/user_guide/utils/Counter/.](http://rasbt.github.io/mlearner/user_guide/utils/Counter/.)
 
 ### Methods
 

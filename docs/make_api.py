@@ -37,8 +37,7 @@ def make_markdown_url(line_string, s):
 
 def docstring_to_markdown(docstring):
     
-"""
-onvert a Python object's docstring to markdown
+    """Convert a Python object's docstring to markdown
 
     Parameters
     --------
@@ -107,8 +106,7 @@ onvert a Python object's docstring to markdown
 
 def object_to_markdownpage(obj_name, obj, s=''):
     
-"""
-enerate the markdown documentation of a Python object.
+    """Generate the markdown documentation of a Python object.
 
     Parameters
     --------
@@ -164,8 +162,7 @@ enerate the markdown documentation of a Python object.
 
 def import_package(rel_path_to_package, package_name):
     
-"""
-mports a python package into the current namespace.
+    """Imports a python package into the current namespace.
 
     Parameters
     --------
@@ -194,8 +191,7 @@ mports a python package into the current namespace.
 
 def get_subpackages(package):
     
-"""
-eturn subpackages of a package.
+    """Return subpackages of a package.
 
     Parameters
     --------
@@ -212,8 +208,7 @@ eturn subpackages of a package.
 
 def get_modules(package):
     
-"""
-eturn modules of a package.
+    """Return modules of a package.
 
     Parameters
     --------
@@ -230,8 +225,7 @@ eturn modules of a package.
 
 def get_functions_and_classes(package):
     
-"""
-etun lists of functions and classes from a package.
+    """Retun lists of functions and classes from a package.
 
     Parameters
     --------
@@ -257,8 +251,7 @@ etun lists of functions and classes from a package.
 def generate_api_docs(package, api_dir, clean=False,
                       printlog=True, ignore_packages=None):
     
-"""
-enerate a module level API documentation of a python package.
+    """Generate a module level API documentation of a python package.
 
     Description
     --------
@@ -356,8 +349,7 @@ def summarize_methdods_and_functions(api_modules, out_dir,
                                      printlog=False, clean=True,
                                      str_above_header=''):
     
-"""
-enerates subpacke-level summary files.
+    """Generates subpacke-level summary files.
 
     Description
     --------

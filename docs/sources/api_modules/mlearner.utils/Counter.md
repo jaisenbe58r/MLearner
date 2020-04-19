@@ -6,6 +6,7 @@ Class to display the progress of for-loop iterators.
 
 **Parameters**
 
+
 - `stderr` : bool (default: True)
 
     Prints output to sys.stderr if True; uses sys.stdout otherwise.
@@ -24,6 +25,7 @@ Class to display the progress of for-loop iterators.
     between multiple counters.
 
 **Attributes**
+
 
 - `curr_iter` : int
 
@@ -54,7 +56,7 @@ Class to display the progress of for-loop iterators.
     The counter was last updated 0 seconds ago.
 
 For more usage examples, please see
-[http://rasbt.github.io/mlearner/user_guide/utils/Counter/](http://rasbt.github.io/mlearner/user_guide/utils/Counter/)
+[http://rasbt.github.io/mlearner/user_guide/utils/Counter/.](http://rasbt.github.io/mlearner/user_guide/utils/Counter/.)
 
 ### Methods
 
