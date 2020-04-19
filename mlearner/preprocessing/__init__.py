@@ -6,5 +6,6 @@ License: MIT
 """
 
 from .scaling import minmax_scaling
+from .mean_centering import MeanCenterer
 
-__all__ = ["minmax_scaling"]
+__all__ = ["minmax_scaling", "MeanCenterer"]

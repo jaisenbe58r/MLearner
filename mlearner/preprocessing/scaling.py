@@ -1,5 +1,4 @@
-"""
-Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2020.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -10,8 +9,7 @@ import numpy as np
 
 
 def minmax_scaling(array, columns, min_val=0, max_val=1):
-    """
-    In max scaling of pandas DataFrames.
+    """In max scaling of pandas DataFrames.
 
     Parameters
     --------
@@ -37,6 +35,7 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     For usage examples, please see
     http://jaisenbe58r.github.io/mlearner/user_guide/preprocessing/minmax_scaling/.
 
+    
     """
     ary_new = array.astype(float)
     if len(ary_new.shape) == 1:

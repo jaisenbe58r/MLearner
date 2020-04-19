@@ -1,11 +1,9 @@
-"""
-Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2020.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
-"""
 
-"""
+
 Machine Learning for Data engineer
 ==================================
 
@@ -14,6 +12,7 @@ It is based on high-level libraries for data engineers.
 
 
 See https://jaisenbe58r.github.io/MLearner/ for complete documentation.
+
 """
 
 # PEP0440 compatible formatted version, see:
@@ -32,4 +31,4 @@ See https://jaisenbe58r.github.io/MLearner/ for complete documentation.
 # Dev branch marker is: 'X.Y.dev' or 'X.Y.devN' where N is an integer.
 # 'X.Y.dev0' is the canonical version of 'X.Y.dev'
 #
-__version__ = '0.1.2'
+__version__ = '0.1.2dev1'
