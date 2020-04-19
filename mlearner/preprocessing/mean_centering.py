@@ -45,6 +45,7 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
         if isinstance(X, pd.core.frame.DataFrame):
             try:
                 _test = X.astype(np.float32)
+                del(_test)
             except ValueError:
                 raise NameError("Null or categorical variables are not allowed: {}".format(X.dtypes))
 
