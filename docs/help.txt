@@ -1,0 +1,8 @@
+python .\ipynb2markdown.py --all .
+python .\make_userguide.py
+python .\make_api.py
+
+mkdocs build --clean
+mkdocs server      // Servidor
+
+mkdocs gh-deploy

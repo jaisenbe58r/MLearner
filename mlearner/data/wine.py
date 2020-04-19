@@ -27,24 +27,32 @@ def wine_data():
     The analysis determined the quantities of 13 constituents found in each
     of the three types of wines.
 
-    The attributes are (dontated by Riccardo Leardi, riclea@anchem.unige.it )
-    1) Alcohol
-    2) Malic acid
-    3) Ash
-    4) Alcalinity of ash
-    5) Magnesium
-    6) Total phenols
-    7) Flavanoids
-    8) Nonflavanoid phenols
-    9) Proanthocyanins
-    10)Color intensity
-    11)Hue
-    12)OD280/OD315 of diluted wines
-    13)Proline
+    The attributes are (dontated by Riccardo Leardi, riclea@anchem.unige.it)
+
+        - 1) Alcohol
+        - 2) Malic acid
+        - 3) Ash
+        - 4) Alcalinity of ash
+        - 5) Magnesium
+        - 6) Total phenols
+        - 7) Flavanoids
+        - 8) Nonflavanoid phenols
+        - 9) Proanthocyanins
+        - 10) Color intensity
+        - 11) Hue
+        - 12) OD280/OD315 of diluted wines
+        - 13) Proline
 
     In a classification context, this is a well posed problem with "well behaved"
     class structures. A good data set for first testing of a new classifier,
     but not very challenging.
+
+    Returns
+    --------
+    X, y : [n_samples, n_features], [n_class_labels]
+        X is the feature matrix with 178 wine samples as rows
+        and 13 feature columns.
+        y is a 1-dimensional array of the 3 class labels 0, 1, 2
 
     Examples
     --------

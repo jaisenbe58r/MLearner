@@ -42,11 +42,18 @@ nav:
 - Home: index.md
 - User Guide:
   - USER_GUIDE_INDEX.md
+  - data:
+    - user_guide/data/wine_data.md
+  - preprocessing:
+    - user_guide/preprocessing/MeanCenterer.md
+    # - user_guide/preprocessing/minmax_scaling.md
   - utils:
-    - user_guide/utils/Counter.md
+    # - user_guide/utils/Counter.md
 
 - API:
-  - api_subpackages/mlearner.utils.md
+  - api_subpackages/mlearner.data.md
+  - api_subpackages/mlearner.preprocessing.md
+  # - api_subpackages/mlearner.utils.md
 
 - Installation: installation.md
 - About:
