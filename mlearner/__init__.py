@@ -7,7 +7,7 @@
 Machine Learning for Data engineer
 ==================================
 
-MLearner is Python module based on scikit-learn. 
+MLearner is Python module based on scikit-learn.
 It is based on high-level libraries for data engineers.
 
 
@@ -31,4 +31,3 @@ See https://jaisenbe58r.github.io/MLearner/ for complete documentation.
 # 'X.Y.dev0' is the canonical version of 'X.Y.dev'
 #
 __version__ = '0.1.2'
-

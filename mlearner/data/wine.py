@@ -39,12 +39,12 @@ def wine_data():
     12)OD280/OD315 of diluted wines
     13)Proline
 
-    In a classification context, this is a well posed problem with "well behaved" 
-    class structures. A good data set for first testing of a new classifier, 
+    In a classification context, this is a well posed problem with "well behaved"
+    class structures. A good data set for first testing of a new classifier,
     but not very challenging.
 
     Examples
-    -----------
+    --------
     For usage examples, please see
     https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data
 

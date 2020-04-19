@@ -7,7 +7,7 @@ from mlearner.data import wine_data
 
 
 def test_import_wine():
-    """test import dataset wine"""
+    """Test import dataset wine"""
     X, y = wine_data()
 
     assert(X.shape[1] == 13)
