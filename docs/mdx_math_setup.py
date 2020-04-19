@@ -34,7 +34,7 @@ from distutils.core import setup
 
 long_description = \
 
-""".
+"""
 his extension adds math formulas support to Python-Markdown_
 (works with version 2.6 or newer).
 

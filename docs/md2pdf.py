@@ -58,7 +58,7 @@ def gen_title(fname):
 
 with open(md_out_path, 'w') as f_out:
     meta = r
-""".
+"""
 --
 title: mlearner %s
 subtitle: Library Documentation
@@ -71,7 +71,7 @@ header-includes:
 ---
 
 
-""".
+"""
 % __version__
     f_out.write(meta)
     for md in mkdocs:
