@@ -124,7 +124,7 @@
         
             
 <li >
-    <a href="../../user_guide/data/wine_data.md">None</a>
+    <a href="../../user_guide/data/wine_data/">Wine data</a>
 </li>
 
         
@@ -139,7 +139,7 @@
         
             
 <li >
-    <a href="../../user_guide/preprocessing/MeanCenterer.md">None</a>
+    <a href="../../user_guide/preprocessing/MeanCenterer/">Mean Centerer</a>
 </li>
 
         
@@ -160,7 +160,7 @@
         
             
 <li >
-    <a href="../../user_guide/utils/Counter/">Counter</a>
+    <a href="../../user_guide/utils/Counter.md">None</a>
 </li>
 
         
@@ -261,7 +261,7 @@
 
                 <!--
                     <li >
-                        <a rel="next" href="../../user_guide/utils/Counter/">
+                        <a rel="next" href="../../user_guide/preprocessing/MeanCenterer/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -300,26 +300,37 @@ Class labels: {0, 1, 2}, distribution: [59, 71, 48]</p>
 in the same region in Italy but derived from three different cultivars.
 The analysis determined the quantities of 13 constituents found in each
 of the three types of wines.</p>
-<p>The attributes are (dontated by Riccardo Leardi, riclea@anchem.unige.it )
-1) Alcohol
-2) Malic acid
-3) Ash
-4) Alcalinity of ash
-5) Magnesium
-6) Total phenols
-7) Flavanoids
-8) Nonflavanoid phenols
-9) Proanthocyanins
-10)Color intensity
-11)Hue
-12)OD280/OD315 of diluted wines
-13)Proline</p>
+<p>The attributes are (dontated by Riccardo Leardi, riclea@anchem.unige.it)</p>
+<ul>
+<li>1) Alcohol</li>
+<li>2) Malic acid</li>
+<li>3) Ash</li>
+<li>4) Alcalinity of ash</li>
+<li>5) Magnesium</li>
+<li>6) Total phenols</li>
+<li>7) Flavanoids</li>
+<li>8) Nonflavanoid phenols</li>
+<li>9) Proanthocyanins</li>
+<li>10) Color intensity</li>
+<li>11) Hue</li>
+<li>12) OD280/OD315 of diluted wines</li>
+<li>13) Proline</li>
+</ul>
 <p>In a classification context, this is a well posed problem with "well behaved"
 class structures. A good data set for first testing of a new classifier,
 but not very challenging.</p>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>X, y</code> : [n_samples, n_features], [n_class_labels]</p>
+<p>X is the feature matrix with 178 wine samples as rows
+and 13 feature columns.
+y is a 1-dimensional array of the 3 class labels 0, 1, 2</p>
+</li>
+</ul>
 <p><strong>Examples</strong></p>
 <p>For usage examples, please see
-https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data</p></div>
+    https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data</p></div>
         
         
     </div>
