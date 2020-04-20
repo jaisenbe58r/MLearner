@@ -5,7 +5,6 @@ Author: Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-import numpy as np
 import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal
@@ -16,12 +15,12 @@ data = pd.DataFrame({"a": [2, 2, 2, float('nan'), 4, 5], "b": ["OK", "OK", float
 data_out = pd.DataFrame({"a": [2.0, 2.0, 4.0, 5.0], "b": ["OK", "OK", "OK", "NOK"]})
 
 
-def test_idmax_tranf_equal():
+def test_any_tranf_equal():
     ft = FillNaTransformer_any()
     assert_frame_equal(ft.transform(data), data_out)
 
 
-def test_idmax_invalid_transf_type():
+def test_any_invalid_transf_type():
     ft = FillNaTransformer_any()
     ft.fit(data)
     with pytest.raises(NameError):
