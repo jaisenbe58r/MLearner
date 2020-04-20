@@ -8,7 +8,8 @@ License: MIT
 from .scaling import minmax_scaling
 from .mean_centering import MeanCenterer
 from .droper import FeatureDropper
-from .replace_na import FillNaTransformer_median
+from .replace_na import FillNaTransformer_any, FillNaTransformer_median, FillNaTransformer_mean, FillNaTransformer_idmax
 
 __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
-            "FillNaTransformer_median"]
+            "FillNaTransformer_median", "FillNaTransformer_mean",
+            "FillNaTransformer_idmax", "FillNaTransformer_any"]
