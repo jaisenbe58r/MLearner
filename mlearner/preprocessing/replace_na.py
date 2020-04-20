@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-class FillNaTransformer_median(BaseEstimator, TransformerMixin):  
+class FillNaTransformer_median(BaseEstimator, TransformerMixin):
 
     """This transformer handles missing values.
 
@@ -26,7 +26,7 @@ class FillNaTransformer_median(BaseEstimator, TransformerMixin):
     """
     def __init__(self, columns=None):
         """Init replace missing values."""
-        if column is not None:
+        if columns is not None:
             if isinstance(columns, list) or isinstance(columns, tuple):
                 self.columns = columns
             else:
