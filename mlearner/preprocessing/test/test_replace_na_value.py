@@ -79,4 +79,4 @@ def test_invalid_transf_type():
 def test_col_no_include():
     ft = FillNaTransformer_value(columns=col_no_include)
     with pytest.raises(NameError):
-        ft.fit(data)
+        ft.fit(data, value=value)
