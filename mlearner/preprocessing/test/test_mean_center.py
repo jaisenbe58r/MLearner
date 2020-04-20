@@ -53,13 +53,13 @@ def test_columns_categorical_pandas():
         mc.fit(pdX2)
 
 
-def test_invalid_tpe_fit():
+def test_invalid_type_fit():
     mc = MeanCenterer()
     with pytest.raises(NameError):
         mc.fit(listX1)
 
 
-def test_invalid_tpe_transform():
+def test_invalid_type_transform():
     mc = MeanCenterer()
     mc.fit(X1)
     with pytest.raises(NameError):

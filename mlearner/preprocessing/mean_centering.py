@@ -12,7 +12,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 class MeanCenterer(BaseEstimator, TransformerMixin):
 
-    """Column centering of pandas Dataframeself.
+    """Column centering of pandas Dataframe.
 
     Attributes
     ----------
@@ -22,7 +22,7 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
     Examples
     --------
     For usage examples, please see
-    https://jaisenbe58r.github.io/MLearner/user_guide/data/MeanCenterer/
+    https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/MeanCenterer/
 
     adapted from
     https://github.com/rasbt/mlxtend/blob/master/mlxtend/preprocessing/mean_centering.py
@@ -67,8 +67,6 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
 
         else:
             raise NameError("Invalid type {}".format(type(X)))
-
-        print(self.col_means)
 
         return self
 
