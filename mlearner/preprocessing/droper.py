@@ -28,7 +28,7 @@ class FeatureDropper(BaseEstimator, TransformerMixin):
         if isinstance(drop, list):
             self.drop = drop
         else:
-            raise NameError("Invalid type {}".format(type(X)))
+            raise NameError("Invalid type {}".format(type(drop)))
 
     def fit(self, X, y=None, **fit_params):
         """Gets the columns that not drop.

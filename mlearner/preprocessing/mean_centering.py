@@ -59,6 +59,7 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
         elif isinstance(X, np.ndarray):
             try:
                 _test = np.mean(X)
+                del(_test)
             except TypeError:
                 raise NameError("Null or categorical variables are not allowed")
 
