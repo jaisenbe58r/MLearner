@@ -46,9 +46,10 @@ def test_tranf_equal():
 
 
 def test_tranf_equal_null():
+    ft = FillNaTransformer_median()
+    ft.fit(data)
     with pytest.raises(NameError):
-        FillNaTransformer_median()
-
+        assert_frame_equal(ft.transform(data), data_median)
 
 def test_invalid_fit_type():
     ft = FillNaTransformer_median(columns=col)

@@ -26,10 +26,13 @@ class FillNaTransformer_median(BaseEstimator, TransformerMixin):
     """
     def __init__(self, columns=None):
         """Init replace missing values."""
-        if isinstance(columns, list) or isinstance(columns, tuple):
-            self.columns = columns
+        if column is not None:
+            if isinstance(columns, list) or isinstance(columns, tuple):
+                self.columns = columns
+            else:
+                raise NameError("Invalid type {}".format(type(columns)))
         else:
-            raise NameError("Invalid type {}".format(type(columns)))
+            self.columns = columns
 
     def fit(self, X, y=None, **fit_params):
         """Gets the columns to make a replace missing values.
