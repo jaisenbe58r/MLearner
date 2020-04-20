@@ -50,4 +50,3 @@ def test_invalid_transf_type():
     fd.fit(data)
     with pytest.raises(NameError):
         fd.transform(data.values)
-
