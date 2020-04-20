@@ -36,6 +36,12 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     For usage examples, please see
     http://jaisenbe58r.github.io/mlearner/user_guide/preprocessing/minmax_scaling/.
 
+
+    adapted from
+    https://github.com/rasbt/mlxtend/blob/master/mlxtend/preprocessing/scaling.py
+    Author: Sebastian Raschka <sebastianraschka.com>
+    License: BSD 3 clause
+
     """
     ary_new = array.astype(float)
     if len(ary_new.shape) == 1:

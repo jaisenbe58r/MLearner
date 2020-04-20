@@ -24,6 +24,11 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
     For usage examples, please see
     https://jaisenbe58r.github.io/MLearner/user_guide/data/MeanCenterer/
 
+    adapted from
+    https://github.com/rasbt/mlxtend/blob/master/mlxtend/preprocessing/mean_centering.py
+    Author: Sebastian Raschka <sebastianraschka.com>
+    License: BSD 3 clause
+
     """
     def __init__(self):
         """Init Mean Center."""

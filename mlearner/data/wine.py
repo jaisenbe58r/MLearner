@@ -59,6 +59,11 @@ def wine_data():
     For usage examples, please see
     https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data
 
+    adapted from
+    https://github.com/rasbt/mlxtend/blob/master/mlxtend/data/wine.py
+    Author: Sebastian Raschka <sebastianraschka.com>
+    License: BSD 3 clause
+
     """
     data_csv = pd.read_csv(DATA_PATH, delimiter=',')
     X = data_csv[data_csv.columns[:-1]]

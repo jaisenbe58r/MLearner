@@ -20,7 +20,7 @@ md_out_path = "./temp.md"
 with open(yaml_path, 'r') as f:
     content = f.read()
 
-tree = yaml.load(content)
+tree = yaml.safe_load(content)
 
 mkdocs = []
 
