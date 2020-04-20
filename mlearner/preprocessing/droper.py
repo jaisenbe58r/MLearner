@@ -6,6 +6,7 @@ License: MIT
 
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
+# https://www.kaggle.com/funkyfrankie/sklearn-pipelines-and-transformers
 
 
 class FeatureDropper(BaseEstimator, TransformerMixin):
