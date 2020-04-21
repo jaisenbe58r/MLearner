@@ -591,7 +591,7 @@ class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
 
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
-        
+
         X_transform = X.copy()
         X_transform[self.columns] = X[self.columns].fillna(method="ffill")
         return X_transform

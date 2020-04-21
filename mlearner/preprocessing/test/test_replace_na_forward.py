@@ -75,4 +75,3 @@ def test_col_no_include():
     ft = FillNaTransformer_forward(columns=col_no_include)
     with pytest.raises(NameError):
         ft.fit(data)
-
