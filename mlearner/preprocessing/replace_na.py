@@ -440,8 +440,9 @@ class FillNaTransformer_value(BaseEstimator, TransformerMixin):
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
 
-        X[self.columns] = X[self.columns].fillna(self.value)
-        return X
+        X_transform = X.copy()
+        X_transform[self.columns] = X[self.columns].fillna(self.value)
+        return X_transform
 
 
 class FillNaTransformer_backward(BaseEstimator, TransformerMixin):
@@ -491,9 +492,7 @@ class FillNaTransformer_backward(BaseEstimator, TransformerMixin):
         _lista = [i for i in self.columns if i not in X.columns.tolist()]
         if len(_lista) > 0:
             raise NameError("The columns {} no exist in Dataframe".format(_lista))
-
-        self.train_median = X[self.columns].median()
-
+        self._fitted = True
         return self
 
     def transform(self, X):
@@ -511,14 +510,15 @@ class FillNaTransformer_backward(BaseEstimator, TransformerMixin):
             A copy of the input Dataframe with the columns replaced.
 
         """
-        if not hasattr(self, "train_median"):
+        if not hasattr(self, "_fitted"):
             raise AttributeError("FillNaTransformer_backward has not been fitted, yet.")
 
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
 
-        X[self.columns] = X[self.columns].fillna(method="bfill")
-        return X
+        X_transform = X.copy()
+        X_transform[self.columns] = X[self.columns].fillna(method="bfill")
+        return X_transform
 
 
 class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
@@ -568,9 +568,7 @@ class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
         _lista = [i for i in self.columns if i not in X.columns.tolist()]
         if len(_lista) > 0:
             raise NameError("The columns {} no exist in Dataframe".format(_lista))
-
-        self.train_median = X[self.columns].median()
-
+        self._fitted = True
         return self
 
     def transform(self, X):
@@ -588,11 +586,12 @@ class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
             A copy of the input Dataframe with the columns replaced.
 
         """
-        if not hasattr(self, "train_median"):
+        if not hasattr(self, "_fitted"):
             raise AttributeError("FillNaTransformer_backward has not been fitted, yet.")
 
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
-
-        X[self.columns] = X[self.columns].fillna(method="ffill")
-        return X
+        
+        X_transform = X.copy()
+        X_transform[self.columns] = X[self.columns].fillna(method="ffill")
+        return X_transform

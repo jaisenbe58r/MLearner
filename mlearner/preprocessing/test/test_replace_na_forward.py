@@ -14,7 +14,7 @@ from mlearner.preprocessing import FillNaTransformer_forward
 
 data = pd.DataFrame({"a": [2, 2, 2, float('nan'), 4, 5], "b": ["OK", "OK", "OK", float('nan'), "NOK", "OK"]})
 data_out_a = pd.DataFrame({"a": [2.0, 2.0, 2.0, 2.0, 4.0, 5.0], "b": ["OK", "OK", "OK", float('nan'), "NOK", "OK"]})
-data_out_b = pd.DataFrame({"a": [2.0, 2.0, 2.0, float('nan'), 4.0, 5.0], "b": ["OK", "OK", "OK", "OK", "NOK", "OK"]})
+data_out_b = pd.DataFrame({"a": [2, 2, 2, float('nan'), 4, 5], "b": ["OK", "OK", "OK", "OK", "NOK", "OK"]})
 data_out = pd.DataFrame({"a": [2.0, 2.0, 2.0, 2.0, 4.0, 5.0], "b": ["OK", "OK", "OK", "OK", "NOK", "OK"]})
 col_a = ["a"]
 col_b = ["b"]
@@ -41,9 +41,9 @@ def test_tranf_equal_a():
 
 
 def test_tranf_equal_b():
-    ft = FillNaTransformer_forward(columns=col_b)
-    ft.fit(data)
-    assert_frame_equal(ft.transform(data), data_out_b)
+    ft1 = FillNaTransformer_forward(columns=col_b)
+    ft1.fit(data)
+    assert_frame_equal(ft1.transform(data), data_out_b)
 
 
 def test_tranf_equal_all():
