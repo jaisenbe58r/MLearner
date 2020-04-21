@@ -10,6 +10,7 @@ import pandas as pd
 import pytest
 from mlearner.preprocessing import FeatureDropper
 
+
 data = pd.DataFrame({"a": [0, 1], "b": [10, 11], "c": [20, 21]})
 data_transf = pd.DataFrame({"a": [0, 1], "c": [20, 21]})
 col_drop = ["b"]

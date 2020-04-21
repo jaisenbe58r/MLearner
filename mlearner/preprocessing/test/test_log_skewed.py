@@ -10,7 +10,7 @@ import pytest
 from mlearner.preprocessing import FixSkewness
 from mlearner.data import data_gamma, create_dataset
 
-n = 1000
+n = 5
 config = {
         'A': data_gamma(a=2.5, n=n),
         'B': data_gamma(a=3.5, n=n),
@@ -49,8 +49,31 @@ def test_fitting_error():
         fs.transform(data)
 
 
+def test_fitting_error_col_None():
+    """FixSkewness has not been fitted, yet."""
+    fs = FixSkewness()
+    with pytest.raises(AttributeError):
+        fs.transform(data)
+
+
 def test_error_type_dataframe_transf():
     fs = FixSkewness(columns=col)
     fs.fit(data)
     with pytest.raises(NameError):
         fs.transform(data_error)
+
+
+def test_eval_result_D():
+    fs = FixSkewness(columns=col)
+    fs.fit(data)
+    _out = fs.transform(data)
+    _out_array = np.squeeze(_out[col].values)
+    np.testing.assert_allclose(_out_array.shape[0], n, rtol=1e-03)
+
+
+def test_eval_result_all():
+    fs = FixSkewness()
+    fs.fit(data)
+    _out = fs.transform(data)
+    _out_array = np.squeeze(_out[col].values)
+    assert(_out_array, np.repeat("KO", n))

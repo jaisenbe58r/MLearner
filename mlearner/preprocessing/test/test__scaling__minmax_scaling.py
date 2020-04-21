@@ -5,9 +5,9 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-from mlearner.preprocessing import minmax_scaling
 import pandas as pd
 import numpy as np
+from mlearner.preprocessing import minmax_scaling
 
 
 def test_minmax_scaling_arrayerror():

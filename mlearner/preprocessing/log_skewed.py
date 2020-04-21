@@ -49,16 +49,15 @@ class FixSkewness(BaseEstimator, TransformerMixin):
         --------
         self
         """
+        if self.columns is None:
+            self.columns = X.select_dtypes(exclude=["object"]).columns
+                
         if isinstance(X, pd.core.frame.DataFrame):
             try:
                 _test = X[self.columns].astype(np.float32)
                 del(_test)
             except ValueError:
                 raise NameError("Null or categorical variables are not allowed: {}".format(X.dtypes))
-
-            if self.columns is None:
-                self.columns = X.select_dtypes(exclude=["object"]).columns
-
         else:
             raise NameError("Invalid type {}".format(type(X)))
 
