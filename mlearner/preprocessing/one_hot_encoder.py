@@ -5,9 +5,7 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-import numpy as np
 import pandas as pd
-from scipy.stats import skew
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
@@ -39,7 +37,7 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
         else:
             self.columns = columns
 
-        if numerical is not None:
+        if numerical != []:
             if isinstance(numerical, list) or isinstance(numerical, tuple):
                 self.numerical = numerical
             else:
