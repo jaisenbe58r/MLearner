@@ -7,7 +7,7 @@ License: MIT
 
 import numpy as np
 import pandas as pd
-from scipy.stats import skew 
+from scipy.stats import skew
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
@@ -17,11 +17,11 @@ class FixSkewness(BaseEstimator, TransformerMixin):
 
     Attributes
     ----------
-    columns:  numpy.ndarray [n_columns] or pandas [n_columns]
+    columns:  npandas [n_columns]
 
     Examples
     --------
-    For usage examples, please see
+    For usage examples, please see:
     https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FixSkewness/
 
 
@@ -51,7 +51,7 @@ class FixSkewness(BaseEstimator, TransformerMixin):
         """
         if self.columns is None:
             self.columns = X.select_dtypes(exclude=["object"]).columns
-                
+
         if isinstance(X, pd.core.frame.DataFrame):
             try:
                 _test = X[self.columns].astype(np.float32)
