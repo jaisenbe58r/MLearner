@@ -68,7 +68,7 @@ def test_tranf_equal_null():
 
 def test_invalid_fit_type():
     fd = DropOutliers(features=col)
-    with pytest.raises(ValueError):
+    with pytest.raises(TypeError):
         fd.fit(data.values)
 
 
