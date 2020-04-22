@@ -46,13 +46,30 @@ nav:
     - user_guide/data/wine_data.md
   - preprocessing:
     - user_guide/preprocessing/MeanCenterer.md
-    # - user_guide/preprocessing/minmax_scaling.md
-  - utils:
+    - user_guide/preprocessing/minmax_scaling.md
+    - user_guide/preprocessing/FeatureDropper.md
+    - user_guide/preprocessing/FillNaTransformer_median.md
+    - user_guide/preprocessing/FillNaTransformer_mean.md
+    - user_guide/preprocessing/FillNaTransformer_idmax.md
+    - user_guide/preprocessing/FillNaTransformer_any.md
+    - user_guide/preprocessing/FillNaTransformer_all.md
+    - user_guide/preprocessing/FillNaTransformer_value.md
+    - user_guide/preprocessing/FillNaTransformer_backward.md
+    - user_guide/preprocessing/FillNaTransformer_forward.md
+    - user_guide/preprocessing/FixSkewness.md
+    - user_guide/preprocessing/OneHotEncoder.md
+    - user_guide/preprocessing/DropOutliers.md
+  - load:
+    - user_guide/load/DataLoad.md
+  - externals:
+    - user_guide/externals/NotFittedError.md
+  # - utils:
     # - user_guide/utils/Counter.md
-
 - API:
   - api_subpackages/mlearner.data.md
   - api_subpackages/mlearner.preprocessing.md
+  - api_subpackages/mlearner.externals.md
+  - api_subpackages/mlearner.load.md
   # - api_subpackages/mlearner.utils.md
 
 - Installation: installation.md
