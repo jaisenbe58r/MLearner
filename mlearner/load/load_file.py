@@ -44,22 +44,22 @@ class DataLoad(object):
 
         Parameters
         ----------
-        filename: 'str, path object or file-like object'
+        filename: `str, path object or file-like object`
             Any valid string path is acceptable. The string could be a URL.
             Valid URL schemes include http, ftp, s3, and file. For file URLs,
             a host is expected. A local file could be:
-            file://localhost/path/to/table.csv.
+            `file://localhost/path/to/table.csv`.
             If you want to pass in a path object, pandas accepts any os.PathLike.
             By file-like object, we refer to objects with a read() method,
             such as a file handler (e.g. via builtin open function) or StringIO.
 
-        seps: 'str'
+        seps: `str`
             Delimiter to use. If sep is None, the C engine cannot automatically
             detect the separator, but the Python parsing engine can, meaning the
             latter will be used and automatically detect the separator by Python's
             builtin sniffer tool, csv.Sniffer.
 
-        delimiter: 'str, default None'
+        delimiter: `str, default None`
             Alias for sep.
 
         Attributes
