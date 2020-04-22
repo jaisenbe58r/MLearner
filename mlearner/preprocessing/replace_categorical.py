@@ -16,7 +16,12 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
 
     Attributes
     ----------
-    columns: list of columns to transformer [n_columns]
+    columns: `list` of columns to transformer [n_columns]
+
+    mapping: dict`, for example:
+        ```
+        mapping = {"yes": 1, "no": 0}
+        ```
 
     Examples
     --------
@@ -30,15 +35,15 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
             if isinstance(columns, list) or isinstance(columns, tuple):
                 self.columns = columns
             else:
-                raise NameError("Invalid type {}".format(type(columns)))
+                raise TypeError("Invalid type {}".format(type(columns)))
         else:
             self.columns = columns
 
-        if columns is not None:
-            if isinstance(columns, dict):
+        if mapping is not None:
+            if isinstance(mapping, dict):
                 self.mapping = mapping
             else:
-                raise NameError("Invalid type {}".format(type(mapping)))
+                raise TypeError("Invalid type {}".format(type(mapping)))
         else:
             raise NameError("Unspecified mapping")
 
@@ -57,7 +62,7 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
 
         """
         if not isinstance(X, pd.core.frame.DataFrame):
-            raise NameError("Invalid type {}".format(type(X)))
+            raise TypeError("Invalid type {}".format(type(X)))
 
         if self.columns is None:
             self.columns = X.columns
@@ -94,7 +99,7 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
         check_is_fitted(self, '_fitted')
 
         if not isinstance(X, pd.core.frame.DataFrame):
-            raise NameError("Invalid type {}".format(type(X)))
+            raise TypeError("Invalid type {}".format(type(X)))
 
         X_transform = X.copy()
         for f in self.columns:

@@ -11,6 +11,7 @@ from .droper import FeatureDropper, DropOutliers
 from .replace_na import FillNaTransformer_forward, FillNaTransformer_backward, FillNaTransformer_value, FillNaTransformer_all, FillNaTransformer_any, FillNaTransformer_median, FillNaTransformer_mean, FillNaTransformer_idmax
 from .log_skewed import FixSkewness
 from .one_hot_encoder import OneHotEncoder
+from .replace_categorical import ReplaceTransformer
 
 
 __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
@@ -18,4 +19,4 @@ __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
             "FillNaTransformer_idmax", "FillNaTransformer_any",
             "FillNaTransformer_all", "FillNaTransformer_value",
             "FillNaTransformer_backward", "FillNaTransformer_forward",
-            "FixSkewness", "OneHotEncoder", "DropOutliers"]
+            "FixSkewness", "OneHotEncoder", "DropOutliers", "ReplaceTransformer"]
