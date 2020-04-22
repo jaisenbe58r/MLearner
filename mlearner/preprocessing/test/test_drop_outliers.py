@@ -7,12 +7,14 @@ License: MIT
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import pytest
+import matplotlib
 from pandas.testing import assert_frame_equal
+from unittest import mock
 from mlearner.preprocessing import DropOutliers
 from mlearner.load import DataLoad
 
+matplotlib.use('Template')
 
 data = pd.DataFrame({"a": [0, 1, 1, 0, 1, 1], "b": [10, 11, 12, 13, 11, 100], "c": ["OK", "OK", "NOK", "OK", "OK", "NOK"]})
 data_transf = pd.DataFrame({"a": [0, 1, 1, 0, 1], "b": [10, 11, 12, 13, 11], "c": ["OK", "OK", "NOK", "OK", "OK"]})
