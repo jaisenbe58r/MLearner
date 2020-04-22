@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 import pytest
 import matplotlib
+import matplotlib.pyplot as plt
 from pandas.testing import assert_frame_equal
-from unittest import mock
 from mlearner.preprocessing import DropOutliers
 from mlearner.load import DataLoad
 
@@ -87,12 +87,14 @@ def test_tranf_equal_null_display():
     fd = DropOutliers(display=True)
     fd.fit(data)
     assert_frame_equal(fd.transform(data), data_transf)
+    plt.close('all')
 
 
 def test_tranf_equal_null_display1():
     fd = DropOutliers(features=col, display=True)
     fd.fit(data)
     assert_frame_equal(fd.transform(data), data_transf)
+    plt.close('all')
 
 
 def test_all():
@@ -101,3 +103,4 @@ def test_all():
     fd = DropOutliers(display=True)
     fd.fit(dataset.data)
     fd.transform(dataset.data)
+    plt.close('all')
