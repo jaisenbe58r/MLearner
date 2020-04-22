@@ -52,8 +52,7 @@ matrix:
         - os: osx
           language: generic
           osx_image: xcode11.2
-          env: TOXENV=py38
-        - os: windows
+          env: TOXENV=py37
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
