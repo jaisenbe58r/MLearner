@@ -48,8 +48,8 @@ def test_fit_data_type():
 
 def test_fit_data_no_columns_exist():
     rt = ReplaceTransformer(columns=col_no_include, mapping=mapping1)
-    with pytest.raises(TypeError):
-        rt.fit(np.array(data))
+    with pytest.raises(NameError):
+        rt.fit(data)
 
 
 def test_fit_data_no_keys_exist():
