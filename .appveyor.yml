@@ -23,6 +23,7 @@ install:
   - conda install -c conda-forge codacy-coverage
   - conda install coveralls
   - conda install pytest-cov
+  - conda install matplotlib
   # - conda install -f -y -q --name py37 -c conda-forge --file requirements.txt
 
 test_script:

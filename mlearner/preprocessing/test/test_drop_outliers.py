@@ -99,4 +99,3 @@ def test_all():
     fd = DropOutliers(display=True)
     fd.fit(dataset.data)
     fd.transform(dataset.data)
-
