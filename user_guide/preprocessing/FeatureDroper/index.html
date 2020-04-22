@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
     <meta name="author" content="Jaime Sendra Berenguer"> 
-    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.utils/Counter/">
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FeatureDroper/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-    <title>Counter - mlearner</title>
+    <title>Feature Droper - mlearner</title>
 
     <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -124,7 +124,7 @@
         
             
 <li >
-    <a href="../../../user_guide/data/wine_data/">Wine data</a>
+    <a href="../../data/wine_data/">Wine data</a>
 </li>
 
         
@@ -139,13 +139,85 @@
         
             
 <li >
-    <a href="../../../user_guide/preprocessing/MeanCenterer/">Mean Centerer</a>
+    <a href="../MeanCenterer/">Mean Centerer</a>
 </li>
 
         
             
 <li >
-    <a href="../../../user_guide/preprocessing/minmax_scaling.md">None</a>
+    <a href="../minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DropOutliers/">DropOutliers</a>
 </li>
 
         
@@ -155,12 +227,27 @@
                         
                             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">utils</a>
+    <a tabindex="-1" href="">load</a>
     <ul class="dropdown-menu">
         
             
 <li >
-    <a href="../../../user_guide/utils/Counter.md">None</a>
+    <a href="../../load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">externals</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../externals/NotFittedError.md">None</a>
 </li>
 
         
@@ -191,7 +278,13 @@
                         
                             
 <li >
-    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+    <a href="../../../api_subpackages/mlearner.externals.md">None</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
 </li>
 
                         
@@ -273,72 +366,45 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#counter">Counter</a></li>
-            <li class="second-level"><a href="#methods">Methods</a></li>
+        <li class="first-level active"><a href="#feature-droper">Feature Droper</a></li>
+            <li class="second-level"><a href="#example-1-droper-features">Example 1 - Droper features</a></li>
+                 <!--   -->
+            <li class="second-level"><a href="#api">API</a></li>
                  <!--   -->
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="counter">Counter</h2>
-<p><em>Counter(stderr=False, start_newline=True, precision=0, name=None)</em></p>
-<p>Class to display the progress of for-loop iterators.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><code>stderr</code> : bool (default: True)</p>
-<p>Prints output to sys.stderr if True; uses sys.stdout otherwise.</p>
-</li>
-<li>
-<p><code>start_newline</code> : bool (default: True)</p>
-<p>Prepends a new line to the counter, which prevents overwriting counters
-if multiple counters are printed in succession.
-precision: int (default: 0)
-Sets the number of decimal places when displaying the time elapsed in
-seconds.</p>
-</li>
-<li>
-<p><code>name</code> : string (default: None)</p>
-<p>Prepends the specified name before the counter to allow distinguishing
-between multiple counters.</p>
-</li>
-</ul>
-<p><strong>Attributes</strong></p>
-<ul>
-<li>
-<p><code>curr_iter</code> : int</p>
-<p>The current iteration.</p>
-</li>
-<li>
-<p><code>start_time</code> : float</p>
-<p>The system's time in seconds when the Counter was initialized.</p>
-</li>
-<li>
-<p><code>end_time</code> : float</p>
-<p>The system's time in seconds when the Counter was last updated.</p>
-</li>
-</ul>
-<p><strong>Examples</strong></p>
-<pre><code>&gt;&gt;&gt; cnt = Counter()
-&gt;&gt;&gt; for i in range(20):
-...     # do some computation
-...     time.sleep(0.1)
-...     cnt.update()
-20 iter | 2 sec
-&gt;&gt;&gt; print('The counter was initialized.'
-' %d seconds ago.' % (time.time() - cnt.start_time))
-The counter was initialized 2 seconds ago
-&gt;&gt;&gt; print('The counter was last updated'
-' %d seconds ago.' % (time.time() - cnt.end_time))
-The counter was last updated 0 seconds ago.
+<h1 id="feature-droper">Feature Droper</h1>
+<p>A transformer object that delete columns, according to the selected features</p>
+<blockquote>
+<p>from mlearner.preprocessing import FeatureDroper</p>
+</blockquote>
+<h2 id="example-1-droper-features">Example 1 - Droper features</h2>
+<p>Use the <code>fit</code> method to fit the column droped (e.g., the training dataset) to a new <code>FeatureDroper</code> object. Then, call the <code>transform</code> method on the same dataframe to apply drop.</p>
+<pre><code class="python">from mlearner.preprocessing.droper import FeatureDropper
 </code></pre>
-<p>For more usage examples, please see
-<a href="http://rasbt.github.io/mlearner/user_guide/utils/Counter/.">http://rasbt.github.io/mlearner/user_guide/utils/Counter/.</a></p>
-<h3 id="methods">Methods</h3>
-<hr>
 
-<p><em>update()</em></p>
-<p>Print current iteration and time elapsed.</p></div>
+<pre><code>---------------------------------------------------------------------------
+
+ModuleNotFoundError                       Traceback (most recent call last)
+
+&lt;ipython-input-1-118a45214554&gt; in &lt;module&gt;
+----&gt; 1 from mlearner.preprocessing.droper import FeatureDropper
+
+
+ModuleNotFoundError: No module named 'mlearner'
+</code></pre>
+<pre><code class="python">import pandas as pd
+from mlearner.preprocessing import MeanCenterer
+from mlearner.preprocessing import FeatureDroper
+X_train = pd.Dataframe({&quot;a&quot;: [0, 1], &quot;b&quot;: [10, 11], &quot;c&quot;: [20, 21]})
+mc = MeanCenterer().fit(X_train)
+mc.transform(X_train)
+
+</code></pre>
+
+<h2 id="api">API</h2></div>
         
         
     </div>
