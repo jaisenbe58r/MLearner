@@ -90,4 +90,3 @@ def test_eval_result_1():
     fs = OneHotEncoder(columns=col_1, numerical=numerical)
     fs.fit(data)
     assert_frame_equal(fs.transform(data), data_result_1)
-

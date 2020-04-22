@@ -7,6 +7,7 @@ License: MIT
 
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
+from ..externals.estimator_checks import check_is_fitted
 
 
 class OneHotEncoder(BaseEstimator, TransformerMixin):
@@ -85,8 +86,9 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
             A copy of the input Dataframe with the columns encoder.
 
         """
-        if not hasattr(self, "allowed_columns"):
-            raise AttributeError("FixSkewness has not been fitted, yet.")
+        check_is_fitted(self, 'allowed_columns')
+        # if not hasattr(self, "allowed_columns"):
+        #     raise AttributeError("FixSkewness has not been fitted, yet.")
 
         if isinstance(X, pd.core.frame.DataFrame):
             X_transform = X.copy()
