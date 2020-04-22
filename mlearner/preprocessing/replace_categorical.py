@@ -64,9 +64,6 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
         if not isinstance(X, pd.core.frame.DataFrame):
             raise TypeError("Invalid type {}".format(type(X)))
 
-        if self.columns is None:
-            self.columns = X.columns
-
         _lista = [i for i in self.columns if i not in X.columns.tolist()]
         if len(_lista) > 0:
             raise NameError("The columns {} no exist in Dataframe".format(_lista))

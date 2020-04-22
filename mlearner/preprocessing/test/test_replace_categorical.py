@@ -53,7 +53,7 @@ def test_fit_data_no_columns_exist():
 
 
 def test_fit_data_no_keys_exist():
-    rt = ReplaceTransformer(columns=col_no_include, mapping=mapping_no_exist)
+    rt = ReplaceTransformer(columns=col1, mapping=mapping_no_exist)
     with pytest.raises(NameError):
         rt.fit(data)
 
