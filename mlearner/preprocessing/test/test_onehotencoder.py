@@ -8,6 +8,7 @@ License: MIT
 import numpy as np
 import pandas as pd
 import pytest
+from sklearn.base import clone
 from pandas.testing import assert_frame_equal
 from mlearner.preprocessing import OneHotEncoder
 
@@ -90,3 +91,8 @@ def test_eval_result_1():
     fs = OneHotEncoder(columns=col_1, numerical=numerical)
     fs.fit(data)
     assert_frame_equal(fs.transform(data), data_result_1)
+
+
+def test_clone():
+    fs = OneHotEncoder()
+    clone(fs)
