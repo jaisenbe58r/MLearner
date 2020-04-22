@@ -123,8 +123,8 @@ class DropOutliers(BaseEstimator, TransformerMixin):
         self
 
         """
-        if self.features is None:
-            self.features = X.select_dtypes(exclude=["object"]).columns
+        if self.features == []:
+            self.features = X.select_dtypes(exclude=["object"]).columns.tolist()
 
         if isinstance(X, pd.core.frame.DataFrame):
             try:
@@ -161,7 +161,7 @@ class DropOutliers(BaseEstimator, TransformerMixin):
 
         # if self.display:
         height, width = self._get_size_plot()
-        figure, axs = plt.subplots(height, width, figsize=(height*5, width*5))
+        figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
         ax = axs.flatten()
 
         data_transform = X.copy()
@@ -177,9 +177,9 @@ class DropOutliers(BaseEstimator, TransformerMixin):
 
             data_transform = data_transform[(data_transform[_f] > IQR_min) & (data_transform[_f] < IQR_max)]
 
-            ax[i].hist(data_transform[_f[i]], density=True, color="g", alpha=0.7)
-            ax[i].hist(X[_f[i]], density=True, color="r", alpha=0.7)
-            ax[i].set_title(_f[i])
+            ax[i].hist(data_transform[_f], density=True, color="g", alpha=0.7)
+            ax[i].hist(X[_f], density=True, color="r", alpha=0.7)
+            ax[i].set_title(_f)
             ax[i].legend(["Original", "Cleaned"])
 
         if self.display:
@@ -195,6 +195,7 @@ class DropOutliers(BaseEstimator, TransformerMixin):
         _n = len(self.features)
 
         if not _n <= width:
+            width = 4
             nm = _n/width
         else:
             if _n > 1:

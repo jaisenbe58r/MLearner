@@ -7,9 +7,11 @@ License: MIT
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 import pytest
 from pandas.testing import assert_frame_equal
 from mlearner.preprocessing import DropOutliers
+from mlearner.load import DataLoad
 
 
 data = pd.DataFrame({"a": [0, 1, 1, 0, 1, 1], "b": [10, 11, 12, 13, 11, 100], "c": ["OK", "OK", "NOK", "OK", "OK", "NOK"]})
@@ -63,7 +65,7 @@ def test_tranf_equal():
 def test_tranf_equal_null():
     fd = DropOutliers()
     fd.fit(data)
-    assert_frame_equal(fd.transform(data), data)
+    assert_frame_equal(fd.transform(data), data_transf)
 
 
 def test_invalid_fit_type():
@@ -77,3 +79,24 @@ def test_invalid_fit_type1():
     fd.fit(data)
     with pytest.raises(TypeError):
         fd.transform(data.values)
+
+
+def test_tranf_equal_null_display():
+    fd = DropOutliers(display=True)
+    fd.fit(data)
+    assert_frame_equal(fd.transform(data), data_transf)
+
+
+def test_tranf_equal_null_display1():
+    fd = DropOutliers(features=col, display=True)
+    fd.fit(data)
+    assert_frame_equal(fd.transform(data), data_transf)
+
+
+def test_all():
+    filename = "mlearner/data/data/titanic3.csv"
+    dataset = DataLoad.load_data(filename, sep=",")
+    fd = DropOutliers(display=True)
+    fd.fit(dataset.data)
+    fd.transform(dataset.data)
+
