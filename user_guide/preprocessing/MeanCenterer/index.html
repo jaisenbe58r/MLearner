@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/MeanCenterer/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-    <title>Mean Centerer - mlearner</title>
+    <title>MeanCenterer - mlearner</title>
 
     <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -139,7 +139,7 @@
         
             
 <li class="active">
-    <a href="./">Mean Centerer</a>
+    <a href="./">MeanCenterer</a>
 </li>
 
         
@@ -218,6 +218,36 @@
             
 <li >
     <a href="../DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DataAnalyst/">DataAnalyst</a>
 </li>
 
         
@@ -376,46 +406,26 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#mean-centerer">Mean Centerer</a></li>
-            <li class="second-level"><a href="#example-1-centering-a-numpy-array">Example 1 - Centering a NumPy Array</a></li>
+        <li class="first-level active"><a href="#meancenterer">MeanCenterer</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
                  <!--   -->
-            <li class="second-level"><a href="#api">API</a></li>
-                 <!-- 
-                <li class="third-level"><a href="#methods">Methods</a></li>  -->
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="mean-centerer">Mean Centerer</h1>
-<p>A transformer object that performs column-based mean centering on a NumPy array.</p>
-<blockquote>
-<p>from mlearner.preprocessing import MeanCenterer</p>
-</blockquote>
-<h2 id="example-1-centering-a-numpy-array">Example 1 - Centering a NumPy Array</h2>
-<p>Use the <code>fit</code> method to fit the column means of a dataset (e.g., the training dataset) to a new <code>MeanCenterer</code> object. Then, call the <code>transform</code> method on the same dataset to center it at the sample mean.</p>
-<pre><code class="python">import numpy as np
-from mlearner.preprocessing import MeanCenterer
-X_train = np.array(
-                   [[1, 2, 3],
-                    [4, 5, 6],
-                    [7, 8, 9]])
-mc = MeanCenterer().fit(X_train)
-mc.transform(X_train)
-</code></pre>
-
-<pre><code>array([[-3., -3., -3.],
-       [ 0.,  0.,  0.],
-       [ 3.,  3.,  3.]])
-</code></pre>
-<h2 id="api">API</h2>
+<h2 id="meancenterer">MeanCenterer</h2>
 <p><em>MeanCenterer()</em></p>
-<p>Column centering of pandas Dataframeself.</p>
+<p>Column centering of pandas Dataframe.</p>
 <p><strong>Attributes</strong></p>
 <p>col_means:  numpy.ndarray [n_columns] or pandas [n_columns]
 mean values for centering after fitting the MeanCenterer object.</p>
 <p><strong>Examples</strong></p>
 <p>For usage examples, please see
-https://jaisenbe58r.github.io/MLearner/user_guide/data/MeanCenterer/</p>
+https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/MeanCenterer/</p>
+<p>adapted from
+https://github.com/rasbt/mlxtend/blob/master/mlxtend/preprocessing/mean_centering.py
+Author: Sebastian Raschka <sebastianraschka.com>
+License: BSD 3 clause</p>
 <h3 id="methods">Methods</h3>
 <hr>
 
@@ -502,8 +512,7 @@ n_features is the number of features.</p>
 <p><code>X_transform</code> : {DAtaframe}, shape = [n_samples, n_features]</p>
 <p>A copy of the input Dataframe with the columns centered.</p>
 </li>
-</ul>
-<p>ython</p></div>
+</ul></div>
         
         
     </div>

@@ -139,7 +139,7 @@
         
             
 <li >
-    <a href="../user_guide/preprocessing/MeanCenterer/">Mean Centerer</a>
+    <a href="../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
 </li>
 
         
@@ -218,6 +218,36 @@
             
 <li >
     <a href="../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
 </li>
 
         
@@ -433,9 +463,9 @@ and checking off items as you go.</p>
 <li>[ ]  Add a note about the modification/contribution to the <code>./docs/sources/changelog.md</code> file  </li>
 <li>[ ]  Modify documentation in the appropriate location under <code>mlearner/docs/sources/</code>  </li>
 <li>[ ]  Push the topic branch to the server and create a pull request</li>
-<li>[ ]  Check the Travis-CI build passed at <a href="https://travis-ci.org/rasbt/mlearner">https://travis-ci.org/rasbt/mlearner</a></li>
-<li>[ ]  Check/improve the unit test coverage at <a href="https://coveralls.io/github/rasbt/mlearner">https://coveralls.io/github/rasbt/mlearner</a></li>
-<li>[ ]  Check/improve the code health at <a href="https://landscape.io/github/rasbt/mlearner">https://landscape.io/github/rasbt/mlearner</a></li>
+<li>[ ]  Check the Travis-CI build passed at <a href="https://travis-ci.org/jaisenbe58r/mlearner">https://travis-ci.org/jaisenbe58r/mlearner</a></li>
+<li>[ ]  Check/improve the unit test coverage at <a href="https://coveralls.io/github/jaisenbe58r/mlearner">https://coveralls.io/github/jaisenbe58r/mlearner</a></li>
+<li>[ ]  Check/improve the code health at <a href="https://landscape.io/github/jaisenbe58r/mlearner">https://landscape.io/github/jaisenbe58r/mlearner</a></li>
 </ol>
 <hr>
 
@@ -452,7 +482,7 @@ and checking off items as you go.</p>
 <p><img alt="" src="../img/contributing/fork.png" /></p>
 <ul>
 <li>Clone the <code>mlearner</code> repository to your local machine by executing
- <code>git clone https://github.com/&lt;your_username&gt;/mlearner.git</code></li>
+ <code>git clone https://github.com/&lt;your_username&gt;/MLearner.git</code></li>
 </ul>
 <h2 id="syncing-an-existing-fork">Syncing an Existing Fork</h2>
 <p>If you already forked mlearner earlier, you can bring you "Fork" up to date
@@ -463,8 +493,8 @@ with the master branch as follows:</p>
 </code></pre>
 
 <p>If you see something like</p>
-<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/mlearner.git (fetch)
-origin  https://github.com/&lt;your username&gt;/mlearner.git (push)
+<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/MLearner.git (fetch)
+origin  https://github.com/&lt;your username&gt;/MLearner.git (push)
 </code></pre>
 
 <p>you need to specify a new remote <em>upstream</em> repository via</p>
@@ -476,8 +506,8 @@ origin  https://github.com/&lt;your username&gt;/mlearner.git (push)
 </code></pre>
 
 <p>You should see following output if everything is configured correctly:</p>
-<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/mlearner.git (fetch)
-origin  https://github.com/&lt;your username&gt;/mlearner.git (push)
+<pre><code class="bash">origin  https://github.com/&lt;your username&gt;/MLearner.git (fetch)
+origin  https://github.com/&lt;your username&gt;/MLearner.git (push)
 upstream    https://github.com/jaisenbe58r/MLearner.git (fetch)
 upstream    https://github.com/jaisenbe58r/MLearner.git (push)
 </code></pre>
@@ -496,7 +526,7 @@ From https://github.com/jaisenbe58r/MLearner
  * [new branch]      master     -&gt; upstream/master
 </code></pre>
 
-<p>This means that the commits to the <code>rasbt/mlearner</code> master branch are now
+<p>This means that the commits to the <code>jaisenbe58r/mlearner</code> master branch are now
 stored in the local branch <code>upstream/master</code>.</p>
 <p>If you are not already on your local project's master branch, execute</p>
 <pre><code class="bash">$ git checkout master
@@ -555,19 +585,19 @@ $ git commit -m '&lt;meaningful commit message&gt;'
 
 <p>which will list the commits from newest to oldest in the following format by default:</p>
 <pre><code class="bash">commit 046e3af8a9127df8eac879454f029937c8a31c41
-Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Author: jaisenbe58r &lt;jaisenberafel@gmail.com&gt;
 Date:   Tue Nov 24 03:46:37 2015 -0500
 
     fixed setup.py
 
 commit c3c00f6ba0e8f48bbe1c9081b8ae3817e57ecc5c
-Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Author: jaisenbe58r &lt;jaisenberafel@gmail.com&gt;
 Date:   Tue Nov 24 03:04:39 2015 -0500
 
         documented feature x
 
 commit d87934fe8726c46f0b166d6290a3bf38915d6e75
-Author: rasbt &lt;mail@sebastianraschka.com&gt;
+Author: jaisenbe58r &lt;jaisenberafel@gmail.com&gt;
 Date:   Tue Nov 24 02:44:45 2015 -0500
 
         added support for feature x

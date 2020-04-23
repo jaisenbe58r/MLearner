@@ -139,7 +139,7 @@
         
             
 <li >
-    <a href="../../user_guide/preprocessing/MeanCenterer/">Mean Centerer</a>
+    <a href="../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
 </li>
 
         
@@ -218,6 +218,36 @@
             
 <li >
     <a href="../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
 </li>
 
         
@@ -404,20 +434,20 @@ https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
 <p><em>load_data(filename, sep=';', decimal=',', </em><em>params)</em></p>
 <p>Loading a dataset from a csv file.</p>
 <p><strong>Parameters</strong></p>
-<p>filename: 'str, path object or file-like object'
+<p>filename: <code>str, path object or file-like object</code>
 Any valid string path is acceptable. The string could be a URL.
 Valid URL schemes include http, ftp, s3, and file. For file URLs,
 a host is expected. A local file could be:
-file://localhost/path/to/table.csv.
+<code>file://localhost/path/to/table.csv</code>.
 If you want to pass in a path object, pandas accepts any os.PathLike.
 By file-like object, we refer to objects with a read() method,
 such as a file handler (e.g. via builtin open function) or StringIO.</p>
-<p>seps: 'str'
+<p>seps: <code>str</code>
 Delimiter to use. If sep is None, the C engine cannot automatically
 detect the separator, but the Python parsing engine can, meaning the
 latter will be used and automatically detect the separator by Python's
 builtin sniffer tool, csv.Sniffer.</p>
-<p>delimiter: 'str, default None'
+<p>delimiter: <code>str, default None</code>
 Alias for sep.</p>
 <p><strong>Attributes</strong></p>
 <p>n: lenght of dataset.

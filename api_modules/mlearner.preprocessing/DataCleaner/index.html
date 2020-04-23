@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
     <meta name="author" content="Jaime Sendra Berenguer"> 
-    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FeatureDroper/">
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.preprocessing/DataCleaner/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-    <title>Feature Droper - mlearner</title>
+    <title>DataCleaner - mlearner</title>
 
     <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -124,7 +124,7 @@
         
             
 <li >
-    <a href="../../data/wine_data/">Wine data</a>
+    <a href="../../../user_guide/data/wine_data/">Wine data</a>
 </li>
 
         
@@ -139,85 +139,115 @@
         
             
 <li >
-    <a href="../MeanCenterer/">Mean Centerer</a>
+    <a href="../../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
 </li>
 
         
             
 <li >
-    <a href="../minmax_scaling/">Minmax scaling</a>
+    <a href="../../../user_guide/preprocessing/minmax_scaling/">Minmax scaling</a>
 </li>
 
         
             
 <li >
-    <a href="../FeatureDropper/">FeatureDropper</a>
+    <a href="../../../user_guide/preprocessing/FeatureDropper/">FeatureDropper</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_median/">FillNaTransformer median</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_mean/">FillNaTransformer mean</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_any/">FillNaTransformer any</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_all/">FillNaTransformer all</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_value/">FillNaTransformer value</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_backward/">FillNaTransformer backward</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
 </li>
 
         
             
 <li >
-    <a href="../FillNaTransformer_forward/">FillNaTransformer forward</a>
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
 </li>
 
         
             
 <li >
-    <a href="../FixSkewness/">FixSkewness</a>
+    <a href="../../../user_guide/preprocessing/FixSkewness/">FixSkewness</a>
 </li>
 
         
             
 <li >
-    <a href="../OneHotEncoder/">OneHotEncoder</a>
+    <a href="../../../user_guide/preprocessing/OneHotEncoder/">OneHotEncoder</a>
 </li>
 
         
             
 <li >
-    <a href="../DropOutliers/">DropOutliers</a>
+    <a href="../../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
 </li>
 
         
@@ -232,7 +262,7 @@
         
             
 <li >
-    <a href="../../load/DataLoad/">DataLoad</a>
+    <a href="../../../user_guide/load/DataLoad/">DataLoad</a>
 </li>
 
         
@@ -247,7 +277,7 @@
         
             
 <li >
-    <a href="../../externals/NotFittedError.md">None</a>
+    <a href="../../../user_guide/externals/NotFittedError.md">None</a>
 </li>
 
         
@@ -366,45 +396,89 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#feature-droper">Feature Droper</a></li>
-            <li class="second-level"><a href="#example-1-droper-features">Example 1 - Droper features</a></li>
-                 <!--   -->
-            <li class="second-level"><a href="#api">API</a></li>
+        <li class="first-level active"><a href="#datacleaner">DataCleaner</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
                  <!--   -->
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="feature-droper">Feature Droper</h1>
-<p>A transformer object that delete columns, according to the selected features</p>
-<blockquote>
-<p>from mlearner.preprocessing import FeatureDroper</p>
-</blockquote>
-<h2 id="example-1-droper-features">Example 1 - Droper features</h2>
-<p>Use the <code>fit</code> method to fit the column droped (e.g., the training dataset) to a new <code>FeatureDroper</code> object. Then, call the <code>transform</code> method on the same dataframe to apply drop.</p>
-<pre><code class="python">from mlearner.preprocessing.droper import FeatureDropper
-</code></pre>
+<h2 id="datacleaner">DataCleaner</h2>
+<p><em>DataCleaner(data)</em></p>
+<p>Class to preprocessed object for data cleaning.</p>
+<p><strong>Attributes</strong></p>
+<p>data: <code>pd.DataFrame</code> of Dataset</p>
+<p><strong>Examples</strong></p>
+<p>For usage examples, please see
+https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataCleaner/</p>
+<h3 id="methods">Methods</h3>
+<hr>
 
-<pre><code>---------------------------------------------------------------------------
+<p><em>categorical_vs_numerical()</em></p>
+<p>None</p>
+<hr>
 
-ModuleNotFoundError                       Traceback (most recent call last)
+<p><em>dtypes()</em></p>
+<p>retorno del tipo de datos por columna</p>
+<hr>
 
-&lt;ipython-input-1-118a45214554&gt; in &lt;module&gt;
-----&gt; 1 from mlearner.preprocessing.droper import FeatureDropper
+<p><em>isNull()</em></p>
+<p>None</p>
+<hr>
 
+<p><em>load_data(filename, sep=';', decimal=',', </em><em>params)</em></p>
+<p>Loading a dataset from a csv file.</p>
+<p><strong>Parameters</strong></p>
+<p>filename: <code>str, path object or file-like object</code>
+Any valid string path is acceptable. The string could be a URL.
+Valid URL schemes include http, ftp, s3, and file. For file URLs,
+a host is expected. A local file could be:
+<code>file://localhost/path/to/table.csv</code>.
+If you want to pass in a path object, pandas accepts any os.PathLike.
+By file-like object, we refer to objects with a read() method,
+such as a file handler (e.g. via builtin open function) or StringIO.</p>
+<p>seps: <code>str</code>
+Delimiter to use. If sep is None, the C engine cannot automatically
+detect the separator, but the Python parsing engine can, meaning the
+latter will be used and automatically detect the separator by Python's
+builtin sniffer tool, csv.Sniffer.</p>
+<p>delimiter: <code>str, default None</code>
+Alias for sep.</p>
+<p><strong>Attributes</strong></p>
+<p>n: lenght of dataset.
+start: start iterator.
+end: end iterator.
+num: current iterator.</p>
+<p><strong>Returns</strong></p>
+<p>data: Pandas DataFrame, [n_samples, n_classes]
+Dataframe from dataset.</p>
+<p><strong>Examples</strong></p>
+<p>For usage examples, please see:
+https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
+<hr>
 
-ModuleNotFoundError: No module named 'mlearner'
-</code></pre>
-<pre><code class="python">import pandas as pd
-from mlearner.preprocessing import MeanCenterer
-from mlearner.preprocessing import FeatureDroper
-X_train = pd.Dataframe({&quot;a&quot;: [0, 1], &quot;b&quot;: [10, 11], &quot;c&quot;: [20, 21]})
-mc = MeanCenterer().fit(X_train)
-mc.transform(X_train)
+<p><em>load_dataframe(data)</em></p>
+<p>None</p>
+<hr>
 
-</code></pre>
+<p><em>missing_values()</em></p>
+<p>Numero de valores vacios en el dataframe.</p>
+<hr>
 
-<h2 id="api">API</h2></div>
+<p><em>not_type_object()</em></p>
+<p>Deteccion de de categorias con type "object"</p>
+<hr>
+
+<p><em>reset()</em></p>
+<p>None</p>
+<hr>
+
+<p><em>type_object()</em></p>
+<p>Deteccion de de categorias con type "object"</p>
+<hr>
+
+<p><em>view_features()</em></p>
+<p>Mostrar features del dataframe</p></div>
         
         
     </div>
