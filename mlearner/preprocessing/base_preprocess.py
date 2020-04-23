@@ -48,22 +48,7 @@ class Data_cleaner(DataLoad):
         Mostrar features del dataframe
         """
         return list(self.data.columns)
-   
-    def remplace(self, features, mapping={"yes": 1, "no": 0}):
-        """
-        Remplazo de datos según el dicionario "mappping".
-        """
-        for f in features:
-            # Fill in the values with the correct mapping
-            self.data[f] = self.data[f].replace(mapping).astype(np.float64)
 
-    def replace_multiclass(self, target="target"):
-        
-        self._unic = self.data[target].unique().tolist()
-        _remp = np.arange(0, len(self._unic)).tolist()
-        
-        return self.data[target].replace(self._unic, _remp, inplace=True)
-    
     def categorical_vs_numerical(self):
         categorical_list = []
         numerical_list = []

@@ -108,7 +108,7 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
 
 class ReplaceMulticlass(BaseEstimator, TransformerMixin):
 
-    """This transformer replace some values with others.
+    """This transformer replace some categorical values with others.
 
     Attributes
     ----------
@@ -121,7 +121,7 @@ class ReplaceMulticlass(BaseEstimator, TransformerMixin):
 
     """
     def __init__(self, columns=None, mapping=None):
-        """Init replace missing values."""
+        """Init replace categorical values."""
         if columns is not None:
             if isinstance(columns, list) or isinstance(columns, tuple):
                 self.columns = columns
@@ -158,7 +158,7 @@ class ReplaceMulticlass(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        """Gets the columns to make a replace values.
+        """Gets the columns to make a replace to categorical values.
 
         Parameters
         ----------
