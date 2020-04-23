@@ -143,7 +143,6 @@ class DataAnalyst(DataLoad):
             - data: Datos generales del dataset.
             - features: categorias a analizar.
         """
-        """Init filter categories"""
         if features is not None:
             if isinstance(features, list) or isinstance(features, tuple):
                 if len(features) == 0:
@@ -204,7 +203,7 @@ class DataAnalyst(DataLoad):
         if save_image:
             plt.savefig(path)
 
-    def dispersion_categoria(self, features, target="target"):
+    def dispersion_categoria(self, features=None, target=None, display=False, save_image=False, path="/"):
         """
         Función que realiza un plot sobre la dispesión de cada categoria respecto a los grupos de target.
 
@@ -213,34 +212,67 @@ class DataAnalyst(DataLoad):
             - features: categorias a analizar.
 
         """
-        _vars = [i for i in features if not i==target]
-
-        if not len(_vars)<=4:
-            ancho = 4
-            nm = len(_vars)/ancho
-        else:
-            if len(_vars)>1:
-                ancho = len(_vars)
+        if features is not None:
+            if isinstance(features, list) or isinstance(features, tuple):
+                if len(features) == 0:
+                    raise NameError("Empty category List")
+                else:
+                    for i in features:
+                        if i not in self.data.columns.tolist():
+                            raise NameError("Feature '{}' not included in dataset targets".format(i))
+                        else:
+                            for i in self.data[features].dtypes:
+                                if i == "object":
+                                    raise NameError("Type Object not permited")
+                            else:
+                                _features = features
             else:
-                ancho = 2
-            nm = 0
-        alto = int(nm)+1
+                raise TypeError("Invalid type {}".format(type(features)))
+        else:
+            _features = self.data.select_dtypes(exclude=["object"]).columns.tolist()
 
-        figure, axs = plt.subplots(alto, ancho, figsize=(ancho*5, alto*5))
+        if target is not None:
+            if isinstance(target, list) or isinstance(target, tuple):
+                if len(target) == 0:
+                    raise NameError("Empty category List")
+                elif len(target) > 1:
+                    raise NameError("Only one category column can be selected")
+                else:
+                    if target not in self.data.columns.tolist():
+                        print(self.data.columns.tolist())
+                        raise NameError("Target '{}' not included in dataset columns".format(target))
+                    else:
+                        _target = target[0]
+            else:
+                raise TypeError("Invalid type {}".format(type(target)))
+        else:
+            raise NameError("Target can not be 'None'")
+
+        if save_image:
+            if os.path.isdir(path):
+                raise NameError("Invalid path {}".format(path))
+
+        _vars = [i for i in _features if not i == _target]
+
+        height, width = self._get_size_plot(features=_features)
+        figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
         ax = axs.flatten()
 
         for i in range(len(_vars)):
-            
             for j in list(self.data[target].unique()):
-                
+
                 data_train_group_j = self.data.groupby(target).get_group(j)
-                ax[i].hist(data_train_group_j[_vars[i]], alpha = 0.7, density=True)
-            
+                ax[i].hist(data_train_group_j[_vars[i]], alpha=0.7, density=True)
+
             ax[i].set_title(_vars[i])
             ax[i].legend(list(self.data[target].unique()))
 
-        figure.tight_layout()
-        plt.show()
+        if display:
+            figure.tight_layout()
+            plt.show()
+
+        if save_image:
+            plt.savefig(path)
 
     def sns_pairplot(self, features, target="categoria", palette="husl"):
         import seaborn as sns
