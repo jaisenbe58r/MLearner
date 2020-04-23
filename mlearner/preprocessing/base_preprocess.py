@@ -169,8 +169,7 @@ class DataAnalyst(DataLoad):
                 elif len(target) > 1:
                     raise NameError("Only one category column can be selected")
                 else:
-                    if target not in self.data.columns.tolist():
-                        print(self.data.columns.tolist())
+                    if target[0] not in self.data.columns.tolist():
                         raise NameError("Target '{}' not included in dataset columns".format(target))
                     else:
                         _target = target[0]
@@ -180,7 +179,7 @@ class DataAnalyst(DataLoad):
             raise NameError("Target can not be 'None'")
 
         if save_image:
-            if os.path.isdir(path):
+            if not os.path.isdir(path):
                 raise NameError("Invalid path {}".format(path))
 
         _vars = [i for i in _features if not i == _target]
@@ -190,9 +189,10 @@ class DataAnalyst(DataLoad):
         ax = axs.flatten()
 
         for i in range(len(_vars)):
-            for j in list(self.data[_target].unique()):
+            _cont = list(self.data[_target].unique())
+            for j in _cont:
                 data_train_group_j = self.data.groupby(_target).get_group(j)
-                ax[i].boxplot(data_train_group_j[_vars[i]], positions=np.array([j]))
+                ax[i].boxplot(data_train_group_j[_vars[i]], positions=np.array([len(_cont)]))
                 ax[i].set_title(_vars[i])
                 ax[i].legend(list(self.data[_target].unique()))
 
@@ -238,8 +238,7 @@ class DataAnalyst(DataLoad):
                 elif len(target) > 1:
                     raise NameError("Only one category column can be selected")
                 else:
-                    if target not in self.data.columns.tolist():
-                        print(self.data.columns.tolist())
+                    if target[0] not in self.data.columns.tolist():
                         raise NameError("Target '{}' not included in dataset columns".format(target))
                     else:
                         _target = target[0]
@@ -249,7 +248,7 @@ class DataAnalyst(DataLoad):
             raise NameError("Target can not be 'None'")
 
         if save_image:
-            if os.path.isdir(path):
+            if not os.path.isdir(path):
                 raise NameError("Invalid path {}".format(path))
 
         _vars = [i for i in _features if not i == _target]
@@ -259,13 +258,13 @@ class DataAnalyst(DataLoad):
         ax = axs.flatten()
 
         for i in range(len(_vars)):
-            for j in list(self.data[target].unique()):
+            for j in list(self.data[_target].unique()):
 
-                data_train_group_j = self.data.groupby(target).get_group(j)
+                data_train_group_j = self.data.groupby(_target).get_group(j)
                 ax[i].hist(data_train_group_j[_vars[i]], alpha=0.7, density=True)
 
             ax[i].set_title(_vars[i])
-            ax[i].legend(list(self.data[target].unique()))
+            ax[i].legend(list(self.data[_target].unique()))
 
         if display:
             figure.tight_layout()
