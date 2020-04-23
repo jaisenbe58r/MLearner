@@ -29,7 +29,7 @@ class DataCleaner(DataLoad):
     def __init__(self, data):
         super().__init__(data)
         """
-        Inicialización de la clase de Preprocesado de un dataframe
+        Inicializacion de la clase de Preprocesado de un dataframe
         """
         if isinstance(data, pd.core.frame.DataFrame):
             self.data = data
@@ -44,7 +44,7 @@ class DataCleaner(DataLoad):
 
     def missing_values(self):
         """
-        Número de valores vacios en el dataframe.
+        Numero de valores vacios en el dataframe.
         """
         # Number of missing in each column
         missing = pd.DataFrame(self.data.isnull().sum()).rename(columns={0: 'total'})
@@ -53,7 +53,7 @@ class DataCleaner(DataLoad):
 
     def isNull(self):
         if not self.missing_values()["total"].values.sum() == 0:
-            print("Cuidado que existen valore nulos")
+            print("Cuidado que existen valores nulos")
             return True
         else:
             print("No existen valores nulos")
@@ -80,14 +80,14 @@ class DataCleaner(DataLoad):
 
     def type_object(self):
         """
-        Detección de de categorias con type "object"
+        Deteccion de de categorias con type "object"
         """
         var = [i for i in self.view_features() if self.data[i].dtype == np.object]
         return var
 
     def not_type_object(self):
         """
-        Detección de de categorias con type "object" 
+        Deteccion de de categorias con type "object" 
         """
         var = [i for i in self.view_features() if not self.data[i].dtype == np.object]
         return var
@@ -99,7 +99,7 @@ class DataAnalyst(DataLoad):
 
     Attributes
     ----------
-    data: `pd.DataFrame` of Dataset
+    data: pd.DataFrame of Dataset
 
     Examples
     --------
@@ -110,7 +110,7 @@ class DataAnalyst(DataLoad):
     def __init__(self, data):
         super().__init__(data)
         """
-        Inicialización de la clase de Analisis de datos
+        Inicializacion de la clase de Analisis de datos
         """
         if isinstance(data, pd.core.frame.DataFrame):
             self.data = data
@@ -203,7 +203,7 @@ class DataAnalyst(DataLoad):
 
     def boxplot(self, features=None, target=None, display=False, save_image=False, path="/"):
         """
-        Función que realiza un BoxPlot sobre la dispesión de cada categoria
+        Funcion que realiza un BoxPlot sobre la dispesion de cada categoria
         respecto a los grupos de target.
 
         Inputs:
@@ -239,7 +239,7 @@ class DataAnalyst(DataLoad):
 
     def dispersion_categoria(self, features=None, target=None, display=False, save_image=False, path="/"):
         """
-        Función que realiza un plot sobre la dispesión de cada categoria respecto a los grupos de target.
+        Funcion que realiza un plot sobre la dispesion de cada categoria respecto a los grupos de target.
 
         Inputs:
             - data: Datos generales del dataset.
@@ -354,11 +354,11 @@ class DataAnalyst(DataLoad):
         """
         matriz de covarianza:
 
-        Un valor positivo para r indica una asociación positiva
-        Un valor negativo para r indica una asociación negativa.
+        Un valor positivo para r indica una asociacion positiva
+        Un valor negativo para r indica una asociacion negativa.
 
-        Cuanto más cerca está r de 1cuanto más se acercan los puntos de datos a una línea recta, 
-        la asociación lineal es más fuerte. Cuanto más cerca esté r de 0, lo que debilita la asociación lineal.
+        Cuanto mas cerca estar de 1cuanto mas se acercan los puntos de datos a una linea recta,
+        la asociacion lineal es mas fuerte. Cuanto mas cerca este r de 0, lo que debilita la asociacion lineal.
 
         """
         import seaborn as sns

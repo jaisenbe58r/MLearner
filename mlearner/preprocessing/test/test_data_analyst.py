@@ -10,8 +10,6 @@ import numpy as np
 import pytest
 from mlearner.preprocessing import DataAnalyst
 import matplotlib
-import unittest
-
 matplotlib.use('Template')
 
 data = pd.DataFrame({"a": [0., 1., 1., 0., 1., 1.], "b": [10, 11, 12, 13, 11, 100], "c": ["OK", "OK", "NOK", "OK", "OK", "NOK"]})

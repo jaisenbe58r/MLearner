@@ -18,6 +18,11 @@
 - [FixSkewness](user_guide/preprocessing/FixSkewness.md)
 - [OneHotEncoder](user_guide/preprocessing/OneHotEncoder.md)
 - [DropOutliers](user_guide/preprocessing/DropOutliers.md)
+- [ExtractCategories](user_guide/preprocessing/ExtractCategories.md)
+- [ReplaceMulticlass](user_guide/preprocessing/ReplaceMulticlass.md)
+- [ReplaceTransformer](user_guide/preprocessing/ReplaceTransformer.md)
+- [DataCleaner](user_guide/preprocessing/DataCleaner.md)
+- [DataAnalyst](user_guide/preprocessing/DataAnalyst.md)
 
 ## `load`
 - [DataLoad](user_guide/load/DataLoad.md)

@@ -82,9 +82,9 @@ def docstring_to_markdown(docstring):
     clean_lst = []
     for line in new_docstring_lst:
 
-        if 'http://rasbt.github.io/' in line:
+        if 'http://jaisenbe58r.github.io/' in line:
             line = make_markdown_url(line_string=line,
-                                     s='http://rasbt.github.io/')
+                                     s='http://jaisenbe58r.github.io/')
 
             if len(clean_lst) > 0 and \
                     clean_lst[-1].lstrip().startswith(

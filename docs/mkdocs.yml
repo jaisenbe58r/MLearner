@@ -59,6 +59,12 @@ nav:
     - user_guide/preprocessing/FixSkewness.md
     - user_guide/preprocessing/OneHotEncoder.md
     - user_guide/preprocessing/DropOutliers.md
+    - user_guide/preprocessing/ExtractCategories.md
+    - user_guide/preprocessing/ReplaceMulticlass.md
+    - user_guide/preprocessing/ReplaceTransformer.md
+    - user_guide/preprocessing/DataCleaner.md
+    - user_guide/preprocessing/DataAnalyst.md
+
   - load:
     - user_guide/load/DataLoad.md
   - externals:

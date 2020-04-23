@@ -21,9 +21,9 @@ and checking off items as you go.
 8. [ ]  Add a note about the modification/contribution to the `./docs/sources/changelog.md` file  
 9. [ ]  Modify documentation in the appropriate location under `mlearner/docs/sources/`  
 10. [ ]  Push the topic branch to the server and create a pull request
-11. [ ]  Check the Travis-CI build passed at [https://travis-ci.org/rasbt/mlearner](https://travis-ci.org/rasbt/mlearner)
-12. [ ]  Check/improve the unit test coverage at [https://coveralls.io/github/rasbt/mlearner](https://coveralls.io/github/rasbt/mlearner)
-13. [ ]  Check/improve the code health at [https://landscape.io/github/rasbt/mlearner](https://landscape.io/github/rasbt/mlearner)
+11. [ ]  Check the Travis-CI build passed at [https://travis-ci.org/jaisenbe58r/mlearner](https://travis-ci.org/jaisenbe58r/mlearner)
+12. [ ]  Check/improve the unit test coverage at [https://coveralls.io/github/jaisenbe58r/mlearner](https://coveralls.io/github/jaisenbe58r/mlearner)
+13. [ ]  Check/improve the code health at [https://landscape.io/github/jaisenbe58r/mlearner](https://landscape.io/github/jaisenbe58r/mlearner)
 
 <hr>
 
@@ -42,7 +42,7 @@ and checking off items as you go.
 ![](./img/contributing/fork.png)
 
 - Clone the `mlearner` repository to your local machine by executing
- ```git clone https://github.com/<your_username>/mlearner.git```
+ ```git clone https://github.com/<your_username>/MLearner.git```
 
 ## Syncing an Existing Fork
 
@@ -60,8 +60,8 @@ $ git remote -v
 If you see something like
 
 ```bash
-origin	https://github.com/<your username>/mlearner.git (fetch)
-origin	https://github.com/<your username>/mlearner.git (push)
+origin	https://github.com/<your username>/MLearner.git (fetch)
+origin	https://github.com/<your username>/MLearner.git (push)
 ```
 you need to specify a new remote *upstream* repository via
 
@@ -78,8 +78,8 @@ $ git remote -v
 You should see following output if everything is configured correctly:
 
 ```bash
-origin	https://github.com/<your username>/mlearner.git (fetch)
-origin	https://github.com/<your username>/mlearner.git (push)
+origin	https://github.com/<your username>/MLearner.git (fetch)
+origin	https://github.com/<your username>/MLearner.git (push)
 upstream	https://github.com/jaisenbe58r/MLearner.git (fetch)
 upstream	https://github.com/jaisenbe58r/MLearner.git (push)
 ```
@@ -103,7 +103,7 @@ From https://github.com/jaisenbe58r/MLearner
  * [new branch]      master     -> upstream/master
 ```
 
-This means that the commits to the `rasbt/mlearner` master branch are now
+This means that the commits to the `jaisenbe58r/mlearner` master branch are now
 stored in the local branch `upstream/master`.
 
 If you are not already on your local project's master branch, execute
@@ -199,19 +199,19 @@ which will list the commits from newest to oldest in the following format by def
 
 ```bash
 commit 046e3af8a9127df8eac879454f029937c8a31c41
-Author: rasbt <mail@sebastianraschka.com>
+Author: jaisenbe58r <jaisenberafel@gmail.com>
 Date:   Tue Nov 24 03:46:37 2015 -0500
 
     fixed setup.py
 
 commit c3c00f6ba0e8f48bbe1c9081b8ae3817e57ecc5c
-Author: rasbt <mail@sebastianraschka.com>
+Author: jaisenbe58r <jaisenberafel@gmail.com>
 Date:   Tue Nov 24 03:04:39 2015 -0500
 
         documented feature x
 
 commit d87934fe8726c46f0b166d6290a3bf38915d6e75
-Author: rasbt <mail@sebastianraschka.com>
+Author: jaisenbe58r <jaisenberafel@gmail.com>
 Date:   Tue Nov 24 02:44:45 2015 -0500
 
         added support for feature x

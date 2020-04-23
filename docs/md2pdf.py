@@ -58,7 +58,7 @@ def gen_title(fname):
 
 with open(md_out_path, 'w') as f_out:
     meta = r"""---
-title: Mlxtend %s
+title: MLearner %s
 subtitle: Library Documentation
 author: Sebastian Raschka
 header-includes:
