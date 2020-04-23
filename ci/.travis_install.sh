@@ -42,7 +42,7 @@ fi
 conda install matplotlib
 conda install jupyter
 conda install pytest
-conda install -r requirements.txt
+conda install seaborn
 
 
 if [ "${IMAGE}" = "true" ]; then
