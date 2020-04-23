@@ -134,15 +134,8 @@ class DataAnalyst(DataLoad):
 
         return height, width
 
-    def boxplot(self, features=None, target=None, display=False, save_image=False, path="/"):
-        """
-        Función que realiza un BoxPlot sobre la dispesión de cada categoria
-        respecto a los grupos de target.
+    def _check_parameters_features(self, features):
 
-        Inputs:
-            - data: Datos generales del dataset.
-            - features: categorias a analizar.
-        """
         if features is not None:
             if isinstance(features, list) or isinstance(features, tuple):
                 if len(features) == 0:
@@ -162,6 +155,10 @@ class DataAnalyst(DataLoad):
         else:
             _features = self.data.select_dtypes(exclude=["object"]).columns.tolist()
 
+        return _features
+
+    def _check_parameters_target(self, target):
+
         if target is not None:
             if isinstance(target, list) or isinstance(target, tuple):
                 if len(target) == 0:
@@ -178,9 +175,46 @@ class DataAnalyst(DataLoad):
         else:
             raise NameError("Target can not be 'None'")
 
+        return _target
+
+    def _check_parameters_category(self, category, target):
+
+        if category is not None:
+            if isinstance(category, list) or isinstance(target, tuple):
+                if len(category) == 0:
+                    raise NameError("Empty category List")
+                elif len(category) > 1:
+                    raise NameError("Only one category can be selected")
+                else:
+                    if category[0] not in list(self.data[target].unique()):
+                        raise NameError("Category '{}' not included in targets".format(category[0]))
+                    else:
+                        _category = category[0]
+            else:
+                raise TypeError("Invalid type {}".format(type(category)))
+        else:
+            raise NameError("Target can not be 'None'")
+
+        return _category
+
+    def _check_path(self, path):
+        if not os.path.isdir(path):
+            raise NameError("Invalid path {}".format(path))
+
+    def boxplot(self, features=None, target=None, display=False, save_image=False, path="/"):
+        """
+        Función que realiza un BoxPlot sobre la dispesión de cada categoria
+        respecto a los grupos de target.
+
+        Inputs:
+            - data: Datos generales del dataset.
+            - features: categorias a analizar.
+        """
+        _features = self._check_parameters_features(features)
+        _target = self._check_parameters_target(target)
+
         if save_image:
-            if not os.path.isdir(path):
-                raise NameError("Invalid path {}".format(path))
+            self._check_path(path)
 
         _vars = [i for i in _features if not i == _target]
 
@@ -212,44 +246,11 @@ class DataAnalyst(DataLoad):
             - features: categorias a analizar.
 
         """
-        if features is not None:
-            if isinstance(features, list) or isinstance(features, tuple):
-                if len(features) == 0:
-                    raise NameError("Empty category List")
-                else:
-                    for i in features:
-                        if i not in self.data.columns.tolist():
-                            raise NameError("Feature '{}' not included in dataset targets".format(i))
-                        else:
-                            for i in self.data[features].dtypes:
-                                if i == "object":
-                                    raise NameError("Type Object not permited")
-                            else:
-                                _features = features
-            else:
-                raise TypeError("Invalid type {}".format(type(features)))
-        else:
-            _features = self.data.select_dtypes(exclude=["object"]).columns.tolist()
-
-        if target is not None:
-            if isinstance(target, list) or isinstance(target, tuple):
-                if len(target) == 0:
-                    raise NameError("Empty category List")
-                elif len(target) > 1:
-                    raise NameError("Only one category column can be selected")
-                else:
-                    if target[0] not in self.data.columns.tolist():
-                        raise NameError("Target '{}' not included in dataset columns".format(target))
-                    else:
-                        _target = target[0]
-            else:
-                raise TypeError("Invalid type {}".format(type(target)))
-        else:
-            raise NameError("Target can not be 'None'")
+        _features = self._check_parameters_features(features)
+        _target = self._check_parameters_target(target)
 
         if save_image:
-            if not os.path.isdir(path):
-                raise NameError("Invalid path {}".format(path))
+            self._check_path(path)
 
         _vars = [i for i in _features if not i == _target]
 
@@ -273,43 +274,54 @@ class DataAnalyst(DataLoad):
         if save_image:
             plt.savefig(path)
 
-    def sns_pairplot(self, features, target="categoria", palette="husl"):
+    def sns_jointplot(self, feature1, feature2, target=None, categoria1=None,
+                        categoria2=None, display=True, save_image=False, path="/"):
         import seaborn as sns
 
-        if not target in features:
-            features.append(target)
-        g = sns.pairplot(self.data[features], hue=target, palette=palette)
+        _feature1 = self._check_parameters_features(feature1)
+        _feature2 = self._check_parameters_features(feature2)
+        _target = self._check_parameters_target(target)
 
-    def sns_jointplot(self, categoria, feature1, 
-                    feature2, target="categoria",
-                    categoria2 = None,
-                    save_image=False,
-                    direct=""):
+        _f = list(self.data[_target].unique())
 
-            import seaborn as sns
+        _categoria1 = self._check_parameters_category(categoria1, _target)
 
-            f = list(self.data[target].unique())
-            if categoria not in f:
-                raise NameError('Categoria no incluida en la lista', f)
-            else:
+        elem = self.data.groupby(target).get_group(_categoria1)
+        g = sns.jointplot(_feature1, _feature2, data=elem, kind="reg", truncate=False, color="m", height=7)
 
-                elem = self.data.groupby(target).get_group(categoria)
-                g = sns.jointplot(feature1, feature2, data=elem,
-                        kind="reg", truncate=False,
-                        color="m", height=7)
-            
-            if not categoria2 == None:
-                
-                if categoria2 not in f:
-                    raise NameError('Categoria no incluida en la lista', f)
-                else:
-                    elem = self.data.groupby(target).get_group(categoria2)
-                    g.x = elem[feature1]
-                    g.y = elem[feature2]
-                    g.plot_joint(plt.scatter, marker='x', c='b', s=50)
+        if categoria2 is not None:
+            _categoria2 = self._check_parameters_category(categoria2, _target)
 
-            if save_image:
-                g.savefig(direct)
+            elem = self.data.groupby(target).get_group(_categoria2)
+            g.x = elem[feature1]
+            g.y = elem[feature2]
+            g.plot_joint(plt.scatter, marker='x', c='b', s=50)
+
+        if display:
+            plt.show()
+
+        if save_image:
+            self._check_path(path)
+            g.savefig(path)
+
+    def sns_pairplot(self, features=None, target=None, display=True, save_image=False, path="/", palette="husl"):
+        import seaborn as sns
+
+        _features = self._check_parameters_features(features)
+        _target = self._check_parameters_target(target)
+
+        if _target not in _features:
+            _features.append(_target)
+
+        g = sns.pairplot(self.data[_features], hue=_target, palette=palette)
+
+        if display:
+            plt.show()
+
+        if save_image:
+            self._check_path(path)
+            g.savefig(path)
+
 
     def distribution_targets(self, targets, display=True):
         

@@ -10,6 +10,7 @@ import numpy as np
 import pytest
 from mlearner.preprocessing import DataAnalyst
 import matplotlib
+import unittest
 
 matplotlib.use('Template')
 
@@ -61,6 +62,12 @@ def test_boxplot_target_error_null():
     da = DataAnalyst(data)
     with pytest.raises(NameError):
         da.boxplot(features=col, target=["d"])
+
+
+def test_boxplot_target_error_null2():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.boxplot(features=col, target=[])
 
 
 def test_boxplot_target_error_only():
@@ -132,6 +139,12 @@ def test_dispersion_categoria_target_error_null():
         da.dispersion_categoria(features=col, target=["d"])
 
 
+def test_dispersion_categoria_target_error_null2():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.dispersion_categoria(features=col, target=[])
+
+
 def test_dispersion_categoria_target_error_only():
     da = DataAnalyst(data)
     with pytest.raises(NameError):
@@ -155,4 +168,234 @@ def test_dispersion_categoria_save_image():
     da.dispersion_categoria(features=["a", "b"], target=["c"], display=True)
 
 
+def test_dispersion_categoria_save_image1():
+    da = DataAnalyst(data)
+    da.dispersion_categoria(target=["c"], display=True)
+
+
+"""
+DATA ANALYST -- PAIRPLOT
+"""
+
+
+def test_sns_jointplot_feature1_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_jointplot(feature1=np.array(["a"]), feature2=["b"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature1_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=[], feature2=["b"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature1_error_not_included():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["d"], feature2=["b"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature1_error_object():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["c"], feature2=["b"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature2_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_jointplot(feature1=["a"], feature2=np.array(["b"]), target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature2_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=[], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature2_error_not_included():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["d"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_feature2_error_object():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["c"], target=["c"], categoria1="OK")
+
+
+def test_sns_jointplot_target_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=np.array(["c"]), categoria1="OK")
+
+
+def test_sns_jointplot_target_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=[], categoria1="OK")
+
+
+def test_sns_jointplot_target_error_not_include():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["d"], categoria1="OK")
+
+
+def test_sns_jointplot_target_error_none():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], categoria1="OK")
+
+
+def test_sns_jointplot_categoria1_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=np.array(["OK"]))
+
+
+def test_sns_jointplot_categoria1_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=[])
+
+
+def test_sns_jointplot_categoria1_error_max():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK", "OK"])
+
+
+def test_sns_jointplot_categoria1_error_not_included():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OKNOK"])
+
+
+def test_sns_jointplot_categoria1_error_None():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=None)
+
+
+def test_sns_jointplot_categoria2_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=np.array(["OK"]))
+
+
+def test_sns_jointplot_categoria2_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=[])
+
+
+def test_sns_jointplot_categoria2_error_max():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=["OK", "OK"])
+
+
+def test_sns_jointplot_categoria2_error_not_included():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=["OKNOK"])
+
+
+def test_sns_jointplot_categoria2_noerror_None():
+    da = DataAnalyst(data)
+    da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=None)
+
+
+def test_sns_jointplot_incorrect_path():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=["NOK"], save_image=True, path="/invalid")
+
+
+def test_sns_jointplot_display():
+    da = DataAnalyst(data)
+    da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"], categoria2=["NOK"], display=True)
+
+
+def test_sns_jointplot_test1():
+    da = DataAnalyst(data)
+    da.sns_jointplot(feature1=["a"], feature2=["b"], target=["c"], categoria1=["OK"])
+
+
+"""
+DATA ANALYST -- PAIRPLOT
+"""
+
+
+def test_sns_pairplot_features_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_pairplot(features=np.array(col))
+
+
+def test_sns_pairplot_features_error_empty():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=[])
+
+
+def test_sns_pairplot_features_error_not_included():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=["d"])
+
+
+def test_sns_pairplot_features_error_object():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=["c"], target=["a"])
+
+
+def test_sns_pairplot_target_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.sns_pairplot(features=["a"], target=np.array(col))
+
+
+def test_sns_pairplot_target_error_null():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=col, target=["d"])
+
+
+def test_sns_pairplot_target_error_null2():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=col, target=[])
+
+
+def test_sns_pairplot_target_error_only():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=col, target=["a", "b"])
+
+
+def test_sns_pairplot_target_error_None():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=col)
+
+
+def test_sns_pairplot_incorrect_path():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.sns_pairplot(features=col, target=["c"], save_image=True, path="/incorrect")
+
+
+def test_sns_pairplot_save_image():
+    da = DataAnalyst(data)
+    da.sns_pairplot(features=["a", "b"], target=["c"], display=True)
+
+
+def test_sns_pairplot_save_image1():
+    da = DataAnalyst(data)
+    da.sns_pairplot(target=["c"], display=True)
 
