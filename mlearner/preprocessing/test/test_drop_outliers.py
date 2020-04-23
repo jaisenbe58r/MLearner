@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 import pytest
 import matplotlib
-import matplotlib.pyplot as plt
 from pandas.testing import assert_frame_equal
 from mlearner.preprocessing import DropOutliers
 from mlearner.load import DataLoad

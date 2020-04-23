@@ -14,6 +14,8 @@ from mlearner.preprocessing import DataCleaner
 data = pd.DataFrame({"a": ["car", "car", "car", "car", "car", "house"],
                         "b": ["car1", "car1", float('nan'), "car1", "car1", "house1"],
                         "t": [1, 1, 1, 1, 1, 0]})
+data_no_null = pd.DataFrame({"a": ["car", "car", "car", "car", "car", "house"],
+                                "t": [1, 1, 1, 1, 1, 0]})
 data_columns = ['a', 'b', 't']
 cat_columns = ['a', 'b']
 num_columns = ['t']
@@ -36,6 +38,11 @@ def test_missing_values():
 
 def test_isNull_values():
     dc = DataCleaner(data)
+    dc.isNull()
+
+
+def test_isNull_NoNull_values():
+    dc = DataCleaner(data_no_null)
     dc.isNull()
 
 
