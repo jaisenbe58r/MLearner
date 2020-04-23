@@ -7,42 +7,56 @@ License: MIT
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from mlearner.load import DataLoad
 
 
-class Data_cleaner(DataLoad):
+class DataCleaner(DataLoad):
 
-    def __init__(self, data): 
+    """Class to preprocessed object for data cleaning.
+
+    Attributes
+    ----------
+    data: `pd.DataFrame` of Dataset
+
+    Examples
+    --------
+    For usage examples, please see
+    https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataCleaner/
+
+    """
+    def __init__(self, data):
         super().__init__(data)
         """
-        Inicialización e la clase de Preprocesado de un dataframe
+        Inicialización de la clase de Preprocesado de un dataframe
         """
-        self.data = data
+        if isinstance(data, pd.core.frame.DataFrame):
+            self.data = data
+        else:
+            raise TypeError("Invalid type {}".format(type(data)))
 
     def dtypes(self):
         """
         retorno del tipo de datos por columna
         """
         return self.data.dtypes
-    
+
     def missing_values(self):
         """
-        Número de valores vacios en el dtaframe
+        Número de valores vacios en el dataframe.
         """
         # Number of missing in each column
-        missing = pd.DataFrame(self.data.isnull().sum()).rename(columns = {0: 'total'})
-        miss = missing.sort_values('total', ascending = False)
-        return miss
+        missing = pd.DataFrame(self.data.isnull().sum()).rename(columns={0: 'total'})
+        _miss = missing.sort_values('total', ascending=False)
+        return _miss
 
     def isNull(self):
-        if not self.missing_values()["total"].values.sum()==0:
+        if not self.missing_values()["total"].values.sum() == 0:
             print("Cuidado que existen valore nulos")
             return True
         else:
             print("No existen valores nulos")
             return False
-            
+
     def view_features(self):
         """
         Mostrar features del dataframe
@@ -53,7 +67,7 @@ class Data_cleaner(DataLoad):
         categorical_list = []
         numerical_list = []
         for i in self.data.columns.tolist():
-            if self.data[i].dtype=='object':
+            if self.data[i].dtype == 'object':
                 categorical_list.append(i)
             else:
                 numerical_list.append(i)
@@ -64,36 +78,14 @@ class Data_cleaner(DataLoad):
 
     def type_object(self):
         """
-        Detección de de categorias con type "object" 
+        Detección de de categorias con type "object"
         """
-        var = [i for i in self.view_features() if self.data[i].dtype==np.object]
+        var = [i for i in self.view_features() if self.data[i].dtype == np.object]
         return var
-    
+
     def not_type_object(self):
         """
         Detección de de categorias con type "object" 
         """
-        var = [i for i in self.view_features()  if not self.data[i].dtype==np.object]
+        var = [i for i in self.view_features() if not self.data[i].dtype == np.object]
         return var
-    
-    def extract_target(self, list_target=[0, 1], target="target", implace=False):
-
-        if len(list_target) == 0:
-            raise NameError("ERROR -- Lista de categoria vacia")
-        if len(list_target) > len(self.data[target].unique().tolist()):
-            raise NameError("ERROR -- Lista de categorias mayor que el numero de categorias")
-        for i in list_target:
-            if i not in self.data[target].unique().tolist():
-                raise NameError("ERROR -- Categoria '{}' no incluida en los targets del dataset".format(i))
-
-        _data_i0 = self.data[self.data[target]==list_target[0]]
-        if len(list_target)>1:
-            for i in range(len(list_target)-1):
-                _data_i1 = self.data[self.data[target]==i+1]
-                _data_i0 = pd.merge(left=_data_i0, right=_data_i1, how = "outer")
-
-        if implace:
-            self.data = _data_i0
-
-        return _data_i0
-
