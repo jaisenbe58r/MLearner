@@ -52,13 +52,13 @@ def test_boxplot_features_error_object():
         da.boxplot(features=["c"], target=["a"])
 
 
-def test_boxplot_target_error_type():
+def test_boxplot_feature_error_type():
     da = DataAnalyst(data)
     with pytest.raises(TypeError):
         da.boxplot(features=["a"], target=np.array(col))
 
 
-def test_boxplot_target_error_null():
+def test_boxplot_feature_error_null():
     da = DataAnalyst(data)
     with pytest.raises(NameError):
         da.boxplot(features=col, target=["d"])
@@ -399,3 +399,103 @@ def test_sns_pairplot_save_image1():
     da = DataAnalyst(data)
     da.sns_pairplot(target=["c"], display=True)
 
+
+"""
+DATA ANALYST -- Distribution targets
+"""
+
+
+def test_distribution_targets_target_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.distribution_targets(target=np.array(col))
+
+
+def test_distribution_targets_target_error_null():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.distribution_targets(target=["d"])
+
+
+def test_distribution_targets_target_error_null2():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.distribution_targets(target=[])
+
+
+def test_distribution_targets_target_error_only():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.distribution_targets(target=["a", "b"])
+
+
+def test_distribution_targets_target_error_None():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.distribution_targets()
+
+
+def test_distribution_targets_incorrect_path():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.distribution_targets(target=["c"], save_image=True, path="/incorrect")
+
+
+def test_distribution_targets_save_image():
+    da = DataAnalyst(data)
+    da.distribution_targets(target=["c"], display=True)
+
+
+def test_distribution_targets_save_image1():
+    da = DataAnalyst(data)
+    da.distribution_targets(target=["c"], display=False)
+
+
+"""
+DATA ANALYST -- corr_matrix
+"""
+
+
+def test_corr_matrix_feature_error_type():
+    da = DataAnalyst(data)
+    with pytest.raises(TypeError):
+        da.corr_matrix(features=np.array(["a", "b"]))
+
+
+def test_corr_matrix_feature_error_null():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.corr_matrix(features=["d"])
+
+
+def test_corr_matrix_feature_error_null2():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.corr_matrix(features=[])
+
+
+def test_corr_matrix_feature_error_only():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.corr_matrix(features=["c"])
+
+
+def test_corr_matrix_feature_error_None():
+    da = DataAnalyst(data)
+    da.corr_matrix()
+
+
+def test_corr_matrix_incorrect_path():
+    da = DataAnalyst(data)
+    with pytest.raises(NameError):
+        da.corr_matrix(features=["a", "b"], save_image=True, path="/incorrect")
+
+
+def test_corr_matrix_save_image():
+    da = DataAnalyst(data)
+    da.corr_matrix(features=["a", "b"], display=True)
+
+
+def test_corr_matrix_save_image1():
+    da = DataAnalyst(data)
+    da.corr_matrix(features=["a", "b"], display=False)

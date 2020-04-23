@@ -322,28 +322,35 @@ class DataAnalyst(DataLoad):
             self._check_path(path)
             g.savefig(path)
 
+    def distribution_targets(self, target=None, display=True, save_image=False, path="/", palette="Set2"):
+        import seaborn as sns
 
-    def distribution_targets(self, targets, display=True):
-        
-        ax = sns.countplot(x = targets, palette="Set2")
+        _target = self._check_parameters_target(target)
+
+        total = self.data[_target].shape[0]
+        ax = sns.countplot(x=_target, palette=palette, data=self.data)
         sns.set(font_scale=1.5)
         ax.set_xlabel(' ')
         ax.set_ylabel(' ')
-        fig = plt.gcf()
+        _ = plt.gcf()
         # fig.set_size_inches(10,5)
-        ax.set_ylim(top=len(targets))
+        ax.set_ylim(top=total)
 
         for p in ax.patches:
-            ax.annotate('{:.2f}%'.format(100*p.get_height()/len(targets)), (p.get_x()+ 0.3, p.get_height()+50))
+            ax.annotate('{:.2f}%'.format(100*p.get_height()/total), (p.get_x()+0.3, p.get_height()+50))
 
-        plt.title('Distribution of {} Targets'.format(len(targets)))
-        plt.xlabel('Categorias')
+        plt.title('Distribution of {} Targets'.format(total))
+        plt.xlabel('Categories')
         plt.ylabel('Frequency [%]')
 
         if display:
             plt.show()
 
-    def corr_matrix(self, X):
+        if save_image:
+            self._check_path(path)
+            plt.savefig(path)
+
+    def corr_matrix(self, features=None, display=True, save_image=False, path="/"):
         """
         matriz de covarianza:
 
@@ -354,11 +361,15 @@ class DataAnalyst(DataLoad):
         la asociación lineal es más fuerte. Cuanto más cerca esté r de 0, lo que debilita la asociación lineal.
 
         """
-        sns.set(style="white")
+        import seaborn as sns
 
+        _features = self._check_parameters_features(features)
+        X = self.data[_features]
+
+        sns.set(style="white")
         corr = X.corr()
         # Set up the matplotlib figure
-        f, ax = plt.subplots(figsize=(11, 9))
+        _, _ = plt.subplots(figsize=(11, 9))
 
         # Generate a custom diverging colormap
         cmap = sns.diverging_palette(220, 10, as_cmap=True)
@@ -366,5 +377,9 @@ class DataAnalyst(DataLoad):
         # Draw the heatmap with the mask and correct aspect ratio
         sns.heatmap(corr, cmap=cmap, vmax=.3, center=0,
                     square=True, linewidths=.5, cbar_kws={"shrink": .5})
+        if display:
+            plt.show()
 
-        plt.show()
+        if save_image:
+            self._check_path(path)
+            plt.savefig(path)
