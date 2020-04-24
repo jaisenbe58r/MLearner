@@ -32,4 +32,4 @@ See https://jaisenbe58r.github.io/MLearner/ for complete documentation.
 # Dev branch marker is: 'X.Y.dev' or 'X.Y.devN' where N is an integer.
 # 'X.Y.dev0' is the canonical version of 'X.Y.dev'
 #
-__version__ = '0.1.2dev1'
+__version__ = '0.1.3dev0'
