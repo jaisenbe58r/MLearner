@@ -124,7 +124,7 @@ class modelLightBoost(Training):
 
         if not mute:
             print("Accurancy para el conjunto de entrenamiento ---> {:.2f}%".format(score_train*100))
-            print("Accurancy para el conjunto de validación ------> {:.2f}%".format(score_test*100))
+            print("Accurancy para el conjunto de validacion ------> {:.2f}%".format(score_test*100))
 
     def fit_cv(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, nfold=5,
                 use_best_model=True, verbose=200, nosplit=False, early_stopping_rounds=150, num_boost_round=2000, **kwargs):
@@ -258,7 +258,7 @@ class modelLightBoost(Training):
         print("\n")
         print("Resultado del conjunto de test con los parametros optimos: {:.2f}%".format(score*100))
         print("\n")
-        print("Report clasificación con el conjunto de test: ")
+        print("Report clasificacion con el conjunto de test: ")
         self.evaluate(self.model, self.X_test, self.y_test)
         print("\n")
         print("Validacion cruzada con todos los datos del dataset: ")

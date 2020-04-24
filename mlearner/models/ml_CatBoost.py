@@ -102,7 +102,7 @@ class modelCatBoost(object):
 
         if not verbose == 0:
             print("Accurancy para el conjunto de entrenamiento ---> {:.2f}%".format(score_train*100))
-            print("Accurancy para el conjunto de validación ------> {:.2f}%".format(score_test*100))
+            print("Accurancy para el conjunto de validacion ------> {:.2f}%".format(score_test*100))
 
     def fit_cv(self, X, y, fold_count=4, shuffle=True, stratified=True, plot=True, verbose=100):
 

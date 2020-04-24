@@ -41,7 +41,7 @@ class Training(EvaluationModels):
     def KFold_CrossValidation(self, model, X, y, n_splits=10, ROC=False, shuffle=True, mute=False,
                                 logdir_report="", display=True, save_image=True, verbose=0):
         """
-        Validación cruzada respecto a "n_plits" del KFolds.
+        Validacion cruzada respecto a "n_plits" del KFolds.
         """
         y, targets = self.replace_multiclass(y)
         kf = StratifiedKFold(n_splits=n_splits, shuffle=shuffle, random_state=self.random_state)
@@ -82,22 +82,22 @@ class Training(EvaluationModels):
 
         if not mute:
             print("\n")
-            print("----> Resultado de la validación cruzada: {:.3f}%".format(score_general_test*100))
+            print("----> Resultado de la validacion cruzada: {:.3f}%".format(score_general_test*100))
 
         return resultados, score_general_test
 
     def FineTune(self, model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False):
         """
-        Técnica de Ajuste fino de hiperparámetros.
+        Técnica de Ajuste fino de hiperparametros.
 
         Model: Modelo a Optimizar.
 
         params: diccionario de parametros con el grid.
 
-        scoring: Métricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
+        scoring: Metricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
             * Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)
 
-        refit: Métrica de importancia para optimizar el modelo'Accuracy'
+        refit: Metrica de importancia para optimizar el modelo'Accuracy'
         """
         acc_scorer = make_scorer(accuracy_score, mean_squared_error)
         scoring = {
@@ -238,7 +238,7 @@ class Training(EvaluationModels):
 
     def features_important(self, X, y, logdir="", display=True, save_image=False):
         """
-        Explorar las features más significativas
+        Explorar las features mas significativas
         """
         # features:
         features = X.columns.tolist()

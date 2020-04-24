@@ -1,43 +1,35 @@
-"""
-Libreria de Modelos de Clasificación:
 
-ML_modelos_clasificacion:
-ML_clasificador:
-*
-*
-
+"""Jaime Sendra Berenguer-2020.
+MLearner Machine Learning Library Extensions
+Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
+License: MIT
 """
+
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import time
 
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 from sklearn.feature_selection import RFE
 from sklearn.feature_selection import SelectFromModel
 
-from sklearn.preprocessing import MinMaxScaler, MaxAbsScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
+from sklearn.preprocessing import MinMaxScaler
+
+from mlearner.utils import ParamsManager
+from mlearner.models import modelLightBoost
 
 import warnings
 warnings.filterwarnings("ignore")
 
-
-from .params_manager import ParamsManager
-
 param_file = "mlearner/clasifier/config/models.json"
-
 
 
 class FeatureSelection(object):
     def __init__(self, random_state=99):
         """
-        Inicialización e la clase de Seleccion de rasgos
+        Inicializacion e la clase de Seleccion de rasgos
         """
         self.random_state = random_state
         self.manager_models = ParamsManager(param_file, key_read="Models")
@@ -62,11 +54,11 @@ class FeatureSelection(object):
         cor_list = [0 if np.isnan(i) else i for i in cor_list]
         # feature name
         if k == 'all':
-            cor_feature = X.iloc[:,np.argsort(np.abs(cor_list))[:]].columns.tolist()
+            cor_feature = X.iloc[:, np.argsort(np.abs(cor_list))[:]].columns.tolist()
 
         else:
             it = k*-1
-            cor_feature = X.iloc[:,np.argsort(np.abs(cor_list))[it:]].columns.tolist()
+            cor_feature = X.iloc[:, np.argsort(np.abs(cor_list))[it:]].columns.tolist()
 
         # feature selection? 0 for not select, 1 for select
         cor_support = [True if i in cor_feature else False for i in feature_name]
@@ -81,17 +73,17 @@ class FeatureSelection(object):
             Normalization: MinMaxScaler (values should be bigger than 0)
             Impute missing values: yes
         """
-        if not k =='all':
+        if not k == 'all':
             if k > len(X.columns.tolist()):
                 raise NameError("Numero de features seleccionas (k) mayor a features totales")
-        
+
         feature_name = X.columns.tolist()
         X_norm = MinMaxScaler().fit_transform(X)
         chi_selector = SelectKBest(chi2, k=k)
         chi_selector.fit(X_norm, y)
 
         _chi_support = chi_selector.get_support()
-        chi_feature = X.loc[:,_chi_support].columns.tolist()
+        chi_feature = X.loc[:, _chi_support].columns.tolist()
         print(str(len(chi_feature)), 'selected features')
 
         chi_support = [True if i in chi_feature else False for i in feature_name]
@@ -106,10 +98,9 @@ class FeatureSelection(object):
             Normalization: depend on the used model; yes for LR
             Impute missing values: depend on the used model; yes for LR
         """
-        feature_name = X.columns.tolist()
         X_norm = MinMaxScaler().fit_transform(X)
 
-        if not k =='all':
+        if not k == 'all':
             if k > len(X.columns.tolist()):
                 raise NameError("Numero de features seleccionas (k) mayor a features totales")
         else:
@@ -119,7 +110,7 @@ class FeatureSelection(object):
         rfe_selector.fit(X_norm, y)
 
         rfe_support = rfe_selector.get_support()
-        rfe_feature = X.loc[:,rfe_support].columns.tolist()
+        rfe_feature = X.loc[:, rfe_support].columns.tolist()
         print(str(len(rfe_feature)), 'selected features')
 
         return rfe_support, rfe_feature, rfe_selector
@@ -131,32 +122,29 @@ class FeatureSelection(object):
             Normalization: Yes
             Impute missing values: Yes
         """
-        feature_name = X.columns.tolist()
         X_norm = MinMaxScaler().fit_transform(X)
 
         embeded_lr_selector = SelectFromModel(LogisticRegression(penalty="l2"), '1.25*median')
         embeded_lr_selector.fit(X_norm, y)
 
         embeded_lr_support = embeded_lr_selector.get_support()
-        embeded_lr_feature = X.loc[:,embeded_lr_support].columns.tolist()
+        embeded_lr_feature = X.loc[:, embeded_lr_support].columns.tolist()
         print(str(len(embeded_lr_feature)), 'selected features')
 
         return embeded_lr_support, embeded_lr_feature, embeded_lr_selector
 
-    def RandomForest(self, X , y, n_estimators=100):
+    def RandomForest(self, X, y, n_estimators=100):
         """
         Random Forest
 
             Normalization: No
             Impute missing values: Yes
         """
-        feature_name = X.columns.tolist()
-
         embeded_rf_selector = SelectFromModel(RandomForestClassifier(n_estimators=n_estimators), threshold='1.25*median')
         embeded_rf_selector.fit(X, y)
 
         embeded_rf_support = embeded_rf_selector.get_support()
-        embeded_rf_feature = X.loc[:,embeded_rf_support].columns.tolist()
+        embeded_rf_feature = X.loc[:, embeded_rf_support].columns.tolist()
         print(str(len(embeded_rf_feature)), 'selected features')
 
         return embeded_rf_support, embeded_rf_feature, embeded_rf_selector
@@ -168,8 +156,6 @@ class FeatureSelection(object):
             Normalization: No
             Impute missing values: No
         """
-        feature_name = X.columns.tolist()
-
         # lgbc=LGBMClassifier(n_estimators=500, learning_rate=0.05, num_leaves=32, colsample_bytree=0.2,
         #     reg_alpha=3, reg_lambda=1, min_split_gain=0.01, min_child_weight=40)
         lgbc = modelLightBoost()
@@ -178,7 +164,7 @@ class FeatureSelection(object):
         embeded_lgb_selector.fit(X, y)
 
         embeded_lgb_support = embeded_lgb_selector.get_support()
-        embeded_lgb_feature = X.loc[:,embeded_lgb_support].columns.tolist()
+        embeded_lgb_feature = X.loc[:, embeded_lgb_support].columns.tolist()
         print(str(len(embeded_lgb_feature)), 'selected features')
 
         return embeded_lgb_support, embeded_lgb_feature, embeded_lgb_selector
@@ -192,44 +178,41 @@ class FeatureSelection(object):
 
         return df_X
 
-    def Summary(self, X, y, cor_pearson=True, chi2=True, wrapper=True, embeded=True, 
+    def Summary(self, X, y, cor_pearson=True, chi2=True, wrapper=True, embeded=True,
                 RandomForest=True, LightGBM=True):
         """
-        Resumen de la selección de caracteristicas.
+        Resumen de la seleccion de caracteristicas.
         """
         feature_name = X.columns.tolist()
         pd.set_option('display.max_rows', None)
 
         # put all selection together
-        feature_selection_df = pd.DataFrame({'Feature':feature_name})
+        feature_selection_df = pd.DataFrame({'Feature': feature_name})
 
         if cor_pearson:
-            cor_support, cor_feature = self.cor_pearson(X, y)
+            cor_support, _ = self.cor_pearson(X, y)
             feature_selection_df['Pearson'] = cor_support
         if chi2:
-            chi_support, chi_feature, chi_selector = self.chi2(X, y)
+            chi_support, _, _ = self.chi2(X, y)
             feature_selection_df['Chi2'] = chi_support
         if wrapper:
-            rfe_support, rfe_feature, rfe_selector = self.wrapper(X, y)
+            rfe_support, _, _ = self.wrapper(X, y)
             feature_selection_df['RFE'] = rfe_support
         if embeded:
-            embeded_lr_support, embeded_lr_feature, embeded_lr_selector = self.embeded(X, y)
+            embeded_lr_support, _, _ = self.embeded(X, y)
             feature_selection_df['Logistics'] = embeded_lr_support
         if RandomForest:
-            embeded_rf_support, embeded_rf_feature, embeded_rf_selector = self.RandomForest(X, y)
+            embeded_rf_support, _, _ = self.RandomForest(X, y)
             feature_selection_df['Random Forest'] = embeded_rf_support
         if LightGBM:
-            embeded_lgb_support, embeded_lgb_feature, embeded_lgb_selector = self.LightGBM(X, y)
+            embeded_lgb_support, _, _ = self.LightGBM(X, y)
             feature_selection_df['LightGBM'] = embeded_lgb_support
 
         # count the selected times for each feature
         feature_selection_df['Total'] = np.sum(feature_selection_df, axis=1)
-        
         # display the top 100
-        feature_selection_df = feature_selection_df.sort_values(['Total','Feature'] , ascending=False)
+        feature_selection_df = feature_selection_df.sort_values(['Total', 'Feature'], ascending=False)
         feature_selection_df.index = range(1, len(feature_selection_df)+1)
         feature_selection_df.head(100)
 
         return feature_selection_df
-
-

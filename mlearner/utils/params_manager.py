@@ -10,7 +10,7 @@ import json
 
 class ParamsManager(object):
     """
-    Objeto utilizado para leer los datos de un fichero json de configuración.
+    Objeto utilizado para leer los datos de un fichero json de configuracion.
 
     Parameters
     ----------
@@ -21,8 +21,8 @@ class ParamsManager(object):
     Este objeto nos proporciona los siguientes métodos:
 
         - get_params(): obtener parametros a partir del "key" especificado
-        - update_params(): actualización de los valores de un "key" especificado.
-        - export_params(): Escribir parámetros en un archivo
+        - update_params(): actualizacion de los valores de un "key" especificado.
+        - export_params(): Escribir parametros en un archivo
     """
 
     def __init__(self, params_file, key_read="info_json"):

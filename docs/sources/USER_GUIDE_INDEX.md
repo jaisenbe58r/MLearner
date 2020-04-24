@@ -1,7 +1,14 @@
 # User Guide Index
 
+## `load`
+- [DataLoad](user_guide/load/DataLoad.md)
+
 ## `data`
 - [wine_data](user_guide/data/wine_data.md)
+- [data_normal](user_guide/data/data_normal.md)
+- [data_gamma](user_guide/data/data_gamma.md)
+- [data_uniform](user_guide/data/data_uniform.md)
+- [create_dataset](user_guide/data/create_dataset.md)
 
 ## `preprocessing`
 - [MeanCenterer](user_guide/preprocessing/MeanCenterer.md)
@@ -24,8 +31,23 @@
 - [DataCleaner](user_guide/preprocessing/DataCleaner.md)
 - [DataAnalyst](user_guide/preprocessing/DataAnalyst.md)
 
-## `load`
-- [DataLoad](user_guide/load/DataLoad.md)
+## `feature selections`
+- [FeatureSelection](user_guide/feature_selections/FeatureSelection.md)
 
-## `externals`
-- [NotFittedError](user_guide/externals/NotFittedError.md)
+## `models`
+- [modelXGBoost](user_guide/models/modelXGBoost.md)
+- [modelLightBoost](user_guide/models/modelLightBoost.md)
+- [modelCatBoost](user_guide/models/modelCatBoost.md)
+
+## `clasifier`
+- [PipelineClasificators](user_guide/clasifier/PipelineClasificators.md)
+- [TrainingUtilities](user_guide/clasifier/TrainingUtilities.md)
+
+## `training`
+- [Training](user_guide/training/Training.md)
+
+## `evaluation`
+- [EvaluationModels](user_guide/evaluation/EvaluationModels)
+
+## `utils`
+- [ParamsManager](user_guide/utils/ParamsManager.md)

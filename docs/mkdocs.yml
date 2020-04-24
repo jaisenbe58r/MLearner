@@ -42,8 +42,14 @@ nav:
 - Home: index.md
 - User Guide:
   - USER_GUIDE_INDEX.md
+  - load:
+    - user_guide/load/DataLoad.md
   - data:
     - user_guide/data/wine_data.md
+    - user_guide/data/data_normal.md
+    - user_guide/data/data_gamma.md
+    - user_guide/data/data_uniform.md
+    - user_guide/data/create_dataset.md
   - preprocessing:
     - user_guide/preprocessing/MeanCenterer.md
     - user_guide/preprocessing/minmax_scaling.md
@@ -64,19 +70,33 @@ nav:
     - user_guide/preprocessing/ReplaceTransformer.md
     - user_guide/preprocessing/DataCleaner.md
     - user_guide/preprocessing/DataAnalyst.md
-
-  - load:
-    - user_guide/load/DataLoad.md
-  - externals:
-    - user_guide/externals/NotFittedError.md
-  # - utils:
-    # - user_guide/utils/Counter.md
+  - feature selections:
+    - user_guide/feature_selections/FeatureSelection.md
+  - models:
+    - user_guide/models/modelXGBoost.md
+    - user_guide/models/modelLightBoost.md
+    - user_guide/models/modelCatBoost.md
+  - clasifier:
+    - user_guide/clasifier/PipelineClasificators.md
+    - user_guide/clasifier/TrainingUtilities.md
+  - training:
+    - user_guide/training/Training.md
+  - evaluation:
+    - user_guide/evaluation/EvaluationModels
+  # - externals:
+  #   - user_guide/externals/NotFittedError.md
+  - utils:
+    - user_guide/utils/ParamsManager.md
 - API:
   - api_subpackages/mlearner.data.md
   - api_subpackages/mlearner.preprocessing.md
   - api_subpackages/mlearner.externals.md
   - api_subpackages/mlearner.load.md
-  # - api_subpackages/mlearner.utils.md
+  - api_subpackages/mlearner.classifier.md
+  - api_subpackages/mlearner.feature_selection.md
+  - api_subpackages/mlearner.models.md
+  - api_subpackages/mlearner.training.md
+  - api_subpackages/mlearner.utils.md
 
 - Installation: installation.md
 - About:

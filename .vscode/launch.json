@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Módulo",
+            "name": "Python: Modulo",
             "type": "python",
             "request": "launch",
             "module": "mlearner"

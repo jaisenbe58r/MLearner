@@ -168,10 +168,10 @@ class DropOutliers(BaseEstimator, TransformerMixin):
         for i in range(len(self.features)):
             _f = self.features[i]
 
-            # Rango intercuartílico (Q3–Q1)
+            # Rango intercuartilico (Q3–Q1)
             IQR = data_transform[_f].quantile(0.75)-data_transform[_f].quantile(0.25)
 
-            # se consideran atípicos los valores inferiores a Q1–1.5·IQR o superiores a Q3+1.5·IQR
+            # se consideran atipicos los valores inferiores a Q1–1.5·IQR o superiores a Q3+1.5·IQR
             IQR_max = data_transform[_f].quantile(0.75) + 1.5*IQR
             IQR_min = data_transform[_f].quantile(0.25) - 1.5*IQR
 
