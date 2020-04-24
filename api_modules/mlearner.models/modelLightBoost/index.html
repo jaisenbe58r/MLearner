@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.models/modelLightBoost/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>modelLightBoost - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/data/wine_data/">Wine data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals.md">None</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#modellightboost">modelLightBoost</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
+                 <!--   -->
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="modellightboost">modelLightBoost</h2>
+<p><em>modelLightBoost(name='LGB', random_state=99, train_dir='', </em>args, *<em>kwargs)</em></p>
+<p>Ejemplo multiclass:
+https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification</p>
+<h3 id="methods">Methods</h3>
+<hr>
+
+<p><em>FineTune(model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False)</em></p>
+<p>Tcnica de Ajuste fino de hiperparametros.</p>
+<p>Model: Modelo a Optimizar.</p>
+<p>params: diccionario de parametros con el grid.</p>
+<p>scoring: Metricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
+* Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)</p>
+<p>refit: Metrica de importancia para optimizar el modelo'Accuracy'</p>
+<hr>
+
+<p><em>FineTune_SearchCV(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, ROC=False, randomized=True, cv=10, display_ROC=True, verbose=0, n_iter=10, replace_model=True, nosplit=False, finetune_dir='')</em></p>
+<p>None</p>
+<hr>
+
+<p><em>GridSearchCV_Evaluating(model, param, max_param, min_score=0.5)</em></p>
+<p>https://scikit-learn.org/stable/auto_examples/model_selection/plot_multi_metric_evaluation.html#sphx-glr-auto-examples-model-selection-plot-multi-metric-evaluation-py</p>
+<hr>
+
+<p><em>KFold_CrossValidation(model, X, y, n_splits=10, ROC=False, shuffle=True, mute=False, logdir_report='', display=True, save_image=True, verbose=0)</em></p>
+<p>Validacion cruzada respecto a "n_plits" del KFolds.</p>
+<hr>
+
+<p><em>SeedDiversification_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=2020, cv=10, nosplit=False, finetuneseed_dir='', display=True, save_image=True, verbose=0)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>SeedDiversification_fs(X, y, params, n_iter=10, mute=False, logdir_report='', display=True, save_image=True)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>add_model(model, random_state=99)</em></p>
+<p>Incorporar  modelo en la clase</p>
+<hr>
+
+<p><em>class_report(y_true, predictions, clases, logdir_report)</em></p>
+<p>Un informe de clasificacion se utiliza para medir la calidad de las predicciones de un
+algoritmo de clasificacion. Cuntas predicciones son verdaderas y cuntas son falsas.
+Ms especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
+verdaderos y los negativos falsos se utilizan para predecir las metricas de un informe
+de clasificacion.</p>
+<p>El informe muestra las principales metricas de clasificacion de precision, recuperacion
+y puntaje f1 por clase. Las metricas se calculan utilizando verdaderos y falsos positivos,
+verdaderos y falsos negativos. Positivo y negativo en este caso son nombres genericos
+para las clases predichas. Hay cuatro formas de verificar si las predicciones son
+correctas o incorrectas:</p>
+<p>TN / Verdadero negativo: cuando un caso fue negativo y se pronostico negativo
+TP / Verdadero Positivo: cuando un caso fue positivo y predicho positivo
+FN / Falso negativo: cuando un caso fue positivo pero predicho negativo
+FP / Falso Positivo: cuando un caso fue negativo pero predicho positivo</p>
+<p>La precision es la capacidad de un clasificador de no etiquetar una instancia positiva
+que en realidad es negativa. Para cada clase se define como la relacion de positivos
+verdaderos a la suma de positivos verdaderos y falsos.</p>
+<p>TP - Positivos verdaderos
+FP - Positivos falsos</p>
+<p>Precision: precision de las predicciones positivas.
+Precision = TP / (TP + FP)</p>
+<p>Recordar es la capacidad de un clasificador para encontrar todas las instancias positivas.
+Para cada clase se define como la relacion entre los verdaderos positivos y la suma de
+los verdaderos positivos y los falsos negativos.</p>
+<p>FN - Falsos negativos</p>
+<p>Recordar: fraccion de positivos identificados correctamente.
+Recuperacion = TP / (TP + FN)</p>
+<p>El  puntaje F 1 es una media armonica ponderada de precision y recuperacion de modo que
+el mejor puntaje es 1.0 y el peor es 0.0. En terminos generales, los  puntajes de F 1 son
+ms bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
+clculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
+modelos clasificadores, no la precision global.</p>
+<p>Puntuacion F1 = 2 * (recuperacion * precision) / (recuperacion + precision)</p>
+<hr>
+
+<p><em>compute_roc_auc(model, index, X, y)</em></p>
+<p>Computo para todas las pruebas de KFold</p>
+<hr>
+
+<p><em>confusion_matrix(y_true, y_pred)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>create_ROC(lm, X_test, Y_test, targets=[0, 1], logdir_report='', display=True, save_image=True)</em></p>
+<p>Se crea la curva ROC de las predicciones de conjunto de test.</p>
+<p>Outputs:
+- df: Dataframe de los datos de metricas ROC.
+- auc: Area por debajo de la curfa ROC (efectividad de las predicciones).</p>
+<hr>
+
+<p><em>create_ROC_pro(fprs, tprs, X, y, targets=[0, 1], logdir_report='', display=True, save_image=True)</em></p>
+<p>Plot the Receiver Operating Characteristic from a list
+of true positive rates and false positive rates.</p>
+<hr>
+
+<p><em>dataset(X, y, categorical_columns_indices=None, test_size=0.2, </em>args, *<em>kwarg)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>eval_FineTune(X, y)</em></p>
+<p>https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
+https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_forest_explained/Improving%20Random%20Forest%20Part%202.ipynb</p>
+<hr>
+
+<p><em>eval_train(model, X, y, name='Performance')</em></p>
+<p>None</p>
+<hr>
+
+<p><em>evaluacion_rf_2features(data_eval, data_eval_target, targets=[0, 1], logdir_report='', display=True)</em></p>
+<p>Funcion que nos selecciona el thresholder ms optimo:</p>
+<p>Inputs:</p>
+<ul>
+<li>data_eval: Conjunto de evaluacion.</li>
+<li>probs: Matriz de probabilidades que viene dado por el "lm.predict_proba" del podelo de RL.</li>
+<li>thresholders: Intervalo de corte para determinar la categoria. viene dado por el "metrics.roc_curve" de sckitlearn.</li>
+<li>display: si queremos mostrar los datos graficados por pantalla.</li>
+</ul>
+<p>Outputs:</p>
+<ul>
+<li>th: Thresholder seleccionado.</li>
+<li>res: El accurancy con ese thresholder.</li>
+<li>df: Dataframe con el resultado del test.</li>
+</ul>
+<hr>
+
+<p><em>evaluate(model, X, y)</em></p>
+<p>Evalucion del modelo Fine-Tune</p>
+<hr>
+
+<p><em>features_important(X, y, logdir='', display=True, save_image=False)</em></p>
+<p>Explorar las features mas significativas</p>
+<hr>
+
+<p><em>fit(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, mute=False, use_best_model=True, verbose=0, num_boost_round=100, nosplit=False, </em><em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>fit_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, nfold=5, use_best_model=True, verbose=200, nosplit=False, early_stopping_rounds=150, num_boost_round=2000, </em><em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>func_acc(prob_pred, y_target)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>get_important_features(display=True)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>get_model()</em></p>
+<p>None</p>
+<hr>
+
+<p><em>get_params_json()</em></p>
+<p>None</p>
+<hr>
+
+<p><em>heatmap_params(parameters, metric='mean_test_Accuracy')</em></p>
+<p>parametres a relacionar:
+parameters = ["n_estimators", "min_samples_split"]</p>
+<hr>
+
+<p><em>index_features(features)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>load_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p>None</p>
+<hr>
+
+<p><em>plot_Histograma(predict, correct, incorrect, logdir_report, categorias=[0, 1], display=True, save_image=True)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>plot_confusion_matrix(y_true, y_pred, classes, num_clases, logdir_report, normalize=False, title=None, cmap=<matplotlib.colors.LinearSegmentedColormap object at 0x000001F541CFA390>, name='cm_normalizada')</em></p>
+<p>Una matriz de confusion es un resumen de los resultados de prediccion sobre un problema
+de clasificacion.</p>
+<p>El numero de predicciones correctas e incorrectas se resume con valores de conteo y se
+desglosa por clase. Esta es la clave de la matriz de confusion.</p>
+<p>La matriz de confusion muestra las formas en que su modelo de clasificacion
+se confunde cuando hace predicciones.</p>
+<p>Le da una idea no solo de los errores que est cometiendo su clasificador, sino ms
+importante aun, de los tipos de errores que se estn cometiendo.</p>
+<p>Es este desglose el que supera la limitacion del uso de la precision de clasificacion solo.</p>
+<hr>
+
+<p><em>pred_binary(X, </em>args, *<em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>predict(X, </em>args, *<em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>predict_proba(X, </em>args, *<em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>replace_multiclass(targets)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>restore_model(filename)</em></p>
+<p>Load the model from disk</p>
+<hr>
+
+<p><em>save_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p>Save the model to disk</p>
+<hr>
+
+<p><em>set_dataset_nosplit(X_train, X_test, y_train, y_test, categorical_columns_indices=None, </em>args, *<em>kwarg)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>update_model(</em><em>kwargs)</em></p>
+<p>None</p>
+<hr>
+
+<p><em>validacion_cruzada(X, Y, n_splits, shuffle=True, scoring='accuracy')</em></p>
+<p>Validacion cruzada del dataset introducido como input.</p>
+<p>Inputs:
+- cv = Numero de iteraciones.</p>
+<p>Outputs:
+- score: Media de los acc de todas las iteraciones.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
