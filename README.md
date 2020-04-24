@@ -35,7 +35,7 @@
 
 
 Jaime Sendra Berenguer - Spain - 2020
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](www.linkedin.com/in/jaisenbe)
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://linkedin.com/in/jaisenbe)
 [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/jaisenbe58r)
 
 
@@ -49,7 +49,7 @@ Jaime Sendra Berenguer - Spain - 2020
 - PyPI: [https://pypi.python.org/pypi/mlearner](https://pypi.python.org/pypi/mlearner)
 - Changelog: [https://jaisenbe58r.github.io/MLearner//CHANGELOG](https://jaisenbe58r.github.io/MLearner//CHANGELOG)
 - Contributing: [https://jaisenbe58r.github.io/MLearner//CONTRIBUTING](https://jaisenbe58r.github.io/MLearner//CONTRIBUTING)
-- Questions? Check out the [Google Groups mailing list](https://groups.google.com/forum/#!forum/mlearner)
+- Questions? Check out the [Discuss](https://discord.gg/HUxahg)
 
 <br>
 <br>
