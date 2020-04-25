@@ -8,7 +8,7 @@ License: MIT
 import pandas as pd
 import numpy as np
 import pytest
-from mlearner.preprocessing import DataCleaner
+from mlearner.preprocessing import DataExploratory
 
 
 data = pd.DataFrame({"a": ["car", "car", "car", "car", "car", "house"],
