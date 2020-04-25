@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from mlearner.load import DataLoad
 
 
-class DataCleaner(DataLoad):
+class DataExploratory(DataLoad):
 
     """Class to preprocessed object for data cleaning.
 
@@ -36,19 +36,27 @@ class DataCleaner(DataLoad):
         else:
             raise TypeError("Invalid type {}".format(type(data)))
 
-    def dtypes(self):
+    def dtypes(self, X=None):
         """
         retorno del tipo de datos por columna
         """
-        return self.data.dtypes
+        if X is None:
+            return self.data.dtypes
+        else:
+            return X.dtypes
 
-    def missing_values(self):
+    def missing_values(self, X=None):
         """
         Numero de valores vacios en el dataframe.
         """
+        if X is None:
         # Number of missing in each column
-        missing = pd.DataFrame(self.data.isnull().sum()).rename(columns={0: 'total'})
+            missing = pd.DataFrame(self.data.isnull().sum()).rename(columns={0: 'total'})
+        else:
+            missing = pd.DataFrame(X.isnull().sum()).rename(columns={0: 'total'})
+
         _miss = missing.sort_values('total', ascending=False)
+        
         return _miss
 
     def isNull(self):
@@ -93,7 +101,7 @@ class DataCleaner(DataLoad):
         return var
 
 
-class DataAnalyst(DataLoad):
+class DataAnalyst(DataExploratory):
 
     """Class for Preprocessed object for data analysis.
 
@@ -193,7 +201,7 @@ class DataAnalyst(DataLoad):
             else:
                 raise TypeError("Invalid type {}".format(type(category)))
         else:
-            raise NameError("Target can not be 'None'")
+            raise NameError("category can not be 'None'")
 
         return _category
 
@@ -226,7 +234,7 @@ class DataAnalyst(DataLoad):
             _cont = list(self.data[_target].unique())
             for j in _cont:
                 data_train_group_j = self.data.groupby(_target).get_group(j)
-                ax[i].boxplot(data_train_group_j[_vars[i]], positions=np.array([len(_cont)]))
+                ax[i].boxplot(data_train_group_j[_vars[i]], positions=np.array([len(_cont)-1]))
                 ax[i].set_title(_vars[i])
                 ax[i].legend(list(self.data[_target].unique()))
 
@@ -383,3 +391,14 @@ class DataAnalyst(DataLoad):
         if save_image:
             self._check_path(path)
             plt.savefig(path)
+
+    def Xy_dataset(self, target=None):
+        """
+        Separar datos del target en conjunto (X, y)
+        """
+        _target = self._check_parameters_target(target)
+        y = _target
+        x = [i for i in self.data.columns.tolist() if i not in y]
+
+        self.X = self.data[x]
+        self.y = self.data[y]

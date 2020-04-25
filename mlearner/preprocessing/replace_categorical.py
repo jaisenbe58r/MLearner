@@ -120,7 +120,7 @@ class ReplaceMulticlass(BaseEstimator, TransformerMixin):
     https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ReplaceMulticlass/
 
     """
-    def __init__(self, columns=None, mapping=None):
+    def __init__(self, columns=None):
         """Init replace categorical values."""
         if columns is not None:
             if isinstance(columns, list) or isinstance(columns, tuple):

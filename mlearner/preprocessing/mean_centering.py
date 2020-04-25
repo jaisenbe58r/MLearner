@@ -30,9 +30,15 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
     License: BSD 3 clause
 
     """
-    def __init__(self):
+    def __init__(self, columns=None):
         """Init Mean Center."""
-        pass
+        if columns is not None:
+            if isinstance(columns, list) or isinstance(columns, tuple):
+                self.columns = columns
+            else:
+                raise NameError("Invalid type {}".format(type(columns)))
+        else:
+            self.columns = columns
 
     def fit(self, X, y=None):
         """Gets the column means for mean centering.
@@ -91,10 +97,12 @@ class MeanCenterer(BaseEstimator, TransformerMixin):
 
         if isinstance(X, pd.core.frame.DataFrame):
             X_transform = X.copy()
+            # try:
             for i in range(X.shape[1]):
                 X_transform[i] = np.apply_along_axis(func1d=lambda x: (x - X.mean()),
                                                         axis=1, arr=X)
-
+            # except:
+            #     raise NameError("Invalid shape {}".format(X.shape))
         elif isinstance(X, np.ndarray):
             X_transform = np.apply_along_axis(func1d=lambda x: x - self.col_means,
                                                 axis=1, arr=X)

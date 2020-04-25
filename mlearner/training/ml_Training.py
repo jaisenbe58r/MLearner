@@ -24,9 +24,9 @@ warnings.filterwarnings("ignore")
 
 class Training(EvaluationModels):
     def __init__(self, model, random_state=99):
-        super().__init__()
         self.model = model
         self.random_state = random_state
+        super().__init__(self.model, self.random_state)
 
     @classmethod
     def add_model(cls, model, random_state=99):

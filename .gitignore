@@ -1,3 +1,7 @@
+# VSCODE
+.vscode/
+
+
 # Test Suites
 .coverage*
 .pytest_cache/
@@ -23,6 +27,7 @@ MANIFEST
 # Temporary files
 .coverage
 .ipynb_checkpoints
+.pytest_cache/
 
 *.sqlite
 gmon.out
@@ -46,3 +51,5 @@ doc/_build
 © 2020 GitHub, Inc.
 
 .coveralls.yml
+checkpoints/*
+integration/Pruebas.ipynb

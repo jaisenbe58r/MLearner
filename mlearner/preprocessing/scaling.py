@@ -9,14 +9,14 @@ import pandas as pd
 import numpy as np
 
 
-def minmax_scaling(array, columns, min_val=0, max_val=1):
+def minmax_scaling(X, columns, min_val=0, max_val=1):
 
     """In max scaling of pandas DataFrames.
 
     Parameters
     --------
 
-    array : pandas DataFrame or NumPy ndarray, shape = [n_rows, n_columns].
+    array : pandas DataFrame, shape = [n_rows, n_columns].
     columns : array-like, shape = [n_columns]
         Array-like with column names, e.g., ['col1', 'col2', ...]
         or column indices [0, 2, 4, ...]
@@ -44,17 +44,15 @@ def minmax_scaling(array, columns, min_val=0, max_val=1):
     License: BSD 3 clause
 
     """
-    ary_new = array.astype(float)
+
+    ary_new = X[columns].astype(float)
     if len(ary_new.shape) == 1:
         ary_new = ary_new[:, np.newaxis]
 
     if isinstance(ary_new, pd.DataFrame):
         ary_newt = ary_new.loc
-    elif isinstance(ary_new, np.ndarray):
-        ary_newt = ary_new
     else:
-        raise AttributeError('Input array must be a pandas'
-                             'DataFrame or NumPy array')
+        raise AttributeError('Input array must be a pandas')
 
     numerator = ary_newt[:, columns] - ary_newt[:, columns].min(axis=0)
     denominator = (ary_newt[:, columns].max(axis=0) -

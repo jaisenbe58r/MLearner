@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import os
 import datetime
 import time
+import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -26,7 +27,7 @@ from mlearner.utils import ParamsManager
 import warnings
 warnings.filterwarnings("ignore")
 
-param_file = "mlearner/clasifier/config/models.json"
+param_file = "mlearner/classifier/config/models.json"
 
 
 class modelXGBoost(Training):
@@ -176,7 +177,7 @@ class modelXGBoost(Training):
         best_cv_score = max(self.xgb_cv[str(loss) + '-mean'])
 
         if not verbose == 0:
-            print("\nOptimal Round: {}\nOptimal Score: {} + {}".format(
+            print("\nOptimal Round: {}\nOptimal Score: {:.3f} + std:{:.3f}".format(
                 optimal_rounds, best_cv_score, self.xgb_cv[str(loss) + '-std'][optimal_rounds]))
 
         results = {"Rounds": optimal_rounds,
@@ -207,7 +208,7 @@ class modelXGBoost(Training):
         for k, v in kwargs.items():
             setattr(self.model, k, v)
 
-    def save_model(self, direct="./checkpoints", name="catboost_model"):
+    def save_model(self, direct="./checkpoints", name="XGB_model", file_model=".txt"):
 
         if not os.path.isdir(direct):
             try:
@@ -215,23 +216,31 @@ class modelXGBoost(Training):
                 print("Directorio creado: " + direct)
             except OSError as e:
                 raise NameError("Error al crear el directorio")
+
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        filename = direct + "/" + name + "_" + current_time + ".dump"
-        self.model.save_model(filename)
+
+        if file_model == ".txt":
+            filename = direct + "/" + name + "_" + current_time + ".txt"
+            self.model.save_model(filename)
+        elif file_model == ".pkl":
+            filename = direct + "/" + name + "_" + current_time + ".pkl"
+            joblib.dump(self.model, filename)
+        else:
+            raise NameError("Type {} not permited".format(file_model))
         print("Modelo guardado en la ruta: " + filename)
 
-    def load_model(self, direct="./checkpoints", name="catboost_model"):
+    def load_model(self, direct="./checkpoints/XGB_model.txt", file_model=".txt"):
 
         if not os.path.isdir(direct):
             print("no existe el drectorio especificado")
 
-        filename = direct + "/" + name + ".dump"
-        self.model.load_model(filename)
-        print("Modelo cargado de la ruta: " + filename)
-
-    def predict(self, X, *args, **kwargs):
-        _X_copy = X.loc[:, self.columns].copy()
-        return self.model.predict(xgb.DMatrix(_X_copy), *args, **kwargs)
+        if file_model == ".txt":
+            self.model = XGBClassifier(model_file=direct)
+        elif file_model == ".pkl":
+            self.model = joblib.load(direct)
+        else:
+            raise NameError("Type {} not permited".format(file_model))
+        print("Modelo cargado de la ruta: " + direct)
 
     def index_features(self, features):
 
@@ -244,7 +253,7 @@ class modelXGBoost(Training):
 
         return _index
 
-    def get_important_features(self, display=True):
+    def get_important_features(self, display=True, max_num_features=20):
 
         _model = XGBClassifier()
         _model.fit(self.X, self.y)
@@ -255,7 +264,10 @@ class modelXGBoost(Training):
         if display:
             plt.figure(figsize=(12, 6))
             sns.barplot(x="Importances", y="Feature Id", data=_feature_importance_df)
-            plt.title('CatBoost features importance:')
+            plt.title('XGBoost features importance:')
+        # if display:
+        #     xgb.plot_importance(self.model, max_num_features=max_num_features, figsize=(6, 6), title='Feature importance (LightGBM)')
+        #     plt.show()
 
         return _feature_importance_df
 

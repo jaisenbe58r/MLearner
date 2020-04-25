@@ -13,7 +13,7 @@ from .log_skewed import FixSkewness
 from .one_hot_encoder import OneHotEncoder
 from .replace_categorical import ReplaceTransformer, ReplaceMulticlass
 from .extract_target import ExtractCategories
-from .base_preprocess import DataCleaner, DataAnalyst
+from .base_preprocess import DataExploratory, DataAnalyst
 
 __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
             "FillNaTransformer_median", "FillNaTransformer_mean",
@@ -21,5 +21,5 @@ __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
             "FillNaTransformer_all", "FillNaTransformer_value",
             "FillNaTransformer_backward", "FillNaTransformer_forward",
             "FixSkewness", "OneHotEncoder", "DropOutliers", "ReplaceTransformer",
-            "ReplaceMulticlass", "ExtractCategories", "DataCleaner",
+            "ReplaceMulticlass", "ExtractCategories", "DataExploratory",
             "DataAnalyst"]

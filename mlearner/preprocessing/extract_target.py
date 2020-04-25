@@ -5,7 +5,6 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from ..externals.estimator_checks import check_is_fitted

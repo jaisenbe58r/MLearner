@@ -23,7 +23,7 @@ from mlearner.models import modelLightBoost
 import warnings
 warnings.filterwarnings("ignore")
 
-param_file = "mlearner/clasifier/config/models.json"
+param_file = "mlearner/classifier/config/models.json"
 
 
 class FeatureSelection(object):

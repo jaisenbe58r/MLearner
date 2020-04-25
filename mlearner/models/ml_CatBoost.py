@@ -29,7 +29,7 @@ from mlearner.utils import ParamsManager
 import warnings
 warnings.filterwarnings("ignore")
 
-param_file = "mlearner/clasifier/config/models.json"
+param_file = "mlearner/classifier/config/models.json"
 
 
 class modelCatBoost(object):
