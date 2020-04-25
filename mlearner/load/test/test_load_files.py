@@ -11,7 +11,7 @@ from mlearner.load import DataLoad
 
 filename = "mlearner/data/data/Boston.csv"
 n_len = 506
-filename_txt = "mlearner/data/data/breast-cancer-wisconsin.data.txt"
+filename_txt = "mlearner/data/data/breast-cancer-wisconsin-data.txt"
 filename_img = "mlearner/load/file/image.jpg"
 filename_null = ""
 data_error = np.array([1, 2, 3])
