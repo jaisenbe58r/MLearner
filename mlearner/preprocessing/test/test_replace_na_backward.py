@@ -43,6 +43,7 @@ def test_tranf_equal_a():
 def test_tranf_equal_b():
     ft = FillNaTransformer_backward(columns=col_b)
     ft.fit(data)
+    print(ft.transform(data))
     assert_frame_equal(ft.transform(data), data_out_b)
 
 

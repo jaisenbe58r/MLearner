@@ -12,7 +12,7 @@ from mlearner.preprocessing import FillNaTransformer_any
 
 
 data = pd.DataFrame({"a": [2, 2, 2, float('nan'), 4, 5], "b": ["OK", "OK", float('nan'), "OK", "OK", "NOK"]})
-data_out = pd.DataFrame({"a": [2.0, 2.0, 4.0, 5.0], "b": ["OK", "OK", "OK", "NOK"]})
+data_out = data.dropna(axis=0, how="any")
 
 
 def test_any_tranf_equal():

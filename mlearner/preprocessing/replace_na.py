@@ -294,10 +294,8 @@ class FillNaTransformer_any(BaseEstimator, TransformerMixin):
             raise NameError("Invalid type {}".format(type(X)))
 
         self.columns = X.columns
-        # for col in self.columns:
-        #     X[col].dropna(axis=0, how="any")
-        X = X.dropna(axis=0, how="any")
-        X.reset_index()
+        X.dropna(axis=0, how="any", inplace=True)
+        # X.reset_index()
         # X.drop(["index"], axis=1)
 
         return X
@@ -351,11 +349,9 @@ class FillNaTransformer_all(BaseEstimator, TransformerMixin):
             raise NameError("Invalid type {}".format(type(X)))
 
         self.columns = X.columns
-        # for col in self.columns:
-        #     X[col].dropna(axis=0, how="any")
-        X = X.dropna(axis=0, how="all")
-        X = X.reset_index()
-        # X = X.drop(["index"], axis=1)
+        X.dropna(axis=0, how="all", inplace=True)
+        # X.reset_index()
+        # X.drop(["index"], axis=1, inplace=True)
 
         return X
 
@@ -514,9 +510,9 @@ class FillNaTransformer_backward(BaseEstimator, TransformerMixin):
 
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
-
-        X[self.columns] = X[self.columns].fillna(method="bfill")
-        return X
+        X_transform = X.copy()
+        X_transform[self.columns] = X[self.columns].fillna(method="bfill")
+        return X_transform
 
 
 class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
@@ -590,5 +586,6 @@ class FillNaTransformer_forward(BaseEstimator, TransformerMixin):
         if not isinstance(X, pd.core.frame.DataFrame):
             raise NameError("Invalid type {}".format(type(X)))
 
-        X[self.columns] = X[self.columns].fillna(method="ffill")
-        return X
+        X_transform = X.copy()
+        X_transform[self.columns] = X[self.columns].fillna(method="ffill")
+        return X_transform
