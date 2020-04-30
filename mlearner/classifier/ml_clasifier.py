@@ -10,6 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
@@ -207,6 +209,18 @@ class PipelineClasificators(Training):
         )
         return self.modelRF
 
+    def AdaBoostClassifier(self):
+        from sklearn.ensemble import AdaBoostClassifier
+        return AdaBoostClassifier()
+
+    def GradientBoostingClassifier(self):
+        from sklearn.ensemble import GradientBoostingClassifier
+        return GradientBoostingClassifier()
+
+    def ExtraTreesClassifier(self):
+        from sklearn.ensemble import ExtraTreesClassifier
+        return ExtraTreesClassifier()
+
     def SupportVectorMachine(self):
         """
         """
@@ -371,7 +385,7 @@ class PipelineClasificators(Training):
             self.scores.append(np.mean(score["test-Accuracy-mean"]))
             train_end = time.perf_counter()
 
-            _model.fit(X, y, plot=False, mute=True)
+            _model.fit(X, y, plot=False, verbose=0)
             prediction_start = time.perf_counter()
             _model.model.predict(_model.eval_data)
             prediction_end = time.perf_counter()
@@ -389,6 +403,40 @@ class PipelineClasificators(Training):
                                     "Tiempo Entrenamiento": self.utrain, "Tiempo Prediccion": self.utimes})
 
         return resultados
+
+    def Pipeline_SelectEmsembleModel(self, X, y, n_splits=10, scoring="accuracy", display=True):
+
+        # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=self.random_state)
+        X_train, y_train = X, y
+        ensembles = []
+        ensembles.append(('AB', self.AdaBoostClassifier()))
+        ensembles.append(('GBM', self.GradientBoostingClassifier()))
+        ensembles.append(('ET', self.ExtraTreesClassifier()))
+        ensembles.append(('RF', self.RandomForestClassifier()))
+        ensembles.append(('XGB', self.XGBoost().model))
+        ensembles.append(('LGBM', self.LightBoost().model))
+
+        results = []
+        names = []
+        for name, model in ensembles:
+            kfold = StratifiedShuffleSplit(n_splits=n_splits, random_state=self.random_state)
+            cv_results = cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
+            results.append(cv_results)
+            names.append(name)
+            msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+            # resultados = zip(name, results)
+            print(msg)
+
+        if display:
+            # Compare Algorithms
+            fig = plt.figure()
+            fig.suptitle('Ensemble Algorithm Comparison')
+            ax = fig.add_subplot(111)
+            plt.boxplot(results)
+            ax.set_xticklabels(names)
+            plt.show()
+
+        return pd.DataFrame(np.asarray(results).T, columns=names)
 
     def Pipeline_StackingClassifier(self, X, y, n_splits=5, select="XGBoost"):
 

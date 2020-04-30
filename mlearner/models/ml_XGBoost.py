@@ -13,6 +13,7 @@ import datetime
 import time
 import joblib
 
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -30,7 +31,7 @@ warnings.filterwarnings("ignore")
 param_file = "mlearner/classifier/config/models.json"
 
 
-class modelXGBoost(Training):
+class modelXGBoost(Training, BaseEstimator, ClassifierMixin):
     """
     XGBoost is an optimized distributed gradient boosting library designed to be highly efficient,
     flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework.
@@ -198,6 +199,10 @@ class modelXGBoost(Training):
         accuracy = accuracy_score(_y_pred, y_target)
 
         return accuracy
+
+    def predict(self, X, *args, **kwargs):
+        _X_copy = X.loc[:, self.columns].copy()
+        return self.model.predict(xgb.DMatrix(_X_copy), *args, **kwargs)
 
     def pred_binary(self, X, *args, **kwargs):
         _X_copy = X.loc[:, self.columns].copy()

@@ -159,10 +159,10 @@ class DropOutliers(BaseEstimator, TransformerMixin):
         if not isinstance(X, pd.core.frame.DataFrame):
             raise TypeError("Invalid type {}".format(type(X)))
 
-        # if self.display:
-        height, width = self._get_size_plot()
-        figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
-        ax = axs.flatten()
+        if self.display:
+            height, width = self._get_size_plot()
+            figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
+            ax = axs.flatten()
 
         data_transform = X.copy()
         for i in range(len(self.features)):
@@ -176,11 +176,12 @@ class DropOutliers(BaseEstimator, TransformerMixin):
             IQR_min = data_transform[_f].quantile(0.25) - 1.5*IQR
 
             data_transform = data_transform[(data_transform[_f] > IQR_min) & (data_transform[_f] < IQR_max)]
-
-            ax[i].hist(data_transform[_f], density=True, color="g", alpha=0.7)
-            ax[i].hist(X[_f], density=True, color="r", alpha=0.7)
-            ax[i].set_title(_f)
-            ax[i].legend(["Original", "Cleaned"])
+            
+            if self.display:
+                ax[i].hist(data_transform[_f], density=True, color="g", alpha=0.7)
+                ax[i].hist(X[_f], density=True, color="r", alpha=0.7)
+                ax[i].set_title(_f)
+                ax[i].legend(["Original", "Cleaned"])
 
         if self.display:
             figure.tight_layout()

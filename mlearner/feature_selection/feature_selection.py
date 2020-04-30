@@ -18,7 +18,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import MinMaxScaler
 
 from mlearner.utils import ParamsManager
-from mlearner.models import modelLightBoost
+# from mlearner.models import modelLightBoost
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -156,11 +156,12 @@ class FeatureSelection(object):
             Normalization: No
             Impute missing values: No
         """
-        # lgbc=LGBMClassifier(n_estimators=500, learning_rate=0.05, num_leaves=32, colsample_bytree=0.2,
-        #     reg_alpha=3, reg_lambda=1, min_split_gain=0.01, min_child_weight=40)
-        lgbc = modelLightBoost()
+        from lightgbm import LGBMClassifier
+        lgbc = LGBMClassifier(n_estimators=500, learning_rate=0.05, num_leaves=32, colsample_bytree=0.2,
+                                reg_alpha=3, reg_lambda=1, min_split_gain=0.01, min_child_weight=40)
+        # lgbc = modelLightBoost()
 
-        embeded_lgb_selector = SelectFromModel(lgbc.model, threshold='1.25*median')
+        embeded_lgb_selector = SelectFromModel(lgbc, threshold='1.25*median')
         embeded_lgb_selector.fit(X, y)
 
         embeded_lgb_support = embeded_lgb_selector.get_support()
@@ -178,7 +179,7 @@ class FeatureSelection(object):
 
         return df_X
 
-    def Summary(self, X, y, cor_pearson=True, chi2=True, wrapper=True, embeded=True,
+    def Summary(self, X, y, k="all", cor_pearson=True, chi2=True, wrapper=True, embeded=True,
                 RandomForest=True, LightGBM=True):
         """
         Resumen de la seleccion de caracteristicas.
@@ -190,13 +191,13 @@ class FeatureSelection(object):
         feature_selection_df = pd.DataFrame({'Feature': feature_name})
 
         if cor_pearson:
-            cor_support, _ = self.cor_pearson(X, y)
+            cor_support, _ = self.cor_pearson(X, y, k)
             feature_selection_df['Pearson'] = cor_support
         if chi2:
-            chi_support, _, _ = self.chi2(X, y)
+            chi_support, _, _ = self.chi2(X, y, k)
             feature_selection_df['Chi2'] = chi_support
         if wrapper:
-            rfe_support, _, _ = self.wrapper(X, y)
+            rfe_support, _, _ = self.wrapper(X, y, k)
             feature_selection_df['RFE'] = rfe_support
         if embeded:
             embeded_lr_support, _, _ = self.embeded(X, y)

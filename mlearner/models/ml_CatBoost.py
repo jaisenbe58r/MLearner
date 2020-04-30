@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import os
 import datetime
 
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
 from sklearn.model_selection import RandomizedSearchCV, RepeatedStratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import make_scorer, accuracy_score, cohen_kappa_score
@@ -58,14 +59,14 @@ class modelCatBoost(object):
         self.y, self.cat_replace = self.replace_multiclass(y)
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X, self.y, test_size=test_size, random_state=self.random_state)
 
-        self.train_data = catboost.Pool(data=self.X_train,
-                                        label=self.y_train,
+        self.train_data = catboost.Pool(data=self.X_train.values,
+                                        label=self.y_train.values,
                                         cat_features=self.categorical_columns_indices)
-        self.eval_data = catboost.Pool(data=self.X_test,
-                                        label=self.y_test,
+        self.eval_data = catboost.Pool(data=self.X_test.values,
+                                        label=self.y_test.values,
                                         cat_features=self.categorical_columns_indices)
-        self.all_train_data = catboost.Pool(data=self.X,
-                                            label=self.y,
+        self.all_train_data = catboost.Pool(data=self.X.values,
+                                            label=self.y.values,
                                             cat_features=self.categorical_columns_indices)
 
     def replace_multiclass(self, targets):

@@ -11,8 +11,9 @@ import matplotlib.pyplot as plt
 import os
 import datetime
 import joblib
-
 import time
+
+from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -30,7 +31,7 @@ warnings.filterwarnings("ignore")
 param_file = "mlearner/classifier/config/models.json"
 
 
-class modelLightBoost(Training):
+class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
     """
     Ejemplo multiclass:
     https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification

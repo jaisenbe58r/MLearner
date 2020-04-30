@@ -69,7 +69,7 @@
             "tree_method": "auto",
             "predictor": "auto",
             "num_parallel_tree": 1,
-            "verbosity": 2
+            "verbosity": 0
 
         },
 

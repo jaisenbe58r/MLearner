@@ -245,7 +245,7 @@ class DataAnalyst(DataExploratory):
         if save_image:
             plt.savefig(path)
 
-    def dispersion_categoria(self, features=None, target=None, display=False, save_image=False, path="/"):
+    def dispersion_categoria(self, features=None, target=None, density=True, display=False, save_image=False, path="/"):
         """
         Funcion que realiza un plot sobre la dispesion de cada categoria respecto a los grupos de target.
 
@@ -270,7 +270,7 @@ class DataAnalyst(DataExploratory):
             for j in list(self.data[_target].unique()):
 
                 data_train_group_j = self.data.groupby(_target).get_group(j)
-                ax[i].hist(data_train_group_j[_vars[i]], alpha=0.7, density=True)
+                ax[i].hist(data_train_group_j[_vars[i]], alpha=0.7, density=density)
 
             ax[i].set_title(_vars[i])
             ax[i].legend(list(self.data[_target].unique()))
