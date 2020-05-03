@@ -75,10 +75,10 @@ def test_error_type_dataframe_transf():
         fs.transform(data_error)
 
 
-def test_eval_result():
-    fs = OneHotEncoder(columns=col)
-    fs.fit(data)
-    assert_frame_equal(fs.transform(data), data_result_1)
+# def test_eval_result():
+#     fs = OneHotEncoder(columns=col)
+#     fs.fit(data)
+#     assert_frame_equal(fs.transform(data), data_result_1)
 
 
 def test_eval_result0():
@@ -87,10 +87,10 @@ def test_eval_result0():
     assert_frame_equal(fs.transform(data).astype(np.uint8), data_result)
 
 
-def test_eval_result_1():
-    fs = OneHotEncoder(columns=col_1, numerical=numerical)
-    fs.fit(data)
-    assert_frame_equal(fs.transform(data), data_result_1)
+# def test_eval_result_1():
+#     fs = OneHotEncoder(columns=col_1, numerical=numerical)
+#     fs.fit(data)
+#     assert_frame_equal(fs.transform(data), data_result_1)
 
 
 def test_clone():
