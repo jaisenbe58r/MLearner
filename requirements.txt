@@ -1,8 +1,7 @@
 # General
 # dlib
 Flask
-# copy
-# json
+
 
 # Frameworks
 scikit-learn
@@ -14,7 +13,6 @@ seaborn
 shap
 hyperopt
 scipy
-pickle
 
 # Models
 xgboost
