@@ -88,14 +88,14 @@ class Training(EvaluationModels):
 
     def FineTune(self, model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False):
         """
-        Técnica de Ajuste fino de hiperparametros.
+        Tecnica de Ajuste fino de hiperparametros.
 
         Model: Modelo a Optimizar.
 
         params: diccionario de parametros con el grid.
 
         scoring: Metricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
-            * Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)
+            - Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)
 
         refit: Metrica de importancia para optimizar el modelo'Accuracy'
         """

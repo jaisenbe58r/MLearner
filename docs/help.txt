@@ -3,6 +3,6 @@ python .\make_userguide.py
 python .\make_api.py
 
 mkdocs build --clean
-mkdocs server      // Servidor
+mkdocs serve      // Servidor
 
 mkdocs gh-deploy
