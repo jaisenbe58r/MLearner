@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -10,14 +10,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedShuffleSplit, cross_val_score, train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
+from sklearn.inspection import permutation_importance
+
+from lightgbm import LGBMClassifier
+from xgboost import XGBClassifier
 
 from mlearner.training import Training
 from mlearner.models import modelCatBoost, modelLightBoost, modelXGBoost
@@ -209,22 +211,22 @@ class PipelineClasificators(Training):
         )
         return self.modelRF
 
-    def AdaBoostClassifier(self):
+    def AdaBoostClassifier(self, **params):
         from sklearn.ensemble import AdaBoostClassifier
-        return AdaBoostClassifier()
+        return AdaBoostClassifier(random_state=self.random_state, **params)
 
-    def GradientBoostingClassifier(self):
+    def GradientBoostingClassifier(self, **params):
         from sklearn.ensemble import GradientBoostingClassifier
-        return GradientBoostingClassifier()
+        return GradientBoostingClassifier(random_state=self.random_state, **params)
 
-    def ExtraTreesClassifier(self):
+    def ExtraTreesClassifier(self, **params):
         from sklearn.ensemble import ExtraTreesClassifier
-        return ExtraTreesClassifier()
+        return ExtraTreesClassifier(random_state=self.random_state, **params)
 
-    def SupportVectorMachine(self):
+    def SupportVectorMachine(self, **params):
         """
         """
-        self.SVM = SVC()
+        self.SVM = SVC(**params)
         return self.SVM
 
     def XGBoost(self, name="CBT"):
@@ -404,17 +406,19 @@ class PipelineClasificators(Training):
 
         return resultados
 
-    def Pipeline_SelectEmsembleModel(self, X, y, n_splits=10, scoring="accuracy", display=True):
+    def Pipeline_SelectEmsembleModel(self, X, y, n_splits=10, mute=False, scoring="accuracy",
+                                        display=True, save_image=False, path="/", AB=True):
 
         # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=self.random_state)
         X_train, y_train = X, y
         ensembles = []
-        ensembles.append(('AB', self.AdaBoostClassifier()))
+        if AB:
+            ensembles.append(('AB', self.AdaBoostClassifier()))
         ensembles.append(('GBM', self.GradientBoostingClassifier()))
         ensembles.append(('ET', self.ExtraTreesClassifier()))
-        ensembles.append(('RF', self.RandomForestClassifier()))
-        ensembles.append(('XGB', self.XGBoost().model))
-        ensembles.append(('LGBM', self.LightBoost().model))
+        ensembles.append(('RF', RandomForestClassifier(random_state=self.random_state)))
+        ensembles.append(('XGB', XGBClassifier(random_state=self.random_state)))
+        ensembles.append(('LGBM', LGBMClassifier(random_state=self.random_state)))
 
         results = []
         names = []
@@ -425,21 +429,126 @@ class PipelineClasificators(Training):
             names.append(name)
             msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
             # resultados = zip(name, results)
-            print(msg)
+            if not mute:
+                print(msg)
+
+        scores = pd.DataFrame(np.asarray(results).T, columns=names)
 
         if display:
+            figure, axs = plt.subplots(1, 2, figsize=(16, 5))
+            ax = axs.flatten()
+
             # Compare Algorithms
-            fig = plt.figure()
-            fig.suptitle('Ensemble Algorithm Comparison')
-            ax = fig.add_subplot(111)
-            plt.boxplot(results)
-            ax.set_xticklabels(names)
+            ax[0].set_title('Ensemble Algorithm Comparison')
+            ax[0].boxplot(results)
+            ax[0].set_xticklabels(names)
+            if AB:
+                axis = ["AB", "GBM", "ET", "RF", "XGB", "LGM"]
+            else:
+                axis = ["GBM", "ET", "RF", "XGB", "LGM"]
+            scores_mean = np.mean(scores, axis=0)
+            scores_std = np.std(scores, axis=0)
+            ax[1].grid()
+            ax[1].fill_between(axis, scores_mean - scores_std,
+                                scores_mean + scores_std, alpha=0.1,
+                                color="r")
+            ax[1].plot(axis, scores_mean, 'o-', color="r",
+                         label="CV score")
+            ax[1].legend(loc="best")
+            ax[1].set_title('Cross-validation score')
+            figure.tight_layout()
             plt.show()
 
-        return pd.DataFrame(np.asarray(results).T, columns=names)
+            if save_image:
+                plt.savefig(path)
 
-    def Pipeline_StackingClassifier(self, X, y, n_splits=5, select="XGBoost"):
+        return scores
 
+    def Pipeline_FeatureSelect(self, X, y, n_splits=10, mute=False, scoring="accuracy", n_features=20,
+                                display=True, save_image=False, path="/"):
+
+        # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=self.random_state)
+        X_train, y_train = X, y
+        models = []
+        models.append(('GBM', self.GradientBoostingClassifier()))
+        models.append(('ET', self.ExtraTreesClassifier()))
+        models.append(('RF', RandomForestClassifier(random_state=self.random_state)))
+        models.append(('XGB', XGBClassifier(random_state=self.random_state)))
+        models.append(('LGBM', LGBMClassifier(random_state=self.random_state)))
+
+        results = []
+        names = []
+        df = pd.DataFrame()
+
+        for name, model in models:
+            if not mute:
+                print("modelo: {}".format(name))
+            if not mute:
+                print(".... Fitting")
+            model.fit(X_train, y_train)
+            if not mute:
+                print(".... Permutation importance")
+            result = permutation_importance(model, X_train, y_train, n_repeats=10,
+                                            random_state=99)
+            tree_importance_sorted_idx = np.argsort(model.feature_importances_)
+            _ = np.arange(0, len(model.feature_importances_)) + 0.5
+
+            name_features = "features_" + str(name)
+            imp_features = "importance" + str(name)
+            df[name_features] = X.columns[tree_importance_sorted_idx]
+            df[imp_features] = model.feature_importances_[tree_importance_sorted_idx]
+
+            features = df[name_features].values.tolist()[-n_features:]
+            _X_train = X_train[features]
+            _y_train = y_train
+            if not mute:
+                print(".... Select Features:")
+                print(features)
+
+            if not mute:
+                print(".... Cross Validation")
+            kfold = StratifiedShuffleSplit(n_splits=n_splits, random_state=99)
+            cv_results = cross_val_score(model, _X_train, _y_train, cv=kfold, scoring=scoring)
+            results.append(cv_results)
+            names.append(name)
+            msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+            # resultados = zip(name, results)
+            if not mute:
+                print(".... Append Results:")
+                print(msg)
+                print("\n")
+
+        scores = pd.DataFrame(np.asarray(results).T, columns=names)
+
+        if display:
+            figure, axs = plt.subplots(1, 2, figsize=(16, 5))
+            ax = axs.flatten()
+
+            # Compare Algorithms
+            ax[0].set_title('Algorithm Comparison')
+            ax[0].boxplot(results)
+            ax[0].set_xticklabels(names)
+            axis = ["GBM", "ET", "RF", "XGB", "LGM"]
+
+            scores_mean = np.mean(scores, axis=0)
+            scores_std = np.std(scores, axis=0)
+            ax[1].grid()
+            ax[1].fill_between(axis, scores_mean - scores_std,
+                                scores_mean + scores_std, alpha=0.1,
+                                color="r")
+            ax[1].plot(axis, scores_mean, 'o-', color="r",
+                         label="CV score")
+            ax[1].legend(loc="best")
+            ax[1].set_title('Cross-validation score')
+            figure.tight_layout()
+            plt.show()
+
+            if save_image:
+                plt.savefig(path)
+
+        return scores, df
+
+    def Pipeline_StackingClassifier(self, X, y, n_splits=5):
         # Lista de modelos
         self.models = []
 
@@ -472,18 +581,107 @@ class PipelineClasificators(Training):
             _model = self.CatBoost(name="CBT")
             self.models.append(("CatBoost", _model))
 
-    def features_importances(self, display=True):
-        importances = pd.DataFrame({
-            'Feature': self.features,
-            'Importance': self.model.feature_importances_
-        })
-        importances = importances.sort_values(by='Importance', ascending=False)
-        importances = importances.set_index('Feature')
+    def _cv_results(self, X_train, Y_train, model, kfold, name, verbose=1):
+        cv_results = cross_val_score(model, X_train, Y_train, cv=kfold, scoring='accuracy')
+        msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+        if verbose > 0:
+            print(msg)
+        return cv_results
+
+    def Ablacion_relativa(self, pipeline, X, y, n_splits=10, mute=False, std=True, scoring="accuracy",
+                            display=True, save_image=False, path="/"):
+        kfold = StratifiedShuffleSplit(n_splits=n_splits, random_state=99)
+
+        models = []
+        models.append(('AB', self.AdaBoostClassifier()))
+        models.append(('GBM', self.GradientBoostingClassifier()))
+        models.append(('RF', RandomForestClassifier(random_state=self.random_state)))
+        models.append(('ET', self.ExtraTreesClassifier()))
+        models.append(('LGM', LGBMClassifier(random_state=self.random_state)))
+        models.append(('XGB', XGBClassifier(random_state=self.random_state)))
+        models.append(('SVM', self.SupportVectorMachine()))
+        models.append(('KNN', self.KNearestNeighbors()))
+
+        scores_mean = []
+        scores_std = []
+        names_models = []
+
+        for name_model, model in models:
+
+            names = []
+            results = []
+            name = "Inicial"
+
+            if not mute:
+                print("\n", name_model)
+
+            resu = self._cv_results(X, y, model, kfold, name)
+            results.append(resu)
+            names.append(name)
+
+            for name, transf in pipeline:
+                X_train = transf.fit_transform(X, y)
+                Y_train = y
+                resu = self._cv_results(X_train, Y_train, model, kfold, name)
+                results.append(resu)
+                names.append(name)
+
+            scores = pd.DataFrame(np.asarray(results).T, columns=names)
+            scores_mean.append(np.mean(scores, axis=0))
+            scores_std.append(np.std(scores, axis=0))
+            names_models.append(name_model)
 
         if display:
-            importances.plot.bar()
+            fig, ax = plt.subplots(figsize=(14, 6))
 
-        return importances
+            for i in range(len(scores_mean)):
+                valor = scores_mean[i]-scores_mean[i].iloc[0]
+                if std:
+                    ax.fill_between(names, valor - scores_std[i],
+                                    valor + scores_std[i], alpha=0.1)
+                ax.plot(names, valor, 'o-', label=names_models[i], alpha=0.9)
+
+            ax.plot(names, np.zeros(len(names)), 'ro--', label="cero", alpha=0.9)
+
+            ax.grid()
+            ax.legend(loc="best")
+            ax.set_title('Mejoras relativas al modelo Inicial')
+            fig.tight_layout()
+            fig.show()
+
+        if save_image:
+            plt.savefig(path)
+
+        return scores_mean, scores_std
+
+    def features_importances(self, clf, X, y, display=True, save_image=False, path="/"):
+        import seaborn as sns
+        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=99, stratify=y)
+
+        clf.fit(X_train, y_train)
+        print("Accuracy on test data: {:.2f}".format(clf.score(X_test, y_test)))
+
+        result = permutation_importance(clf, X_train, y_train, n_repeats=10,
+                                        random_state=99)
+
+        tree_importance_sorted_idx = np.argsort(clf.feature_importances_)
+        _ = np.arange(0, len(clf.feature_importances_)) + 0.5
+
+        df = pd.DataFrame()
+        df["feature"] = X.columns[tree_importance_sorted_idx]
+        df["importance"] = clf.feature_importances_[tree_importance_sorted_idx]
+
+        if display:
+            _, _ = plt.subplots(figsize=(10, 30))
+            sns.barplot(x="importance", y="feature",
+                            data=df.sort_values(by="importance", ascending=False))
+            plt.title('Features (avg over folds)')
+            plt.show()
+
+        if save_image:
+            plt.savefig(path)
+
+        return df
 
     def eval_Kfold_CV(self, model, X, X_test, y, y_test, n_splits=3, shuffle=True, mute=True):
 

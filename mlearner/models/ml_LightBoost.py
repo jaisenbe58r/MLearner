@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -275,7 +275,7 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
                                     logdir_report="", display=True, save_image=True, verbose=0)
         return self._best_Parameters, self.results_df
 
-    def SeedDiversification_cv(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=2020, cv=10,
+    def SeedDiversification_cv(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=2018-2022, cv=10,
                                 nosplit=False, finetuneseed_dir="", display=True, save_image=True, verbose=0):
         allmodelstart = time.time()
         self.get_params_json()

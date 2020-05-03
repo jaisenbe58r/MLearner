@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -50,13 +50,12 @@ class DataExploratory(DataLoad):
         Numero de valores vacios en el dataframe.
         """
         if X is None:
-        # Number of missing in each column
+            # Number of missing in each column
             missing = pd.DataFrame(self.data.isnull().sum()).rename(columns={0: 'total'})
         else:
             missing = pd.DataFrame(X.isnull().sum()).rename(columns={0: 'total'})
 
         _miss = missing.sort_values('total', ascending=False)
-        
         return _miss
 
     def isNull(self):

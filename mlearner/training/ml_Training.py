@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -222,7 +222,7 @@ class Training(EvaluationModels):
         print('=='*35)
         print("{} {:0.2f}%".format("Accuracy Score evaluation : ", score*100))
 
-    def heatmap_params(self, parameters, metric='mean_test_Accuracy'):
+    def heatmap_params(self, parameters, results_df, metric='mean_test_Accuracy'):
         """
         parametres a relacionar:
             parameters = ["n_estimators", "min_samples_split"]
@@ -230,7 +230,7 @@ class Training(EvaluationModels):
         x = len(self.params[parameters[0]])
         y = len(self.params[parameters[1]])
 
-        scores = np.array(self.results_df[metric].values).reshape(x, y)
+        scores = np.array(results_df[metric].values).reshape(x, y)
 
         sns.heatmap(scores, annot=True,
                         xticklabels=self.params[parameters[0]],

@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -26,7 +26,7 @@ class FixSkewness(BaseEstimator, TransformerMixin):
 
 
     """
-    def __init__(self, columns=None):
+    def __init__(self, columns=None, drop=True):
         """Init log skewed."""
         if columns is not None:
             if isinstance(columns, list) or isinstance(columns, tuple):
@@ -35,6 +35,7 @@ class FixSkewness(BaseEstimator, TransformerMixin):
                 raise TypeError("Invalid type {}".format(type(columns)))
         else:
             self.columns = columns
+        self.drop = drop
 
     def fit(self, X, y=None, **fit_params):
         """Selecting skewed columns from the dataset.
@@ -90,5 +91,9 @@ class FixSkewness(BaseEstimator, TransformerMixin):
             X_transform[self.skew_features] = np.log1p(X[self.skew_features])
         else:
             raise NameError("Invalid type {}".format(type(X)))
+
+        if self.drop:
+            X_drop = [i for i in X.columns.tolist() if i not in self.columns]
+            X_transform = X_transform.drop(X_drop, axis=1)
 
         return X_transform

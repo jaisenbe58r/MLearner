@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import os
 import datetime
 
-from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
+# from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
 from sklearn.model_selection import RandomizedSearchCV, RepeatedStratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import make_scorer, accuracy_score, cohen_kappa_score

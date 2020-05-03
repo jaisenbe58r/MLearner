@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -118,7 +118,7 @@ def FeatureAnalyst(X, feature, target, targets=[2, 3, 13]):
     ax[0].legend(_targets)
 
     # Histograma - Escala Logaritmica
-    _data = preprocessing.FixSkewness(columns=[feature]).fit_transform(data)
+    _data = preprocessing.FixSkewness(columns=[feature], drop=False).fit_transform(data)
     for i in _targets:
         ax[1].hist(_data[_data[target] == i][feature], alpha=0.7, density=True)
     ax[1].set_title("Histograma - Escala Logaritmica")

@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2020.
+"""Jaime Sendra Berenguer-2018-2022.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -32,7 +32,7 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
 
 
     """
-    def __init__(self, columns=None, numerical=[]):
+    def __init__(self, columns=None, numerical=[], Drop=True):
         """Init OneHotEncoder."""
         if columns is not None:
             if isinstance(columns, list) or isinstance(columns, tuple):
@@ -50,6 +50,11 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
         else:
             self.numerical = numerical
 
+        if isinstance(Drop, bool):
+            self.Drop = Drop
+        else:
+            raise TypeError("Invalid type {}".format(type(Drop)))
+
     def fit(self, X, y=None, **fit_params):
         """Selecting OneHotEncoder columns from the dataset.
 
@@ -66,7 +71,7 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
         if self.columns is None:
             self.columns = X.select_dtypes(include=["object"]).columns.tolist()
 
-        if not isinstance(X, pd.core.frame.DataFrame):
+        if not isinstance(X, pd.core.frame.DataFrame) and not isinstance(X, np.ndarray):
             raise NameError("Invalid type {}".format(type(X)))
 
         self.columns += self.numerical
@@ -96,6 +101,8 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
 
         if isinstance(X, pd.core.frame.DataFrame):
             X_transform = X.copy()
+        elif isinstance(X, np.ndarray):
+            X_transform = X
         else:
             raise NameError("Invalid type {}".format(type(X)))
 
@@ -109,7 +116,11 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
         for c in missing_cols:
             one_hots[c] = 0
 
-        return pd.concat([X_transform.drop(self.columns, axis=1), one_hots.filter(self.allowed_columns)], axis=1)
+        if self.Drop:
+            X_transform1 = X_transform.drop(self.columns, axis=1)
+        else:
+            X_transform1 = X_transform
+        return pd.concat([X_transform1, one_hots.filter(self.allowed_columns).astype(np.int32)], axis=1)
 
 
 class CategoricalEncoder(BaseEstimator, TransformerMixin):

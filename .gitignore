@@ -48,7 +48,7 @@ doc/_build
 *ENV
 .DS_store
 .idea
-© 2020 GitHub, Inc.
+© 2018-2022 GitHub, Inc.
 
 .coveralls.yml
 checkpoints/*
@@ -63,3 +63,7 @@ Informe/ACUERDO 5.0 - EDA (Exploratory Data Analysis).ipynb
 Informe/DataAnalyst.ipynb
 Informe/Pipeline.ipynb
 Informe/Pipeline1.ipynb
+ACUERDO 5.0 - EDA (Exploratory Data Analysis) v5.ipynb
+ACUERDO 5.0 - EDA (Exploratory Data Analysis) v4.ipynb
+ACUERDO 5.0 - EDA (Exploratory Data Analysis) v3.ipynb
+model_CBT/*

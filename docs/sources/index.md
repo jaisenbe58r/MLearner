@@ -50,7 +50,7 @@ MLearner is a Python library of useful tools for the day-to-day data science tas
 
 MIT License
 
-Copyright (c) 2020 Jaime Sendra Berenguer
+Copyright (c) 2018-2022 Jaime Sendra Berenguer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

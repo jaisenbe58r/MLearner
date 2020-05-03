@@ -35,7 +35,7 @@ extra_css:
   - cinder/css/font-awesome-4.0.3.css
   - cinder/css/highlight.css
 
-copyright: Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a>
+copyright: Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a>
 google_analytics: ['UA-163860068-1', 'jaisenbe58r.github.io/MLearner/']
 
 nav:
