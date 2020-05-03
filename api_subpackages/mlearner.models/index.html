@@ -286,7 +286,7 @@
         
             
 <li >
-    <a href="../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
+    <a href="../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
 </li>
 
         
@@ -566,7 +566,7 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<p>mlearner version: 0.1.2dev1 </p>
+<p>mlearner version: 0.1.3dev0 </p>
 <h2 id="modelcatboost">modelCatBoost</h2>
 <p><em>modelCatBoost(name='CBT', random_state=99, </em>args, *<em>kwargs)</em></p>
 <p>None</p>
@@ -647,11 +647,11 @@ https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification</
 <hr>
 
 <p><em>FineTune(model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False)</em></p>
-<p>Tcnica de Ajuste fino de hiperparametros.</p>
+<p>Tecnica de Ajuste fino de hiperparametros.</p>
 <p>Model: Modelo a Optimizar.</p>
 <p>params: diccionario de parametros con el grid.</p>
 <p>scoring: Metricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
-* Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)</p>
+- Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)</p>
 <p>refit: Metrica de importancia para optimizar el modelo'Accuracy'</p>
 <hr>
 
@@ -667,7 +667,7 @@ https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification</
 <p>Validacion cruzada respecto a "n_plits" del KFolds.</p>
 <hr>
 
-<p><em>SeedDiversification_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=2020, cv=10, nosplit=False, finetuneseed_dir='', display=True, save_image=True, verbose=0)</em></p>
+<p><em>SeedDiversification_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=-4, cv=10, nosplit=False, finetuneseed_dir='', display=True, save_image=True, verbose=0)</em></p>
 <p>None</p>
 <hr>
 
@@ -681,8 +681,8 @@ https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification</
 
 <p><em>class_report(y_true, predictions, clases, logdir_report)</em></p>
 <p>Un informe de clasificacion se utiliza para medir la calidad de las predicciones de un
-algoritmo de clasificacion. Cuntas predicciones son verdaderas y cuntas son falsas.
-Ms especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
+algoritmo de clasificacion. Cuantas predicciones son verdaderas y cuantas son falsas.
+Mas especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
 verdaderos y los negativos falsos se utilizan para predecir las metricas de un informe
 de clasificacion.</p>
 <p>El informe muestra las principales metricas de clasificacion de precision, recuperacion
@@ -709,8 +709,8 @@ los verdaderos positivos y los falsos negativos.</p>
 Recuperacion = TP / (TP + FN)</p>
 <p>El  puntaje F 1 es una media armonica ponderada de precision y recuperacion de modo que
 el mejor puntaje es 1.0 y el peor es 0.0. En terminos generales, los  puntajes de F 1 son
-ms bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
-clculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
+mas bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
+calculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
 modelos clasificadores, no la precision global.</p>
 <p>Puntuacion F1 = 2 * (recuperacion * precision) / (recuperacion + precision)</p>
 <hr>
@@ -749,7 +749,7 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <hr>
 
 <p><em>evaluacion_rf_2features(data_eval, data_eval_target, targets=[0, 1], logdir_report='', display=True)</em></p>
-<p>Funcion que nos selecciona el thresholder ms optimo:</p>
+<p>Funcion que nos selecciona el thresholder mas optimo:</p>
 <p>Inputs:</p>
 <ul>
 <li>data_eval: Conjunto de evaluacion.</li>
@@ -785,7 +785,7 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <p>None</p>
 <hr>
 
-<p><em>get_important_features(display=True)</em></p>
+<p><em>get_important_features(display=True, max_num_features=20)</em></p>
 <p>None</p>
 <hr>
 
@@ -793,11 +793,30 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <p>None</p>
 <hr>
 
+<p><em>get_params(deep=True)</em></p>
+<p>Get parameters for this estimator.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>deep</code> : bool, default=True</p>
+<p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>params</code> : mapping of string to any</p>
+<p>Parameter names mapped to their values.</p>
+</li>
+</ul>
+<hr>
+
 <p><em>get_params_json()</em></p>
 <p>None</p>
 <hr>
 
-<p><em>heatmap_params(parameters, metric='mean_test_Accuracy')</em></p>
+<p><em>heatmap_params(parameters, results_df, metric='mean_test_Accuracy')</em></p>
 <p>parametres a relacionar:
 parameters = ["n_estimators", "min_samples_split"]</p>
 <hr>
@@ -806,7 +825,7 @@ parameters = ["n_estimators", "min_samples_split"]</p>
 <p>None</p>
 <hr>
 
-<p><em>load_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p><em>load_model(direct='./checkpoints/LGM_model.txt', file_model='.txt')</em></p>
 <p>None</p>
 <hr>
 
@@ -814,15 +833,15 @@ parameters = ["n_estimators", "min_samples_split"]</p>
 <p>None</p>
 <hr>
 
-<p><em>plot_confusion_matrix(y_true, y_pred, classes, num_clases, logdir_report, normalize=False, title=None, cmap=<matplotlib.colors.LinearSegmentedColormap object at 0x000001F541CFA390>, name='cm_normalizada')</em></p>
+<p><em>plot_confusion_matrix(y_true, y_pred, classes, num_clases, logdir_report, normalize=False, title=None, cmap=<matplotlib.colors.LinearSegmentedColormap object at 0x000001D8E688A390>, name='cm_normalizada')</em></p>
 <p>Una matriz de confusion es un resumen de los resultados de prediccion sobre un problema
 de clasificacion.</p>
 <p>El numero de predicciones correctas e incorrectas se resume con valores de conteo y se
 desglosa por clase. Esta es la clave de la matriz de confusion.</p>
 <p>La matriz de confusion muestra las formas en que su modelo de clasificacion
 se confunde cuando hace predicciones.</p>
-<p>Le da una idea no solo de los errores que est cometiendo su clasificador, sino ms
-importante aun, de los tipos de errores que se estn cometiendo.</p>
+<p>Le da una idea no solo de los errores que esta cometiendo su clasificador, sino mas
+importante aun, de los tipos de errores que se estan cometiendo.</p>
 <p>Es este desglose el que supera la limitacion del uso de la precision de clasificacion solo.</p>
 <hr>
 
@@ -846,12 +865,63 @@ importante aun, de los tipos de errores que se estn cometiendo.</p>
 <p>Load the model from disk</p>
 <hr>
 
-<p><em>save_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p><em>save_model(direct='./checkpoints', name='LGM_model', file_model='.txt')</em></p>
 <p>Save the model to disk</p>
+<hr>
+
+<p><em>score(X, y, sample_weight=None)</em></p>
+<p>Return the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : array-like of shape (n_samples, n_features)</p>
+<p>Test samples.</p>
+</li>
+<li>
+<p><code>y</code> : array-like of shape (n_samples,) or (n_samples, n_outputs)</p>
+<p>True labels for X.</p>
+</li>
+<li>
+<p><code>sample_weight</code> : array-like of shape (n_samples,), default=None</p>
+<p>Sample weights.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>score</code> : float</p>
+<p>Mean accuracy of self.predict(X) wrt. y.</p>
+</li>
+</ul>
 <hr>
 
 <p><em>set_dataset_nosplit(X_train, X_test, y_train, y_test, categorical_columns_indices=None, </em>args, *<em>kwarg)</em></p>
 <p>None</p>
+<hr>
+
+<p><em>set_params(</em><em>params)</em></p>
+<p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code>&lt;component&gt;__&lt;parameter&gt;</code> so that it's possible to update each
+component of a nested object.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>**params</code> : dict</p>
+<p>Estimator parameters.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>self</code> : object</p>
+<p>Estimator instance.</p>
+</li>
+</ul>
 <hr>
 
 <p><em>update_model(</em><em>kwargs)</em></p>
@@ -894,11 +964,11 @@ https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgb
 <hr>
 
 <p><em>FineTune(model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False)</em></p>
-<p>Tcnica de Ajuste fino de hiperparametros.</p>
+<p>Tecnica de Ajuste fino de hiperparametros.</p>
 <p>Model: Modelo a Optimizar.</p>
 <p>params: diccionario de parametros con el grid.</p>
 <p>scoring: Metricas. scoring = {'AUC': 'roc_auc', 'Accuracy': acc_scorer}
-* Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)</p>
+- Anotador de metricas: acc_score = make_scorer(accuracy_score, mean_squared_error)</p>
 <p>refit: Metrica de importancia para optimizar el modelo'Accuracy'</p>
 <hr>
 
@@ -914,7 +984,7 @@ https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgb
 <p>Validacion cruzada respecto a "n_plits" del KFolds.</p>
 <hr>
 
-<p><em>SeedDiversification_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=2020, cv=10, nosplit=False, finetuneseed_dir='', display=True, save_image=True, verbose=0)</em></p>
+<p><em>SeedDiversification_cv(X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, n_iter=10, n_max=-4, cv=10, nosplit=False, finetuneseed_dir='', display=True, save_image=True, verbose=0)</em></p>
 <p>None</p>
 <hr>
 
@@ -924,8 +994,8 @@ https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgb
 
 <p><em>class_report(y_true, predictions, clases, logdir_report)</em></p>
 <p>Un informe de clasificacion se utiliza para medir la calidad de las predicciones de un
-algoritmo de clasificacion. Cuntas predicciones son verdaderas y cuntas son falsas.
-Ms especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
+algoritmo de clasificacion. Cuantas predicciones son verdaderas y cuantas son falsas.
+Mas especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
 verdaderos y los negativos falsos se utilizan para predecir las metricas de un informe
 de clasificacion.</p>
 <p>El informe muestra las principales metricas de clasificacion de precision, recuperacion
@@ -952,8 +1022,8 @@ los verdaderos positivos y los falsos negativos.</p>
 Recuperacion = TP / (TP + FN)</p>
 <p>El  puntaje F 1 es una media armonica ponderada de precision y recuperacion de modo que
 el mejor puntaje es 1.0 y el peor es 0.0. En terminos generales, los  puntajes de F 1 son
-ms bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
-clculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
+mas bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
+calculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
 modelos clasificadores, no la precision global.</p>
 <p>Puntuacion F1 = 2 * (recuperacion * precision) / (recuperacion + precision)</p>
 <hr>
@@ -992,7 +1062,7 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <hr>
 
 <p><em>evaluacion_rf_2features(data_eval, data_eval_target, targets=[0, 1], logdir_report='', display=True)</em></p>
-<p>Funcion que nos selecciona el thresholder ms optimo:</p>
+<p>Funcion que nos selecciona el thresholder mas optimo:</p>
 <p>Inputs:</p>
 <ul>
 <li>data_eval: Conjunto de evaluacion.</li>
@@ -1028,7 +1098,7 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <p>None</p>
 <hr>
 
-<p><em>get_important_features(display=True)</em></p>
+<p><em>get_important_features(display=True, max_num_features=20)</em></p>
 <p>None</p>
 <hr>
 
@@ -1036,11 +1106,30 @@ https://github.com/WillKoehrsen/Machine-Learning-Projects/blob/master/random_for
 <p>None</p>
 <hr>
 
+<p><em>get_params(deep=True)</em></p>
+<p>Get parameters for this estimator.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>deep</code> : bool, default=True</p>
+<p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>params</code> : mapping of string to any</p>
+<p>Parameter names mapped to their values.</p>
+</li>
+</ul>
+<hr>
+
 <p><em>get_params_json()</em></p>
 <p>None</p>
 <hr>
 
-<p><em>heatmap_params(parameters, metric='mean_test_Accuracy')</em></p>
+<p><em>heatmap_params(parameters, results_df, metric='mean_test_Accuracy')</em></p>
 <p>parametres a relacionar:
 parameters = ["n_estimators", "min_samples_split"]</p>
 <hr>
@@ -1049,7 +1138,7 @@ parameters = ["n_estimators", "min_samples_split"]</p>
 <p>None</p>
 <hr>
 
-<p><em>load_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p><em>load_model(direct='./checkpoints/XGB_model.txt', file_model='.txt')</em></p>
 <p>None</p>
 <hr>
 
@@ -1057,15 +1146,15 @@ parameters = ["n_estimators", "min_samples_split"]</p>
 <p>None</p>
 <hr>
 
-<p><em>plot_confusion_matrix(y_true, y_pred, classes, num_clases, logdir_report, normalize=False, title=None, cmap=<matplotlib.colors.LinearSegmentedColormap object at 0x000001F541CFA390>, name='cm_normalizada')</em></p>
+<p><em>plot_confusion_matrix(y_true, y_pred, classes, num_clases, logdir_report, normalize=False, title=None, cmap=<matplotlib.colors.LinearSegmentedColormap object at 0x000001D8E688A390>, name='cm_normalizada')</em></p>
 <p>Una matriz de confusion es un resumen de los resultados de prediccion sobre un problema
 de clasificacion.</p>
 <p>El numero de predicciones correctas e incorrectas se resume con valores de conteo y se
 desglosa por clase. Esta es la clave de la matriz de confusion.</p>
 <p>La matriz de confusion muestra las formas en que su modelo de clasificacion
 se confunde cuando hace predicciones.</p>
-<p>Le da una idea no solo de los errores que est cometiendo su clasificador, sino ms
-importante aun, de los tipos de errores que se estn cometiendo.</p>
+<p>Le da una idea no solo de los errores que esta cometiendo su clasificador, sino mas
+importante aun, de los tipos de errores que se estan cometiendo.</p>
 <p>Es este desglose el que supera la limitacion del uso de la precision de clasificacion solo.</p>
 <hr>
 
@@ -1085,12 +1174,63 @@ importante aun, de los tipos de errores que se estn cometiendo.</p>
 <p>Load the model from disk</p>
 <hr>
 
-<p><em>save_model(direct='./checkpoints', name='catboost_model')</em></p>
+<p><em>save_model(direct='./checkpoints', name='XGB_model', file_model='.txt')</em></p>
 <p>Save the model to disk</p>
+<hr>
+
+<p><em>score(X, y, sample_weight=None)</em></p>
+<p>Return the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : array-like of shape (n_samples, n_features)</p>
+<p>Test samples.</p>
+</li>
+<li>
+<p><code>y</code> : array-like of shape (n_samples,) or (n_samples, n_outputs)</p>
+<p>True labels for X.</p>
+</li>
+<li>
+<p><code>sample_weight</code> : array-like of shape (n_samples,), default=None</p>
+<p>Sample weights.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>score</code> : float</p>
+<p>Mean accuracy of self.predict(X) wrt. y.</p>
+</li>
+</ul>
 <hr>
 
 <p><em>set_dataset_nosplit(X_train, X_test, y_train, y_test, categorical_columns_indices=None, </em>args, *<em>kwarg)</em></p>
 <p>None</p>
+<hr>
+
+<p><em>set_params(</em><em>params)</em></p>
+<p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code>&lt;component&gt;__&lt;parameter&gt;</code> so that it's possible to update each
+component of a nested object.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>**params</code> : dict</p>
+<p>Estimator parameters.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>self</code> : object</p>
+<p>Estimator instance.</p>
+</li>
+</ul>
 <hr>
 
 <p><em>update_model(</em><em>kwargs)</em></p>
@@ -1110,7 +1250,7 @@ importante aun, de los tipos de errores que se estn cometiendo.</p>
     <footer class="col-md-12 text-center">
         <hr>
         <p>
-        <small>Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
         
         <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
     </footer>

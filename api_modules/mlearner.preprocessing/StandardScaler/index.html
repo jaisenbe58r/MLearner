@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.preprocessing/StandardScaler/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>StandardScaler - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/data/wine_data/">Wine data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals.md">None</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#standardscaler">StandardScaler</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
+                 <!--   -->
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="standardscaler">StandardScaler</h2>
+<p><em>StandardScaler(copy=True, with_mean=True, with_std=True)</em></p>
+<p>Standardize features by removing the mean and scaling to unit variance</p>
+<p>The standard score of a sample <code>x</code> is calculated as:</p>
+<p>z = (x - u) / s</p>
+<p>where <code>u</code> is the mean of the training samples or zero if <code>with_mean=False</code>,
+and <code>s</code> is the standard deviation of the training samples or one if
+<code>with_std=False</code>.</p>
+<p>Centering and scaling happen independently on each feature by computing
+the relevant statistics on the samples in the training set. Mean and
+standard deviation are then stored to be used on later data using
+:meth:<code>transform</code>.</p>
+<p>Standardization of a dataset is a common requirement for many
+machine learning estimators: they might behave badly if the
+individual features do not more or less look like standard normally
+distributed data (e.g. Gaussian with 0 mean and unit variance).</p>
+<p>For instance many elements used in the objective function of
+a learning algorithm (such as the RBF kernel of Support Vector
+Machines or the L1 and L2 regularizers of linear models) assume that
+all features are centered around 0 and have variance in the same
+order. If a feature has a variance that is orders of magnitude larger
+that others, it might dominate the objective function and make the
+estimator unable to learn from other features correctly as expected.</p>
+<p>This scaler can also be applied to sparse CSR or CSC matrices by passing
+<code>with_mean=False</code> to avoid breaking the sparsity structure of the data.</p>
+<p>Read more in the :ref:<code>User Guide &lt;preprocessing_scaler&gt;</code>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>copy</code> : boolean, optional, default True</p>
+<p>If False, try to avoid a copy and do inplace scaling instead.
+This is not guaranteed to always work inplace; e.g. if the data is
+not a NumPy array or scipy.sparse CSR matrix, a copy may still be
+returned.</p>
+</li>
+<li>
+<p><code>with_mean</code> : boolean, True by default</p>
+<p>If True, center the data before scaling.
+This does not work (and will raise an exception) when attempted on
+sparse matrices, because centering them entails building a dense
+matrix which in common use cases is likely to be too large to fit in
+memory.</p>
+</li>
+<li>
+<p><code>with_std</code> : boolean, True by default</p>
+<p>If True, scale the data to unit variance (or equivalently,
+unit standard deviation).</p>
+</li>
+</ul>
+<p><strong>Attributes</strong></p>
+<ul>
+<li>
+<p><code>scale_</code> : ndarray or None, shape (n_features,)</p>
+<p>Per feature relative scaling of the data. This is calculated using
+<code>np.sqrt(var_)</code>. Equal to <code>None</code> when <code>with_std=False</code>.</p>
+<p>.. versionadded:: 0.17
+<em>scale_</em></p>
+</li>
+<li>
+<p><code>mean_</code> : ndarray or None, shape (n_features,)</p>
+<p>The mean value for each feature in the training set.
+Equal to <code>None</code> when <code>with_mean=False</code>.</p>
+</li>
+<li>
+<p><code>var_</code> : ndarray or None, shape (n_features,)</p>
+<p>The variance for each feature in the training set. Used to compute
+<code>scale_</code>. Equal to <code>None</code> when <code>with_std=False</code>.</p>
+</li>
+<li>
+<p><code>n_samples_seen_</code> : int or array, shape (n_features,)</p>
+<p>The number of samples processed by the estimator for each feature.
+If there are not missing samples, the <code>n_samples_seen</code> will be an
+integer, otherwise it will be an array.
+Will be reset on new calls to fit, but increments across
+<code>partial_fit</code> calls.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code>&gt;&gt;&gt; from sklearn.preprocessing import StandardScaler
+&gt;&gt;&gt; data = [[0, 0], [0, 0], [1, 1], [1, 1]]
+&gt;&gt;&gt; scaler = StandardScaler()
+&gt;&gt;&gt; print(scaler.fit(data))
+StandardScaler()
+&gt;&gt;&gt; print(scaler.mean_)
+[0.5 0.5]
+&gt;&gt;&gt; print(scaler.transform(data))
+[[-1. -1.]
+[-1. -1.]
+[ 1.  1.]
+[ 1.  1.]]
+&gt;&gt;&gt; print(scaler.transform([[2, 2]]))
+[[3. 3.]]
+</code></pre>
+<p><strong>See also</strong></p>
+<p>scale: Equivalent function without the estimator API.</p>
+<pre><code>:class:`sklearn.decomposition.PCA`
+Further removes the linear correlation across features with 'whiten=True'.
+</code></pre>
+<p><strong>Notes</strong></p>
+<p>NaNs are treated as missing values: disregarded in fit, and maintained in
+    transform.</p>
+<pre><code>We use a biased estimator for the standard deviation, equivalent to
+`numpy.std(x, ddof=0)`. Note that the choice of `ddof` is unlikely to
+affect model performance.
+
+For a comparison of the different scalers, transformers, and normalizers,
+see :ref:`examples/preprocessing/plot_all_scaling.py
+&lt;sphx_glr_auto_examples_preprocessing_plot_all_scaling.py&gt;`.
+</code></pre>
+<h3 id="methods">Methods</h3>
+<hr>
+
+<p><em>fit(X, y=None)</em></p>
+<p>Compute the mean and std to be used for later scaling.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : {array-like, sparse matrix}, shape [n_samples, n_features]</p>
+<p>The data used to compute the mean and standard deviation
+used for later scaling along the features axis.</p>
+<p>y
+Ignored</p>
+</li>
+</ul>
+<hr>
+
+<p><em>fit_transform(X, y=None, </em><em>fit_params)</em></p>
+<p>Fit to data, then transform it.</p>
+<p>Fits transformer to X and y with optional parameters fit_params
+and returns a transformed version of X.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : numpy array of shape [n_samples, n_features]</p>
+<p>Training set.</p>
+</li>
+<li>
+<p><code>y</code> : numpy array of shape [n_samples]</p>
+<p>Target values.</p>
+</li>
+<li>
+<p><code>**fit_params</code> : dict</p>
+<p>Additional fit parameters.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>X_new</code> : numpy array of shape [n_samples, n_features_new]</p>
+<p>Transformed array.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>get_params(deep=True)</em></p>
+<p>Get parameters for this estimator.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>deep</code> : bool, default=True</p>
+<p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>params</code> : mapping of string to any</p>
+<p>Parameter names mapped to their values.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>inverse_transform(X, copy=None)</em></p>
+<p>Scale back the data to the original representation</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : array-like, shape [n_samples, n_features]</p>
+<p>The data used to scale along the features axis.</p>
+</li>
+<li>
+<p><code>copy</code> : bool, optional (default: None)</p>
+<p>Copy the input X or not.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>X_tr</code> : array-like, shape [n_samples, n_features]</p>
+<p>Transformed array.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>partial_fit(X, y=None)</em></p>
+<p>Online computation of mean and std on X for later scaling.</p>
+<p>All of X is processed as a single batch. This is intended for cases
+when :meth:<code>fit</code> is not feasible due to very large number of
+<code>n_samples</code> or because X is read from a continuous stream.</p>
+<p>The algorithm for incremental mean and std is given in Equation 1.5a,b
+in Chan, Tony F., Gene H. Golub, and Randall J. LeVeque. "Algorithms
+for computing the sample variance: Analysis and recommendations."
+The American Statistician 37.3 (1983): 242-247:</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : {array-like, sparse matrix}, shape [n_samples, n_features]</p>
+<p>The data used to compute the mean and standard deviation
+used for later scaling along the features axis.</p>
+</li>
+<li>
+<p><code>y</code> : None</p>
+<p>Ignored.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>self</code> : object</p>
+<p>Transformer instance.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>set_params(</em><em>params)</em></p>
+<p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code>&lt;component&gt;__&lt;parameter&gt;</code> so that it's possible to update each
+component of a nested object.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>**params</code> : dict</p>
+<p>Estimator parameters.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>
+<p><code>self</code> : object</p>
+<p>Estimator instance.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>transform(X, copy=None)</em></p>
+<p>Perform standardization by centering and scaling</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>X</code> : array-like, shape [n_samples, n_features]</p>
+<p>The data used to scale along the features axis.</p>
+</li>
+<li>
+<p><code>copy</code> : bool, optional (default: None)</p>
+<p>Copy the input X or not.</p>
+</li>
+</ul></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

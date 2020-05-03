@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataAnalyst/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-    <title>DataAnalyst - mlearner</title>
+    <title>Preprocessing - mlearner</title>
 
     <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -286,7 +286,7 @@
         
             
 <li class="active">
-    <a href="./">DataAnalyst</a>
+    <a href="./">Preprocessing</a>
 </li>
 
         
@@ -553,96 +553,198 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#dataanalyst">DataAnalyst</a></li>
-            <li class="second-level"><a href="#methods">Methods</a></li>
+        <li class="first-level active"><a href="#preprocessing">Preprocessing</a></li>
+            <li class="second-level"><a href="#data-analysis-eda">Data analysis - EDA</a></li>
                  <!--   -->
+        <li class="first-level "><a href="#api">API</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="dataanalyst">DataAnalyst</h2>
-<p><em>DataAnalyst(data)</em></p>
-<p>Class for Preprocessed object for data analysis.</p>
-<p><strong>Attributes</strong></p>
-<p>data: pd.DataFrame of Dataset</p>
-<p><strong>Examples</strong></p>
-<p>For usage examples, please see
-https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataAnalyst/</p>
-<h3 id="methods">Methods</h3>
-<hr>
+<h1 id="preprocessing">Preprocessing</h1>
+<h3 id="data-analysis-eda">Data analysis - EDA</h3>
+<p>Dataset preprocessing examples</p>
+<blockquote>
+<p>from mlearner.preprocessing import DataAnalyst</p>
+</blockquote>
+<pre><code class="python">import numpy as np
+import pandas as pd
 
-<p><em>boxplot(features=None, target=None, display=False, save_image=False, path='/')</em></p>
-<p>Funcion que realiza un BoxPlot sobre la dispesion de cada categoria
-respecto a los grupos de target.</p>
-<p>Inputs:
-- data: Datos generales del dataset.
-- features: categorias a analizar.</p>
-<hr>
+from mlearner.preprocessing import DataAnalyst
 
-<p><em>corr_matrix(features=None, display=True, save_image=False, path='/')</em></p>
-<p>matriz de covarianza:</p>
-<p>Un valor positivo para r indica una asociacion positiva
-Un valor negativo para r indica una asociacion negativa.</p>
-<p>Cuanto mas cerca estar de 1cuanto mas se acercan los puntos de datos a una linea recta,
-la asociacion lineal es mas fuerte. Cuanto mas cerca este r de 0, lo que debilita la asociacion lineal.</p>
-<hr>
+%matplotlib inline
+</code></pre>
 
-<p><em>dispersion_categoria(features=None, target=None, display=False, save_image=False, path='/')</em></p>
-<p>Funcion que realiza un plot sobre la dispesion de cada categoria respecto a los grupos de target.</p>
-<p>Inputs:
-- data: Datos generales del dataset.
-- features: categorias a analizar.</p>
-<hr>
+<p>Load data in <code>base_preprocess</code> class</p>
+<pre><code class="python">filename = &quot;mlearner/data/data/breast-cancer-wisconsin-data.txt&quot;
+dataset = DataAnalyst.load_data(filename, sep=&quot;,&quot;)
+</code></pre>
 
-<p><em>distribution_targets(target=None, display=True, save_image=False, path='/', palette='Set2')</em></p>
-<p>None</p>
-<hr>
+<pre><code class="python">dataset.data.head(5)
+</code></pre>
 
-<p><em>load_data(filename, sep=';', decimal=',', </em><em>params)</em></p>
-<p>Loading a dataset from a csv file.</p>
-<p><strong>Parameters</strong></p>
-<p>filename: <code>str, path object or file-like object</code>
-Any valid string path is acceptable. The string could be a URL.
-Valid URL schemes include http, ftp, s3, and file. For file URLs,
-a host is expected. A local file could be:
-<code>file://localhost/path/to/table.csv</code>.
-If you want to pass in a path object, pandas accepts any os.PathLike.
-By file-like object, we refer to objects with a read() method,
-such as a file handler (e.g. via builtin open function) or StringIO.</p>
-<p>seps: <code>str</code>
-Delimiter to use. If sep is None, the C engine cannot automatically
-detect the separator, but the Python parsing engine can, meaning the
-latter will be used and automatically detect the separator by Python's
-builtin sniffer tool, csv.Sniffer.</p>
-<p>delimiter: <code>str, default None</code>
-Alias for sep.</p>
-<p><strong>Attributes</strong></p>
-<p>n: lenght of dataset.
-start: start iterator.
-end: end iterator.
-num: current iterator.</p>
-<p><strong>Returns</strong></p>
-<p>data: Pandas DataFrame, [n_samples, n_classes]
-Dataframe from dataset.</p>
-<p><strong>Examples</strong></p>
-<p>For usage examples, please see:
-https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
-<hr>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<p><em>load_dataframe(data)</em></p>
-<p>None</p>
-<hr>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<p><em>reset()</em></p>
-<p>None</p>
-<hr>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample code number</th>
+      <th>Clump Thickness</th>
+      <th>Uniformity of Cell Size</th>
+      <th>Uniformity of Cell Shape</th>
+      <th>Marginal Adhesion</th>
+      <th>Single Epithelial Cell Size</th>
+      <th>Bare Nuclei</th>
+      <th>Bland Chromatin</th>
+      <th>Normal Nucleoli</th>
+      <th>Mitoses</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000025</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1002945</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>5</td>
+      <td>7</td>
+      <td>10</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1015425</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1016277</td>
+      <td>6</td>
+      <td>8</td>
+      <td>8</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1017023</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-<p><em>sns_jointplot(feature1, feature2, target=None, categoria1=None, categoria2=None, display=True, save_image=False, path='/')</em></p>
-<p>None</p>
-<hr>
+<pre><code class="python">dataset.dtypes()
+</code></pre>
 
-<p><em>sns_pairplot(features=None, target=None, display=True, save_image=False, path='/', palette='husl')</em></p>
-<p>None</p></div>
+<pre><code>Sample code number              int64
+Clump Thickness                 int64
+Uniformity of Cell Size         int64
+Uniformity of Cell Shape        int64
+Marginal Adhesion               int64
+Single Epithelial Cell Size     int64
+Bare Nuclei                    object
+Bland Chromatin                 int64
+Normal Nucleoli                 int64
+Mitoses                         int64
+Class                           int64
+dtype: object
+</code></pre>
+<pre><code class="python">target = [&quot;Class&quot;]
+</code></pre>
+
+<p>Method: <code>boxplot</code></p>
+<pre><code class="python">dataset.boxplot(features=[&quot;Bland Chromatin&quot;, &quot;Clump Thickness&quot;], 
+                target=target)
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_11_0.png" /></p>
+<p>Method: <code>dispersion_categoria</code></p>
+<pre><code class="python">dataset.dispersion_categoria(target=target)
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_13_0.png" /></p>
+<p>Method: <code>sns_jointplot</code></p>
+<pre><code class="python">dataset.sns_jointplot(feature1=[&quot;Bland Chromatin&quot;], feature2=[&quot;Clump Thickness&quot;], target=target, 
+                      categoria1 = [2])
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_15_0.png" /></p>
+<p>Method: <code>sns_pairplot</code></p>
+<pre><code class="python">dataset.sns_pairplot(features= [&quot;Bland Chromatin&quot;, &quot;Clump Thickness&quot;], target=target)
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_17_0.png" /></p>
+<p>Method: <code>distribution_targets</code></p>
+<pre><code class="python">dataset.distribution_targets(target=target)
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_19_0.png" /></p>
+<p>Method: <code>corr_matrix</code></p>
+<pre><code class="python">dataset.corr_matrix()
+</code></pre>
+
+<p><img alt="png" src="../DataAnalyst_files/DataAnalyst_21_0.png" /></p>
+<p>Method: <code>not_type_object</code></p>
+<pre><code class="python">
+</code></pre>
+
+<h1 id="api">API</h1></div>
         
         
     </div>
@@ -650,7 +752,7 @@ https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
     <footer class="col-md-12 text-center">
         <hr>
         <p>
-        <small>Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
         
         <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
     </footer>

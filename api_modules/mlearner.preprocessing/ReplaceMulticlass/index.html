@@ -286,7 +286,7 @@
         
             
 <li >
-    <a href="../../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
 </li>
 
         
@@ -551,7 +551,7 @@
         <div class="col-md-9" role="main">
 
 <h2 id="replacemulticlass">ReplaceMulticlass</h2>
-<p><em>ReplaceMulticlass(columns=None, mapping=None)</em></p>
+<p><em>ReplaceMulticlass(columns=None)</em></p>
 <p>This transformer replace some categorical values with others.</p>
 <p><strong>Attributes</strong></p>
 <p>columns: <code>list</code> of columns to transformer [n_columns]</p>
@@ -589,6 +589,10 @@ and returns a transformed version of X.</p>
 <p><code>y</code> : numpy array of shape [n_samples]</p>
 <p>Target values.</p>
 </li>
+<li>
+<p><code>**fit_params</code> : dict</p>
+<p>Additional fit parameters.</p>
+</li>
 </ul>
 <p><strong>Returns</strong></p>
 <ul>
@@ -604,7 +608,7 @@ and returns a transformed version of X.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li>
-<p><code>deep</code> : boolean, optional</p>
+<p><code>deep</code> : bool, default=True</p>
 <p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </li>
@@ -624,8 +628,20 @@ contained subobjects that are estimators.</p>
 (such as pipelines). The latter have parameters of the form
 <code>&lt;component&gt;__&lt;parameter&gt;</code> so that it's possible to update each
 component of a nested object.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>**params</code> : dict</p>
+<p>Estimator parameters.</p>
+</li>
+</ul>
 <p><strong>Returns</strong></p>
-<p>self</p>
+<ul>
+<li>
+<p><code>self</code> : object</p>
+<p>Estimator instance.</p>
+</li>
+</ul>
 <hr>
 
 <p><em>transform(X)</em></p>
@@ -652,7 +668,7 @@ n_features is the number of features.</p>
     <footer class="col-md-12 text-center">
         <hr>
         <p>
-        <small>Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
         
         <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
     </footer>

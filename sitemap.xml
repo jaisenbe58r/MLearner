@@ -1,203 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://jaisenbe58r.github.io/MLearner/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/USER_GUIDE_INDEX/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_normal/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_gamma/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_uniform/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/create_dataset/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/MeanCenterer/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/minmax_scaling/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FeatureDropper/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_median/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_mean/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_idmax/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_any/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_all/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_value/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_backward/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_forward/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FixSkewness/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/OneHotEncoder/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DropOutliers/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ExtractCategories/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ReplaceMulticlass/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ReplaceTransformer/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataCleaner/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataAnalyst/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/feature_selections/FeatureSelection/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelXGBoost/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelLightBoost/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelCatBoost/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/clasifier/PipelineClasificators/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/clasifier/TrainingUtilities/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/training/Training/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/utils/ParamsManager/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.data/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.preprocessing/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.load/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.classifier/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.feature_selection/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.models/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.training/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.utils/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/installation/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/CHANGELOG/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/CONTRIBUTING/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/contributors/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/license/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/cite/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/discuss/</loc>
-     <lastmod>2020-04-24</lastmod>
+     <lastmod>2020-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

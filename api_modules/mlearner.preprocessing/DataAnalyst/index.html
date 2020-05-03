@@ -286,7 +286,7 @@
         
             
 <li >
-    <a href="../../../user_guide/preprocessing/DataAnalyst/">DataAnalyst</a>
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
 </li>
 
         
@@ -561,12 +561,20 @@ https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataAnalyst/</p>
 <h3 id="methods">Methods</h3>
 <hr>
 
+<p><em>Xy_dataset(target=None)</em></p>
+<p>Separar datos del target en conjunto (X, y)</p>
+<hr>
+
 <p><em>boxplot(features=None, target=None, display=False, save_image=False, path='/')</em></p>
 <p>Funcion que realiza un BoxPlot sobre la dispesion de cada categoria
 respecto a los grupos de target.</p>
 <p>Inputs:
 - data: Datos generales del dataset.
 - features: categorias a analizar.</p>
+<hr>
+
+<p><em>categorical_vs_numerical()</em></p>
+<p>None</p>
 <hr>
 
 <p><em>corr_matrix(features=None, display=True, save_image=False, path='/')</em></p>
@@ -577,7 +585,7 @@ Un valor negativo para r indica una asociacion negativa.</p>
 la asociacion lineal es mas fuerte. Cuanto mas cerca este r de 0, lo que debilita la asociacion lineal.</p>
 <hr>
 
-<p><em>dispersion_categoria(features=None, target=None, display=False, save_image=False, path='/')</em></p>
+<p><em>dispersion_categoria(features=None, target=None, density=True, display=False, save_image=False, path='/')</em></p>
 <p>Funcion que realiza un plot sobre la dispesion de cada categoria respecto a los grupos de target.</p>
 <p>Inputs:
 - data: Datos generales del dataset.
@@ -585,6 +593,14 @@ la asociacion lineal es mas fuerte. Cuanto mas cerca este r de 0, lo que debilit
 <hr>
 
 <p><em>distribution_targets(target=None, display=True, save_image=False, path='/', palette='Set2')</em></p>
+<p>None</p>
+<hr>
+
+<p><em>dtypes(X=None)</em></p>
+<p>retorno del tipo de datos por columna</p>
+<hr>
+
+<p><em>isNull()</em></p>
 <p>None</p>
 <hr>
 
@@ -623,6 +639,14 @@ https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
 <p>None</p>
 <hr>
 
+<p><em>missing_values(X=None)</em></p>
+<p>Numero de valores vacios en el dataframe.</p>
+<hr>
+
+<p><em>not_type_object()</em></p>
+<p>Deteccion de de categorias con type "object"</p>
+<hr>
+
 <p><em>reset()</em></p>
 <p>None</p>
 <hr>
@@ -632,7 +656,15 @@ https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
 <hr>
 
 <p><em>sns_pairplot(features=None, target=None, display=True, save_image=False, path='/', palette='husl')</em></p>
-<p>None</p></div>
+<p>None</p>
+<hr>
+
+<p><em>type_object()</em></p>
+<p>Deteccion de de categorias con type "object"</p>
+<hr>
+
+<p><em>view_features()</em></p>
+<p>Mostrar features del dataframe</p></div>
         
         
     </div>
@@ -640,7 +672,7 @@ https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</p>
     <footer class="col-md-12 text-center">
         <hr>
         <p>
-        <small>Copyright &copy; 2020-2024 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
         
         <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
     </footer>

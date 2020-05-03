@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataExploratory/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>Preprocessing - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../data/wine_data/">Wine data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DataAnalyst/">Preprocessing</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals.md">None</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#preprocessing">Preprocessing</a></li>
+            <li class="second-level"><a href="#data-exploratory-eda">Data exploratory - EDA</a></li>
+                 <!--   -->
+        <li class="first-level "><a href="#api">API</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="preprocessing">Preprocessing</h1>
+<h3 id="data-exploratory-eda">Data exploratory - EDA</h3>
+<p>Dataset preprocessing examples</p>
+<blockquote>
+<p>from mlearner.preprocessing import DataExploratory</p>
+</blockquote>
+<pre><code class="python">import numpy as np
+import pandas as pd
+
+from mlearner.preprocessing import DataExploratory
+</code></pre>
+
+<p>Load data in <code>DataExploratory</code> class</p>
+<pre><code class="python">filename = &quot;mlearner/data/data/titanic3.csv&quot;
+dataset = DataExploratory.load_data(filename, sep=&quot;,&quot;)
+</code></pre>
+
+<pre><code class="python">dataset.data
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>survived</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>boat</th>
+      <th>body</th>
+      <th>home.dest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Allen, Miss. Elisabeth Walton</td>
+      <td>female</td>
+      <td>29</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24160</td>
+      <td>211.3375</td>
+      <td>B5</td>
+      <td>S</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>St Louis, MO</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>11</td>
+      <td>NaN</td>
+      <td>Montreal, PQ / Chesterville, ON</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Montreal, PQ / Chesterville, ON</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>135.0</td>
+      <td>Montreal, PQ / Chesterville, ON</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Montreal, PQ / Chesterville, ON</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Anderson, Mr. Harry</td>
+      <td>male</td>
+      <td>48</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19952</td>
+      <td>26.5500</td>
+      <td>E12</td>
+      <td>S</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Andrews, Miss. Kornelia Theodosia</td>
+      <td>female</td>
+      <td>63</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+      <td>77.9583</td>
+      <td>D7</td>
+      <td>S</td>
+      <td>10</td>
+      <td>NaN</td>
+      <td>Hudson, NY</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Andrews, Mr. Thomas Jr</td>
+      <td>male</td>
+      <td>39</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112050</td>
+      <td>0.0000</td>
+      <td>A36</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Belfast, NI</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Appleton, Mrs. Edward Dale (Charlotte Lamson)</td>
+      <td>female</td>
+      <td>53</td>
+      <td>2</td>
+      <td>0</td>
+      <td>11769</td>
+      <td>51.4792</td>
+      <td>C101</td>
+      <td>S</td>
+      <td>D</td>
+      <td>NaN</td>
+      <td>Bayside, Queens, NY</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Artagaveytia, Mr. Ramon</td>
+      <td>male</td>
+      <td>71</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17609</td>
+      <td>49.5042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Montevideo, Uruguay</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Astor, Col. John Jacob</td>
+      <td>male</td>
+      <td>47</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17757</td>
+      <td>227.5250</td>
+      <td>C62 C64</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>124.0</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Astor, Mrs. John Jacob (Madeleine Talmadge Force)</td>
+      <td>female</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17757</td>
+      <td>227.5250</td>
+      <td>C62 C64</td>
+      <td>C</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aubart, Mme. Leontine Pauline</td>
+      <td>female</td>
+      <td>24</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17477</td>
+      <td>69.3000</td>
+      <td>B35</td>
+      <td>C</td>
+      <td>9</td>
+      <td>NaN</td>
+      <td>Paris, France</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Barber, Miss. Ellen "Nellie"</td>
+      <td>female</td>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19877</td>
+      <td>78.8500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0000</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>B</td>
+      <td>NaN</td>
+      <td>Hessle, Yorks</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Baumann, Mr. John D</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17318</td>
+      <td>25.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Baxter, Mr. Quigg Edmond</td>
+      <td>male</td>
+      <td>24</td>
+      <td>0</td>
+      <td>1</td>
+      <td>PC 17558</td>
+      <td>247.5208</td>
+      <td>B58 B60</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Montreal, PQ</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Baxter, Mrs. James (Helene DeLaudeniere Chaput)</td>
+      <td>female</td>
+      <td>50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>PC 17558</td>
+      <td>247.5208</td>
+      <td>B58 B60</td>
+      <td>C</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>Montreal, PQ</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bazzani, Miss. Albina</td>
+      <td>female</td>
+      <td>32</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11813</td>
+      <td>76.2917</td>
+      <td>D15</td>
+      <td>C</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Beattie, Mr. Thomson</td>
+      <td>male</td>
+      <td>36</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13050</td>
+      <td>75.2417</td>
+      <td>C6</td>
+      <td>C</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>Winnipeg, MN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Beckwith, Mr. Richard Leonard</td>
+      <td>male</td>
+      <td>37</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11751</td>
+      <td>52.5542</td>
+      <td>D35</td>
+      <td>S</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
+      <td>female</td>
+      <td>47</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11751</td>
+      <td>52.5542</td>
+      <td>D35</td>
+      <td>S</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Behr, Mr. Karl Howell</td>
+      <td>male</td>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+      <td>111369</td>
+      <td>30.0000</td>
+      <td>C148</td>
+      <td>C</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>New York, NY</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bidois, Miss. Rosalie</td>
+      <td>female</td>
+      <td>42</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17757</td>
+      <td>227.5250</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bird, Miss. Ellen</td>
+      <td>female</td>
+      <td>29</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17483</td>
+      <td>221.7792</td>
+      <td>C97</td>
+      <td>S</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>1</td>
+      <td>0</td>
+      <td>Birnbaum, Mr. Jakob</td>
+      <td>male</td>
+      <td>25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13905</td>
+      <td>26.0000</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>148.0</td>
+      <td>San Francisco, CA</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bishop, Mr. Dickinson H</td>
+      <td>male</td>
+      <td>25</td>
+      <td>1</td>
+      <td>0</td>
+      <td>11967</td>
+      <td>91.0792</td>
+      <td>B49</td>
+      <td>C</td>
+      <td>7</td>
+      <td>NaN</td>
+      <td>Dowagiac, MI</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bishop, Mrs. Dickinson H (Helen Walton)</td>
+      <td>female</td>
+      <td>19</td>
+      <td>1</td>
+      <td>0</td>
+      <td>11967</td>
+      <td>91.0792</td>
+      <td>B49</td>
+      <td>C</td>
+      <td>7</td>
+      <td>NaN</td>
+      <td>Dowagiac, MI</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bissette, Miss. Amelia</td>
+      <td>female</td>
+      <td>35</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17760</td>
+      <td>135.6333</td>
+      <td>C99</td>
+      <td>S</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Bjornstrom-Steffansson, Mr. Mauritz Hakan</td>
+      <td>male</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0</td>
+      <td>110564</td>
+      <td>26.5500</td>
+      <td>C52</td>
+      <td>S</td>
+      <td>D</td>
+      <td>NaN</td>
+      <td>Stockholm, Sweden / Washington, DC</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1279</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Vestrom, Miss. Hulda Amanda Adolfina</td>
+      <td>female</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>350406</td>
+      <td>7.8542</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1280</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Vovk, Mr. Janko</td>
+      <td>male</td>
+      <td>22</td>
+      <td>0</td>
+      <td>0</td>
+      <td>349252</td>
+      <td>7.8958</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1281</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Waelens, Mr. Achille</td>
+      <td>male</td>
+      <td>22</td>
+      <td>0</td>
+      <td>0</td>
+      <td>345767</td>
+      <td>9.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Antwerp, Belgium / Stanton, OH</td>
+    </tr>
+    <tr>
+      <th>1282</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Ware, Mr. Frederick</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>359309</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1283</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Warren, Mr. Charles William</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>C.A. 49867</td>
+      <td>7.5500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1284</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Webber, Mr. James</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SOTON/OQ 3101316</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1285</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wenzel, Mr. Linhart</td>
+      <td>male</td>
+      <td>32.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>345775</td>
+      <td>9.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>298.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1286</th>
+      <td>3</td>
+      <td>1</td>
+      <td>Whabee, Mrs. George Joseph (Shawneene Abi-Saab)</td>
+      <td>female</td>
+      <td>38</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2688</td>
+      <td>7.2292</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1287</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Widegren, Mr. Carl/Charles Peter</td>
+      <td>male</td>
+      <td>51</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347064</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1288</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wiklund, Mr. Jakob Alfred</td>
+      <td>male</td>
+      <td>18</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3101267</td>
+      <td>6.4958</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>314.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1289</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wiklund, Mr. Karl Johan</td>
+      <td>male</td>
+      <td>21</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3101266</td>
+      <td>6.4958</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1290</th>
+      <td>3</td>
+      <td>1</td>
+      <td>Wilkes, Mrs. James (Ellen Needs)</td>
+      <td>female</td>
+      <td>47</td>
+      <td>1</td>
+      <td>0</td>
+      <td>363272</td>
+      <td>7.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1291</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Willer, Mr. Aaron ("Abi Weller")</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3410</td>
+      <td>8.7125</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1292</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Willey, Mr. Edward</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>S.O./P.P. 751</td>
+      <td>7.5500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1293</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Williams, Mr. Howard Hugh "Harry"</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>A/5 2466</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1294</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Williams, Mr. Leslie</td>
+      <td>male</td>
+      <td>28.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>54636</td>
+      <td>16.1000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>14.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1295</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Windelov, Mr. Einar</td>
+      <td>male</td>
+      <td>21</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SOTON/OQ 3101317</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1296</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wirz, Mr. Albert</td>
+      <td>male</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>315154</td>
+      <td>8.6625</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>131.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1297</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wiseman, Mr. Phillippe</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>A/4. 34244</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1298</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Wittevrongel, Mr. Camille</td>
+      <td>male</td>
+      <td>36</td>
+      <td>0</td>
+      <td>0</td>
+      <td>345771</td>
+      <td>9.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1299</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Yasbeck, Mr. Antoni</td>
+      <td>male</td>
+      <td>27</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2659</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1300</th>
+      <td>3</td>
+      <td>1</td>
+      <td>Yasbeck, Mrs. Antoni (Selini Alexander)</td>
+      <td>female</td>
+      <td>15</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2659</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1301</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Youseff, Mr. Gerious</td>
+      <td>male</td>
+      <td>45.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2628</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>312.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1302</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Yousif, Mr. Wazli</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2647</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1303</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Yousseff, Mr. Gerious</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2627</td>
+      <td>14.4583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Zabour, Miss. Hileni</td>
+      <td>female</td>
+      <td>14.5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2665</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>328.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1305</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Zabour, Miss. Thamine</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2665</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Zakarian, Mr. Mapriededer</td>
+      <td>male</td>
+      <td>26.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2656</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>304.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Zakarian, Mr. Ortin</td>
+      <td>male</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2670</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>3</td>
+      <td>0</td>
+      <td>Zimmerman, Mr. Leo</td>
+      <td>male</td>
+      <td>29</td>
+      <td>0</td>
+      <td>0</td>
+      <td>315082</td>
+      <td>7.8750</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1309 rows × 14 columns</p>
+</div>
+
+<p>Method: <code>dtypes</code></p>
+<pre><code class="python">dataset.dtypes()
+</code></pre>
+
+<pre><code>pclass         int64
+survived       int64
+name          object
+sex           object
+age           object
+sibsp          int64
+parch          int64
+ticket        object
+fare          object
+cabin         object
+embarked      object
+boat          object
+body         float64
+home.dest     object
+dtype: object
+</code></pre>
+<p>Method: <code>missing_values</code></p>
+<pre><code class="python">dataset.missing_values()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>body</th>
+      <td>1188</td>
+    </tr>
+    <tr>
+      <th>cabin</th>
+      <td>1014</td>
+    </tr>
+    <tr>
+      <th>boat</th>
+      <td>823</td>
+    </tr>
+    <tr>
+      <th>home.dest</th>
+      <td>564</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>263</td>
+    </tr>
+    <tr>
+      <th>embarked</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>fare</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>pclass</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>survived</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sibsp</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>parch</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ticket</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Method: <code>isNull</code></p>
+<pre><code class="python">dataset.isNull()
+</code></pre>
+
+<pre><code>Cuidado que existen valores nulos
+
+
+
+
+
+True
+</code></pre>
+<p>Method: <code>view_features</code></p>
+<pre><code class="python">dataset.view_features()
+</code></pre>
+
+<pre><code>['pclass',
+ 'survived',
+ 'name',
+ 'sex',
+ 'age',
+ 'sibsp',
+ 'parch',
+ 'ticket',
+ 'fare',
+ 'cabin',
+ 'embarked',
+ 'boat',
+ 'body',
+ 'home.dest']
+</code></pre>
+<p>Method: <code>categorical_vs_numerical</code></p>
+<pre><code class="python">_, _ = dataset.categorical_vs_numerical()
+</code></pre>
+
+<pre><code>Number of categorical features: 9
+Number of numerical features: 5
+</code></pre>
+<p>Method: <code>type_object</code></p>
+<pre><code class="python">dataset.type_object()
+</code></pre>
+
+<pre><code>['name',
+ 'sex',
+ 'age',
+ 'ticket',
+ 'fare',
+ 'cabin',
+ 'embarked',
+ 'boat',
+ 'home.dest']
+</code></pre>
+<p>Method: <code>not_type_object</code></p>
+<pre><code class="python">dataset.not_type_object()
+</code></pre>
+
+<pre><code>['pclass', 'survived', 'sibsp', 'parch', 'body']
+</code></pre>
+<pre><code class="python">
+</code></pre>
+
+<h1 id="api">API</h1></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
