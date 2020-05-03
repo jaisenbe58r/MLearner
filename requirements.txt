@@ -4,10 +4,10 @@ Flask
 
 
 # Frameworks
-scikit-learn
+scikit-learn==0.22.2
 scikit-image
-matplotlib
-pandas
+matplotlib>=3.1.1
+pandas>=0.25.0
 numpy
 seaborn
 shap
