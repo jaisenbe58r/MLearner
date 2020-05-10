@@ -5,7 +5,6 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-from .ml_clasifier import TrainingUtilities, PipelineClasificators, wrapper_model
+from .load_data_images import load_image, plot_image, plot_image2
 
-
-__all__ = ["TrainingUtilities", "PipelineClasificators", "wrapper_model"]
+__all__ = ["load_image", "plot_image", "plot_image2"]

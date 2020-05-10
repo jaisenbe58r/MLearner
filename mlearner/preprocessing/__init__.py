@@ -18,6 +18,8 @@ from .extract_target import ExtractCategories
 from .base_preprocess import DataExploratory, DataAnalyst
 from .feature_selector import FeatureSelector, DataFrameSelector, DropFeatures, CopyFeatures
 from .reduce_feature import PCA_selector, LDA_selector, PCA_add, LDA_add
+from .perfomance_transformers import OrientationClassTransformer, MFD_OrientationClassTransformer
+from .perfomance_transformers import ClassTransformer_value, Keep
 
 __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
             "FillNaTransformer_median", "FillNaTransformer_mean",
@@ -29,4 +31,6 @@ __all__ = ["minmax_scaling", "MeanCenterer", "FeatureDropper",
             "DataAnalyst", "LabelEncoder", "StandardScaler",
             "FeatureSelector", "DataFrameSelector", "CategoricalEncoder",
             "PCA_selector", "LDA_selector", "PCA_add", "LDA_add",
-            "DropFeatures", "CopyFeatures"]
+            "DropFeatures", "CopyFeatures",
+            "OrientationClassTransformer", "MFD_OrientationClassTransformer"
+            "ClassTransformer_value", "Keep"]

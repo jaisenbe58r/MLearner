@@ -149,7 +149,7 @@ class FeatureSelection(object):
 
         return embeded_rf_support, embeded_rf_feature, embeded_rf_selector
 
-    def LightGBM(self, X, y):
+    def LightGBM(self, X, y, n_estimators=100):
         """
         LightGBM
 
@@ -157,8 +157,7 @@ class FeatureSelection(object):
             Impute missing values: No
         """
         from lightgbm import LGBMClassifier
-        lgbc = LGBMClassifier(n_estimators=500, learning_rate=0.05, num_leaves=32, colsample_bytree=0.2,
-                                reg_alpha=3, reg_lambda=1, min_split_gain=0.01, min_child_weight=40)
+        lgbc = LGBMClassifier(n_estimators=n_estimators)
         # lgbc = modelLightBoost()
 
         embeded_lgb_selector = SelectFromModel(lgbc, threshold='1.25*median')

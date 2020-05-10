@@ -63,7 +63,7 @@ class EvaluationModels(object):
 
         return scores.mean()
 
-    def evaluacion_rf_2features(self, data_eval, data_eval_target, targets=[0, 1], logdir_report="", display=True):
+    def evaluacion_rf_2features(self, data_eval, data_eval_target, targets=[0, 1], save=False, logdir_report="", display=True):
         """
         Funcion que nos selecciona el thresholder más optimo:
 
@@ -115,8 +115,9 @@ class EvaluationModels(object):
             plt.ylabel("Result")
             plt.title("Resultado segun thresholders")
             plt.xlim(-0.1, 1.1)
-
-            plt.savefig(logdir_report + "_eval.png")
+            plt.show()
+            if save:
+                plt.savefig(logdir_report + "_eval.png")
 
         df["prediction"] = np.where(df[0] >= thresholders[index], targets[1], targets[0])
         df["actual"] = list(data_eval_target)
@@ -161,7 +162,7 @@ class EvaluationModels(object):
             if save_image:
                 plt.savefig(logdir_report + "_ROC.png")
 
-            plt.close()
+            # plt.close()
 
         return df, _auc
 
@@ -187,7 +188,7 @@ class EvaluationModels(object):
             roc_auc = auc(fpr, tpr)
             aucs.append(roc_auc)
             ax.plot(fpr, tpr, lw=1, alpha=0.3,
-                    label='ROC fold %d (AUC = %0.2f)' % (i, roc_auc))
+                    label='ROC fold %d (AUC = %0.2f)' % (i+1, roc_auc))
 
         # Plot the luck line.
         plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r', label='Luck', alpha=.8)
@@ -235,7 +236,7 @@ class EvaluationModels(object):
 
         return fpr, tpr, auc_score
 
-    def class_report(self, y_true, predictions, clases, logdir_report):
+    def class_report(self, y_true, predictions, clases, save=False, logdir_report=""):
         """
         Un informe de clasificacion se utiliza para medir la calidad de las predicciones de un
         algoritmo de clasificacion. Cuántas predicciones son verdaderas y cuántas son falsas.
@@ -285,7 +286,8 @@ class EvaluationModels(object):
         cr = classification_report(y_true, predictions, target_names=target_names)
         print("\nInforme de clasificacion:\n")
         print(cr)
-        print(cr,  file=open(logdir_report + "_Informe_Clasificacion" + ".txt", 'w'))
+        if save:
+            print(cr, file=open(logdir_report + "_Informe_Clasificacion" + ".txt", 'w'))
 
         return cr
 

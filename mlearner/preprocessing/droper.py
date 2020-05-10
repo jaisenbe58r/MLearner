@@ -176,7 +176,7 @@ class DropOutliers(BaseEstimator, TransformerMixin):
             IQR_min = data_transform[_f].quantile(0.25) - 1.5*IQR
 
             data_transform = data_transform[(data_transform[_f] > IQR_min) & (data_transform[_f] < IQR_max)]
-            
+
             if self.display:
                 ax[i].hist(data_transform[_f], density=True, color="g", alpha=0.7)
                 ax[i].hist(X[_f], density=True, color="r", alpha=0.7)

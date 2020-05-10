@@ -68,22 +68,32 @@ class Training(EvaluationModels):
 
         else:
             for (train, test), i in zip(kf.split(X, y), range(n_splits)):
-                model.fit(X.iloc[train], y.iloc[train], verbose=verbose)
+                model.fit(X.iloc[train], y.iloc[train])
                 _, _, auc_score_train = self.compute_roc_auc(model, train, X, y)
                 fpr, tpr, auc_score = self.compute_roc_auc(model, test, X, y)
-                scores.append((auc_score_train, auc_score))
+
+                predictions_train = model.predict(X.iloc[train])
+                predictions_test = model.predict(X.iloc[test])
+
+                score_train = accuracy_score(y.iloc[train], predictions_train)
+                score_test = accuracy_score(y.iloc[test], predictions_test)
+
+                scores.append((auc_score_train, auc_score, score_train, score_test))
                 fprs.append(fpr)
                 tprs.append(tpr)
 
             self.create_ROC_pro(fprs, tprs, X, y, targets=targets, logdir_report=logdir_report,
                                     display=display, save_image=save_image)
-            resultados = pd.DataFrame(scores, columns=['AUC Train', 'AUC Test'])
-            score_general_test = resultados['AUC Test'].mean()
+            resultados = pd.DataFrame(scores, columns=['AUC Train', 'AUC Test',
+                                                        'Acc Train', 'Acc Test'])
+            score_general_test = resultados['Acc Test'].mean()
 
         if not mute:
             print("\n")
             print("----> Resultado de la validacion cruzada: {:.3f}%".format(score_general_test*100))
-
+            if ROC:
+                print("----> Resultado de la validacion cruzada AUC: {:.3f}%".format(
+                                                                resultados['AUC Test'].mean()*100))
         return resultados, score_general_test
 
     def FineTune(self, model, X, y, params, refit='Accuracy', cv=3, verbose=0, randomized=True, n_iter=100, mute=False):
@@ -108,7 +118,6 @@ class Training(EvaluationModels):
         self._pre_model = model
 
         self.scoring = scoring
-        self.params = params
 
         if randomized:
             self.grid_obj = RandomizedSearchCV(model, params, n_iter=n_iter, cv=cv, verbose=verbose,
@@ -214,7 +223,7 @@ class Training(EvaluationModels):
         # print(model.get_params())
         print('=='*35)
         predictions = model.predict(X)
-        preds = np.where(predictions > 0.5, 1, 0)
+        preds = [np.argmax(line) for line in predictions]
         report = classification_report(y, preds)
         score = accuracy_score(y_true=y, y_pred=preds)
 

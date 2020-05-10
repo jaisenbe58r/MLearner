@@ -62,16 +62,21 @@ class modelXGBoost(Training, BaseEstimator, ClassifierMixin):
         https://xgboost.readthedocs.io/en/latest/
         https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/
     """
-    def __init__(self, name="XGB", random_state=99, train_dir="",  *args, **kwargs):
+    def __init__(self, name="XGB", random_state=99, train_dir="", params=None, *args, **kwargs):
 
         self.name = name
         self.train_dir = train_dir + "/" + "model_" + str(self.name) + "/"
         self.random_state = random_state
 
-        self.get_params_json()
-        self.params.update({
-                    'model_dir': self.train_dir,
-                    "seed": self.random_state})
+        if params is None:
+            self.get_params_json()
+            self.params.update({
+                        'model_dir': self.train_dir,
+                        "seed": self.random_state})
+        else:
+            # if isinstance(params)
+            self.params = params
+
         self.model = XGBClassifier(**self.params)
         super().__init__(self.model, random_state=self.random_state)
 
@@ -209,6 +214,10 @@ class modelXGBoost(Training, BaseEstimator, ClassifierMixin):
         preds = self.model.predict(xgb.DMatrix(_X_copy), *args, **kwargs)
         return np.where(preds > 0.5, 1, 0)
 
+    def pred_multiclass(self, X, *args, **kwargs):
+        _X_copy = X.loc[:, self.columns].copy()
+        return [np.argmax(line) for line in self.model.predict(xgb.DMatrix(_X_copy))]
+
     def update_model(self, **kwargs):
         for k, v in kwargs.items():
             setattr(self.model, k, v)
@@ -276,13 +285,17 @@ class modelXGBoost(Training, BaseEstimator, ClassifierMixin):
 
         return _feature_importance_df
 
-    def FineTune_SearchCV(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, ROC=False,
+    def FineTune_SearchCV(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, params=None, params_finetune=None, ROC=False,
                             randomized=True, cv=10, n_iter=10, replace_model=True, verbose=0, nosplit=False, finetune_dir=""):
         self.get_params_json()
         self.finetune_dir = finetune_dir + "/" + "model_finetune_" + str(self.name) + "/"
         self.params.update({
                     'train_dir': self.finetune_dir,
                     "seed": self.random_state})
+        if params is not None:
+            self.params = params
+        if params_finetune is not None:
+            self.params_finetune = params_finetune
 
         if not nosplit:
             self.dataset(X, y)
@@ -295,10 +308,9 @@ class modelXGBoost(Training, BaseEstimator, ClassifierMixin):
         self._best_Parameters, self.results_df = self.FineTune(self.model, self.X_train, self.y_train, self.params_finetune,
                                                                 randomized=True, cv=cv, n_iter=n_iter, verbose=1)
         self.params.update(**self._best_Parameters)
-
         self.fit(self.X_train, self.y_train, verbose=1)
 
-        score = accuracy_score(self.y_test, self.pred_binary(self.X_test))
+        score = accuracy_score(self.y_test, self.pred_multiclass(self.X_test))
         print("Resultado del conjunto de test con los parametros optimos: {:.2f}%".format(score*100))
         print("\n")
         print("Report clasificacion con el conjunto de test: ")

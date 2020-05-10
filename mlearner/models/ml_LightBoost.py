@@ -13,7 +13,7 @@ import datetime
 import joblib
 import time
 
-from sklearn.base import BaseEstimator, TransformerMixin, ClassifierMixin
+from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -36,15 +36,20 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
     Ejemplo multiclass:
     https://www.kaggle.com/nicapotato/multi-class-lgbm-cv-and-seed-diversification
     """
-    def __init__(self, name="LGB", random_state=99, train_dir="",  *args, **kwargs):
+    def __init__(self, name="LGB", random_state=99, train_dir="", params=None, *args, **kwargs):
 
         self.name = name
         self.train_dir = train_dir + "/" + "model_" + str(self.name) + "/"
         self.random_state = random_state
-        self.get_params_json()
-        self.params.update({
-                    'train_dir': self.train_dir,
-                    "seed": self.random_state})
+
+        if params is None:
+            self.get_params_json()
+            self.params.update({
+                        'model_dir': self.train_dir,
+                        "seed": self.random_state})
+        else:
+            # if isinstance(params)
+            self.params = params
 
         self.model = LGBMClassifier(**self.params)
         super().__init__(self.model, random_state=self.random_state)
@@ -118,10 +123,10 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
                                 verbose_eval=verbose,
                                 **kwargs)
 
-        preds_test = self.pred_binary(self.X_test)
+        preds_test = [np.argmax(line) for line in self.model.predict(self.X_test, num_iteration=self.model.best_iteration)]
         score_test = accuracy_score(self.y_test, preds_test)
 
-        preds_train = self.pred_binary(self.X_train)
+        preds_train = [np.argmax(line) for line in self.model.predict(self.X_train, num_iteration=self.model.best_iteration)]
         score_train = accuracy_score(self.y_train, preds_train)
 
         if not mute:
@@ -146,7 +151,7 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
                                 seed=self.random_state,
                                 early_stopping_rounds=early_stopping_rounds,
                                 **kwargs)
-        loss = self.params["metric"][0]
+        loss = self.params["metric"]
         optimal_rounds = np.argmin(self.lgb_cv[str(loss) + '-mean'])
         best_cv_score = min(self.lgb_cv[str(loss) + '-mean'])
 
@@ -177,6 +182,10 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
         _X_copy = X.loc[:, self.columns].copy()
         preds = self.model.predict(_X_copy, *args, **kwargs)
         return np.where(preds > 0.5, 1, 0)
+
+    def pred_multiclass(self, X, *args, **kwargs):
+        _X_copy = X.loc[:, self.columns].copy()
+        return [np.argmax(line) for line in self.model.predict(_X_copy, num_iteration=self.model.best_iteration)]
 
     def update_model(self, **kwargs):
         for k, v in kwargs.items():
@@ -240,7 +249,7 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
             plt.show()
         # return _feature_importance_df
 
-    def FineTune_SearchCV(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, ROC=False,
+    def FineTune_SearchCV(self, X=None, y=None, X_train=None, X_test=None, y_train=None, y_test=None, params=None, params_finetune=None, ROC=False,
                             randomized=True, cv=10, display_ROC=True, verbose=0, n_iter=10, replace_model=True, nosplit=False, finetune_dir=""):
 
         self.get_params_json()
@@ -249,6 +258,11 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
         self.params.update({
                     'train_dir': self.finetune_dir,
                     "seed": self.random_state})
+        if params is not None:
+            self.params = params
+        if params_finetune is not None:
+            self.params_finetune = params_finetune
+
         if not nosplit:
             self.dataset(X, y)
         else:
@@ -261,8 +275,9 @@ class modelLightBoost(Training, BaseEstimator, ClassifierMixin):
                                                                 cv=cv, randomized=True, n_iter=n_iter, verbose=1)
         self.params.update(**self._best_Parameters)
         self.fit(self.X_train, self.y_train)
+
         print("\n")
-        score = accuracy_score(self.y_test, self.pred_binary(self.X_test))
+        score = accuracy_score(self.y_test, self.pred_multiclass(self.X_test))
         print("\n")
         print("Resultado del conjunto de test con los parametros optimos: {:.2f}%".format(score*100))
         print("\n")
