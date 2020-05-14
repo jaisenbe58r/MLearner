@@ -5,7 +5,7 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-from .ml_clasifier import TrainingUtilities, PipelineClasificators, wrapper_model
+from .ml_clasifier import TrainingUtilities, PipelineClasificators, wrapper_model, wrapper_pipeline
 
 
-__all__ = ["TrainingUtilities", "PipelineClasificators", "wrapper_model"]
+__all__ = ["TrainingUtilities", "PipelineClasificators", "wrapper_model", "wrapper_pipeline"]

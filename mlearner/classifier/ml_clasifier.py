@@ -803,6 +803,11 @@ class wrapper_model(BaseEstimator, TransformerMixin):
         self.pipe = pickle.load(open(filename, 'rb'))
         return self.pipe
 
+    @classmethod
+    def restore_pipeline_v1(cls, filename, random_state=99, name="Pipeline_model"):
+        cls.pipe = pickle.load(open(filename, 'rb'))
+        return cls(random_state, name)
+
     def train_test(self, X, y, test_size=0.1):
         return train_test_split(X, y, test_size=test_size, random_state=self.random_state, stratify=y)
 
@@ -842,7 +847,158 @@ class wrapper_model(BaseEstimator, TransformerMixin):
         resultados, score_general_test = eva.KFold_CrossValidation(clf, _X, y, shuffle=True,
                                                                     n_splits=n_splits, ROC=ROC)
         self.line()
-        th, res, df = eva.evaluacion_rf_2features(_X, y)
+        if not hasattr(self, "best_estimador"):
+            clf = self.pipe.named_steps['model']
+        else:
+            clf = self.best_estimador.named_steps['model']
+        th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
+        print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
+
+        ## Save Model
+        self.line()
+        print("Save Model")
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print("** Path creado: ", path)
+
+        filename = self.name + ".pkl"
+        filename = os.path.join(path, filename)
+        eva.save_model(filename)
+        print("----> Modelo guardado en ", filename)
+        filename = "Pipeline_" + self.name + ".pkl"
+        filename = os.path.join(path, filename)
+        if not hasattr(self, "best_estimador"):
+            self.pipe.fit(X_train, y_train)
+            pickle.dump(self.pipe, open(filename, 'wb'))
+            print("----> Pipeline guardado en ", filename)
+        else:
+            self.best_estimador.fit(X_train, y_train)
+            pickle.dump(self.best_estimador, open(filename, 'wb'))
+            print("----> Pipeline guardado en ", filename)
+
+    def Pipeline_train(self, X, y, n_splits=10, Randomized=False, n_iter=20, threshold='median',
+                        clases=[0, 1], ROC=True, path="checkpoints/"):
+        print("="*60)
+        print("  Pipeline: ", self.name)
+        self.line()
+
+        ## Train-test-split
+        X_train, _, y_train, _ = self.train_test(X, y)
+
+        # Validacion cruzada sin optimizar
+        self.fit_cv(X_train, y_train, n_splits=n_splits)
+
+        # Optimización
+        if hasattr(self, "param_grid"):
+            _, _ = self.Grid_model(X_train, y_train, Randomized=Randomized, n_iter=20)
+
+        # Evaluación de resultados
+        self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path)
+
+
+class wrapper_pipeline(BaseEstimator, TransformerMixin):
+    """Wrapper for Estimator."""
+    def __init__(self, filename, name="model", random_state=99):
+        self.random_state = random_state
+        self.name = name
+        self.pipe = pickle.load(open(filename, 'rb'))
+
+    def build_param_grid(self, param_grid):
+        if isinstance(param_grid, dict):
+            self.param_grid = param_grid
+        else:
+            raise TypeError("Invalid type {}".format(type(param_grid)))
+
+    def fit(self, X, y):
+        self.pipe = self.pipe.fit(X, y)
+
+    def fit_cv(self, X, y, n_splits=10, scoring="accuracy", shuffle=False):
+        kfold = StratifiedKFold(n_splits=n_splits, shuffle=shuffle, random_state=self.random_state) 
+        print("Result CV sin optimizar: {:.3f}%  --  Metric: {}".format(
+                cross_val_score(self.pipe, X, y, cv=kfold, scoring=scoring).mean()*100, scoring))
+
+    def Grid_model(self, X, y, n_splits=10, scoring="accuracy", Randomized=False, n_iter=20):
+
+        if not hasattr(self, "param_grid"):
+            raise NameError("Not buid Param")
+
+        kfold = StratifiedKFold(n_splits=n_splits, random_state=self.random_state)
+        if Randomized:
+            search = RandomizedSearchCV(self.pipe, self.param_grid, n_jobs=-1, cv=kfold, n_iter=n_iter)
+        else:
+            search = GridSearchCV(self.pipe, self.param_grid, n_jobs=-1, cv=kfold)
+        search.fit(X, y)
+        print("Best parameter (CV score=%0.3f):" % search.best_score_)
+        print("  ", search.best_params_)
+        self.best_estimador = search.best_estimator_
+        self.pipe = search.best_estimator_
+        return search.best_params_, search.best_estimator_
+
+    def predict(self, X):
+        return self.pipe.predict(X)
+
+    def predict_proba(self, X):
+        return self.pipe.predict_proba(X)
+
+    def score(self, X, y):
+        return self.pipe.score(X, y)
+
+    def line(self):
+        print("="*60)
+        print("\n")
+
+    def Restore_model(self, filename="checkpoints/model.pkl"):
+        self.clf = pickle.load(open(filename, 'rb'))
+        return self.clf
+
+    def Restore_Pipeline(self, filename="checkpoints/Pipeline_model.pkl"):
+        self.pipe = pickle.load(open(filename, 'rb'))
+        return self.pipe
+
+    def train_test(self, X, y, test_size=0.1):
+        return train_test_split(X, y, test_size=test_size, random_state=self.random_state, stratify=y)
+
+    def cuarentena(self, X, y):
+        _preds = self.pipe.predict(X)
+        df = X["Id_cat"]
+        df["Result"] = _preds != y
+        del _preds
+        return df
+
+    def Evaluation_model(self, X, y, clases=[0, 1], save=True, ROC=True, n_splits=10,
+                            path="checkpoints/"):
+
+        X_train, X_test, y_train, y_test = self.train_test(X, y)
+
+        if not hasattr(self, "best_estimador"):
+            clf = self.pipe.named_steps['model']
+            transf = self.pipe.named_steps['pre-select']
+            self.pipe.fit(X_train, y_train)
+            y_pred = self.pipe.predict(X_test)
+        else:
+            clf = self.best_estimador.named_steps['model']
+            transf = self.best_estimador.named_steps['pre-select']
+            self.best_estimador.fit(X_train, y_train)
+            y_pred = self.best_estimador.predict(X_test)
+
+        eva = Training(clf, random_state=self.random_state)
+        _X = pd.DataFrame(transf.fit_transform(X, y))
+
+        self.line()
+        print("Confusion Matrix:")
+        print(eva.confusion_matrix(y_test, y_pred))
+        _ = eva.class_report(y_test, y_pred, clases=clases)
+
+        self.line()
+        print("ROC: Cross Validation:")
+        resultados, score_general_test = eva.KFold_CrossValidation(clf, _X, y, shuffle=True,
+                                                                    n_splits=n_splits, ROC=ROC)
+        self.line()
+        if not hasattr(self, "best_estimador"):
+            clf = self.pipe.named_steps['model']
+        else:
+            clf = self.best_estimador.named_steps['model']
+        th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
         print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         ## Save Model

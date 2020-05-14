@@ -63,7 +63,7 @@ class EvaluationModels(object):
 
         return scores.mean()
 
-    def evaluacion_rf_2features(self, data_eval, data_eval_target, targets=[0, 1], save=False, logdir_report="", display=True):
+    def evaluacion_rf_2features(self, clf, data_eval, data_eval_target, targets=[0, 1], save=False, logdir_report="", display=True):
         """
         Funcion que nos selecciona el thresholder más optimo:
 
@@ -82,7 +82,7 @@ class EvaluationModels(object):
         """
         results = []
 
-        probs = self.model.predict_proba(data_eval)
+        probs = clf.predict_proba(data_eval)
         prob = probs[:, 1]
         df = pd.DataFrame(prob)
         df = df.set_index(np.array(list(data_eval.index)))

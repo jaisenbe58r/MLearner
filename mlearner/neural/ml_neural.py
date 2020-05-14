@@ -207,14 +207,11 @@ class Neural(BaseEstimator, TransformerMixin):
 
         return th, res, df
 
-    def Evaluation_model(self, X, y, clases=[0, 1], save=True, n_splits=10, ROC=True,
+    def Evaluation_model(self, X_train, X_test, y_train, y_test, clases=[0, 1], save=True, n_splits=10, ROC=True,
                             path="checkpoints/", **params):
-        X_train, X_test, y_train, y_test = self.train_test(X, y)
-
         self.clf.fit(X_train, y_train, verbose=0, **params)
 
         y_pred = self.clf.predict(X_test)
-        eva = Training(self.clf, random_state=self.random_state)
 
         self.line()
         print("Confusion Matrix:")
@@ -224,7 +221,7 @@ class Neural(BaseEstimator, TransformerMixin):
         print(classification_report(y_test, self.predict(X_test), target_names=clases))
 
         self.line()
-        th, res, df = self._evaluacion_rf_2features(X, y)
+        th, res, df = self._evaluacion_rf_2features(X_test, y_test)
         print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         ## Save Model
@@ -237,19 +234,16 @@ class Neural(BaseEstimator, TransformerMixin):
         _filename = self.save_model(path, self.name)
         print("----> Modelo guardado en ", _filename)
 
-    def Pipeline_train(self, X, y, n_splits=10, clases=[0, 1], ROC=True, path="checkpoints/", **params):
+    def Pipeline_train(self, X, y, X_train, X_test, y_train, y_test, n_splits=10, clases=[0, 1], ROC=True, path="checkpoints/", **params):
         print("="*60)
         print("  Pipeline: ", self.name)
         self.line()
 
-        ## Train-test-split
-        X_train, _, y_train, _ = self.train_test(X, y)
-
         # Validacion cruzada sin optimizar
-        self.fit_cv(X_train, y_train, n_splits=n_splits, **params)
+        self.fit_cv(X, y, n_splits=n_splits, **params)
 
         # Evaluación de resultados
-        self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path, **params)
+        self.Evaluation_model(X_train, X_test, y_train, y_test, clases=clases, n_splits=n_splits, ROC=ROC, path=path, **params)
 
 
 class Neural_sklearn(BaseEstimator, TransformerMixin):
@@ -261,7 +255,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         """
         Example:
         def fn_clf(optimizer=tf.keras.optimizers.Adam(1e-3),
-                 kernel_initializer='glorot_uniform', 
+                 kernel_initializer='glorot_uniform',
                  dropout=0.2):
             model = tf.keras.models.Sequential()
             model.add(tf.keras.Input(shape=(8,)))
@@ -270,7 +264,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
             model.add(tf.keras.layers.Dense(1,activation='sigmoid',kernel_initializer=kernel_initializer))
 
             model.compile(loss='binary_crossentropy',
-                        optimizer=optimizer, 
+                        optimizer=optimizer,
                         metrics=['accuracy'])
             return model
 
