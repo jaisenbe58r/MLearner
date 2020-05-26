@@ -40,7 +40,7 @@ logger.setLevel(logging.INFO)
 # Dev branch marker is: 'X.Y.dev' or 'X.Y.devN' where N is an integer.
 # 'X.Y.dev0' is the canonical version of 'X.Y.dev'
 #
-__version__ = '0.1.6'
+__version__ = '0.1.7'
 
 
 # On OSX, we can get a runtime error due to multiple OpenMP libraries loaded
@@ -58,5 +58,5 @@ os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "True")
 os.environ.setdefault("KMP_INIT_AT_FORK", "FALSE")
 
 __all__ = ["classifier", "data", "evaluation", "externals",
-            "feature_selection", "load", "models", "preprocessing",
+            "feature_selection", "load", "images", "models", "neural", "preprocessing", "plotly",
             "training", "utils"]

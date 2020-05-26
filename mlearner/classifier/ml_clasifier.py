@@ -755,7 +755,7 @@ class wrapper_model(BaseEstimator, TransformerMixin):
         if isinstance(param_grid, dict):
             self.param_grid = param_grid
         else:
-            raise TypeError("Invalid type {}".format(type(param_grid)))      
+            raise TypeError("Invalid type {}".format(type(param_grid)))
 
     def fit(self, X, y):
         self.pipe = self.pipe.fit(X, y)
@@ -854,6 +854,9 @@ class wrapper_model(BaseEstimator, TransformerMixin):
         th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
         print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
+        self.save_general(path, X_train, y_train)
+
+    def save_general(self, path, X_train, y_train):
         ## Save Model
         self.line()
         print("Save Model")
@@ -861,10 +864,6 @@ class wrapper_model(BaseEstimator, TransformerMixin):
             os.makedirs(path)
             print("** Path creado: ", path)
 
-        filename = self.name + ".pkl"
-        filename = os.path.join(path, filename)
-        eva.save_model(filename)
-        print("----> Modelo guardado en ", filename)
         filename = "Pipeline_" + self.name + ".pkl"
         filename = os.path.join(path, filename)
         if not hasattr(self, "best_estimador"):
@@ -875,25 +874,32 @@ class wrapper_model(BaseEstimator, TransformerMixin):
             self.best_estimador.fit(X_train, y_train)
             pickle.dump(self.best_estimador, open(filename, 'wb'))
             print("----> Pipeline guardado en ", filename)
+        self.line()
 
     def Pipeline_train(self, X, y, n_splits=10, Randomized=False, n_iter=20, threshold='median',
-                        clases=[0, 1], ROC=True, path="checkpoints/"):
+                        clases=[0, 1], ROC=True, path="checkpoints/", eval=True, report=False):
         print("="*60)
         print("  Pipeline: ", self.name)
         self.line()
 
-        ## Train-test-split
-        X_train, _, y_train, _ = self.train_test(X, y)
-
         # Validacion cruzada sin optimizar
-        self.fit_cv(X_train, y_train, n_splits=n_splits)
+        self.fit_cv(X, y, n_splits=n_splits)
 
         # Optimización
         if hasattr(self, "param_grid"):
-            _, _ = self.Grid_model(X_train, y_train, Randomized=Randomized, n_iter=20)
+            best_params_, best_estimator_ = self.Grid_model(X, y, Randomized=Randomized, n_iter=20)
+            best_params_txt = os.path.join(path, "best_params.txt")
+
+            with open(best_params_txt, 'a') as file_txt:
+                file_txt.write(str(self.name + ":"))
+                file_txt.write("\n")
+                file_txt.write(str(best_params_))
+                file_txt.write("\n"*2)
+                file_txt.close()
 
         # Evaluación de resultados
-        self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path)
+        if eval:
+            self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path)
 
 
 class wrapper_pipeline(BaseEstimator, TransformerMixin):
@@ -1002,16 +1008,16 @@ class wrapper_pipeline(BaseEstimator, TransformerMixin):
         print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         ## Save Model
+        self.save_general(path, X_train, y_train)
+
+    def save_general(self, path, X_train, y_train):
+        ## Save Model
         self.line()
         print("Save Model")
         if not os.path.exists(path):
             os.makedirs(path)
             print("** Path creado: ", path)
 
-        filename = self.name + ".pkl"
-        filename = os.path.join(path, filename)
-        eva.save_model(filename)
-        print("----> Modelo guardado en ", filename)
         filename = "Pipeline_" + self.name + ".pkl"
         filename = os.path.join(path, filename)
         if not hasattr(self, "best_estimador"):
@@ -1022,23 +1028,23 @@ class wrapper_pipeline(BaseEstimator, TransformerMixin):
             self.best_estimador.fit(X_train, y_train)
             pickle.dump(self.best_estimador, open(filename, 'wb'))
             print("----> Pipeline guardado en ", filename)
+        self.line()
 
     def Pipeline_train(self, X, y, n_splits=10, Randomized=False, n_iter=20, threshold='median',
-                        clases=[0, 1], ROC=True, path="checkpoints/"):
+                        clases=[0, 1], ROC=True, path="checkpoints/", eval=True):
+        self.line()
         print("="*60)
         print("  Pipeline: ", self.name)
         self.line()
 
-        ## Train-test-split
-        X_train, _, y_train, _ = self.train_test(X, y)
-
         # Validacion cruzada sin optimizar
-        self.fit_cv(X_train, y_train, n_splits=n_splits)
+        self.fit_cv(X, y, n_splits=n_splits)
 
         # Optimización
         if hasattr(self, "param_grid"):
-            _, _ = self.Grid_model(X_train, y_train, Randomized=Randomized, n_iter=20)
+            _, _ = self.Grid_model(X, y, Randomized=Randomized, n_iter=20)
 
         # Evaluación de resultados
-        self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path)
+        if eval:
+            self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC, path=path)
 

@@ -51,6 +51,9 @@ doc/_build
 © 2018-2022 GitHub, Inc.
 
 .coveralls.yml
+
+
+
 checkpoints/*
 integration/Pruebas.ipynb
 ACUERDO 5.0 - EDA (Exploratory Data Analysis) v0.ipynb

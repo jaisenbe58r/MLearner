@@ -39,7 +39,7 @@ class DataLoad(object):
         self.num = 0
 
     @classmethod
-    def load_data(cls, filename, sep=';', decimal=",", **params):
+    def load_data(cls, filename, name="dataset", sep=';', decimal=",", **params):
         """Loading a dataset from a csv file.
 
         Parameters

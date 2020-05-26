@@ -16,9 +16,8 @@ from sklearn.model_selection import StratifiedKFold, train_test_split, cross_val
 from sklearn.metrics import accuracy_score
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.metrics import confusion_matrix, classification_report, roc_curve
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from sklearn.pipeline import Pipeline
-
-from mlearner.training import Training
 
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -224,6 +223,9 @@ class Neural(BaseEstimator, TransformerMixin):
         th, res, df = self._evaluacion_rf_2features(X_test, y_test)
         print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
+        self.save_general(path, X_train, y_train)
+
+    def save_general(self, path, X_train, y_train):
         ## Save Model
         self.line()
         print("Save Model")
@@ -286,6 +288,29 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         cls.pipe = pickle.load(open(filename, 'rb'))
         return cls(random_state, name)
 
+    def build_param_grid(self, param_grid):
+        if isinstance(param_grid, dict):
+            self.param_grid = param_grid
+        else:
+            raise TypeError("Invalid type {}".format(type(param_grid)))
+
+    def Grid_model(self, X, y, n_splits=10, scoring="accuracy", Randomized=False, n_iter=20):
+
+        if not hasattr(self, "param_grid"):
+            raise NameError("Not buid Param")
+
+        kfold = StratifiedKFold(n_splits=n_splits, random_state=self.random_state)
+        if Randomized:
+            search = RandomizedSearchCV(self.pipe, self.param_grid, n_jobs=-1, cv=kfold, n_iter=n_iter)
+        else:
+            search = GridSearchCV(self.pipe, self.param_grid, n_jobs=-1, cv=kfold)
+        search.fit(X, y)
+        print("Best parameter (CV score=%0.3f):" % search.best_score_)
+        print("  ", search.best_params_)
+        self.best_estimador = search.best_estimator_
+        self.pipe = search.best_estimator_
+        return search.best_params_, search.best_estimator_
+
     def save(self, path, name=None):
         if name is None:
             name_save = self.name
@@ -312,7 +337,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         print("Result CV sin optimizar: {:.3f}%  --  Metric: {}".format(
                 cross_val_score(self.pipe, X, y, cv=kfold, scoring=scoring).mean()*100, scoring))
 
-    def predict(self, X, y=None, binary=True):
+    def predict(self, X, y=None, binary=False):
         if not binary:
             _predictions = tf.argmax(self.pipe.predict(X), axis=1, output_type=tf.int32).numpy()
         else:
@@ -441,7 +466,8 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         #     pickle.dump(self.pipe, open(filename, 'wb'))
         #     print("----> Pipeline guardado en ", filename)
 
-    def Pipeline_train(self, X, y, n_splits=10, clases=[0, 1], ROC=True):
+    def Pipeline_train(self, X, y, n_splits=10, Randomized=False, n_iter=20, threshold='median',
+                        clases=[0, 1], ROC=True, path="checkpoints/", eval=True):
         print("="*60)
         print("  Pipeline: ", self.name)
         self.line()
@@ -449,11 +475,16 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         ## Train-test-split
         X_train, _, y_train, _ = self.train_test(X, y)
 
+        # Optimización
+        if hasattr(self, "param_grid"):
+            _, _ = self.Grid_model(X_train, y_train, Randomized=Randomized, n_iter=n_iter)
+
         # Validacion cruzada sin optimizar
         self.fit_cv(X_train, y_train, n_splits=n_splits)
 
         # Evaluación de resultados
-        self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC,
-                                path="checkpoints/")
+        if eval:
+            self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC,
+                                    path="checkpoints/")
 
 
