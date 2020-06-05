@@ -24,6 +24,9 @@ pytest>=4.6.6,<5.0.0
 pytest-cov
 codacy-coverage
 
+# Utils
+tqdm
+
 # doc
 mkdocs
 

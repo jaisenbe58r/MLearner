@@ -64,22 +64,35 @@ class ExtractCategories(BaseEstimator, TransformerMixin):
         self
 
         """
-        if not isinstance(X, pd.core.frame.DataFrame):
+        if not isinstance(X, pd.core.frame.DataFrame) and not isinstance(X, pd.core.series.Series):
             raise TypeError("Invalid type {}".format(type(X)))
 
         if self.target is None:
-            self.target = X.columns.tolist()[-1]
+            if isinstance(X, pd.core.series.Series):
+                raise NameError("especificar target distinto de None")
+            else:
+                self.target = X.columns.tolist()[-1]
         else:
-            if self.target not in X.columns.tolist():
-                print(X.columns.tolist())
-                raise NameError("Target '{}' not included in dataset columns".format(self.target))
+            if isinstance(X, pd.core.series.Series):
+                pass
+            else:
+                if self.target not in X.columns.tolist():
+                    print(X.columns.tolist())
+                    raise NameError("Target '{}' not included in dataset columns".format(self.target))
 
         if self.categories is None:
-            self.categories = X[self.target].unique().tolist()
+            if isinstance(X, pd.core.series.Series):
+                self.categories = X.unique().tolist()
+            else:
+                self.categories = X[self.target].unique().tolist()
         else:
             for i in self.categories:
-                if i not in X[self.target].unique().tolist():
-                    raise NameError("Category '{}' not included in dataset targets".format(i))
+                if isinstance(X, pd.core.series.Series):
+                    if i not in X.unique().tolist():
+                        raise NameError("Category '{}' not included in dataset targets".format(i))
+                else:
+                    if i not in X[self.target].unique().tolist():
+                        raise NameError("Category '{}' not included in dataset targets".format(i))
 
         self._fitted = True
         return self
@@ -101,15 +114,22 @@ class ExtractCategories(BaseEstimator, TransformerMixin):
         """
         check_is_fitted(self, '_fitted')
 
-        if not isinstance(X, pd.core.frame.DataFrame):
+        if not isinstance(X, pd.core.frame.DataFrame) and not isinstance(X, pd.core.series.Series):
             raise TypeError("Invalid type {}".format(type(X)))
 
         X_transform = X.copy()
-        X_transform = X[X[self.target] == self.categories[0]]
+        if isinstance(X, pd.core.series.Series):
+            X_transform = X[X == self.categories[0]]
+        else:
+            X_transform = X[X[self.target] == self.categories[0]]
         if len(self.categories) > 1:
             for i in range(len(self.categories)-1):
-                X_transform_aux = X[X[self.target] == self.categories[i+1]]
-                X_transform = pd.merge(left=X_transform, right=X_transform_aux, how="outer")
+                if isinstance(X, pd.core.series.Series):
+                    X_transform_aux = X[X == self.categories[i+1]]
+                    X_transform = X_transform.append(X_transform_aux)
+                else:
+                    X_transform_aux = X[X[self.target] == self.categories[i+1]]
+                    X_transform = pd.merge(left=X_transform, right=X_transform_aux, how="outer")
 
         return X_transform
 

@@ -129,7 +129,6 @@ class DataAnalyst(DataExploratory):
         """Size of plot."""
         _n = len(features)
         if not _n <= width:
-            width = 4
             nm = _n/width
         else:
             if _n > 1:
@@ -208,7 +207,7 @@ class DataAnalyst(DataExploratory):
         if not os.path.isdir(path):
             raise NameError("Invalid path {}".format(path))
 
-    def boxplot(self, features=None, target=None, display=False, save_image=False, path="/"):
+    def boxplot(self, features=None, target=None, display=False, save_image=False, path="/", width=2):
         """
         Funcion que realiza un BoxPlot sobre la dispesion de cada categoria
         respecto a los grupos de target.
@@ -225,17 +224,20 @@ class DataAnalyst(DataExploratory):
 
         _vars = [i for i in _features if not i == _target]
 
-        height, width = self._get_size_plot(features=_features)
-        figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
+        height, width = self._get_size_plot(features=_features, width=width)
+        figure, axs = plt.subplots(height, width, figsize=(width*5, height*3))
         ax = axs.flatten()
 
+        datos = []
         for i in range(len(_vars)):
+            datos = []
             _cont = list(self.data[_target].unique())
             for j in _cont:
                 data_train_group_j = self.data.groupby(_target).get_group(j)
-                ax[i].boxplot(data_train_group_j[_vars[i]], positions=np.array([len(_cont)-1]))
-                ax[i].set_title(_vars[i])
-                ax[i].legend(list(self.data[_target].unique()))
+                datos.append(data_train_group_j[_vars[i]])
+            ax[i].boxplot(datos, positions=np.array(range(2)))
+            ax[i].set_title(_vars[i])
+            ax[i].legend(list(self.data[_target].unique()))
 
         if display:
             figure.tight_layout()
@@ -244,7 +246,7 @@ class DataAnalyst(DataExploratory):
         if save_image:
             plt.savefig(path)
 
-    def dispersion_categoria(self, features=None, target=None, density=True, display=False, save_image=False, path="/"):
+    def dispersion_categoria(self, features=None, target=None, density=True, display=False, width=2, save_image=False, path="/"):
         """
         Funcion que realiza un plot sobre la dispesion de cada categoria respecto a los grupos de target.
 
@@ -261,8 +263,8 @@ class DataAnalyst(DataExploratory):
 
         _vars = [i for i in _features if not i == _target]
 
-        height, width = self._get_size_plot(features=_features)
-        figure, axs = plt.subplots(height, width, figsize=(width*3, height*3))
+        height, width = self._get_size_plot(features=_features, width=width)
+        figure, axs = plt.subplots(height, width, figsize=(width*5, height*3))
         ax = axs.flatten()
 
         for i in range(len(_vars)):

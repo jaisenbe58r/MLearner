@@ -62,19 +62,25 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
         self
 
         """
-        if not isinstance(X, pd.core.frame.DataFrame):
+        if not isinstance(X, pd.core.frame.DataFrame) and not isinstance(X, pd.core.series.Series):
             raise TypeError("Invalid type {}".format(type(X)))
 
-        _lista = [i for i in self.columns if i not in X.columns.tolist()]
-        if len(_lista) > 0:
-            raise NameError("The columns {} no exist in Dataframe".format(_lista))
+        if not isinstance(X, pd.core.series.Series):
+            _lista = [i for i in self.columns if i not in X.columns.tolist()]
+            if len(_lista) > 0:
+                raise NameError("The columns {} no exist in Dataframe".format(_lista))
 
         if self.mapping is not None:
             _keys = list(self.mapping)
-            for col in self.columns:
-                _lista = [i for i in _keys if i not in X[col].unique().tolist()]
+            if not isinstance(X, pd.core.series.Series):
+                for col in self.columns:
+                    _lista = [i for i in _keys if i not in X[col].unique().tolist()]
+                    if len(_lista) > 0:
+                        raise NameError("The Keys {} no exist on column {}".format(_lista, col))
+            else:
+                _lista = [i for i in _keys if i not in X.unique().tolist()]
                 if len(_lista) > 0:
-                    raise NameError("The Keys {} no exist on column {}".format(_lista, col))
+                    raise NameError("The Keys {} no exist".format(_lista))
 
         self._fitted = True
         return self
@@ -96,13 +102,15 @@ class ReplaceTransformer(BaseEstimator, TransformerMixin):
         """
         check_is_fitted(self, '_fitted')
 
-        if not isinstance(X, pd.core.frame.DataFrame):
+        if not isinstance(X, pd.core.frame.DataFrame) and not isinstance(X, pd.core.series.Series):
             raise TypeError("Invalid type {}".format(type(X)))
 
         X_transform = X.copy()
-        for f in self.columns:
-            X_transform[f] = X_transform[f].replace(self.mapping)
-
+        if not isinstance(X, pd.core.series.Series):
+            for f in self.columns:
+                X_transform[f] = X_transform[f].replace(self.mapping)
+        else:
+            X_transform = X_transform.replace(self.mapping)
         return X_transform
 
 

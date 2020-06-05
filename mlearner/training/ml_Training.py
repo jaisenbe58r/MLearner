@@ -18,6 +18,8 @@ from sklearn.metrics import classification_report
 
 from mlearner.evaluation import EvaluationModels
 
+from tqdm import tqdm
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -50,7 +52,7 @@ class Training(EvaluationModels):
         fprs, tprs, scores = [], [], []
 
         if not ROC:
-            for (train, test), i in zip(kf.split(X, y), range(n_splits)):
+            for (train, test), i in tqdm(zip(kf.split(X, y), range(n_splits))):
                 model.fit(X.iloc[train], y.iloc[train])
 
                 predictions_train = model.predict(X.iloc[train])
@@ -67,7 +69,7 @@ class Training(EvaluationModels):
             score_general_test = resultados['Score Test'].mean()
 
         else:
-            for (train, test), i in zip(kf.split(X, y), range(n_splits)):
+            for (train, test), i in tqdm(zip(kf.split(X, y), range(n_splits))):
                 model.fit(X.iloc[train], y.iloc[train])
                 _, _, auc_score_train = self.compute_roc_auc(model, train, X, y)
                 fpr, tpr, auc_score = self.compute_roc_auc(model, test, X, y)
@@ -190,7 +192,7 @@ class Training(EvaluationModels):
         # Get the regular numpy array from the MaskedArray
         X_axis = np.array(results[param[0]].data, dtype=float)
 
-        for scorer, color in zip(sorted(self.scoring), ['g', 'k']):
+        for scorer, color in tqdm(zip(sorted(self.scoring), ['g', 'k'])):
             for sample, style in (('train', '--'), ('test', '-')):
                 sample_score_mean = results['mean_%s_%s' % (sample, scorer)]
                 sample_score_std = results['std_%s_%s' % (sample, scorer)]

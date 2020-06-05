@@ -253,7 +253,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         self.random_state = random_state
         self.name = name
 
-    def buid_Pipeline(self, fn_clf, **params):
+    def buid_Pipeline(self, fn_clf, pipeline_preprocess, **params):
         """
         Example:
         def fn_clf(optimizer=tf.keras.optimizers.Adam(1e-3),
@@ -277,10 +277,13 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
             verbose:0
             }
         """
+        model = tf.keras.wrappers.scikit_learn.KerasClassifier(build_fn=fn_clf, **params)
         ## Pipeline
         self.pipe = Pipeline([
-                ('NN_keras', tf.keras.wrappers.scikit_learn.KerasClassifier(build_fn=fn_clf,
-                                                                            **params))
+                ("pre-select", Pipeline([
+                    ("preprocess", pipeline_preprocess),
+                ])),
+                ("model", model)
                 ])
 
     @classmethod
@@ -322,6 +325,22 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         print("----> Pipeline guardado en ", filename)
         return filename
 
+    def save_general(self, path, X_train, y_train):
+        ## Save Model
+        self.line()
+        print("Save Model")
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print("** Path creado: ", path)
+
+        filename = "Pipeline_" + self.name + ".pkl"
+        filename = os.path.join(path, filename)
+
+        # self.pipe.fit(X_train, y_train)
+        pickle.dump(self.pipe, open(filename, 'wb'))
+        print("----> Pipeline guardado en ", filename)
+        self.line()
+
     def summary(self):
         clf = self.pipe.named_steps['model']
         clf.summary()
@@ -337,11 +356,11 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         print("Result CV sin optimizar: {:.3f}%  --  Metric: {}".format(
                 cross_val_score(self.pipe, X, y, cv=kfold, scoring=scoring).mean()*100, scoring))
 
-    def predict(self, X, y=None, binary=False):
+    def predict(self, X, y=None, binary=True):
         if not binary:
             _predictions = tf.argmax(self.pipe.predict(X), axis=1, output_type=tf.int32).numpy()
         else:
-            _predictions = self.pipe.predict(X).reshape(-1)
+            _predictions = self.pipe.predict(X)
         return _predictions
 
     def predict_proba(self, X, y=None):
@@ -472,15 +491,12 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         print("  Pipeline: ", self.name)
         self.line()
 
-        ## Train-test-split
-        X_train, _, y_train, _ = self.train_test(X, y)
-
         # Optimización
         if hasattr(self, "param_grid"):
-            _, _ = self.Grid_model(X_train, y_train, Randomized=Randomized, n_iter=n_iter)
+            _, _ = self.Grid_model(X, y, Randomized=Randomized, n_iter=n_iter)
 
         # Validacion cruzada sin optimizar
-        self.fit_cv(X_train, y_train, n_splits=n_splits)
+        self.fit_cv(X, y, n_splits=n_splits)
 
         # Evaluación de resultados
         if eval:

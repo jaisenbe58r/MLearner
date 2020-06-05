@@ -851,8 +851,8 @@ class wrapper_model(BaseEstimator, TransformerMixin):
             clf = self.pipe.named_steps['model']
         else:
             clf = self.best_estimador.named_steps['model']
-        th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
-        print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
+        # th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
+        # print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         self.save_general(path, X_train, y_train)
 
@@ -1004,8 +1004,8 @@ class wrapper_pipeline(BaseEstimator, TransformerMixin):
             clf = self.pipe.named_steps['model']
         else:
             clf = self.best_estimador.named_steps['model']
-        th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
-        print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
+        # th, res, df = eva.evaluacion_rf_2features(clf, _X, y)
+        # print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         ## Save Model
         self.save_general(path, X_train, y_train)

@@ -59,4 +59,4 @@ os.environ.setdefault("KMP_INIT_AT_FORK", "FALSE")
 
 __all__ = ["classifier", "data", "evaluation", "externals",
             "feature_selection", "load", "images", "models", "neural", "preprocessing", "plotly",
-            "training", "utils"]
+            "training", "utils", "stacking"]
