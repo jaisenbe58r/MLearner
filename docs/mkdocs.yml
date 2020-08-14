@@ -12,7 +12,7 @@ edit_uri: docs/sources/user_guide/
 
 
 #include_search: true # not necessary for this theme
-docs_dir: sources
+docs_dir: docs/sources
 
 
 theme:

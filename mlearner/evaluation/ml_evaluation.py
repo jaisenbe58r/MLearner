@@ -1,5 +1,5 @@
 
-"""Jaime Sendra Berenguer-2018-2022.
+"""Jaime Sendra Berenguer-2020.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -15,6 +15,24 @@ from sklearn.metrics import roc_curve, auc, classification_report, confusion_mat
 
 
 class EvaluationModels(object):
+    """
+    Evaluacion de modelosself.
+
+    Parameters
+    ----------
+    model : Modelo a evaluearself.
+    random_state : Asignación de la semilla de aleatoriedad.
+
+    Attributes
+    ----------
+
+
+    See Also
+    --------
+    mlearner.load.DataLoad : Loading a dataset from a file or dataframe.
+
+    """
+
     def __init__(self, model, random_state=99):
         """
         Inicializacion e la clase de Preprocesado de un dataframe

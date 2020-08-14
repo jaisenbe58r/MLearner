@@ -1,5 +1,5 @@
 """
-Jaime Sendra Berenguer-2018-2022.
+Jaime Sendra Berenguer-2020.
 MLearner Machine Learning Library Extensions
 Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
@@ -65,7 +65,12 @@ def wine_data():
     License: BSD 3 clause
 
     """
-    data_csv = pd.read_csv(DATA_PATH, delimiter=',')
+    header = ['alcohol', 'malic acid', 'ash', 'ash alcalinity',
+                'magnesium', 'total phenols', 'flavanoids',
+                'nonflavanoid phenols', 'proanthocyanins',
+                'color intensity', 'hue', 'OD280/OD315 of diluted wines',
+                'proline']
+    data_csv = pd.read_csv(DATA_PATH, delimiter=',', names=header)
     X = data_csv[data_csv.columns[:-1]]
     y = data_csv[data_csv.columns[-1]].astype(int)
     return X, y

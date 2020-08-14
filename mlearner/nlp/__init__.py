@@ -5,7 +5,7 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-from .ml_Training import Training
+from .cnn import DCNN
+from .utils import Processor_data
 
-
-__all__ = ["Training"]
+__all__ = ["DCNN", "Processor_data"]

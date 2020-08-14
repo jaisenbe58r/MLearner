@@ -5,7 +5,5 @@ Author:Jaime Sendra Berenguer<www.linkedin.com/in/jaisenbe>
 License: MIT
 """
 
-from .ml_Training import Training
-
-
-__all__ = ["Training"]
+import tensorflow as tf
+from tensorflow.keras import layers
