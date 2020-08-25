@@ -6,7 +6,8 @@ License: MIT
 """
 
 from .params_manager import ParamsManager
-from .keras import keras_checkpoint
+from .keras import keras_checkpoint, MyCustomCallback, EarlyStoppingAtMinLoss,
+                    LearningRateScheduler, CustomSchedule_transformer
 
-
-__all__ = ["ParamsManager", "keras_checkpoint"]
+__all__ = ["ParamsManager", "keras_checkpoint", "MyCustomCallback",
+            "EarlyStoppingAtMinLoss", "LearningRateScheduler", "CustomSchedule_transformer"]

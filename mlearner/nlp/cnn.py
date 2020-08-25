@@ -8,6 +8,16 @@ License: MIT
 import tensorflow as tf
 from tensorflow.keras import layers
 
+"""
+Based on https://www.udemy.com/course/procesamiento-del-lenguaje-natural/learn/lecture/21502260#overview
+
+Author: Juan Gabriel Gomila
+Course: "Procesamiento del Lenguaje Natural Moderno en Python.
+
+Original Text: https://arxiv.org/pdf/1404.2188.pdf
+
+"""
+
 
 class DCNN(tf.keras.Model):
     """

@@ -7,6 +7,7 @@ License: MIT
 
 import os
 import pandas as pd
+import numpy as np
 
 import tensorflow as tf
 import tensorflow_datasets as tfds
@@ -55,6 +56,7 @@ class Processor_data():
             language="en",
             value=0,
             padding='post',
+            function=None,
             name="NLP"
             ):
         self.name = name
@@ -62,14 +64,26 @@ class Processor_data():
         self.language = language
         self.value = value
         self.padding = padding
+        self.function = function
 
     def clean(self, data):
         """
         Clean text.
         """
-        if not isinstance(data, pd.core.frame.DataFrame) and not isinstance(data, pd.core.series.Series):
+        if isinstance(data, np.ndarray):
+            return [self._clean_text(_text[0]) for _text in data]
+
+        elif isinstance(data, pd.core.frame.DataFrame) or isinstance(data, pd.core.series.Series):
+            if data.isna().sum()[0] > 0:
+                data = data.fillna(" ")
+            return [self._clean_text(_text[0]) for _text in data.values]
+
+        elif isinstance(data, list):
+            return [self._clean_text(_text) for _text in data]
+
+        else:
             data = data.split("\n")
-        return [self._clean_text(_text) for _text in data]
+            return [self._clean_text(_text) for _text in data]
 
     def apply_non_breaking_prefix(self, text, language="en"):
         """
@@ -104,15 +118,41 @@ class Processor_data():
     def _clean_text(self, text, split=None, non_breaking_prefix=True):
         """
         Regular expressions applied to text.
+
+        ```python
+        def Function_clean(non_breaking_prefix_en):
+            text = BeautifulSoup(text, "lxml").get_text()
+            # Eliminamos la @ y su mención
+            text = re.sub(r"@[A-Za-z0-9]+", ' ', text)
+            # Eliminamos los links de las URLs
+            text = re.sub(r"https?://[A-Za-z0-9./]+", ' ', text)
+            # Nos quedamos solamente con los caracteres
+            text = re.sub(r"[^a-zA-Z.!?']", ' ', text)
+            return text
+        ````
         """
-        text = BeautifulSoup(text, "lxml").get_text()
-        # Eliminamos la @ y su mención
-        text = re.sub(r"@[A-Za-z0-9]+", ' ', text)
-        # Eliminamos los links de las URLs
-        text = re.sub(r"https?://[A-Za-z0-9./]+", ' ', text)
-        # Nos quedamos solamente con los caracteres
-        text = re.sub(r"[^a-zA-Z.!?']", ' ', text)
-        # Aplicar  lista de palabras limpias con un punto al final
+        if str(text) == 'nan':
+            text = " "
+            print(text)
+
+        def Function_clean(text):
+            """
+            Función por defecto
+            """
+            text = BeautifulSoup(text, "lxml").get_text()
+            # Eliminamos la @ y su mención
+            text = re.sub(r"@[A-Za-z0-9]+", ' ', text)
+            # Eliminamos los links de las URLs
+            text = re.sub(r"https?://[A-Za-z0-9./]+", ' ', text)
+            # Nos quedamos solamente con los caracteres
+            text = re.sub(r"[^a-zA-Z.!?']", ' ', text)
+            return text
+
+        if self.function is None:
+            text = Function_clean(text)
+        else:
+            text = self.function(text)
+
         if non_breaking_prefix:
             text = self.apply_non_breaking_prefix(text)
         # Eliminamos espacios en blanco adicionales
@@ -155,16 +195,36 @@ class Processor_data():
             maxlen=self._MAX_LEN
             )
 
-    def process_text(self, data, eval=False):
+    def process_text(self, data, eval=False, isclean=False, padding=True):
         """
         Procesador completo de texto:
          - Limpieza con expresiones regulares
          - Tokenizador
          - Padding
         """
-        data = self.clean(data)
+        # Cleaning
+        if not isclean:
+            data = self.clean(data)
+        # List of strings
+        else:
+            if isinstance(data, np.ndarray):
+                data = [_text[0] for _text in data]
+            elif isinstance(data, pd.core.frame.DataFrame) or isinstance(data, pd.core.series.Series):
+                if data.isna().sum()[0] > 0:
+                    data = data.fillna(" ")
+                data = [_text[0] for _text in data.values]
+            elif isinstance(data, list):
+                data = [_text for _text in data]
+            else:
+                data = data.split("\n")
+                data = [_text for _text in data]
+        # Encoding
         data = self.encode_data(data, eval=eval)
-        return self.apply_padding(data, eval)
+        # Padding
+        if padding:
+            return self.apply_padding(data, eval)
+        else:
+            return data
 
 
 def delete_max_length(data_in, data_out=None, max_length=20):
