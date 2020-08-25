@@ -12,6 +12,6 @@ def test_import_wine():
     """Test import dataset wine."""
     X, y = wine_data()
 
-    assert(X.shape[1] == 13)
+    assert(X.shape[1] == 12)
     assert(len(y.unique().tolist()) == 3)
     assert(X.shape[0] == y.shape[0])

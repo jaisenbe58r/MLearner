@@ -28,4 +28,4 @@ __all__ = ["DCNN", "Processor_data", "open_txt",
             "mac_add", "ip_add", "subword", "lat_lon", "pos_look_ahead",
             "neg_look_ahead", "pos_look_behind",
             "neg_look_behind", "find_domain"
-            ]
+        ]
