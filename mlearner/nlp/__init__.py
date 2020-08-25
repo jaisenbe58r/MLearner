@@ -9,7 +9,7 @@ from .cnn import DCNN
 from .utils import Processor_data, open_txt
 from mlearner.nlp import helpers
 from .cnn_advanced import DCNN_Advanced
-from .transformer import Transformer
+from .transformer import Transformer, train_transformer
 
 __all__ = ["DCNN", "Processor_data", "open_txt", "helpers", "DCNN_Advanced",
-            "Transformer"]
+            "Transformer", "train_transformer"]
