@@ -12,7 +12,7 @@ edit_uri: docs/sources/user_guide/
 
 
 #include_search: true # not necessary for this theme
-docs_dir: docs/sources
+docs_dir: sources
 
 
 theme:
@@ -87,6 +87,44 @@ nav:
   #   - user_guide/externals/NotFittedError.md
   - utils:
     - user_guide/utils/ParamsManager.md
+  - nlp:
+    - user_guide/nlp/boundary.md
+    - user_guide/nlp/CountVectorizer.md
+    - user_guide/nlp/DCNN.md
+    - user_guide/nlp/find_at.md
+    - user_guide/nlp/find_capital.md
+    - user_guide/nlp/find_dates.md
+    - user_guide/nlp/find_dollar.md
+    - user_guide/nlp/find_domain.md
+    - user_guide/nlp/find_email.md
+    - user_guide/nlp/find_emoji.md
+    - user_guide/nlp/find_hash.md
+    - user_guide/nlp/find_nonalp.md
+    - user_guide/nlp/find_number.md
+    - user_guide/nlp/find_phone_number.md
+    - user_guide/nlp/find_punct.md
+    - user_guide/nlp/find_url.md
+    - user_guide/nlp/find_year.md
+    - user_guide/nlp/ip_add.md
+    - user_guide/nlp/lat_lon.md
+    - user_guide/nlp/mac_add.md
+    - user_guide/nlp/neg_look_ahead.md
+    - user_guide/nlp/neg_look_behind.md
+    - user_guide/nlp/ngrams_top.md
+    - user_guide/nlp/num_great.md
+    - user_guide/nlp/num_less.md
+    - user_guide/nlp/only_words.md
+    - user_guide/nlp/open_txt.md
+    - user_guide/nlp/pick_only_key_sentence.md
+    - user_guide/nlp/pick_unique_sentence.md
+    - user_guide/nlp/pos_look_ahead.md
+    - user_guide/nlp/pos_look_behind.md
+    - user_guide/nlp/Processor_data.md
+    - user_guide/nlp/remove_emoji.md
+    - user_guide/nlp/remove_tag.md
+    - user_guide/nlp/search_string.md
+    - user_guide/nlp/subword.md
+    - user_guide/nlp/unique_char.md
 - API:
   - api_subpackages/mlearner.data.md
   - api_subpackages/mlearner.preprocessing.md
@@ -97,6 +135,8 @@ nav:
   - api_subpackages/mlearner.models.md
   - api_subpackages/mlearner.training.md
   - api_subpackages/mlearner.utils.md
+  - api_subpackages/mlearner.nlp.md
+
 
 - Installation: installation.md
 - About:

@@ -21,7 +21,7 @@ class EvaluationModels(object):
     Parameters
     ----------
     model : Modelo a evaluearself.
-    random_state : Asignación de la semilla de aleatoriedad.
+    random_state : Asignacion de la semilla de aleatoriedad.
 
     Attributes
     ----------
@@ -83,7 +83,7 @@ class EvaluationModels(object):
 
     def evaluacion_rf_2features(self, clf, data_eval, data_eval_target, targets=[0, 1], save=False, logdir_report="", display=True):
         """
-        Funcion que nos selecciona el thresholder más optimo:
+        Funcion que nos selecciona el thresholder mas optimo:
 
         Inputs:
 
@@ -257,8 +257,8 @@ class EvaluationModels(object):
     def class_report(self, y_true, predictions, clases, save=False, logdir_report=""):
         """
         Un informe de clasificacion se utiliza para medir la calidad de las predicciones de un
-        algoritmo de clasificacion. Cuántas predicciones son verdaderas y cuántas son falsas.
-        Más especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
+        algoritmo de clasificacion. Cuantas predicciones son verdaderas y cuantas son falsas.
+        Mas especificamente, los Positivos verdaderos, los Positivos falsos, los negativos
         verdaderos y los negativos falsos se utilizan para predecir las metricas de un informe
         de clasificacion.
 
@@ -294,8 +294,8 @@ class EvaluationModels(object):
 
         El  puntaje F 1 es una media armonica ponderada de precision y recuperacion de modo que
         el mejor puntaje es 1.0 y el peor es 0.0. En terminos generales, los  puntajes de F 1 son
-        más bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
-        cálculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
+        mas bajos que las medidas de precision, ya que incorporan precision y recuerdo en su
+        calculo. Como regla general, el promedio ponderado de F 1  debe usarse para comparar
         modelos clasificadores, no la precision global.
 
             Puntuacion F1 = 2 * (recuperacion * precision) / (recuperacion + precision)
@@ -354,8 +354,8 @@ class EvaluationModels(object):
         La matriz de confusion muestra las formas en que su modelo de clasificacion
         se confunde cuando hace predicciones.
 
-        Le da una idea no solo de los errores que está cometiendo su clasificador, sino más
-        importante aun, de los tipos de errores que se están cometiendo.
+        Le da una idea no solo de los errores que esta cometiendo su clasificador, sino mas
+        importante aun, de los tipos de errores que se estan cometiendo.
 
         Es este desglose el que supera la limitacion del uso de la precision de clasificacion solo.
         """

@@ -26,6 +26,7 @@ codacy-coverage
 
 # Utils
 tqdm
+emoji
 
 # doc
 mkdocs

@@ -6,7 +6,7 @@ License: MIT
 """
 
 
-from .voting import MajorityVoteClassifier
+# from .voting import MajorityVoteClassifier
 
 
-__all__ = ["MajorityVoteClassifier"]
+# __all__ = ["MajorityVoteClassifier"]

@@ -18,6 +18,7 @@ class DCNN(tf.keras.Model):
     ----------
         vocab_size:
             Vocabulary size of the algorithm input text.
+
         emb_dim : int
             Embedding size.
 
@@ -136,7 +137,7 @@ class DCNN(tf.keras.Model):
                                       padding="valid",
                                       activation="relu")
         # No tenemos variable de entrenamiento
-        # así que podemos usar la misma capa
+        # asi que podemos usar la misma capa
         # para cada paso de pooling
         self.dense_1 = layers.Dense(units=FFN_units, activation="relu")
         self.pool = layers.GlobalMaxPool1D()

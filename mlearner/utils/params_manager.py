@@ -18,7 +18,7 @@ class ParamsManager(object):
         - params_file: fichero .json desde el directorio de trabajo.
         - key_read: argumento "key" del fichero .json sobre el que queremos actuar.
 
-    Este objeto nos proporciona los siguientes métodos:
+    Este objeto nos proporciona los siguientes metodos:
 
         - get_params(): obtener parametros a partir del "key" especificado
         - update_params(): actualizacion de los valores de un "key" especificado.

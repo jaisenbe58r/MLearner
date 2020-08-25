@@ -18,7 +18,7 @@ def load_image(filename):
 
 
 def plot_image(img, name="Image", save=False, logdir_report="/images"):
-    """Gráfico Imagen."""
+    """Grafico Imagen."""
     plt.imshow(img[:, :, 0], cmap='gray', interpolation='none')
     plt.title(name)
     plt.axis('off')
@@ -32,7 +32,7 @@ def plot_image(img, name="Image", save=False, logdir_report="/images"):
 
 
 def plot_image2(img1, img2, title="Images", save=False, logdir_report="/images"):
-    """Gráfico Imagen."""
+    """Grafico Imagen."""
     fig, axs = plt.subplots(1, 2)
     ax = axs.flatten()
     fig.suptitle(title, fontsize=20)

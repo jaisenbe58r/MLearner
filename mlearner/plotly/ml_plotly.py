@@ -39,7 +39,7 @@ def plotly_histogram2(X, columns, target):
     layout = go.Layout(barmode="overlay",
                         xaxis=go.XAxis(domain=[0, 0.48], title=columns[0]),
                         xaxis2=go.XAxis(domain=[0.52, 1], title=columns[1]),
-                        yaxis=go.YAxis(title="Número de Defectos"),
+                        yaxis=go.YAxis(title="Numero de Defectos"),
                         title="Histograma caracteristicas")
 
     fig = go.Figure(data=data, layout=layout)

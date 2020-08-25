@@ -85,7 +85,7 @@ class Neural(BaseEstimator, TransformerMixin):
         return models
 
     def plot_history(self, n_history):
-        """Gráfica Resultados."""
+        """Grafica Resultados."""
         fig, axs = plt.subplots(2, 2, figsize=(20, 20))
         ax = axs.flatten()
         fig.suptitle("Train-Validation", fontsize=30)
@@ -150,7 +150,7 @@ class Neural(BaseEstimator, TransformerMixin):
 
     def _evaluacion_rf_2features(self, data_eval, data_eval_target, save=False, logdir_report="", display=True):
         """
-        Funcion que nos selecciona el thresholder más optimo:
+        Funcion que nos selecciona el thresholder mas optimo:
 
         Inputs:
 
@@ -221,7 +221,7 @@ class Neural(BaseEstimator, TransformerMixin):
 
         self.line()
         th, res, df = self._evaluacion_rf_2features(X_test, y_test)
-        print("----> Thresholder óptimo: {:.3f}, result: {:.3f}%".format(th, res*100))
+        print("----> Thresholder optimo: {:.3f}, result: {:.3f}%".format(th, res*100))
 
         self.save_general(path, X_train, y_train)
 
@@ -244,7 +244,7 @@ class Neural(BaseEstimator, TransformerMixin):
         # Validacion cruzada sin optimizar
         self.fit_cv(X, y, n_splits=n_splits, **params)
 
-        # Evaluación de resultados
+        # Evaluacion de resultados
         self.Evaluation_model(X_train, X_test, y_train, y_test, clases=clases, n_splits=n_splits, ROC=ROC, path=path, **params)
 
 
@@ -389,7 +389,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
     def _evaluacion_rf_2features(self, data_eval, data_eval_target, save=False, binary=True,
                                     logdir_report="", display=True):
         """
-        Funcion que nos selecciona el thresholder más optimo:
+        Funcion que nos selecciona el thresholder mas optimo:
 
         Inputs:
 
@@ -465,7 +465,7 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         if not binary:
             self.line()
             th, res, df = self._evaluacion_rf_2features(X, y, binary=binary)
-            print("----> Thresholder óptimo: {:.3f}".format(th))
+            print("----> Thresholder optimo: {:.3f}".format(th))
 
 
         """
@@ -491,14 +491,14 @@ class Neural_sklearn(BaseEstimator, TransformerMixin):
         print("  Pipeline: ", self.name)
         self.line()
 
-        # Optimización
+        # Optimizacion
         if hasattr(self, "param_grid"):
             _, _ = self.Grid_model(X, y, Randomized=Randomized, n_iter=n_iter)
 
         # Validacion cruzada sin optimizar
         self.fit_cv(X, y, n_splits=n_splits)
 
-        # Evaluación de resultados
+        # Evaluacion de resultados
         if eval:
             self.Evaluation_model(X, y, clases=clases, n_splits=n_splits, ROC=ROC,
                                     path="checkpoints/")
