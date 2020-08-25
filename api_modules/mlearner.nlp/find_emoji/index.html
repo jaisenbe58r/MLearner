@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.nlp/find_emoji/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>Find emoji - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/data/wine_data/">Wine Dataset</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">nlp</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/boundary/">Boundary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/CountVectorizer/">CountVectorizer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/DCNN/">DCNN</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_at/">Find at</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_capital/">Find capital</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_dates/">Find dates</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_dollar/">Find dollar</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_domain/">Find domain</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_email/">Find email</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_emoji/">Find emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_hash/">Find hash</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_nonalp/">Find nonalp</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_number/">Find number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_phone_number/">Find phone number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_punct/">Find punct</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_url/">Find url</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_year/">Find year</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/ip_add/">Ip add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/lat_lon/">Lat lon</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/mac_add/">Mac add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/neg_look_ahead/">Neg look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/neg_look_behind/">Neg look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/ngrams_top/">Ngrams top</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/num_great/">Num great</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/num_less/">Num less</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/only_words/">Only words</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/open_txt/">Open txt</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pick_only_key_sentence/">Pick only key sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pick_unique_sentence/">Pick unique sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pos_look_ahead/">Pos look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pos_look_behind/">Pos look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/Processor_data/">Processor data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/remove_emoji/">Remove emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/remove_tag/">Remove tag</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/search_string/">Search string</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/subword/">Subword</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/unique_char/">Unique char</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals/">Mlearner.externals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.nlp/">Mlearner.nlp</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#find_emoji">find_emoji</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="find_emoji">find_emoji</h2>
+<p><em>find_emoji(text)</em></p>
+<p>Find and convert emoji to text.</p>
+<p><strong>Parameters</strong></p>
+<p>text: str
+Text selected to apply transformation</p>
+<p><strong>Examples:</strong></p>
+<pre><code class="python">sentence=&quot;I love () very much ())&quot;
+find_emoji(sentence)
+    &gt;&gt;&gt; ['soccer_ball', 'beaming_face_with_smiling_eyes']
+</code></pre></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

@@ -1,203 +1,359 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://jaisenbe58r.github.io/MLearner/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/USER_GUIDE_INDEX/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/load/DataLoad/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/wine_data/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_normal/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_gamma/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/data_uniform/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/data/create_dataset/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/MeanCenterer/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/minmax_scaling/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FeatureDropper/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_median/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_mean/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_idmax/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_any/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_all/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_value/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_backward/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FillNaTransformer_forward/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/FixSkewness/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/OneHotEncoder/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DropOutliers/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ExtractCategories/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ReplaceMulticlass/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/ReplaceTransformer/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataCleaner/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/preprocessing/DataAnalyst/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/feature_selections/FeatureSelection/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelXGBoost/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelLightBoost/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/models/modelCatBoost/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/clasifier/PipelineClasificators/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/clasifier/TrainingUtilities/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/training/Training/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/user_guide/utils/ParamsManager/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/boundary/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/CountVectorizer/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/DCNN/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_at/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_capital/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_dates/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_dollar/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_domain/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_email/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_emoji/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_hash/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_nonalp/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_number/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_phone_number/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_punct/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_url/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/find_year/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/ip_add/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/lat_lon/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/mac_add/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/neg_look_ahead/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/neg_look_behind/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/ngrams_top/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/num_great/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/num_less/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/only_words/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/open_txt/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/pick_only_key_sentence/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/pick_unique_sentence/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/pos_look_ahead/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/pos_look_behind/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/Processor_data/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/remove_emoji/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/remove_tag/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/search_string/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/subword/</loc>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/user_guide/nlp/unique_char/</loc>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.data/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.preprocessing/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.externals/</loc>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.load/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.classifier/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.feature_selection/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.models/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.training/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.utils/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jaisenbe58r.github.io/MLearner/api_subpackages/mlearner.nlp/</loc>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/installation/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/CHANGELOG/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/CONTRIBUTING/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/contributors/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/license/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/cite/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jaisenbe58r.github.io/MLearner/discuss/</loc>
-     <lastmod>2020-05-03</lastmod>
+     <lastmod>2020-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

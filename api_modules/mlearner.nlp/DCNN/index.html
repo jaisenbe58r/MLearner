@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/api_modules/mlearner.nlp/DCNN/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>DCNN - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/data/wine_data/">Wine Dataset</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/preprocessing/DataAnalyst/">Preprocessing</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">nlp</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/boundary/">Boundary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/CountVectorizer/">CountVectorizer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/DCNN/">DCNN</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_at/">Find at</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_capital/">Find capital</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_dates/">Find dates</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_dollar/">Find dollar</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_domain/">Find domain</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_email/">Find email</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_emoji/">Find emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_hash/">Find hash</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_nonalp/">Find nonalp</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_number/">Find number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_phone_number/">Find phone number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_punct/">Find punct</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_url/">Find url</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/find_year/">Find year</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/ip_add/">Ip add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/lat_lon/">Lat lon</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/mac_add/">Mac add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/neg_look_ahead/">Neg look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/neg_look_behind/">Neg look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/ngrams_top/">Ngrams top</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/num_great/">Num great</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/num_less/">Num less</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/only_words/">Only words</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/open_txt/">Open txt</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pick_only_key_sentence/">Pick only key sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pick_unique_sentence/">Pick unique sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pos_look_ahead/">Pos look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/pos_look_behind/">Pos look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/Processor_data/">Processor data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/remove_emoji/">Remove emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/remove_tag/">Remove tag</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/search_string/">Search string</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/subword/">Subword</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../user_guide/nlp/unique_char/">Unique char</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals/">Mlearner.externals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.nlp/">Mlearner.nlp</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#dcnn">DCNN</a></li>
+            <li class="second-level"><a href="#methods">Methods</a></li>
+                 <!--   -->
+            <li class="second-level"><a href="#properties">Properties</a></li>
+                 <!--   -->
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="dcnn">DCNN</h2>
+<p><em>DCNN(</em>args, *<em>kwargs)</em></p>
+<p>The DCNN class corresponds to the Neural Convolution Network algorithm
+for Natural Language Processing.</p>
+<p><strong>Parameters</strong></p>
+<p>vocab_size:
+Vocabulary size of the algorithm input text.</p>
+<ul>
+<li>
+<p><code>emb_dim</code> : int</p>
+<p>Embedding size.</p>
+</li>
+<li>
+<p><code>nb_filters</code> : int</p>
+<p>Filter size for each layer Conv1D.</p>
+</li>
+<li>
+<p><code>FFN_units</code> : int</p>
+<p>Units for dense layer.</p>
+</li>
+<li>
+<p><code>nb_classes</code> : int</p>
+<p>Numbers of final categories.</p>
+</li>
+<li>
+<p><code>dropout_rate</code> : float</p>
+<p>Dropout parameter.</p>
+</li>
+<li>
+<p><code>training</code> : bool</p>
+<p>Trainning process activated.</p>
+</li>
+<li>
+<p><code>name</code> : str</p>
+<p>Custom Model Name.</p>
+<p>weights_path: str
+Path load weight model.</p>
+</li>
+</ul>
+<p><strong>Attributes</strong></p>
+<ul>
+<li>
+<p><code>embedding</code> : tf.keras.layers.Embedding</p>
+<p>Embedding layer for input vocabulary.</p>
+</li>
+<li>
+<p><code>bigram</code> : tf.keras.layers.Conv1D</p>
+<p>1D convolution layer, for two letters in a row.</p>
+</li>
+<li>
+<p><code>trigram</code> : tf.keras.layers.Conv1D</p>
+<p>1D convolution layer, for three letters in a row.</p>
+</li>
+<li>
+<p><code>fourgram</code> : tf.keras.layers.Conv1D</p>
+<p>1D convolution layer, for four letters in a row.</p>
+</li>
+<li>
+<p><code>pool</code> : tf.keras.layers.GlobalMaxPool1D</p>
+<p>Max pooling operation for 1D temporal data.</p>
+</li>
+<li>
+<p><code>dense_1</code> : tf.keras.layers.Dense</p>
+<p>Regular densely-connected NN layer, concatenate 1D Convolutions.</p>
+</li>
+<li>
+<p><code>last_dense</code> : tf.keras.layers.Dense</p>
+<p>Regular densely-connected NN layer, final decision.</p>
+</li>
+<li>
+<p><code>dropout</code> : tf.keras.layers.Dropout</p>
+<p>Applies Dropout to dense_1.</p>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="python">    VOCAB_SIZE = tokenizer.vocab_size # 65540
+    EMB_DIM = 200
+    NB_FILTERS = 100
+    FFN_UNITS = 256
+    NB_CLASSES = 2#len(set(train_labels))
+    DROPOUT_RATE = 0.2
+    BATCH_SIZE = 32
+    NB_EPOCHS = 5
+
+    Dcnn = DCNN(vocab_size=VOCAB_SIZE,
+    emb_dim=EMB_DIM,
+    nb_filters=NB_FILTERS,
+    FFN_units=FFN_UNITS,
+    nb_classes=NB_CLASSES,
+    dropout_rate=DROPOUT_RATE)
+
+    if NB_CLASSES == 2:
+    Dcnn.compile(loss=&quot;binary_crossentropy&quot;,
+    optimizer=&quot;adam&quot;,
+    metrics=[&quot;accuracy&quot;])
+    else:
+    Dcnn.compile(loss=&quot;sparse_categorical_crossentropy&quot;,
+    optimizer=&quot;adam&quot;,
+    metrics=[&quot;sparse_categorical_accuracy&quot;])
+
+    # Entrenamiento
+    Dcnn.fit(train_inputs,
+    train_labels,
+    batch_size=BATCH_SIZE,
+    epochs=NB_EPOCHS)
+
+    # Evaluation
+    results = Dcnn.evaluate(test_inputs, test_labels, batch_size=BATCH_SIZE)
+    print(results)
+</code></pre>
+
+<h3 id="methods">Methods</h3>
+<hr>
+
+<p><em>add_loss(losses, inputs=None)</em></p>
+<p>Add loss tensor(s), potentially dependent on layer inputs.</p>
+<p>Some losses (for instance, activity regularization losses) may be dependent
+on the inputs passed when calling a layer. Hence, when reusing the same
+layer on different inputs <code>a</code> and <code>b</code>, some entries in <code>layer.losses</code> may
+be dependent on <code>a</code> and some on <code>b</code>. This method automatically keeps track
+of dependencies.</p>
+<p>This method can be used inside a subclassed layer or model's <code>call</code>
+function, in which case <code>losses</code> should be a Tensor or list of Tensors.</p>
+<p>Example:</p>
+<pre><code class="python">class MyLayer(tf.keras.layers.Layer):
+def call(inputs, self):
+self.add_loss(tf.abs(tf.reduce_mean(inputs)), inputs=True)
+return inputs
+</code></pre>
+
+<p>This method can also be called directly on a Functional Model during
+construction. In this case, any loss Tensors passed to this Model must
+be symbolic and be able to be traced back to the model's <code>Input</code>s. These
+losses become part of the model's topology and are tracked in <code>get_config</code>.</p>
+<p>Example:</p>
+<pre><code class="python">inputs = tf.keras.Input(shape=(10,))
+x = tf.keras.layers.Dense(10)(inputs)
+outputs = tf.keras.layers.Dense(1)(x)
+model = tf.keras.Model(inputs, outputs)
+# Activity regularization.
+model.add_loss(tf.abs(tf.reduce_mean(x)))
+</code></pre>
+
+<p>If this is not the case for your loss (if, for example, your loss references
+a <code>Variable</code> of one of the model's layers), you can wrap your loss in a
+zero-argument lambda. These losses are not tracked as part of the model's
+topology since they can't be serialized.</p>
+<p>Example:</p>
+<pre><code class="python">inputs = tf.keras.Input(shape=(10,))
+x = tf.keras.layers.Dense(10)(inputs)
+outputs = tf.keras.layers.Dense(1)(x)
+model = tf.keras.Model(inputs, outputs)
+# Weight regularization.
+model.add_loss(lambda: tf.reduce_mean(x.kernel))
+</code></pre>
+
+<p>The <code>get_losses_for</code> method allows to retrieve the losses relevant to a
+specific set of inputs.</p>
+<p>Arguments:
+losses: Loss tensor, or list/tuple of tensors. Rather than tensors, losses
+may also be zero-argument callables which create a loss tensor.
+inputs: Ignored when executing eagerly. If anything other than None is
+passed, it signals the losses are conditional on some of the layer's
+inputs, and thus they should only be run where these inputs are
+available. This is the case for activity regularization losses, for
+instance. If <code>None</code> is passed, the losses are assumed
+to be unconditional, and will apply across all dataflows of the layer
+(e.g. weight regularization losses).</p>
+<hr>
+
+<p><em>add_metric(value, aggregation=None, name=None)</em></p>
+<p>Adds metric tensor to the layer.</p>
+<p>Args:
+value: Metric tensor.
+aggregation: Sample-wise metric reduction function. If <code>aggregation=None</code>,
+it indicates that the metric tensor provided has been aggregated
+already. eg, <code>bin_acc = BinaryAccuracy(name='acc')</code> followed by
+<code>model.add_metric(bin_acc(y_true, y_pred))</code>. If aggregation='mean', the
+given metric tensor will be sample-wise reduced using <code>mean</code> function.
+eg, <code>model.add_metric(tf.reduce_sum(outputs), name='output_mean',
+aggregation='mean')</code>.
+name: String metric name.</p>
+<p>Raises:
+ValueError: If <code>aggregation</code> is anything other than None or <code>mean</code>.</p>
+<hr>
+
+<p><em>add_update(updates, inputs=None)</em></p>
+<p>Add update op(s), potentially dependent on layer inputs. (deprecated arguments)</p>
+<p>Warning: SOME ARGUMENTS ARE DEPRECATED: <code>(inputs)</code>. They will be removed in a future version.
+Instructions for updating:
+<code>inputs</code> is now automatically inferred</p>
+<p>Weight updates (for instance, the updates of the moving mean and variance
+in a BatchNormalization layer) may be dependent on the inputs passed
+when calling a layer. Hence, when reusing the same layer on
+different inputs <code>a</code> and <code>b</code>, some entries in <code>layer.updates</code> may be
+dependent on <code>a</code> and some on <code>b</code>. This method automatically keeps track
+of dependencies.</p>
+<p>The <code>get_updates_for</code> method allows to retrieve the updates relevant to a
+specific set of inputs.</p>
+<p>This call is ignored when eager execution is enabled (in that case, variable
+updates are run on the fly and thus do not need to be tracked for later
+execution).</p>
+<p>Arguments:
+updates: Update op, or list/tuple of update ops, or zero-arg callable
+that returns an update op. A zero-arg callable should be passed in
+order to disable running the updates by setting <code>trainable=False</code>
+on this Layer, when executing in Eager mode.
+inputs: Deprecated, will be automatically inferred.</p>
+<hr>
+
+<p><em>add_variable(</em>args, *<em>kwargs)</em></p>
+<p>Deprecated, do NOT use! Alias for <code>add_weight</code>. (deprecated)</p>
+<p>Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use <code>layer.add_weight</code> method instead.</p>
+<hr>
+
+<p><em>add_weight(name=None, shape=None, dtype=None, initializer=None, regularizer=None, trainable=None, constraint=None, partitioner=None, use_resource=None, synchronization=<VariableSynchronization.AUTO: 0>, aggregation=<VariableAggregation.NONE: 0>, </em><em>kwargs)</em></p>
+<p>Adds a new variable to the layer.</p>
+<p>Arguments:
+name: Variable name.
+shape: Variable shape. Defaults to scalar if unspecified.
+dtype: The type of the variable. Defaults to <code>self.dtype</code> or <code>float32</code>.
+initializer: Initializer instance (callable).
+regularizer: Regularizer instance (callable).
+trainable: Boolean, whether the variable should be part of the layer's
+"trainable_variables" (e.g. variables, biases)
+or "non_trainable_variables" (e.g. BatchNorm mean and variance).
+Note that <code>trainable</code> cannot be <code>True</code> if <code>synchronization</code>
+is set to <code>ON_READ</code>.
+constraint: Constraint instance (callable).
+partitioner: Partitioner to be passed to the <code>Trackable</code> API.
+use_resource: Whether to use <code>ResourceVariable</code>.
+synchronization: Indicates when a distributed a variable will be
+aggregated. Accepted values are constants defined in the class
+<code>tf.VariableSynchronization</code>. By default the synchronization is set to
+<code>AUTO</code> and the current <code>DistributionStrategy</code> chooses
+when to synchronize. If <code>synchronization</code> is set to <code>ON_READ</code>,
+<code>trainable</code> must not be set to <code>True</code>.
+aggregation: Indicates how a distributed variable will be aggregated.
+Accepted values are constants defined in the class
+<code>tf.VariableAggregation</code>.
+**kwargs: Additional keyword arguments. Accepted values are <code>getter</code>,
+<code>collections</code>, <code>experimental_autocast</code> and <code>caching_device</code>.</p>
+<p>Returns:
+The created variable. Usually either a <code>Variable</code> or <code>ResourceVariable</code>
+instance. If <code>partitioner</code> is not <code>None</code>, a <code>PartitionedVariable</code>
+instance is returned.</p>
+<p>Raises:
+RuntimeError: If called with partitioned variable regularization and
+eager execution is enabled.
+ValueError: When giving unsupported dtype and no initializer or when
+trainable has been set to True with synchronization set as <code>ON_READ</code>.</p>
+<hr>
+
+<p><em>apply(inputs, </em>args, *<em>kwargs)</em></p>
+<p>Deprecated, do NOT use! (deprecated)</p>
+<p>Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use <code>layer.__call__</code> method instead.</p>
+<p>This is an alias of <code>self.__call__</code>.</p>
+<p>Arguments:
+inputs: Input tensor(s).
+<em>args: additional positional arguments to be passed to <code>self.call</code>.
+</em>*kwargs: additional keyword arguments to be passed to <code>self.call</code>.</p>
+<p>Returns:
+Output tensor(s).</p>
+<hr>
+
+<p><em>build(input_shape)</em></p>
+<p>Builds the model based on input shapes received.</p>
+<p>This is to be used for subclassed models, which do not know at instantiation
+time what their inputs look like.</p>
+<p>This method only exists for users who want to call <code>model.build()</code> in a
+standalone way (as a substitute for calling the model on real data to
+build it). It will never be called by the framework (and thus it will
+never throw unexpected errors in an unrelated workflow).</p>
+<p>Args:
+input_shape: Single tuple, TensorShape, or list of shapes, where shapes
+are tuples, integers, or TensorShapes.</p>
+<p>Raises:
+ValueError:
+1. In case of invalid user-provided data (not of type tuple,
+list, or TensorShape).
+2. If the model requires call arguments that are agnostic
+to the input shapes (positional or kwarg in call signature).
+3. If not all layers were properly built.
+4. If float type inputs are not supported within the layers.</p>
+<p>In each of these cases, the user should build their model by calling it
+on real tensor data.</p>
+<hr>
+
+<p><em>call(inputs, training)</em></p>
+<p>Calling the build function of the model.</p>
+<p><strong>Parameters</strong></p>
+<p>inputs: Tensor.
+Input Tensor.</p>
+<ul>
+<li>
+<p><code>Training</code> : bool</p>
+<p>Trainning process activated.</p>
+<p>Returns:
+output: Tensor.
+Output Tensor.</p>
+</li>
+</ul>
+<hr>
+
+<p><em>compile(optimizer='rmsprop', loss=None, metrics=None, loss_weights=None, sample_weight_mode=None, weighted_metrics=None, </em><em>kwargs)</em></p>
+<p>Configures the model for training.</p>
+<p>Arguments:
+optimizer: String (name of optimizer) or optimizer instance.
+See <code>tf.keras.optimizers</code>.
+loss: String (name of objective function), objective function or
+<code>tf.keras.losses.Loss</code> instance. See <code>tf.keras.losses</code>.
+An objective function is any callable with the signature
+<code>loss = fn(y_true, y_pred)</code>, where
+y_true = ground truth values with shape = <code>[batch_size, d0, .. dN]</code>,
+except sparse loss functions such as sparse categorical crossentropy
+where shape = <code>[batch_size, d0, .. dN-1]</code>.
+y_pred = predicted values with shape = <code>[batch_size, d0, .. dN]</code>.
+It returns a weighted loss float tensor.
+If a custom <code>Loss</code> instance is used and reduction is set to NONE,
+return value has the shape [batch_size, d0, .. dN-1] ie. per-sample
+or per-timestep loss values; otherwise, it is a scalar.
+If the model has multiple outputs, you can use a different loss on
+each output by passing a dictionary or a list of losses. The loss
+value that will be minimized by the model will then be the sum of
+all individual losses.
+metrics: List of metrics to be evaluated by the model during training
+and testing.
+Each of this can be a string (name of a built-in function), function
+or a <code>tf.keras.metrics.Metric</code> instance. See <code>tf.keras.metrics</code>.
+Typically you will use <code>metrics=['accuracy']</code>. A function is any
+callable with the signature <code>result = fn(y_true, y_pred)</code>.
+To specify different metrics for different outputs of a
+multi-output model, you could also pass a dictionary, such as
+<code>metrics={'output_a': 'accuracy', 'output_b': ['accuracy', 'mse']}</code>.
+You can also pass a list (len = len(outputs)) of lists of metrics
+such as <code>metrics=[['accuracy'], ['accuracy', 'mse']]</code> or
+<code>metrics=['accuracy', ['accuracy', 'mse']]</code>.
+When you pass the strings 'accuracy' or 'acc', we convert this to
+one of <code>tf.keras.metrics.BinaryAccuracy</code>,
+<code>tf.keras.metrics.CategoricalAccuracy</code>,
+<code>tf.keras.metrics.SparseCategoricalAccuracy</code> based on the loss
+function used and the model output shape. We do a similar conversion
+for the strings 'crossentropy' and 'ce' as well.
+loss_weights: Optional list or dictionary specifying scalar
+coefficients (Python floats) to weight the loss contributions
+of different model outputs.
+The loss value that will be minimized by the model
+will then be the <em>weighted sum</em> of all individual losses,
+weighted by the <code>loss_weights</code> coefficients.
+If a list, it is expected to have a 1:1 mapping
+to the model's outputs. If a dict, it is expected to map
+output names (strings) to scalar coefficients.
+sample_weight_mode: If you need to do timestep-wise
+sample weighting (2D weights), set this to <code>"temporal"</code>.
+<code>None</code> defaults to sample-wise weights (1D).
+If the model has multiple outputs, you can use a different
+<code>sample_weight_mode</code> on each output by passing a
+dictionary or a list of modes.
+weighted_metrics: List of metrics to be evaluated and weighted
+by sample_weight or class_weight during training and testing.
+**kwargs: Any additional arguments. For eager execution, pass
+<code>run_eagerly=True</code>.</p>
+<p>Raises:
+ValueError: In case of invalid arguments for
+<code>optimizer</code>, <code>loss</code>, <code>metrics</code> or <code>sample_weight_mode</code>.</p>
+<hr>
+
+<p><em>compute_mask(inputs, mask)</em></p>
+<p>Computes an output mask tensor.</p>
+<p>Arguments:
+inputs: Tensor or list of tensors.
+mask: Tensor or list of tensors.</p>
+<p>Returns:
+None or a tensor (or list of tensors,
+one per output tensor of the layer).</p>
+<hr>
+
+<p><em>compute_output_shape(input_shape)</em></p>
+<p>Computes the output shape of the layer.</p>
+<p>If the layer has not been built, this method will call <code>build</code> on the
+layer. This assumes that the layer will later be used with inputs that
+match the input shape provided here.</p>
+<p>Arguments:
+input_shape: Shape tuple (tuple of integers)
+or list of shape tuples (one per output tensor of the layer).
+Shape tuples can include None for free dimensions,
+instead of an integer.</p>
+<p>Returns:
+An input shape tuple.</p>
+<hr>
+
+<p><em>compute_output_signature(input_signature)</em></p>
+<p>Compute the output tensor signature of the layer based on the inputs.</p>
+<p>Unlike a TensorShape object, a TensorSpec object contains both shape
+and dtype information for a tensor. This method allows layers to provide
+output dtype information if it is different from the input dtype.
+For any layer that doesn't implement this function,
+the framework will fall back to use <code>compute_output_shape</code>, and will
+assume that the output dtype matches the input dtype.</p>
+<p>Args:
+input_signature: Single TensorSpec or nested structure of TensorSpec
+objects, describing a candidate input for the layer.</p>
+<p>Returns:
+Single TensorSpec or nested structure of TensorSpec objects, describing
+how the layer would transform the provided input.</p>
+<p>Raises:
+TypeError: If input_signature contains a non-TensorSpec object.</p>
+<hr>
+
+<p><em>count_params()</em></p>
+<p>Count the total number of scalars composing the weights.</p>
+<p>Returns:
+An integer count.</p>
+<p>Raises:
+ValueError: if the layer isn't yet built
+(in which case its weights aren't yet defined).</p>
+<hr>
+
+<p><em>evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False)</em></p>
+<p>Returns the loss value &amp; metrics values for the model in test mode.</p>
+<p>Computation is done in batches.</p>
+<p>Arguments:
+x: Input data. It could be: - A Numpy array (or array-like), or a list
+of arrays (in case the model has multiple inputs). - A TensorFlow
+tensor, or a list of tensors (in case the model has multiple inputs).
+- A dict mapping input names to the corresponding array/tensors, if
+the model has named inputs. - A <code>tf.data</code> dataset. - A generator or
+<code>keras.utils.Sequence</code> instance. A more detailed description of
+unpacking behavior for iterator types (Dataset, generator, Sequence)
+is given in the <code>Unpacking behavior for iterator-like inputs</code> section
+of <code>Model.fit</code>.
+y: Target data. Like the input data <code>x</code>, it could be either Numpy
+array(s) or TensorFlow tensor(s). It should be consistent with <code>x</code>
+(you cannot have Numpy inputs and tensor targets, or inversely). If
+<code>x</code> is a dataset, generator or <code>keras.utils.Sequence</code> instance, <code>y</code>
+should not be specified (since targets will be obtained from the
+iterator/dataset).
+batch_size: Integer or <code>None</code>. Number of samples per gradient update. If
+unspecified, <code>batch_size</code> will default to 32. Do not specify the
+<code>batch_size</code> if your data is in the form of a dataset, generators,
+or <code>keras.utils.Sequence</code> instances (since they generate batches).
+verbose: 0 or 1. Verbosity mode. 0 = silent, 1 = progress bar.
+sample_weight: Optional Numpy array of weights for the test samples,
+used for weighting the loss function. You can either pass a flat (1D)
+Numpy array with the same length as the input samples
+(1:1 mapping between weights and samples), or in the case of
+temporal data, you can pass a 2D array with shape <code>(samples,
+sequence_length)</code>, to apply a different weight to every timestep
+of every sample. In this case you should make sure to specify
+<code>sample_weight_mode="temporal"</code> in <code>compile()</code>. This argument is
+not supported when <code>x</code> is a dataset, instead pass sample weights
+as the third element of <code>x</code>.
+steps: Integer or <code>None</code>. Total number of steps (batches of samples)
+before declaring the evaluation round finished. Ignored with the
+default value of <code>None</code>. If x is a <code>tf.data</code> dataset and <code>steps</code> is
+None, 'evaluate' will run until the dataset is exhausted. This
+argument is not supported with array inputs.
+callbacks: List of <code>keras.callbacks.Callback</code> instances. List of
+callbacks to apply during evaluation. See
+<a href="/api_docs/python/tf/keras/callbacks">callbacks</a>.
+max_queue_size: Integer. Used for generator or <code>keras.utils.Sequence</code>
+input only. Maximum size for the generator queue. If unspecified,
+<code>max_queue_size</code> will default to 10.
+workers: Integer. Used for generator or <code>keras.utils.Sequence</code> input
+only. Maximum number of processes to spin up when using process-based
+threading. If unspecified, <code>workers</code> will default to 1. If 0, will
+execute the generator on the main thread.
+use_multiprocessing: Boolean. Used for generator or
+<code>keras.utils.Sequence</code> input only. If <code>True</code>, use process-based
+threading. If unspecified, <code>use_multiprocessing</code> will default to
+<code>False</code>. Note that because this implementation relies on
+multiprocessing, you should not pass non-picklable arguments to the
+generator as they can't be passed easily to children processes.
+return_dict: If <code>True</code>, loss and metric results are returned as a dict,
+with each key being the name of the metric. If <code>False</code>, they are
+returned as a list.</p>
+<p>See the discussion of <code>Unpacking behavior for iterator-like inputs</code> for
+<code>Model.fit</code>.</p>
+<p>Returns:
+Scalar test loss (if the model has a single output and no metrics)
+or list of scalars (if the model has multiple outputs
+and/or metrics). The attribute <code>model.metrics_names</code> will give you
+the display labels for the scalar outputs.</p>
+<p>Raises:
+ValueError: in case of invalid arguments.</p>
+<hr>
+
+<p><em>evaluate_generator(generator, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, verbose=0)</em></p>
+<p>Evaluates the model on a data generator. (deprecated)</p>
+<p>Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use Model.evaluate, which supports generators.</p>
+<p>DEPRECATED:
+<code>Model.evaluate</code> now supports generators, so there is no longer any need
+to use this endpoint.</p>
+<hr>
+
+<p><em>fit(x=None, y=None, batch_size=None, epochs=1, verbose=1, callbacks=None, validation_split=0.0, validation_data=None, shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0, steps_per_epoch=None, validation_steps=None, validation_batch_size=None, validation_freq=1, max_queue_size=10, workers=1, use_multiprocessing=False)</em></p>
+<p>Trains the model for a fixed number of epochs (iterations on a dataset).</p>
+<p>Arguments:
+x: Input data. It could be:
+- A Numpy array (or array-like), or a list of arrays
+(in case the model has multiple inputs).
+- A TensorFlow tensor, or a list of tensors
+(in case the model has multiple inputs).
+- A dict mapping input names to the corresponding array/tensors,
+if the model has named inputs.
+- A <code>tf.data</code> dataset. Should return a tuple
+of either <code>(inputs, targets)</code> or
+<code>(inputs, targets, sample_weights)</code>.
+- A generator or <code>keras.utils.Sequence</code> returning <code>(inputs, targets)</code>
+or <code>(inputs, targets, sample_weights)</code>.
+A more detailed description of unpacking behavior for iterator types
+(Dataset, generator, Sequence) is given below.
+y: Target data. Like the input data <code>x</code>,
+it could be either Numpy array(s) or TensorFlow tensor(s).
+It should be consistent with <code>x</code> (you cannot have Numpy inputs and
+tensor targets, or inversely). If <code>x</code> is a dataset, generator,
+or <code>keras.utils.Sequence</code> instance, <code>y</code> should
+not be specified (since targets will be obtained from <code>x</code>).
+batch_size: Integer or <code>None</code>.
+Number of samples per gradient update.
+If unspecified, <code>batch_size</code> will default to 32.
+Do not specify the <code>batch_size</code> if your data is in the
+form of datasets, generators, or <code>keras.utils.Sequence</code> instances
+(since they generate batches).
+epochs: Integer. Number of epochs to train the model.
+An epoch is an iteration over the entire <code>x</code> and <code>y</code>
+data provided.
+Note that in conjunction with <code>initial_epoch</code>,
+<code>epochs</code> is to be understood as "final epoch".
+The model is not trained for a number of iterations
+given by <code>epochs</code>, but merely until the epoch
+of index <code>epochs</code> is reached.
+verbose: 0, 1, or 2. Verbosity mode.
+0 = silent, 1 = progress bar, 2 = one line per epoch.
+Note that the progress bar is not particularly useful when
+logged to a file, so verbose=2 is recommended when not running
+interactively (eg, in a production environment).
+callbacks: List of <code>keras.callbacks.Callback</code> instances.
+List of callbacks to apply during training.
+See <code>tf.keras.callbacks</code>.
+validation_split: Float between 0 and 1.
+Fraction of the training data to be used as validation data.
+The model will set apart this fraction of the training data,
+will not train on it, and will evaluate
+the loss and any model metrics
+on this data at the end of each epoch.
+The validation data is selected from the last samples
+in the <code>x</code> and <code>y</code> data provided, before shuffling. This argument is
+not supported when <code>x</code> is a dataset, generator or
+<code>keras.utils.Sequence</code> instance.
+validation_data: Data on which to evaluate
+the loss and any model metrics at the end of each epoch.
+The model will not be trained on this data.
+<code>validation_data</code> will override <code>validation_split</code>.
+<code>validation_data</code> could be:
+- tuple <code>(x_val, y_val)</code> of Numpy arrays or tensors
+- tuple <code>(x_val, y_val, val_sample_weights)</code> of Numpy arrays
+- dataset
+For the first two cases, <code>batch_size</code> must be provided.
+For the last case, <code>validation_steps</code> could be provided.
+Note that <code>validation_data</code> does not support all the data types that
+are supported in <code>x</code>, eg, dict, generator or <code>keras.utils.Sequence</code>.
+shuffle: Boolean (whether to shuffle the training data
+before each epoch) or str (for 'batch'). This argument is ignored
+when <code>x</code> is a generator. 'batch' is a special option for dealing
+with the limitations of HDF5 data; it shuffles in batch-sized
+chunks. Has no effect when <code>steps_per_epoch</code> is not <code>None</code>.
+class_weight: Optional dictionary mapping class indices (integers)
+to a weight (float) value, used for weighting the loss function
+(during training only).
+This can be useful to tell the model to
+"pay more attention" to samples from
+an under-represented class.
+sample_weight: Optional Numpy array of weights for
+the training samples, used for weighting the loss function
+(during training only). You can either pass a flat (1D)
+Numpy array with the same length as the input samples
+(1:1 mapping between weights and samples),
+or in the case of temporal data,
+you can pass a 2D array with shape
+<code>(samples, sequence_length)</code>,
+to apply a different weight to every timestep of every sample.
+In this case you should make sure to specify
+<code>sample_weight_mode="temporal"</code> in <code>compile()</code>. This argument is not
+supported when <code>x</code> is a dataset, generator, or
+<code>keras.utils.Sequence</code> instance, instead provide the sample_weights
+as the third element of <code>x</code>.
+initial_epoch: Integer.
+Epoch at which to start training
+(useful for resuming a previous training run).
+steps_per_epoch: Integer or <code>None</code>.
+Total number of steps (batches of samples)
+before declaring one epoch finished and starting the
+next epoch. When training with input tensors such as
+TensorFlow data tensors, the default <code>None</code> is equal to
+the number of samples in your dataset divided by
+the batch size, or 1 if that cannot be determined. If x is a
+<code>tf.data</code> dataset, and 'steps_per_epoch'
+is None, the epoch will run until the input dataset is exhausted.
+When passing an infinitely repeating dataset, you must specify the
+<code>steps_per_epoch</code> argument. This argument is not supported with
+array inputs.
+validation_steps: Only relevant if <code>validation_data</code> is provided and
+is a <code>tf.data</code> dataset. Total number of steps (batches of
+samples) to draw before stopping when performing validation
+at the end of every epoch. If 'validation_steps' is None, validation
+will run until the <code>validation_data</code> dataset is exhausted. In the
+case of an infinitely repeated dataset, it will run into an
+infinite loop. If 'validation_steps' is specified and only part of
+the dataset will be consumed, the evaluation will start from the
+beginning of the dataset at each epoch. This ensures that the same
+validation samples are used every time.
+validation_batch_size: Integer or <code>None</code>.
+Number of samples per validation batch.
+If unspecified, will default to <code>batch_size</code>.
+Do not specify the <code>validation_batch_size</code> if your data is in the
+form of datasets, generators, or <code>keras.utils.Sequence</code> instances
+(since they generate batches).
+validation_freq: Only relevant if validation data is provided. Integer
+or <code>collections_abc.Container</code> instance (e.g. list, tuple, etc.).
+If an integer, specifies how many training epochs to run before a
+new validation run is performed, e.g. <code>validation_freq=2</code> runs
+validation every 2 epochs. If a Container, specifies the epochs on
+which to run validation, e.g. <code>validation_freq=[1, 2, 10]</code> runs
+validation at the end of the 1st, 2nd, and 10th epochs.
+max_queue_size: Integer. Used for generator or <code>keras.utils.Sequence</code>
+input only. Maximum size for the generator queue.
+If unspecified, <code>max_queue_size</code> will default to 10.
+workers: Integer. Used for generator or <code>keras.utils.Sequence</code> input
+only. Maximum number of processes to spin up
+when using process-based threading. If unspecified, <code>workers</code>
+will default to 1. If 0, will execute the generator on the main
+thread.
+use_multiprocessing: Boolean. Used for generator or
+<code>keras.utils.Sequence</code> input only. If <code>True</code>, use process-based
+threading. If unspecified, <code>use_multiprocessing</code> will default to
+<code>False</code>. Note that because this implementation relies on
+multiprocessing, you should not pass non-picklable arguments to
+the generator as they can't be passed easily to children processes.</p>
+<p>Unpacking behavior for iterator-like inputs:
+A common pattern is to pass a tf.data.Dataset, generator, or
+tf.keras.utils.Sequence to the <code>x</code> argument of fit, which will in fact
+yield not only features (x) but optionally targets (y) and sample weights.
+Keras requires that the output of such iterator-likes be unambiguous. The
+iterator should return a tuple of length 1, 2, or 3, where the optional
+second and third elements will be used for y and sample_weight
+respectively. Any other type provided will be wrapped in a length one
+tuple, effectively treating everything as 'x'. When yielding dicts, they
+should still adhere to the top-level tuple structure.
+e.g. <code>({"x0": x0, "x1": x1}, y)</code>. Keras will not attempt to separate
+features, targets, and weights from the keys of a single dict.
+A notable unsupported data type is the namedtuple. The reason is that
+it behaves like both an ordered datatype (tuple) and a mapping
+datatype (dict). So given a namedtuple of the form:
+<code>namedtuple("example_tuple", ["y", "x"])</code>
+it is ambiguous whether to reverse the order of the elements when
+interpreting the value. Even worse is a tuple of the form:
+<code>namedtuple("other_tuple", ["x", "y", "z"])</code>
+where it is unclear if the tuple was intended to be unpacked into x, y,
+and sample_weight or passed through as a single element to <code>x</code>. As a
+result the data processing code will simply raise a ValueError if it
+encounters a namedtuple. (Along with instructions to remedy the issue.)</p>
+<p>Returns:
+A <code>History</code> object. Its <code>History.history</code> attribute is
+a record of training loss values and metrics values
+at successive epochs, as well as validation loss values
+and validation metrics values (if applicable).</p>
+<p>Raises:
+RuntimeError: If the model was never compiled.
+ValueError: In case of mismatch between the provided input data
+and what the model expects.</p>
+<hr>
+
+<p><em>fit_generator(generator, steps_per_epoch=None, epochs=1, verbose=1, callbacks=None, validation_data=None, validation_steps=None, validation_freq=1, class_weight=None, max_queue_size=10, workers=1, use_multiprocessing=False, shuffle=True, initial_epoch=0)</em></p>
+<p>Fits the model on data yielded batch-by-batch by a Python generator. (deprecated)</p>
+<p>Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.</p>
+<p>DEPRECATED:
+<code>Model.fit</code> now supports generators, so there is no longer any need to use
+this endpoint.</p>
+<hr>
+
+<p><em>from_config(config, custom_objects=None)</em></p>
+<p>Instantiates a Model from its config (output of <code>get_config()</code>).</p>
+<p>Arguments:
+config: Model config dictionary.
+custom_objects: Optional dictionary mapping names
+(strings) to custom classes or functions to be
+considered during deserialization.</p>
+<p>Returns:
+A model instance.</p>
+<p>Raises:
+ValueError: In case of improperly formatted config dict.</p>
+<hr>
+
+<p><em>get_config()</em></p>
+<p>Returns the config of the layer.</p>
+<p>A layer config is a Python dictionary (serializable)
+containing the configuration of a layer.
+The same layer can be reinstantiated later
+(without its trained weights) from this configuration.</p>
+<p>The config of a layer does not include connectivity
+information, nor the layer class name. These are handled
+by <code>Network</code> (one layer of abstraction above).</p>
+<p>Returns:
+Python dictionary.</p>
+<hr>
+
+<p><em>get_input_at(node_index)</em></p>
+<p>Retrieves the input tensor(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A tensor (or list of tensors if the layer has multiple inputs).</p>
+<p>Raises:
+RuntimeError: If called in Eager mode.</p>
+<hr>
+
+<p><em>get_input_mask_at(node_index)</em></p>
+<p>Retrieves the input mask tensor(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A mask tensor
+(or list of tensors if the layer has multiple inputs).</p>
+<hr>
+
+<p><em>get_input_shape_at(node_index)</em></p>
+<p>Retrieves the input shape(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A shape tuple
+(or list of shape tuples if the layer has multiple inputs).</p>
+<p>Raises:
+RuntimeError: If called in Eager mode.</p>
+<hr>
+
+<p><em>get_layer(name=None, index=None)</em></p>
+<p>Retrieves a layer based on either its name (unique) or index.</p>
+<p>If <code>name</code> and <code>index</code> are both provided, <code>index</code> will take precedence.
+Indices are based on order of horizontal graph traversal (bottom-up).</p>
+<p>Arguments:
+name: String, name of layer.
+index: Integer, index of layer.</p>
+<p>Returns:
+A layer instance.</p>
+<p>Raises:
+ValueError: In case of invalid layer name or index.</p>
+<hr>
+
+<p><em>get_losses_for(inputs)</em></p>
+<p>Retrieves losses relevant to a specific set of inputs.</p>
+<p>Arguments:
+inputs: Input tensor or list/tuple of input tensors.</p>
+<p>Returns:
+List of loss tensors of the layer that depend on <code>inputs</code>.</p>
+<hr>
+
+<p><em>get_output_at(node_index)</em></p>
+<p>Retrieves the output tensor(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A tensor (or list of tensors if the layer has multiple outputs).</p>
+<p>Raises:
+RuntimeError: If called in Eager mode.</p>
+<hr>
+
+<p><em>get_output_mask_at(node_index)</em></p>
+<p>Retrieves the output mask tensor(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A mask tensor
+(or list of tensors if the layer has multiple outputs).</p>
+<hr>
+
+<p><em>get_output_shape_at(node_index)</em></p>
+<p>Retrieves the output shape(s) of a layer at a given node.</p>
+<p>Arguments:
+node_index: Integer, index of the node
+from which to retrieve the attribute.
+E.g. <code>node_index=0</code> will correspond to the
+first time the layer was called.</p>
+<p>Returns:
+A shape tuple
+(or list of shape tuples if the layer has multiple outputs).</p>
+<p>Raises:
+RuntimeError: If called in Eager mode.</p>
+<hr>
+
+<p><em>get_updates_for(inputs)</em></p>
+<p>Retrieves updates relevant to a specific set of inputs.</p>
+<p>Arguments:
+inputs: Input tensor or list/tuple of input tensors.</p>
+<p>Returns:
+List of update ops of the layer that depend on <code>inputs</code>.</p>
+<hr>
+
+<p><em>get_weights()</em></p>
+<p>Retrieves the weights of the model.</p>
+<p>Returns:
+A flat list of Numpy arrays.</p>
+<hr>
+
+<p><em>load_weights(filepath, by_name=False, skip_mismatch=False)</em></p>
+<p>Loads all layer weights, either from a TensorFlow or an HDF5 weight file.</p>
+<p>If <code>by_name</code> is False weights are loaded based on the network's
+topology. This means the architecture should be the same as when the weights
+were saved.  Note that layers that don't have weights are not taken into
+account in the topological ordering, so adding or removing layers is fine as
+long as they don't have weights.</p>
+<p>If <code>by_name</code> is True, weights are loaded into layers only if they share the
+same name. This is useful for fine-tuning or transfer-learning models where
+some of the layers have changed.</p>
+<p>Only topological loading (<code>by_name=False</code>) is supported when loading weights
+from the TensorFlow format. Note that topological loading differs slightly
+between TensorFlow and HDF5 formats for user-defined classes inheriting from
+<code>tf.keras.Model</code>: HDF5 loads based on a flattened list of weights, while the
+TensorFlow format loads based on the object-local names of attributes to
+which layers are assigned in the <code>Model</code>'s constructor.</p>
+<p>Arguments:
+filepath: String, path to the weights file to load. For weight files in
+TensorFlow format, this is the file prefix (the same as was passed
+to <code>save_weights</code>).
+by_name: Boolean, whether to load weights by name or by topological
+order. Only topological loading is supported for weight files in
+TensorFlow format.
+skip_mismatch: Boolean, whether to skip loading of layers where there is
+a mismatch in the number of weights, or a mismatch in the shape of
+the weight (only valid when <code>by_name=True</code>).</p>
+<p>Returns:
+When loading a weight file in TensorFlow format, returns the same status
+object as <code>tf.train.Checkpoint.restore</code>. When graph building, restore
+ops are run automatically as soon as the network is built (on first call
+for user-defined classes inheriting from <code>Model</code>, immediately if it is
+already built).</p>
+<p>When loading weights in HDF5 format, returns <code>None</code>.</p>
+<p>Raises:
+ImportError: If h5py is not available and the weight file is in HDF5
+format.
+ValueError: If <code>skip_mismatch</code> is set to <code>True</code> when <code>by_name</code> is
+<code>False</code>.</p>
+<hr>
+
+<p><em>make_predict_function()</em></p>
+<p>Creates a function that executes one step of inference.</p>
+<p>This method can be overridden to support custom inference logic.
+This method is called by <code>Model.predict</code> and <code>Model.predict_on_batch</code>.</p>
+<p>Typically, this method directly controls <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings, and delegates the actual evaluation
+logic to <code>Model.predict_step</code>.</p>
+<p>This function is cached the first time <code>Model.predict</code> or
+<code>Model.predict_on_batch</code> is called. The cache is cleared whenever
+<code>Model.compile</code> is called.</p>
+<p>Returns:
+Function. The function created by this method should accept a
+<code>tf.data.Iterator</code>, and return the outputs of the <code>Model</code>.</p>
+<hr>
+
+<p><em>make_test_function()</em></p>
+<p>Creates a function that executes one step of evaluation.</p>
+<p>This method can be overridden to support custom evaluation logic.
+This method is called by <code>Model.evaluate</code> and <code>Model.test_on_batch</code>.</p>
+<p>Typically, this method directly controls <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings, and delegates the actual evaluation
+logic to <code>Model.test_step</code>.</p>
+<p>This function is cached the first time <code>Model.evaluate</code> or
+<code>Model.test_on_batch</code> is called. The cache is cleared whenever
+<code>Model.compile</code> is called.</p>
+<p>Returns:
+Function. The function created by this method should accept a
+<code>tf.data.Iterator</code>, and return a <code>dict</code> containing values that will
+be passed to <code>tf.keras.Callbacks.on_test_batch_end</code>.</p>
+<hr>
+
+<p><em>make_train_function()</em></p>
+<p>Creates a function that executes one step of training.</p>
+<p>This method can be overridden to support custom training logic.
+This method is called by <code>Model.fit</code> and <code>Model.train_on_batch</code>.</p>
+<p>Typically, this method directly controls <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings, and delegates the actual training
+logic to <code>Model.train_step</code>.</p>
+<p>This function is cached the first time <code>Model.fit</code> or
+<code>Model.train_on_batch</code> is called. The cache is cleared whenever
+<code>Model.compile</code> is called.</p>
+<p>Returns:
+Function. The function created by this method should accept a
+<code>tf.data.Iterator</code>, and return a <code>dict</code> containing values that will
+be passed to <code>tf.keras.Callbacks.on_train_batch_end</code>, such as
+<code>{'loss': 0.2, 'accuracy': 0.7}</code>.</p>
+<hr>
+
+<p><em>predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)</em></p>
+<p>Generates output predictions for the input samples.</p>
+<p>Computation is done in batches. This method is designed for performance in
+large scale inputs. For small amount of inputs that fit in one batch,
+directly using <code>__call__</code> is recommended for faster execution, e.g.,
+<code>model(x)</code>, or <code>model(x, training=False)</code> if you have layers such as
+<code>tf.keras.layers.BatchNormalization</code> that behaves differently during
+inference.</p>
+<p>Arguments:
+x: Input samples. It could be:
+- A Numpy array (or array-like), or a list of arrays
+(in case the model has multiple inputs).
+- A TensorFlow tensor, or a list of tensors
+(in case the model has multiple inputs).
+- A <code>tf.data</code> dataset.
+- A generator or <code>keras.utils.Sequence</code> instance.
+A more detailed description of unpacking behavior for iterator types
+(Dataset, generator, Sequence) is given in the <code>Unpacking behavior
+for iterator-like inputs</code> section of <code>Model.fit</code>.
+batch_size: Integer or <code>None</code>.
+Number of samples per batch.
+If unspecified, <code>batch_size</code> will default to 32.
+Do not specify the <code>batch_size</code> if your data is in the
+form of dataset, generators, or <code>keras.utils.Sequence</code> instances
+(since they generate batches).
+verbose: Verbosity mode, 0 or 1.
+steps: Total number of steps (batches of samples)
+before declaring the prediction round finished.
+Ignored with the default value of <code>None</code>. If x is a <code>tf.data</code>
+dataset and <code>steps</code> is None, <code>predict</code> will
+run until the input dataset is exhausted.
+callbacks: List of <code>keras.callbacks.Callback</code> instances.
+List of callbacks to apply during prediction.
+See <a href="/api_docs/python/tf/keras/callbacks">callbacks</a>.
+max_queue_size: Integer. Used for generator or <code>keras.utils.Sequence</code>
+input only. Maximum size for the generator queue.
+If unspecified, <code>max_queue_size</code> will default to 10.
+workers: Integer. Used for generator or <code>keras.utils.Sequence</code> input
+only. Maximum number of processes to spin up when using
+process-based threading. If unspecified, <code>workers</code> will default
+to 1. If 0, will execute the generator on the main thread.
+use_multiprocessing: Boolean. Used for generator or
+<code>keras.utils.Sequence</code> input only. If <code>True</code>, use process-based
+threading. If unspecified, <code>use_multiprocessing</code> will default to
+<code>False</code>. Note that because this implementation relies on
+multiprocessing, you should not pass non-picklable arguments to
+the generator as they can't be passed easily to children processes.</p>
+<p>See the discussion of <code>Unpacking behavior for iterator-like inputs</code> for
+<code>Model.fit</code>. Note that Model.predict uses the same interpretation rules as
+<code>Model.fit</code> and <code>Model.evaluate</code>, so inputs must be unambiguous for all
+three methods.</p>
+<p>Returns:
+Numpy array(s) of predictions.</p>
+<p>Raises:
+ValueError: In case of mismatch between the provided
+input data and the model's expectations,
+or in case a stateful model receives a number of samples
+that is not a multiple of the batch size.</p>
+<hr>
+
+<p><em>predict_generator(generator, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, verbose=0)</em></p>
+<p>Generates predictions for the input samples from a data generator. (deprecated)</p>
+<p>Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use Model.predict, which supports generators.</p>
+<p>DEPRECATED:
+<code>Model.predict</code> now supports generators, so there is no longer any need
+to use this endpoint.</p>
+<hr>
+
+<p><em>predict_on_batch(x)</em></p>
+<p>Returns predictions for a single batch of samples.</p>
+<p>Arguments:
+x: Input data. It could be: - A Numpy array (or array-like), or a list
+of arrays (in case the model has multiple inputs). - A TensorFlow
+tensor, or a list of tensors (in case the model has multiple inputs).</p>
+<p>Returns:
+Numpy array(s) of predictions.</p>
+<p>Raises:
+ValueError: In case of mismatch between given number of inputs and
+expectations of the model.</p>
+<hr>
+
+<p><em>predict_step(data)</em></p>
+<p>The logic for one inference step.</p>
+<p>This method can be overridden to support custom inference logic.
+This method is called by <code>Model.make_predict_function</code>.</p>
+<p>This method should contain the mathemetical logic for one step of inference.
+This typically includes the forward pass.</p>
+<p>Configuration details for <em>how</em> this logic is run (e.g. <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings), should be left to
+<code>Model.make_predict_function</code>, which can also be overridden.</p>
+<p>Arguments:
+data: A nested structure of <code>Tensor</code>s.</p>
+<p>Returns:
+The result of one inference step, typically the output of calling the
+<code>Model</code> on data.</p>
+<hr>
+
+<p><em>reset_metrics()</em></p>
+<p>Resets the state of metrics.</p>
+<hr>
+
+<p><em>reset_states()</em></p>
+<p>None</p>
+<hr>
+
+<p><em>save(filepath, overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None)</em></p>
+<p>Saves the model to Tensorflow SavedModel or a single HDF5 file.</p>
+<p>The savefile includes:
+- The model architecture, allowing to re-instantiate the model.
+- The model weights.
+- The state of the optimizer, allowing to resume training
+exactly where you left off.</p>
+<p>This allows you to save the entirety of the state of a model
+in a single file.</p>
+<p>Saved models can be reinstantiated via <code>keras.models.load_model</code>.
+The model returned by <code>load_model</code> is a compiled model ready to be used
+(unless the saved model was never compiled in the first place).</p>
+<p>Models built with the Sequential and Functional API can be saved to both the
+HDF5 and SavedModel formats. Subclassed models can only be saved with the
+SavedModel format.</p>
+<p>Note that the model weights may have different scoped names after being
+loaded. Scoped names include the model/layer names, such as
+"dense_1/kernel:0"<code>. It is recommended that you use the layer properties to
+access specific variables, e.g.</code>model.get_layer("dense_1").kernel`.</p>
+<p>Arguments:
+filepath: String, path to SavedModel or H5 file to save the model.
+overwrite: Whether to silently overwrite any existing file at the
+target location, or provide the user with a manual prompt.
+include_optimizer: If True, save optimizer's state together.
+save_format: Either 'tf' or 'h5', indicating whether to save the model
+to Tensorflow SavedModel or HDF5. Defaults to 'tf' in TF 2.X, and
+'h5' in TF 1.X.
+signatures: Signatures to save with the SavedModel. Applicable to the
+'tf' format only. Please see the <code>signatures</code> argument in
+<code>tf.saved_model.save</code> for details.
+options: Optional <code>tf.saved_model.SaveOptions</code> object that specifies
+options for saving to SavedModel.</p>
+<p>Example:</p>
+<pre><code class="python">from keras.models import load_model
+
+model.save('my_model.h5')  # creates a HDF5 file 'my_model.h5'
+del model  # deletes the existing model
+
+# returns a compiled model
+# identical to the previous one
+model = load_model('my_model.h5')
+</code></pre>
+
+<hr>
+
+<p><em>save_weights(filepath, overwrite=True, save_format=None)</em></p>
+<p>Saves all layer weights.</p>
+<p>Either saves in HDF5 or in TensorFlow format based on the <code>save_format</code>
+argument.</p>
+<p>When saving in HDF5 format, the weight file has:
+- <code>layer_names</code> (attribute), a list of strings
+(ordered names of model layers).
+- For every layer, a <code>group</code> named <code>layer.name</code>
+- For every such layer group, a group attribute <code>weight_names</code>,
+a list of strings
+(ordered names of weights tensor of the layer).
+- For every weight in the layer, a dataset
+storing the weight value, named after the weight tensor.</p>
+<p>When saving in TensorFlow format, all objects referenced by the network are
+saved in the same format as <code>tf.train.Checkpoint</code>, including any <code>Layer</code>
+instances or <code>Optimizer</code> instances assigned to object attributes. For
+networks constructed from inputs and outputs using <code>tf.keras.Model(inputs,
+outputs)</code>, <code>Layer</code> instances used by the network are tracked/saved
+automatically. For user-defined classes which inherit from <code>tf.keras.Model</code>,
+<code>Layer</code> instances must be assigned to object attributes, typically in the
+constructor. See the documentation of <code>tf.train.Checkpoint</code> and
+<code>tf.keras.Model</code> for details.</p>
+<p>While the formats are the same, do not mix <code>save_weights</code> and
+<code>tf.train.Checkpoint</code>. Checkpoints saved by <code>Model.save_weights</code> should be
+loaded using <code>Model.load_weights</code>. Checkpoints saved using
+<code>tf.train.Checkpoint.save</code> should be restored using the corresponding
+<code>tf.train.Checkpoint.restore</code>. Prefer <code>tf.train.Checkpoint</code> over
+<code>save_weights</code> for training checkpoints.</p>
+<p>The TensorFlow format matches objects and variables by starting at a root
+object, <code>self</code> for <code>save_weights</code>, and greedily matching attribute
+names. For <code>Model.save</code> this is the <code>Model</code>, and for <code>Checkpoint.save</code> this
+is the <code>Checkpoint</code> even if the <code>Checkpoint</code> has a model attached. This
+means saving a <code>tf.keras.Model</code> using <code>save_weights</code> and loading into a
+<code>tf.train.Checkpoint</code> with a <code>Model</code> attached (or vice versa) will not match
+the <code>Model</code>'s variables. See the <a href="https://www.tensorflow.org/guide/checkpoint">guide to training
+checkpoints</a> for details
+on the TensorFlow format.</p>
+<p>Arguments:
+filepath: String, path to the file to save the weights to. When saving
+in TensorFlow format, this is the prefix used for checkpoint files
+(multiple files are generated). Note that the '.h5' suffix causes
+weights to be saved in HDF5 format.
+overwrite: Whether to silently overwrite any existing file at the
+target location, or provide the user with a manual prompt.
+save_format: Either 'tf' or 'h5'. A <code>filepath</code> ending in '.h5' or
+'.keras' will default to HDF5 if <code>save_format</code> is <code>None</code>. Otherwise
+<code>None</code> defaults to 'tf'.</p>
+<p>Raises:
+ImportError: If h5py is not available when attempting to save in HDF5
+format.
+ValueError: For invalid/unknown format arguments.</p>
+<hr>
+
+<p><em>set_weights(weights)</em></p>
+<p>Sets the weights of the layer, from Numpy arrays.</p>
+<p>The weights of a layer represent the state of the layer. This function
+sets the weight values from numpy arrays. The weight values should be
+passed in the order they are created by the layer. Note that the layer's
+weights must be instantiated before calling this function by calling
+the layer.</p>
+<p>For example, a Dense layer returns a list of two values-- per-output
+weights and the bias value. These can be used to set the weights of another
+Dense layer:</p>
+<pre><code>&gt;&gt;&gt; a = tf.keras.layers.Dense(1,
+</code></pre>
+<p>...   kernel_initializer=tf.constant_initializer(1.))
+    &gt;&gt;&gt; a_out = a(tf.convert_to_tensor([[1., 2., 3.]]))
+    &gt;&gt;&gt; a.get_weights()
+[array([[1.],
+[1.],
+[1.]], dtype=float32), array([0.], dtype=float32)]
+    &gt;&gt;&gt; b = tf.keras.layers.Dense(1,
+...   kernel_initializer=tf.constant_initializer(2.))
+    &gt;&gt;&gt; b_out = b(tf.convert_to_tensor([[10., 20., 30.]]))
+    &gt;&gt;&gt; b.get_weights()
+[array([[2.],
+[2.],
+[2.]], dtype=float32), array([0.], dtype=float32)]
+    &gt;&gt;&gt; b.set_weights(a.get_weights())
+    &gt;&gt;&gt; b.get_weights()
+[array([[1.],
+[1.],
+[1.]], dtype=float32), array([0.], dtype=float32)]</p>
+<p>Arguments:
+weights: a list of Numpy arrays. The number
+of arrays and their shape must match
+number of the dimensions of the weights
+of the layer (i.e. it should match the
+output of <code>get_weights</code>).</p>
+<p>Raises:
+ValueError: If the provided weights list does not match the
+layer's specifications.</p>
+<hr>
+
+<p><em>summary(line_length=None, positions=None, print_fn=None)</em></p>
+<p>Prints a string summary of the network.</p>
+<p>Arguments:
+line_length: Total length of printed lines
+(e.g. set this to adapt the display to different
+terminal window sizes).
+positions: Relative or absolute positions of log elements
+in each line. If not provided,
+defaults to <code>[.33, .55, .67, 1.]</code>.
+print_fn: Print function to use. Defaults to <code>print</code>.
+It will be called on each line of the summary.
+You can set it to a custom function
+in order to capture the string summary.</p>
+<p>Raises:
+ValueError: if <code>summary()</code> is called before the model is built.</p>
+<hr>
+
+<p><em>test_on_batch(x, y=None, sample_weight=None, reset_metrics=True, return_dict=False)</em></p>
+<p>Test the model on a single batch of samples.</p>
+<p>Arguments:
+x: Input data. It could be: - A Numpy array (or array-like), or a list
+of arrays (in case the model has multiple inputs). - A TensorFlow
+tensor, or a list of tensors (in case the model has multiple inputs).
+- A dict mapping input names to the corresponding array/tensors, if
+the model has named inputs.
+y: Target data. Like the input data <code>x</code>, it could be either Numpy
+array(s) or TensorFlow tensor(s). It should be consistent with <code>x</code>
+(you cannot have Numpy inputs and tensor targets, or inversely).
+sample_weight: Optional array of the same length as x, containing
+weights to apply to the model's loss for each sample. In the case of
+temporal data, you can pass a 2D array with shape (samples,
+sequence_length), to apply a different weight to every timestep of
+every sample. In this case you should make sure to specify
+sample_weight_mode="temporal" in compile().
+reset_metrics: If <code>True</code>, the metrics returned will be only for this
+batch. If <code>False</code>, the metrics will be statefully accumulated across
+batches.
+return_dict: If <code>True</code>, loss and metric results are returned as a dict,
+with each key being the name of the metric. If <code>False</code>, they are
+returned as a list.</p>
+<p>Returns:
+Scalar test loss (if the model has a single output and no metrics)
+or list of scalars (if the model has multiple outputs
+and/or metrics). The attribute <code>model.metrics_names</code> will give you
+the display labels for the scalar outputs.</p>
+<p>Raises:
+ValueError: In case of invalid user-provided arguments.</p>
+<hr>
+
+<p><em>test_step(data)</em></p>
+<p>The logic for one evaluation step.</p>
+<p>This method can be overridden to support custom evaluation logic.
+This method is called by <code>Model.make_test_function</code>.</p>
+<p>This function should contain the mathemetical logic for one step of
+evaluation.
+This typically includes the forward pass, loss calculation, and metrics
+updates.</p>
+<p>Configuration details for <em>how</em> this logic is run (e.g. <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings), should be left to
+<code>Model.make_test_function</code>, which can also be overridden.</p>
+<p>Arguments:
+data: A nested structure of <code>Tensor</code>s.</p>
+<p>Returns:
+A <code>dict</code> containing values that will be passed to
+<code>tf.keras.callbacks.CallbackList.on_train_batch_end</code>. Typically, the
+values of the <code>Model</code>'s metrics are returned.</p>
+<hr>
+
+<p><em>to_json(</em><em>kwargs)</em></p>
+<p>Returns a JSON string containing the network configuration.</p>
+<p>To load a network from a JSON save file, use
+<code>keras.models.model_from_json(json_string, custom_objects={})</code>.</p>
+<p>Arguments:
+**kwargs: Additional keyword arguments
+to be passed to <code>json.dumps()</code>.</p>
+<p>Returns:
+A JSON string.</p>
+<hr>
+
+<p><em>to_yaml(</em><em>kwargs)</em></p>
+<p>Returns a yaml string containing the network configuration.</p>
+<p>To load a network from a yaml save file, use
+<code>keras.models.model_from_yaml(yaml_string, custom_objects={})</code>.</p>
+<p><code>custom_objects</code> should be a dictionary mapping
+the names of custom losses / layers / etc to the corresponding
+functions / classes.</p>
+<p>Arguments:
+**kwargs: Additional keyword arguments
+to be passed to <code>yaml.dump()</code>.</p>
+<p>Returns:
+A YAML string.</p>
+<p>Raises:
+ImportError: if yaml module is not found.</p>
+<hr>
+
+<p><em>train_on_batch(x, y=None, sample_weight=None, class_weight=None, reset_metrics=True, return_dict=False)</em></p>
+<p>Runs a single gradient update on a single batch of data.</p>
+<p>Arguments:
+x: Input data. It could be:
+- A Numpy array (or array-like), or a list of arrays
+(in case the model has multiple inputs).
+- A TensorFlow tensor, or a list of tensors
+(in case the model has multiple inputs).
+- A dict mapping input names to the corresponding array/tensors,
+if the model has named inputs.
+y: Target data. Like the input data <code>x</code>, it could be either Numpy
+array(s) or TensorFlow tensor(s). It should be consistent with <code>x</code>
+(you cannot have Numpy inputs and tensor targets, or inversely).
+sample_weight: Optional array of the same length as x, containing
+weights to apply to the model's loss for each sample. In the case of
+temporal data, you can pass a 2D array with shape (samples,
+sequence_length), to apply a different weight to every timestep of
+every sample. In this case you should make sure to specify
+sample_weight_mode="temporal" in compile().
+class_weight: Optional dictionary mapping class indices (integers) to a
+weight (float) to apply to the model's loss for the samples from this
+class during training. This can be useful to tell the model to "pay
+more attention" to samples from an under-represented class.
+reset_metrics: If <code>True</code>, the metrics returned will be only for this
+batch. If <code>False</code>, the metrics will be statefully accumulated across
+batches.
+return_dict: If <code>True</code>, loss and metric results are returned as a dict,
+with each key being the name of the metric. If <code>False</code>, they are
+returned as a list.</p>
+<p>Returns:
+Scalar training loss
+(if the model has a single output and no metrics)
+or list of scalars (if the model has multiple outputs
+and/or metrics). The attribute <code>model.metrics_names</code> will give you
+the display labels for the scalar outputs.</p>
+<p>Raises:
+ValueError: In case of invalid user-provided arguments.</p>
+<hr>
+
+<p><em>train_step(data)</em></p>
+<p>The logic for one training step.</p>
+<p>This method can be overridden to support custom training logic.
+This method is called by <code>Model.make_train_function</code>.</p>
+<p>This method should contain the mathemetical logic for one step of training.
+This typically includes the forward pass, loss calculation, backpropagation,
+and metric updates.</p>
+<p>Configuration details for <em>how</em> this logic is run (e.g. <code>tf.function</code> and
+<code>tf.distribute.Strategy</code> settings), should be left to
+<code>Model.make_train_function</code>, which can also be overridden.</p>
+<p>Arguments:
+data: A nested structure of <code>Tensor</code>s.</p>
+<p>Returns:
+A <code>dict</code> containing values that will be passed to
+<code>tf.keras.callbacks.CallbackList.on_train_batch_end</code>. Typically, the
+values of the <code>Model</code>'s metrics are returned. Example:
+<code>{'loss': 0.2, 'accuracy': 0.7}</code>.</p>
+<hr>
+
+<p><em>with_name_scope(method)</em></p>
+<p>Decorator to automatically enter the module name scope.</p>
+<pre><code>&gt;&gt;&gt; class MyModule(tf.Module):
+</code></pre>
+<p>...   @tf.Module.with_name_scope
+...   def <strong>call</strong>(self, x):
+...     if not hasattr(self, 'w'):
+...       self.w = tf.Variable(tf.random.normal([x.shape[1], 3]))
+...     return tf.matmul(x, self.w)</p>
+<p>Using the above module would produce <code>tf.Variable</code>s and <code>tf.Tensor</code>s whose
+names included the module name:</p>
+<pre><code>&gt;&gt;&gt; mod = MyModule()
+&gt;&gt;&gt; mod(tf.ones([1, 2]))
+</code></pre>
+<p><tf.Tensor: shape=(1, 3), dtype=float32, numpy=..., dtype=float32)>
+    &gt;&gt;&gt; mod.w
+<tf.Variable 'my_module/Variable:0' shape=(2, 3) dtype=float32,
+numpy=..., dtype=float32)></p>
+<p>Args:
+method: The method to wrap.</p>
+<p>Returns:
+The original method wrapped such that it enters the module's name scope.</p>
+<h3 id="properties">Properties</h3>
+<hr>
+
+<p><em>activity_regularizer</em></p>
+<p>Optional regularizer function for the output of this layer.</p>
+<hr>
+
+<p><em>distribute_strategy</em></p>
+<p>The <code>tf.distribute.Strategy</code> this model was created under.</p>
+<hr>
+
+<p><em>dtype</em></p>
+<p>Dtype used by the weights of the layer, set in the constructor.</p>
+<hr>
+
+<p><em>dynamic</em></p>
+<p>Whether the layer is dynamic (eager-only); set in the constructor.</p>
+<hr>
+
+<p><em>inbound_nodes</em></p>
+<p>Deprecated, do NOT use! Only for compatibility with external Keras.</p>
+<hr>
+
+<p><em>input</em></p>
+<p>Retrieves the input tensor(s) of a layer.</p>
+<p>Only applicable if the layer has exactly one input,
+i.e. if it is connected to one incoming layer.</p>
+<p>Returns:
+Input tensor or list of input tensors.</p>
+<p>Raises:
+RuntimeError: If called in Eager mode.
+AttributeError: If no inbound nodes are found.</p>
+<hr>
+
+<p><em>input_mask</em></p>
+<p>Retrieves the input mask tensor(s) of a layer.</p>
+<p>Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.</p>
+<p>Returns:
+Input mask tensor (potentially None) or list of input
+mask tensors.</p>
+<p>Raises:
+AttributeError: if the layer is connected to
+more than one incoming layers.</p>
+<hr>
+
+<p><em>input_shape</em></p>
+<p>Retrieves the input shape(s) of a layer.</p>
+<p>Only applicable if the layer has exactly one input,
+i.e. if it is connected to one incoming layer, or if all inputs
+have the same shape.</p>
+<p>Returns:
+Input shape, as an integer shape tuple
+(or list of shape tuples, one tuple per input tensor).</p>
+<p>Raises:
+AttributeError: if the layer has no defined input_shape.
+RuntimeError: if called in Eager mode.</p>
+<hr>
+
+<p><em>input_spec</em></p>
+<p>Gets the network's input specs.</p>
+<p>Returns:
+A list of <code>InputSpec</code> instances (one per input to the model)
+or a single instance if the model has only one input.</p>
+<hr>
+
+<p><em>layers</em></p>
+<p>None</p>
+<hr>
+
+<p><em>losses</em></p>
+<p>Losses which are associated with this <code>Layer</code>.</p>
+<p>Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing <code>losses</code> under a <code>tf.GradientTape</code> will
+propagate gradients back to the corresponding variables.</p>
+<p>Returns:
+A list of tensors.</p>
+<hr>
+
+<p><em>metrics</em></p>
+<p>Returns the model's metrics added using <code>compile</code>, <code>add_metric</code> APIs.</p>
+<p>Note: <code>metrics</code> are available only after a <code>keras.Model</code> has been
+trained/evaluated on actual data.</p>
+<p>Examples:</p>
+<pre><code>&gt;&gt;&gt; inputs = tf.keras.layers.Input(shape=(3,))
+&gt;&gt;&gt; outputs = tf.keras.layers.Dense(2)(inputs)
+&gt;&gt;&gt; model = tf.keras.models.Model(inputs=inputs, outputs=outputs)
+&gt;&gt;&gt; model.compile(optimizer="Adam", loss="mse", metrics=["mae"])
+&gt;&gt;&gt; [m.name for m in model.metrics]
+</code></pre>
+<p>[]</p>
+<pre><code>&gt;&gt;&gt; x = np.random.random((2, 3))
+&gt;&gt;&gt; y = np.random.randint(0, 2, (2, 2))
+&gt;&gt;&gt; _ = model.fit(x, y, verbose=0)
+&gt;&gt;&gt; [m.name for m in model.metrics]
+</code></pre>
+<p>['loss', 'mae']</p>
+<pre><code>&gt;&gt;&gt; inputs = tf.keras.layers.Input(shape=(3,))
+&gt;&gt;&gt; d = tf.keras.layers.Dense(2, name='out')
+&gt;&gt;&gt; output_1 = d(inputs)
+&gt;&gt;&gt; output_2 = d(inputs)
+&gt;&gt;&gt; model = tf.keras.models.Model(
+</code></pre>
+<p>...    inputs=inputs, outputs=[output_1, output_2])
+    &gt;&gt;&gt; model.add_metric(
+...    tf.reduce_sum(output_2), name='mean', aggregation='mean')
+    &gt;&gt;&gt; model.compile(optimizer="Adam", loss="mse", metrics=["mae", "acc"])
+    &gt;&gt;&gt; _ = model.fit(x, (y, y), verbose=0)
+    &gt;&gt;&gt; [m.name for m in model.metrics]
+['loss', 'out_loss', 'out_1_loss', 'out_mae', 'out_acc', 'out_1_mae',
+'out_1_acc', 'mean']</p>
+<hr>
+
+<p><em>metrics_names</em></p>
+<p>Returns the model's display labels for all outputs.</p>
+<p>Note: <code>metrics_names</code> are available only after a <code>keras.Model</code> has been
+trained/evaluated on actual data.</p>
+<p>Examples:</p>
+<pre><code>&gt;&gt;&gt; inputs = tf.keras.layers.Input(shape=(3,))
+&gt;&gt;&gt; outputs = tf.keras.layers.Dense(2)(inputs)
+&gt;&gt;&gt; model = tf.keras.models.Model(inputs=inputs, outputs=outputs)
+&gt;&gt;&gt; model.compile(optimizer="Adam", loss="mse", metrics=["mae"])
+&gt;&gt;&gt; model.metrics_names
+</code></pre>
+<p>[]</p>
+<pre><code>&gt;&gt;&gt; x = np.random.random((2, 3))
+&gt;&gt;&gt; y = np.random.randint(0, 2, (2, 2))
+&gt;&gt;&gt; _ = model.fit(x, y, verbose=0)
+&gt;&gt;&gt; model.metrics_names
+</code></pre>
+<p>['loss', 'mae']</p>
+<pre><code>&gt;&gt;&gt; inputs = tf.keras.layers.Input(shape=(3,))
+&gt;&gt;&gt; d = tf.keras.layers.Dense(2, name='out')
+&gt;&gt;&gt; output_1 = d(inputs)
+&gt;&gt;&gt; output_2 = d(inputs)
+&gt;&gt;&gt; model = tf.keras.models.Model(
+</code></pre>
+<p>...    inputs=inputs, outputs=[output_1, output_2])
+    &gt;&gt;&gt; model.compile(optimizer="Adam", loss="mse", metrics=["mae", "acc"])
+    &gt;&gt;&gt; _ = model.fit(x, (y, y), verbose=0)
+    &gt;&gt;&gt; model.metrics_names
+['loss', 'out_loss', 'out_1_loss', 'out_mae', 'out_acc', 'out_1_mae',
+'out_1_acc']</p>
+<hr>
+
+<p><em>name</em></p>
+<p>Name of the layer (string), set in the constructor.</p>
+<hr>
+
+<p><em>name_scope</em></p>
+<p>Returns a <code>tf.name_scope</code> instance for this class.</p>
+<hr>
+
+<p><em>non_trainable_variables</em></p>
+<p>None</p>
+<hr>
+
+<p><em>non_trainable_weights</em></p>
+<p>List of all non-trainable weights tracked by this layer.</p>
+<p>Non-trainable weights are <em>not</em> updated during training. They are expected
+to be updated manually in <code>call()</code>.</p>
+<p>Returns:
+A list of non-trainable variables.</p>
+<hr>
+
+<p><em>outbound_nodes</em></p>
+<p>Deprecated, do NOT use! Only for compatibility with external Keras.</p>
+<hr>
+
+<p><em>output</em></p>
+<p>Retrieves the output tensor(s) of a layer.</p>
+<p>Only applicable if the layer has exactly one output,
+i.e. if it is connected to one incoming layer.</p>
+<p>Returns:
+Output tensor or list of output tensors.</p>
+<p>Raises:
+AttributeError: if the layer is connected to more than one incoming
+layers.
+RuntimeError: if called in Eager mode.</p>
+<hr>
+
+<p><em>output_mask</em></p>
+<p>Retrieves the output mask tensor(s) of a layer.</p>
+<p>Only applicable if the layer has exactly one inbound node,
+i.e. if it is connected to one incoming layer.</p>
+<p>Returns:
+Output mask tensor (potentially None) or list of output
+mask tensors.</p>
+<p>Raises:
+AttributeError: if the layer is connected to
+more than one incoming layers.</p>
+<hr>
+
+<p><em>output_shape</em></p>
+<p>Retrieves the output shape(s) of a layer.</p>
+<p>Only applicable if the layer has one output,
+or if all outputs have the same shape.</p>
+<p>Returns:
+Output shape, as an integer shape tuple
+(or list of shape tuples, one tuple per output tensor).</p>
+<p>Raises:
+AttributeError: if the layer has no defined output shape.
+RuntimeError: if called in Eager mode.</p>
+<hr>
+
+<p><em>run_eagerly</em></p>
+<p>Settable attribute indicating whether the model should run eagerly.</p>
+<p>Running eagerly means that your model will be run step by step,
+like Python code. Your model might run slower, but it should become easier
+for you to debug it by stepping into individual layer calls.</p>
+<p>By default, we will attempt to compile your model to a static graph to
+deliver the best execution performance.</p>
+<p>Returns:
+Boolean, whether the model should run eagerly.</p>
+<hr>
+
+<p><em>state_updates</em></p>
+<p>Returns the <code>updates</code> from all layers that are stateful.</p>
+<p>This is useful for separating training updates and
+state updates, e.g. when we need to update a layer's internal state
+during prediction.</p>
+<p>Returns:
+A list of update ops.</p>
+<hr>
+
+<p><em>stateful</em></p>
+<p>None</p>
+<hr>
+
+<p><em>submodules</em></p>
+<p>Sequence of all sub-modules.</p>
+<p>Submodules are modules which are properties of this module, or found as
+properties of modules which are properties of this module (and so on).</p>
+<pre><code>&gt;&gt;&gt; a = tf.Module()
+&gt;&gt;&gt; b = tf.Module()
+&gt;&gt;&gt; c = tf.Module()
+&gt;&gt;&gt; a.b = b
+&gt;&gt;&gt; b.c = c
+&gt;&gt;&gt; list(a.submodules) == [b, c]
+</code></pre>
+<p>True
+    &gt;&gt;&gt; list(b.submodules) == [c]
+True
+    &gt;&gt;&gt; list(c.submodules) == []
+True</p>
+<p>Returns:
+A sequence of all submodules.</p>
+<hr>
+
+<p><em>trainable</em></p>
+<p>None</p>
+<hr>
+
+<p><em>trainable_variables</em></p>
+<p>Sequence of trainable variables owned by this module and its submodules.</p>
+<p>Note: this method uses reflection to find variables on the current instance
+and submodules. For performance reasons you may wish to cache the result
+of calling this method if you don't expect the return value to change.</p>
+<p>Returns:
+A sequence of variables for the current module (sorted by attribute
+name) followed by variables from all submodules recursively (breadth
+first).</p>
+<hr>
+
+<p><em>trainable_weights</em></p>
+<p>List of all trainable weights tracked by this layer.</p>
+<p>Trainable weights are updated via gradient descent during training.</p>
+<p>Returns:
+A list of trainable variables.</p>
+<hr>
+
+<p><em>updates</em></p>
+<p>None</p>
+<hr>
+
+<p><em>variables</em></p>
+<p>Returns the list of all layer variables/weights.</p>
+<p>Alias of <code>self.weights</code>.</p>
+<p>Returns:
+A list of variables.</p>
+<hr>
+
+<p><em>weights</em></p>
+<p>Returns the list of all layer variables/weights.</p>
+<p>Returns:
+A list of variables.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

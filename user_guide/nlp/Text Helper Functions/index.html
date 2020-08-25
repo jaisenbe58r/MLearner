@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A library consisting of useful tools and extensions for the day-to-day data science tasks."> 
+    <meta name="author" content="Jaime Sendra Berenguer"> 
+    <link rel="canonical" href="https://jaisenbe58r.github.io/MLearner/user_guide/nlp/Text%20Helper%20Functions/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title>FUNCIONES DE AYUDA AL PROCESADO DE TEXTO - mlearner</title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../cinder/css/base.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/bootstrap-custom.min.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/cinder.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/font-awesome-4.0.3.css" rel="stylesheet">
+
+
+    <link href="../../../cinder/css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-163860068-1', 'jaisenbe58r.github.io/MLearner/');
+    ga('send', 'pageview');
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">mlearner</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../USER_GUIDE_INDEX/">User Guide Index</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">load</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../load/DataLoad/">DataLoad</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">data</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../data/wine_data/">Wine Dataset</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_normal/">Data normal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_gamma/">Data gamma</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/data_uniform/">Data uniform</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../data/create_dataset/">Create dataset</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">preprocessing</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../preprocessing/MeanCenterer/">MeanCenterer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/minmax_scaling/">Minmax scaling</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FeatureDropper/">FeatureDropper</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_median/">FillNaTransformer median</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_mean/">FillNaTransformer mean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_idmax/">FillNaTransformer idmax</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_any/">FillNaTransformer any</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_all/">FillNaTransformer all</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_value/">FillNaTransformer value</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_backward/">FillNaTransformer backward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FillNaTransformer_forward/">FillNaTransformer forward</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/FixSkewness/">FixSkewness</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/OneHotEncoder/">OneHotEncoder</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/DropOutliers/">DropOutliers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/ExtractCategories/">ExtractCategories</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/ReplaceMulticlass/">ReplaceMulticlass</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/ReplaceTransformer/">ReplaceTransformer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/DataCleaner/">DataCleaner</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../preprocessing/DataAnalyst/">Preprocessing</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">feature selections</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../feature_selections/FeatureSelection/">FeatureSelection</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">models</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../models/modelXGBoost/">modelXGBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../models/modelLightBoost/">modelLightBoost</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../models/modelCatBoost/">modelCatBoost</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">clasifier</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../clasifier/PipelineClasificators/">PipelineClasificators</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../clasifier/TrainingUtilities/">TrainingUtilities</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">training</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../training/Training/">Training</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">evaluation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../evaluation/EvaluationModels">None</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">utils</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../utils/ParamsManager/">ParamsManager</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">nlp</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../boundary/">Boundary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../CountVectorizer/">CountVectorizer</a>
+</li>
+
+        
+            
+<li >
+    <a href="../DCNN/">DCNN</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_at/">Find at</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_capital/">Find capital</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_dates/">Find dates</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_dollar/">Find dollar</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_domain/">Find domain</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_email/">Find email</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_emoji/">Find emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_hash/">Find hash</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_nonalp/">Find nonalp</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_number/">Find number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_phone_number/">Find phone number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_punct/">Find punct</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_url/">Find url</a>
+</li>
+
+        
+            
+<li >
+    <a href="../find_year/">Find year</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ip_add/">Ip add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../lat_lon/">Lat lon</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mac_add/">Mac add</a>
+</li>
+
+        
+            
+<li >
+    <a href="../neg_look_ahead/">Neg look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../neg_look_behind/">Neg look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../ngrams_top/">Ngrams top</a>
+</li>
+
+        
+            
+<li >
+    <a href="../num_great/">Num great</a>
+</li>
+
+        
+            
+<li >
+    <a href="../num_less/">Num less</a>
+</li>
+
+        
+            
+<li >
+    <a href="../only_words/">Only words</a>
+</li>
+
+        
+            
+<li >
+    <a href="../open_txt/">Open txt</a>
+</li>
+
+        
+            
+<li >
+    <a href="../pick_only_key_sentence/">Pick only key sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../pick_unique_sentence/">Pick unique sentence</a>
+</li>
+
+        
+            
+<li >
+    <a href="../pos_look_ahead/">Pos look ahead</a>
+</li>
+
+        
+            
+<li >
+    <a href="../pos_look_behind/">Pos look behind</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Processor_data/">Processor data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../remove_emoji/">Remove emoji</a>
+</li>
+
+        
+            
+<li >
+    <a href="../remove_tag/">Remove tag</a>
+</li>
+
+        
+            
+<li >
+    <a href="../search_string/">Search string</a>
+</li>
+
+        
+            
+<li >
+    <a href="../subword/">Subword</a>
+</li>
+
+        
+            
+<li >
+    <a href="../unique_char/">Unique char</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.data/">Mlearner.data</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.preprocessing/">Mlearner.preprocessing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.externals/">Mlearner.externals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.load/">Mlearner.load</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.classifier/">Mlearner.classifier</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.feature_selection/">Mlearner.feature selection</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.models/">Mlearner.models</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.training/">Mlearner.training</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.utils/">Mlearner.utils</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../api_subpackages/mlearner.nlp/">Mlearner.nlp</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../installation/">Installation</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../CHANGELOG/">Release Notes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../CONTRIBUTING/">How To Contribute</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../contributors/">Contributors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../license/">License</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cite/">Citing mlearner</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../discuss/">Discuss</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+
+                <!---->
+                    <li>
+                        <a href="https://github.com/jaisenbe58r/MLearner"><i class="fa fa-github"></i> GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#funciones-de-ayuda-al-procesado-de-texto">FUNCIONES DE AYUDA AL PROCESADO DE TEXTO</a></li>
+        <li class="first-level "><a href="#mlearner">MLearner</a></li>
+            <li class="second-level"><a href="#pypi">PyPI</a></li>
+                 <!--   -->
+            <li class="second-level"><a href="#links">Links</a></li>
+                 <!--   -->
+        <li class="first-level "><a href="#text-helper-functions">Text Helper Functions</a></li>
+            <li class="second-level"><a href="#overview">Overview</a></li>
+                 <!-- 
+                <li class="third-level"><a href="#helpers">Helpers</a></li>  -->
+            <li class="second-level"><a href="#importacion-de-librerias">Importacion de Librerias</a></li>
+                 <!--   -->
+            <li class="second-level"><a href="#carga-del-dataset">Carga del dataset</a></li>
+                 <!--   -->
+            <li class="second-level"><a href="#procesado-del-texto">Procesado del Texto</a></li>
+                 <!-- 
+                <li class="third-level"><a href="#urls">URLs</a></li>
+                <li class="third-level"><a href="#emojis">Emojis</a></li>
+                <li class="third-level"><a href="#email">Email</a></li>
+                <li class="third-level"><a href="#hash">Hash</a></li>
+                <li class="third-level"><a href="#mention">Mention</a></li>
+                <li class="third-level"><a href="#numbers">Numbers</a></li>
+                <li class="third-level"><a href="#phone-number">Phone Number</a></li>
+                <li class="third-level"><a href="#find-year">Find Year</a></li>
+                <li class="third-level"><a href="#non-alphanumeric-characters">Non Alphanumeric characters</a></li>
+                <li class="third-level"><a href="#retrieve-punctuations-from-sentence">Retrieve punctuations from sentence</a></li>
+                <li class="third-level"><a href="#unique-char">Unique Char</a></li>
+                <li class="third-level"><a href="#prices">Prices</a></li>
+                <li class="third-level"><a href="#numbers-great">Numbers great</a></li>
+                <li class="third-level"><a href="#numbers-less">Numbers less</a></li>
+                <li class="third-level"><a href="#find-dates">Find Dates</a></li>
+                <li class="third-level"><a href="#only-words">Only Words</a></li>
+                <li class="third-level"><a href="#search-key">Search Key</a></li>
+                <li class="third-level"><a href="#pick-only-key-sentence">pick only key sentence</a></li>
+                <li class="third-level"><a href="#pick-unique-sentence">pick unique sentence</a></li>
+                <li class="third-level"><a href="#capital-words">Capital words</a></li>
+                <li class="third-level"><a href="#remove-tag-html">Remove tag html</a></li>
+                <li class="third-level"><a href="#mac-address">Mac address</a></li>
+                <li class="third-level"><a href="#ip-address">IP address</a></li>
+                <li class="third-level"><a href="#extract-number-of-subwords">Extract number of subwords</a></li>
+                <li class="third-level"><a href="#valid-latitude-longitude">Valid latitude &amp; longitude</a></li>
+                <li class="third-level"><a href="#valid-latitude-longitude_1">Valid latitude &amp; longitude</a></li>  -->
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="funciones-de-ayuda-al-procesado-de-texto">FUNCIONES DE AYUDA AL PROCESADO DE TEXTO</h1>
+<h1 id="mlearner">MLearner</h1>
+<p><strong>MLearner</strong> pretende ser una libreria de herramientas utiles para desarrollar algoritmos de Machine Learning e IA de manera mas facil e intuitiva. El desarrollo de esta libreria me ha servido para adquirir conocimientos de creacion de un proyecto de desarrollo software:</p>
+<ul>
+<li>
+<p>Integracion Continua y Despliegue Continuo.</p>
+</li>
+<li>
+<p>Gestion de Repositorio a nivel de proyecto.</p>
+</li>
+<li>
+<p>Gestion de Repositorio OpenSource.</p>
+</li>
+<li>
+<p>Clean Code en desarrollo software.</p>
+</li>
+<li>
+<p>Frameworks Machine Learning y Deep Learning.</p>
+</li>
+<li>
+<p>Automatizacion de testing.</p>
+</li>
+<li>
+<p>Documentacion de codigo.</p>
+</li>
+<li>
+<p>Documentacion de la Libreria entorno Web.</p>
+</li>
+<li>
+<p>Empaquetacion y publicacion en Pypi.</p>
+</li>
+</ul>
+<p><img alt="mlearner_web.png" src="../images/mlearner_web.png" /></p>
+<h3 id="pypi">PyPI</h3>
+<p>Para instalar <strong>MLearner</strong> ejecute:</p>
+<pre><code class="python">pip install mlearner
+</code></pre>
+
+<p>Como alternativa, puede descargar el paquete directamente desde PyPI https://pypi.python.org/pypi/mlearner, posteriormente desarchivelo y navegue hasta la ruta del paquete, una vez alli ejecute el siguiente comando:</p>
+<pre><code class="python">python setup.py install
+</code></pre>
+
+<h3 id="links">Links</h3>
+<ul>
+<li><strong>Documentation:</strong> https://jaisenbe58r.github.io/MLearner/</li>
+<li><strong>Source code repository:</strong> https://github.com/jaisenbe58r/MLearner</li>
+<li><strong>PyPI:</strong> https://pypi.python.org/pypi/mlearner</li>
+</ul>
+<hr />
+<h1 id="text-helper-functions">Text Helper Functions</h1>
+<p>Implementation of functions for Natural language Processing</p>
+<blockquote>
+<p>from mlearner.nlp.helpers import *</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<h4 id="helpers">Helpers</h4>
+<p>List of implemented modules:</p>
+<ul>
+<li>URL</li>
+<li>Emoticons</li>
+<li>Email</li>
+<li>Hash</li>
+<li>Mention</li>
+<li>Number</li>
+<li>Phone Number</li>
+<li>Year</li>
+<li>Non Alphanumeric</li>
+<li>Punctuations</li>
+<li>Repetitive Character</li>
+<li>Dollar</li>
+<li>Number-Greater</li>
+<li>Number-Lesser</li>
+<li>Dates</li>
+<li>Only Words</li>
+<li>Only Numbers</li>
+<li>Boundaries</li>
+<li>Search</li>
+<li>Pick Sentence</li>
+<li>Duplicate Sentence</li>
+<li>Caps Words</li>
+<li>Length of Words</li>
+<li>Length of Characters</li>
+<li>Get ID</li>
+<li>Specific String Rows</li>
+<li>Hex code to Color</li>
+<li>Tags</li>
+<li>IP Address</li>
+<li>Mac Address</li>
+<li>Subword</li>
+<li>Latitude &amp; Longitude</li>
+<li>PAN</li>
+<li>Phone Number Country Code</li>
+<li>Domain</li>
+</ul>
+<h2 id="importacion-de-librerias">Importacion de Librerias</h2>
+<pre><code class="python">import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from mlearner import nlp 
+from mlearner.preprocessing import DataAnalyst
+from mlearner.utils import keras_checkpoint
+
+import emoji
+
+%load_ext autoreload
+%autoreload 2
+
+%matplotlib inline
+</code></pre>
+
+<pre><code>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</code></pre>
+<h2 id="carga-del-dataset">Carga del dataset</h2>
+<p><strong>SMS Spam Collection v.1</strong></p>
+<p>The SMS Spam Collection v.1 (hereafter the corpus) is a set of SMS tagged messages that have been collected for SMS Spam research. It contains one set of SMS messages in English of 5,574 messages, tagged acording being ham (legitimate) or spam.</p>
+<p>The Grumbletext Web site is: http://www.grumbletext.co.uk/</p>
+<pre><code class="python">file = &quot;data/SMSSpamCollection.txt&quot;
+file_csv = &quot;data/SMSSpamCollection.csv&quot;
+
+if not os.path.isfile(file_csv):
+    text = nlp.open_txt(file).replace(&quot;\t&quot;, &quot;\n&quot;).split(&quot;\n&quot;)
+    del text[-1] # Se borra la linea del final
+
+    d = {'target': text[0::2], 'text': text[1::2]}
+    sms = pd.DataFrame(d)
+    sms.to_csv(&quot;data/SMSSpamCollection.csv&quot;, index=False)
+else:
+    sms = pd.read_csv(file_csv)
+
+sms.head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>Ok lar... Joking wif u oni...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>U dun say so early hor... U c already then say...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">dataset = DataAnalyst.load_dataframe(sms)
+dataset.distribution_targets(target=[&quot;target&quot;])
+</code></pre>
+
+<p><img alt="png" src="../Text%20Helper%20Functions_files/Text%20Helper%20Functions_12_0.png" /></p>
+<hr />
+<h2 id="procesado-del-texto">Procesado del Texto</h2>
+<pre><code class="python">data_clean = dataset.data.copy()
+</code></pre>
+
+<h3 id="urls">URLs</h3>
+<ul>
+<li><strong>find_url(text)</strong>: Busqueda de URLs en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_url
+</code></pre>
+
+<pre><code class="python">data_clean['url'] = dataset.data['text'].apply(lambda x : find_url(x))
+data_clean[data_clean[&quot;url&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;url&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15</th>
+      <td>spam</td>
+      <td>http://wap.</td>
+    </tr>
+    <tr>
+      <th>305</th>
+      <td>spam</td>
+      <td>http://img.</td>
+    </tr>
+    <tr>
+      <th>518</th>
+      <td>spam</td>
+      <td>http://www.bubbletext.com</td>
+    </tr>
+    <tr>
+      <th>635</th>
+      <td>spam</td>
+      <td>http://www.e-tlp.co.uk/expressoffer</td>
+    </tr>
+    <tr>
+      <th>833</th>
+      <td>spam</td>
+      <td>http://www.e-tlp.co.uk/expressoffer</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="emojis">Emojis</h3>
+<ul>
+<li>
+<p><strong>find_emoji(text)</strong>: Busqueda de emojis en el texto.</p>
+</li>
+<li>
+<p><strong>remove_emoji(text)</strong>: Borra los <em>emoji</em> del texto.</p>
+</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_emoji, remove_emoji
+</code></pre>
+
+<pre><code class="python">sentence=&quot;I play () ... ()&quot;
+find_emoji(sentence)
+</code></pre>
+
+<pre><code>['soccer_ball', 'beaming_face_with_smiling_eyes']
+</code></pre>
+<pre><code class="python">data_clean['emoji'] = dataset.data['text'].apply(lambda x : find_emoji(x))
+data_clean['text'] = dataset.data['text'].apply(lambda x : remove_emoji(x))
+</code></pre>
+
+<hr />
+<h3 id="email">Email</h3>
+<ul>
+<li><strong>find_email(text)</strong>: Extraccion de emails del texto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_email
+</code></pre>
+
+<pre><code class="python">data_clean['emails'] = dataset.data['text'].apply(lambda x : find_email(x))
+data_clean[data_clean[&quot;emails&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;emails&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>emails</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>135</th>
+      <td>spam</td>
+      <td>31p.msg@150p</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>ham</td>
+      <td>yijue@hotmail.com</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>spam</td>
+      <td>recd@thirtyeight</td>
+    </tr>
+    <tr>
+      <th>474</th>
+      <td>spam</td>
+      <td>31p.msg@150p</td>
+    </tr>
+    <tr>
+      <th>541</th>
+      <td>spam</td>
+      <td>MonthlySubscription@50p</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="hash">Hash</h3>
+<ul>
+<li><strong>find_hash(text)</strong>: Busqueda de Hashtags en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_hash
+</code></pre>
+
+<pre><code class="python">data_clean['Hash'] = dataset.data['text'].apply(lambda x : find_hash(x))
+data_clean[data_clean[&quot;Hash&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;Hash&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>Hash</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>471</th>
+      <td>spam</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>1781</th>
+      <td>spam</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>spam</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3895</th>
+      <td>spam</td>
+      <td>5000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">data_clean[&quot;text&quot;].iloc[471]
+</code></pre>
+
+<pre><code>'okmail: Dear Dave this is your final notice to collect your 4* Tenerife Holiday or #5000 CASH award! Call 09061743806 from landline. TCs SAE Box326 CW25WX 150ppm'
+</code></pre>
+<hr />
+<h3 id="mention">Mention</h3>
+<ul>
+<li><strong>find_at(text)</strong>: Busqueda de menciones "@" en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_at
+</code></pre>
+
+<pre><code class="python">data_clean['Mention'] = dataset.data['text'].apply(lambda x : find_at(x))
+data_clean[data_clean[&quot;Mention&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;Mention&quot;]].tail(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>Mention</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3299</th>
+      <td>spam</td>
+      <td>150p</td>
+    </tr>
+    <tr>
+      <th>3501</th>
+      <td>spam</td>
+      <td>kiefer</td>
+    </tr>
+    <tr>
+      <th>4906</th>
+      <td>spam</td>
+      <td>Warner kiosk kiosk</td>
+    </tr>
+    <tr>
+      <th>5104</th>
+      <td>spam</td>
+      <td>netvision</td>
+    </tr>
+    <tr>
+      <th>5344</th>
+      <td>spam</td>
+      <td>150p</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="numbers">Numbers</h3>
+<ul>
+<li><strong>find_number(text)</strong>: Busqueda de numeros en el texto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_number
+</code></pre>
+
+<pre><code class="python">data_clean['Numbers'] = dataset.data['text'].apply(lambda x : find_number(x))
+data_clean[data_clean[&quot;Numbers&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;Numbers&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>Numbers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>2 21 2005 87121 08452810075 18</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>spam</td>
+      <td>3 1 50</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ham</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>spam</td>
+      <td>900 09061701461 341 12</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>spam</td>
+      <td>11 08002986030</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="phone-number">Phone Number</h3>
+<ul>
+<li><strong>find_phone_number(text)</strong>: Busqueda de numeros de telefono españoles en el texto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_phone_number
+</code></pre>
+
+<pre><code class="python">data_clean['phone_number'] = dataset.data['text'].apply(lambda x : find_phone_number(x))
+</code></pre>
+
+<pre><code class="python">find_phone_number(&quot;+34666999666&quot;)
+</code></pre>
+
+<pre><code>[('+34', '6', '6')]
+</code></pre>
+<hr />
+<h3 id="find-year">Find Year</h3>
+<ul>
+<li><strong>find_year(text)</strong>: Busqueda de años de nacimiento en el texto [1940-2040]</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_year
+</code></pre>
+
+<pre><code class="python">data_clean['Years'] = dataset.data['text'].apply(lambda x : find_year(x))
+data_clean[data_clean[&quot;Years&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;Years&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>Years</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>[2005]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="non-alphanumeric-characters">Non Alphanumeric characters</h3>
+<ul>
+<li><strong>find_nonalp(text)</strong>: Extraccion de caracteres no alfanumericos.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_nonalp
+</code></pre>
+
+<pre><code class="python">data_clean['nonalp'] = dataset.data['text'].apply(lambda x : find_nonalp(x))
+data_clean[data_clean[&quot;nonalp&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;nonalp&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>nonalp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>[,, ., ., ., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>[., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>[., (, ), &amp;, ', ']</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>[., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>[', ,]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="retrieve-punctuations-from-sentence">Retrieve punctuations from sentence</h3>
+<ul>
+<li><strong>find_punct(text)</strong>: Signos de puntuacion.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_punct
+</code></pre>
+
+<pre><code class="python">data_clean['find_punct'] = dataset.data['text'].apply(lambda x : find_punct(x))
+data_clean[data_clean[&quot;find_punct&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;find_punct&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>find_punct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>[,, ., ., ., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>[., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>[., (, ), &amp;, ', ']</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>[., ., ., ., ., .]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>[', ,]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="unique-char">Unique Char</h3>
+<ul>
+<li><strong>unique_char(sentence)</strong>: Elimina los caracteres repetidos de una palabra.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import unique_char
+</code></pre>
+
+<pre><code class="python">sentence=&quot;I lovee Machinee learning!&quot;
+unique_char(sentence)
+</code></pre>
+
+<pre><code>'I love Machine learning!'
+</code></pre>
+<hr />
+<h3 id="prices">Prices</h3>
+<ul>
+<li><strong>find_coin(text, symbol="$")</strong>: Busqueda de precios en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_coin
+</code></pre>
+
+<pre><code class="python">data_clean['find_coin$'] = dataset.data['text'].apply(lambda x : find_coin(x, symbol=&quot;$&quot;))
+data_clean[data_clean[&quot;find_coin$&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;find_coin$&quot;]].head(2)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>find_coin$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>60</th>
+      <td>ham</td>
+      <td>$1</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>spam</td>
+      <td>$350</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">dataset.data['text'].iloc[60]
+</code></pre>
+
+<pre><code>"Your gonna have to pick up a $1 burger for yourself on your way home. I can't even move. Pain is killing me."
+</code></pre>
+<hr />
+<h3 id="numbers-great">Numbers great</h3>
+<ul>
+<li><strong>num_great(text)</strong>: Busqueda de numeros mayores a 930.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import num_great
+</code></pre>
+
+<pre><code class="python">data_clean['num_great'] = dataset.data['text'].apply(lambda x : num_great(x))
+data_clean[data_clean[&quot;num_great&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;num_great&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>num_great</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>2005 87121 8452810075</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>spam</td>
+      <td>9061701461</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>spam</td>
+      <td>8002986030</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>spam</td>
+      <td>87575</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>spam</td>
+      <td>81010 4403</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="numbers-less">Numbers less</h3>
+<ul>
+<li><strong>num_less(text)</strong>: Busqueda de numeros menores a 930.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import num_less
+</code></pre>
+
+<pre><code class="python">data_clean['num_less'] = dataset.data['text'].apply(lambda x : num_less(x))
+data_clean[data_clean[&quot;num_less&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;num_less&quot;]].tail(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>num_less</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5557</th>
+      <td>ham</td>
+      <td>4 2 2 4</td>
+    </tr>
+    <tr>
+      <th>5564</th>
+      <td>ham</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5565</th>
+      <td>ham</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5568</th>
+      <td>spam</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5569</th>
+      <td>spam</td>
+      <td>2 2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="find-dates">Find Dates</h3>
+<ul>
+<li><strong>find_dates(text)</strong>: Busqueda de fechas [mm-dd-yyyy]</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_dates
+</code></pre>
+
+<pre><code class="python">sentence=&quot;Todays date is 04/28/2020 for format mm/dd/yyyy, not 28/04/2020&quot;
+find_dates(sentence)
+</code></pre>
+
+<pre><code>[('04', '28', '2020')]
+</code></pre>
+<pre><code class="python">data_clean['find_dates'] = dataset.data['text'].apply(lambda x : find_dates(x))
+</code></pre>
+
+<hr />
+<h3 id="only-words">Only Words</h3>
+<ul>
+<li><strong>only_words(text)</strong>: Eliminar los numeros del texto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import only_words
+</code></pre>
+
+<pre><code class="python">data_clean['only_words'] = dataset.data['text'].apply(lambda x : only_words(x))
+data_clean[data_clean[&quot;only_words&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;only_words&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>only_words</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>Go until jurong point crazy Available only in ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>Ok lar Joking wif u oni</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>Free entry in a wkly comp to win FA Cup final ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>U dun say so early hor U c already then say</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>Nah I don t think he goes to usf he lives arou...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="search-key">Search Key</h3>
+<ul>
+<li><strong>search_string(text, key)</strong>: Comprobar existencia de palabras en la frase.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import search_string
+</code></pre>
+
+<pre><code class="python">data_clean['search_string'] = dataset.data['text'].apply(lambda x : search_string(x,' day '))
+data_clean[data_clean[&quot;search_string&quot;]==True][[&quot;target&quot;, &quot;search_string&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>search_string</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>163</th>
+      <td>ham</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>ham</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>ham</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>359</th>
+      <td>ham</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>ham</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">data_clean[&quot;text&quot;].iloc[163]
+</code></pre>
+
+<pre><code>"I'm so in love with you. I'm excited each day i spend with you. You make me so happy."
+</code></pre>
+<hr />
+<h3 id="pick-only-key-sentence">pick only key sentence</h3>
+<ul>
+<li><strong>pick_only_key_sentence(text, keyword)</strong>: Devuelve las frases que contiene la palabra (Keyword) seleccionada.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import pick_only_key_sentence
+</code></pre>
+
+<pre><code class="python">data_clean['pick_only_key_sentence'] = dataset.data['text'].apply(lambda x : pick_only_key_sentence(x,' day '))
+data_clean[data_clean[&quot;pick_only_key_sentence&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;pick_only_key_sentence&quot;]].iloc[163:165]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>pick_only_key_sentence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>163</th>
+      <td>ham</td>
+      <td>[ I'm excited each day i spend with you]</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>spam</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="pick-unique-sentence">pick unique sentence</h3>
+<ul>
+<li><strong>pick_unique_sentence(text)</strong>: Elimina frases duplicadas</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import pick_unique_sentence
+</code></pre>
+
+<pre><code class="python">sentence=&quot;I thank doctors\nDoctors are working very hard in this pandemic situation\nI thank doctors&quot;
+pick_unique_sentence(sentence)
+</code></pre>
+
+<pre><code>['Doctors are working very hard in this pandemic situation', 'I thank doctors']
+</code></pre>
+<pre><code class="python">data_clean['pick_unique_sentence'] = dataset.data['text'].apply(lambda x : pick_unique_sentence(x))
+</code></pre>
+
+<hr />
+<h3 id="capital-words">Capital words</h3>
+<ul>
+<li><strong>find_capital(text)</strong>: Busqueda de palabras con primera letra en mayuscula.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_capital
+</code></pre>
+
+<pre><code class="python">data_clean['find_capital'] = dataset.data['text'].apply(lambda x : find_capital(x))
+data_clean[data_clean[&quot;find_capital&quot;]!=&quot;&quot;][[&quot;target&quot;, &quot;find_capital&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>find_capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>[Go, Available, Cine]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>[Ok, Joking]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>[Free, FA, Cup, May, Text, FA]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>[Nah]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="remove-tag-html">Remove tag html</h3>
+<ul>
+<li><strong>remove_tag(text)</strong>: Elimina los tags de html.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import remove_tag
+</code></pre>
+
+<pre><code class="python">sentence=&quot;Markdown sentences can use &lt;br&gt; for breaks and &lt;i&gt;&lt;/i&gt; for italics&quot;
+remove_tag(sentence)
+</code></pre>
+
+<pre><code>'Markdown sentences can use  for breaks and  for italics'
+</code></pre>
+<pre><code class="python">data_clean['remove_tag'] = dataset.data['text'].apply(lambda x : remove_tag(x))
+</code></pre>
+
+<hr />
+<h3 id="mac-address">Mac address</h3>
+<ul>
+<li><strong>mac_add(text)</strong>: Busqueda de <em>Mac address</em> en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import mac_add
+</code></pre>
+
+<pre><code class="python">sentence=&quot;MAC ADDRESSES of this laptop - 00:24:17:b1:cc:cc. Other details will be mentioned&quot;
+mac_add(sentence)
+</code></pre>
+
+<pre><code>['00:24:17:b1:cc:cc']
+</code></pre>
+<pre><code class="python">data_clean['mac_add'] = dataset.data['text'].apply(lambda x : mac_add(x))
+</code></pre>
+
+<hr />
+<h3 id="ip-address">IP address</h3>
+<ul>
+<li><strong>ip_add(text)</strong>: Busqueda de <em>IP address</em> en el texto</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import ip_add
+</code></pre>
+
+<pre><code class="python">sentence=&quot;An example of ip address is 125.16.100.1&quot;
+ip_add(sentence)
+</code></pre>
+
+<pre><code>['125.16.100.1']
+</code></pre>
+<pre><code class="python">data_clean['ip_add'] = dataset.data['text'].apply(lambda x : ip_add(x))
+</code></pre>
+
+<hr />
+<h3 id="extract-number-of-subwords">Extract number of subwords</h3>
+<ul>
+<li><strong>subword(string, sub)</strong>: Devuelve el numero de veces que aparece la raiz de la palabra.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import subword
+</code></pre>
+
+<pre><code class="python">sentence = 'Fundamentalism and constructivism are important skills'
+subword(sentence,'ism') # change subword and try for others
+</code></pre>
+
+<pre><code>2
+</code></pre>
+<pre><code class="python">data_clean['subword'] = dataset.data['text'].apply(lambda x : subword(x, &quot;on&quot;))
+data_clean[[&quot;target&quot;, &quot;text&quot;, &quot;subword&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>text</th>
+      <th>subword</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="valid-latitude-longitude">Valid latitude &amp; longitude</h3>
+<ul>
+<li><strong>lat_lon(string)</strong>: Devuelve si el dato de Latitud y longitud es correcto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import lat_lon
+</code></pre>
+
+<pre><code class="python">lat_lon('28.6466772,76.8130649', display=True)
+lat_lon('2324.3244,3423.432423', display=True)
+</code></pre>
+
+<pre><code>[28.6466772,76.8130649] is valid latitude &amp; longitude
+[2324.3244,3423.432423] is not a valid latitude &amp; longitude
+
+
+
+
+
+False
+</code></pre>
+<pre><code class="python">data_clean['lat_lon'] = dataset.data['text'].apply(lambda x : lat_lon(x))
+data_clean[[&quot;target&quot;, &quot;text&quot;, &quot;lat_lon&quot;]].head(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>text</th>
+      <th>lat_lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ham</td>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ham</td>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>spam</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ham</td>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ham</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="valid-latitude-longitude_1">Valid latitude &amp; longitude</h3>
+<ul>
+<li><strong>find_domain(string)</strong>: Devuelve si el dato de Latitud y longitud es correcto.</li>
+</ul>
+<pre><code class="python">from mlearner.nlp.helpers import find_domain
+</code></pre>
+
+<pre><code class="python">data_clean['find_domain'] = dataset.data['text'].apply(lambda x : find_domain(x))
+data_clean[[&quot;target&quot;, &quot;text&quot;, &quot;find_domain&quot;]].iloc[10:15]
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>text</th>
+      <th>find_domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>ham</td>
+      <td>I'm gonna be home soon and i don't want to tal...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>spam</td>
+      <td>SIX chances to win CASH! From 100 to 20,000 po...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>spam</td>
+      <td>URGENT! You have won a 1 week FREE membership ...</td>
+      <td>[www.dbuk]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ham</td>
+      <td>I've been searching for the right words to tha...</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ham</td>
+      <td>I HAVE A DATE ON SUNDAY WITH WILL!!</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="python">data_clean[&quot;text&quot;].iloc[12]
+</code></pre>
+
+<pre><code>'URGENT! You have won a 1 week FREE membership in our £100,000 Prize Jackpot! Txt the word: CLAIM to No: 81010 T&amp;C www.dbuk.net LCCLTD POBOX 4403LDNW1A7RW18'
+</code></pre>
+<hr />
+<pre><code class="python">data_clean.T
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>5564</th>
+      <th>5565</th>
+      <th>5566</th>
+      <th>5567</th>
+      <th>5568</th>
+      <th>5569</th>
+      <th>5570</th>
+      <th>5571</th>
+      <th>5572</th>
+      <th>5573</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>target</th>
+      <td>ham</td>
+      <td>ham</td>
+      <td>spam</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>spam</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>spam</td>
+      <td>spam</td>
+      <td>...</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>spam</td>
+      <td>spam</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>ham</td>
+      <td>ham</td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>FreeMsg Hey there darling it's been 3 week's n...</td>
+      <td>Even my brother is not like to speak with me. ...</td>
+      <td>As per your request 'Melle Melle (Oru Minnamin...</td>
+      <td>WINNER!! As a valued network customer you have...</td>
+      <td>Had your mobile 11 months or more? U R entitle...</td>
+      <td>...</td>
+      <td>Ok lor... Sony ericsson salesman... I ask shuh...</td>
+      <td>Ard 6 like dat lor.</td>
+      <td>Why don't you wait 'til at least wednesday to ...</td>
+      <td>Huh y lei...</td>
+      <td>REMINDER FROM O2: To get 2.50 pounds free call...</td>
+      <td>This is the 2nd time we have tried 2 contact u...</td>
+      <td>Will ü b going to esplanade fr home?</td>
+      <td>Pity, * was in mood for that. So...any other s...</td>
+      <td>The guy did some bitching but I acted like i'd...</td>
+      <td>Rofl. Its true to its name</td>
+    </tr>
+    <tr>
+      <th>url</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>emoji</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>emails</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Hash</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Mention</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Numbers</th>
+      <td></td>
+      <td></td>
+      <td>2 21 2005 87121 08452810075 18</td>
+      <td></td>
+      <td></td>
+      <td>3 1 50</td>
+      <td></td>
+      <td>9</td>
+      <td>900 09061701461 341 12</td>
+      <td>11 08002986030</td>
+      <td>...</td>
+      <td>2</td>
+      <td>6</td>
+      <td></td>
+      <td></td>
+      <td>2 2 50 2</td>
+      <td>2 2 750 2 087187272008 1 10</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>phone_number</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[(, 7, 0)]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>Years</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[2005]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>nonalp</th>
+      <td>[,, ., ., ., ., ., ., ., .]</td>
+      <td>[., ., ., ., ., .]</td>
+      <td>[., (, ), &amp;, ', ']</td>
+      <td>[., ., ., ., ., .]</td>
+      <td>[', ,]</td>
+      <td>[', ', !, ', ?, !, ,, £, .]</td>
+      <td>[., .]</td>
+      <td>[', (, ), ', ., *]</td>
+      <td>[!, !, £, !, ., ., .]</td>
+      <td>[?, !]</td>
+      <td>...</td>
+      <td>[., ., ., ., ., ., ., ., .]</td>
+      <td>[.]</td>
+      <td>[', ', .]</td>
+      <td>[., ., .]</td>
+      <td>[:, ., ,]</td>
+      <td>[., £, ., ,, !, ., -, -, .]</td>
+      <td>[ü, ?]</td>
+      <td>[,, *, ., ., ., ., ?]</td>
+      <td>[']</td>
+      <td>[.]</td>
+    </tr>
+    <tr>
+      <th>find_punct</th>
+      <td>[,, ., ., ., ., ., ., ., .]</td>
+      <td>[., ., ., ., ., .]</td>
+      <td>[., (, ), &amp;, ', ']</td>
+      <td>[., ., ., ., ., .]</td>
+      <td>[', ,]</td>
+      <td>[', ', !, ', ?, !, ,, .]</td>
+      <td>[., .]</td>
+      <td>[', (, ), ', ., *]</td>
+      <td>[!, !, !, ., ., .]</td>
+      <td>[?, !]</td>
+      <td>...</td>
+      <td>[., ., ., ., ., ., ., ., .]</td>
+      <td>[.]</td>
+      <td>[', ', .]</td>
+      <td>[., ., .]</td>
+      <td>[:, ., ,]</td>
+      <td>[., ., ,, !, ., -, -, .]</td>
+      <td>[?]</td>
+      <td>[,, *, ., ., ., ., ?]</td>
+      <td>[']</td>
+      <td>[.]</td>
+    </tr>
+    <tr>
+      <th>find_coin$</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>num_great</th>
+      <td></td>
+      <td></td>
+      <td>2005 87121 8452810075</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>9061701461</td>
+      <td>8002986030</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>87187272008</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>num_less</th>
+      <td></td>
+      <td></td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>12</td>
+      <td>11</td>
+      <td>...</td>
+      <td>2</td>
+      <td>6</td>
+      <td></td>
+      <td></td>
+      <td>2</td>
+      <td>2 2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>find_dates</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>only_words</th>
+      <td>Go until jurong point crazy Available only in ...</td>
+      <td>Ok lar Joking wif u oni</td>
+      <td>Free entry in a wkly comp to win FA Cup final ...</td>
+      <td>U dun say so early hor U c already then say</td>
+      <td>Nah I don t think he goes to usf he lives arou...</td>
+      <td>FreeMsg Hey there darling it s been week s now...</td>
+      <td>Even my brother is not like to speak with me T...</td>
+      <td>As per your request Melle Melle Oru Minnaminun...</td>
+      <td>WINNER As a valued network customer you have b...</td>
+      <td>Had your mobile months or more U R entitled to...</td>
+      <td>...</td>
+      <td>Ok lor Sony ericsson salesman I ask shuhui the...</td>
+      <td>Ard like dat lor</td>
+      <td>Why don t you wait til at least wednesday to s...</td>
+      <td>Huh y lei</td>
+      <td>REMINDER FROM To get pounds free call credit a...</td>
+      <td>This is the time we have tried contact u U hav...</td>
+      <td>Will ü b going to esplanade fr home</td>
+      <td>Pity was in mood for that So any other suggest...</td>
+      <td>The guy did some bitching but I acted like i d...</td>
+      <td>Rofl Its true to its name</td>
+    </tr>
+    <tr>
+      <th>search_string</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>pick_only_key_sentence</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>pick_unique_sentence</th>
+      <td>[Go until jurong point, crazy.. Available only...</td>
+      <td>[Ok lar... Joking wif u oni...]</td>
+      <td>[Free entry in 2 a wkly comp to win FA Cup fin...</td>
+      <td>[U dun say so early hor... U c already then sa...</td>
+      <td>[Nah I don't think he goes to usf, he lives ar...</td>
+      <td>[FreeMsg Hey there darling it's been 3 week's ...</td>
+      <td>[Even my brother is not like to speak with me....</td>
+      <td>[As per your request 'Melle Melle (Oru Minnami...</td>
+      <td>[WINNER!! As a valued network customer you hav...</td>
+      <td>[Had your mobile 11 months or more? U R entitl...</td>
+      <td>...</td>
+      <td>[Ok lor... Sony ericsson salesman... I ask shu...</td>
+      <td>[Ard 6 like dat lor.]</td>
+      <td>[Why don't you wait 'til at least wednesday to...</td>
+      <td>[Huh y lei...]</td>
+      <td>[REMINDER FROM O2: To get 2.50 pounds free cal...</td>
+      <td>[This is the 2nd time we have tried 2 contact ...</td>
+      <td>[Will ü b going to esplanade fr home?]</td>
+      <td>[Pity, * was in mood for that. So...any other ...</td>
+      <td>[The guy did some bitching but I acted like i'...</td>
+      <td>[Rofl. Its true to its name]</td>
+    </tr>
+    <tr>
+      <th>find_capital</th>
+      <td>[Go, Available, Cine]</td>
+      <td>[Ok, Joking]</td>
+      <td>[Free, FA, Cup, May, Text, FA]</td>
+      <td>[]</td>
+      <td>[Nah]</td>
+      <td>[FreeMsg, Hey, Tb, XxX]</td>
+      <td>[Even, They]</td>
+      <td>[As, Melle, Melle, Oru, Minnaminunginte, Nurun...</td>
+      <td>[WINNER, As, To, Claim, KL341, Valid]</td>
+      <td>[Had, Update, Free, Call, The, Mobile, Update,...</td>
+      <td>...</td>
+      <td>[Ok, Sony]</td>
+      <td>[Ard]</td>
+      <td>[Why]</td>
+      <td>[Huh]</td>
+      <td>[REMINDER, FROM, O2, To]</td>
+      <td>[This, Pound, NOW1, Only, BT]</td>
+      <td>[Will]</td>
+      <td>[Pity, So]</td>
+      <td>[The]</td>
+      <td>[Rofl, Its]</td>
+    </tr>
+    <tr>
+      <th>remove_tag</th>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>FreeMsg Hey there darling it's been 3 week's n...</td>
+      <td>Even my brother is not like to speak with me. ...</td>
+      <td>As per your request 'Melle Melle (Oru Minnamin...</td>
+      <td>WINNER!! As a valued network customer you have...</td>
+      <td>Had your mobile 11 months or more? U R entitle...</td>
+      <td>...</td>
+      <td>Ok lor... Sony ericsson salesman... I ask shuh...</td>
+      <td>Ard 6 like dat lor.</td>
+      <td>Why don't you wait 'til at least wednesday to ...</td>
+      <td>Huh y lei...</td>
+      <td>REMINDER FROM O2: To get 2.50 pounds free call...</td>
+      <td>This is the 2nd time we have tried 2 contact u...</td>
+      <td>Will ü b going to esplanade fr home?</td>
+      <td>Pity, * was in mood for that. So...any other s...</td>
+      <td>The guy did some bitching but I acted like i'd...</td>
+      <td>Rofl. Its true to its name</td>
+    </tr>
+    <tr>
+      <th>mac_add</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[087187272008]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>ip_add</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>subword</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>...</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>lat_lon</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>find_domain</th>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[1.50]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[2.50]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+<p>27 rows × 5574 columns</p>
+</div></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright &copy; 2018-2022 <a href="https://www.linkedin.com/in/jaisenbe">Jaime Sendra</a><br></small>
+        
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../mathjaxhelper.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
