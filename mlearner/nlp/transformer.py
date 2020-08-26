@@ -404,6 +404,15 @@ class Transformer(tf.keras.Model):
     ---------
         ```python
 
+        BATCH_SIZE = 64
+        BUFFER_SIZE = 20000
+
+        dataset = tf.data.Dataset.from_tensor_slices((inputs, outputs))
+
+        dataset = dataset.cache()
+        dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
+        dataset = dataset.prefetch(tf.data.experimental.AUTOTUNE)
+
         tf.keras.backend.clear_session()
 
         # Hiper Parámetros
@@ -413,7 +422,7 @@ class Transformer(tf.keras.Model):
         NB_PROJ = 8 # 8
         DROPOUT_RATE = 0.1 # 0.1
 
-        transformer = Transformer(vocab_size_enc=VOCAB_SIZE_EN,
+        model_Transformer = Transformer(vocab_size_enc=VOCAB_SIZE_EN,
                                 vocab_size_dec=VOCAB_SIZE_ES,
                                 d_model=D_MODEL,
                                 nb_layers=NB_LAYERS,
@@ -421,82 +430,24 @@ class Transformer(tf.keras.Model):
                                 nb_proj=NB_PROJ,
                                 dropout_rate=DROPOUT_RATE)
 
-        loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True,
-                                                                    reduction="none")
+        Transformer_train(model_Transformer,
+                        dataset,
+                        d_model=D_MODEL,
+                        train=TRAIN,
+                        epochs=1,
+                        checkpoint_path="ckpt/",
+                        max_to_keep=5)
 
-        def loss_function(target, pred):
-            mask = tf.math.logical_not(tf.math.equal(target, 0))
-            loss_ = loss_object(target, pred)
-
-            mask = tf.cast(mask, dtype=loss_.dtype)
-            loss_ *= mask
-
-            return tf.reduce_mean(loss_)
-
-        train_loss = tf.keras.metrics.Mean(name="train_loss")
-        train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name="train_accuracy")
-
-
-        class CustomSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):
-
-            def __init__(self, d_model, warmup_steps=4000):
-                super(CustomSchedule, self).__init__()
-
-                self.d_model = tf.cast(d_model, tf.float32)
-                self.warmup_steps = warmup_steps
-
-            def __call__(self, step):
-                arg1 = tf.math.rsqrt(step)
-                arg2 = step * (self.warmup_steps**-1.5)
-
-                return tf.math.rsqrt(self.d_model) * tf.math.minimum(arg1, arg2)
-
-        leaning_rate = CustomSchedule(D_MODEL)
-
-        optimizer = tf.keras.optimizers.Adam(leaning_rate,
-                                            beta_1=0.9,
-                                            beta_2=0.98,
-                                            epsilon=1e-9)
-
-        EPOCHS = 10
-        for epoch in range(EPOCHS):
-            print("Inicio del epoch {}".format(epoch+1))
-            start = time.time()
-
-            train_loss.reset_states()
-            train_accuracy.reset_states()
-
-            for (batch, (enc_inputs, targets)) in enumerate(dataset):
-                dec_inputs = targets[:, :-1]
-                dec_outputs_real = targets[:, 1:]
-                with tf.GradientTape() as tape:
-                    predictions = transformer(enc_inputs, dec_inputs, True)
-                    loss = loss_function(dec_outputs_real, predictions)
-
-                gradients = tape.gradient(loss, transformer.trainable_variables)
-                optimizer.apply_gradients(zip(gradients, transformer.trainable_variables))
-
-                train_loss(loss)
-                train_accuracy(dec_outputs_real, predictions)
-
-                if batch % 50 == 0:
-                    print("Epoch {} Lote {} Pérdida {:.4f} Precisión {:.4f}".format(
-                        epoch+1, batch, train_loss.result(), train_accuracy.result()))
-
-            ckpt_save_path = ckpt_manager.save()
-            print("Guardando checkpoint para el epoch {} en {}".format(epoch+1,
-                                                                ckpt_save_path))
-            print("Tiempo que ha tardado 1 epoch: {} segs\n".format(time.time() - start))
-
+        # Evaluate
         def evaluate(inp_sentence):
             inp_sentence = \
-                [VOCAB_SIZE_EN-2] + tokenizer_en.encode(inp_sentence) + [VOCAB_SIZE_EN-1]
+                [VOCAB_SIZE_EN-2] + processor_en.tokenizer.encode(inp_sentence) + [VOCAB_SIZE_EN-1]
             enc_input = tf.expand_dims(inp_sentence, axis=0)
 
             output = tf.expand_dims([VOCAB_SIZE_ES-2], axis=0)
 
             for _ in range(MAX_LENGTH):
-                predictions = transformer(enc_input, output, False) #(1, seq_length, VOCAB_SIZE_ES)
+                predictions = model_Transformer(enc_input, output, False) #(1, seq_length, VOCAB_SIZE_ES)
 
                 prediction = predictions[:, -1:, :]
 
@@ -512,7 +463,7 @@ class Transformer(tf.keras.Model):
         def translate(sentence):
             output = evaluate(sentence).numpy()
 
-            predicted_sentence = tokenizer_es.decode(
+            predicted_sentence = processor_es.tokenizer.decode(
                 [i for i in output if i < VOCAB_SIZE_ES-2]
             )
 
@@ -629,15 +580,11 @@ def loss_function(target, pred):
     return tf.reduce_mean(loss_)
 
 
-def train_transformer(dataset,
+def Transformer_train(Transformer,
+                        dataset,
                         d_model,
                         epochs,
-                        vocab_size_enc,
-                        vocab_size_dec,
-                        nb_layers,
-                        nb_proj,
-                        FFN_units,
-                        dropout_rate=0.1,
+                        train=True,
                         beta_1=0.9,
                         beta_2=0.98,
                         epsilon=1e-9,
@@ -646,13 +593,6 @@ def train_transformer(dataset,
     """
     Entrenamiento Transformer Customizado
     """
-    transformer = Transformer(vocab_size_enc=vocab_size_enc,
-                                vocab_size_dec=vocab_size_dec,
-                                d_model=d_model,
-                                nb_layers=nb_layers,
-                                FFN_units=FFN_units,
-                                nb_proj=nb_proj,
-                                dropout_rate=dropout_rate)
     # Custom Learning Rate Schedule
     leaning_rate = CustomSchedule_transformer(d_model)
     # Loss function
@@ -668,32 +608,40 @@ def train_transformer(dataset,
                                     optimizer,
                                     checkpoint_path="ckpt/",
                                     max_to_keep=5)
+    # Grafo estatico
+    @tf.function
+    def train_step(enc_inputs, dec_inputs, dec_outputs_real):
+        with tf.GradientTape() as tape:
+            predictions = Transformer(enc_inputs, dec_inputs, True)
+            loss = loss_function(dec_outputs_real, predictions)
+
+        gradients = tape.gradient(loss, Transformer.trainable_variables)
+        optimizer.apply_gradients(zip(gradients, Transformer.trainable_variables))
+
+        train_accuracy(dec_outputs_real, predictions)
+        return loss
+
     # Bucle de Entrenamiento
-    for epoch in range(epochs):
-        print("Inicio del epoch {}".format(epoch+1))
-        start = time.time()
+    if train:
+        for epoch in range(epochs):
+            print("Inicio del epoch {}".format(epoch+1))
+            start = time.time()
 
-        train_loss.reset_states()
-        train_accuracy.reset_states()
+            train_loss.reset_states()
+            train_accuracy.reset_states()
 
-        for (batch, (enc_inputs, targets)) in enumerate(dataset):
-            dec_inputs = targets[:, :-1]
-            dec_outputs_real = targets[:, 1:]
-            with tf.GradientTape() as tape:
-                predictions = transformer(enc_inputs, dec_inputs, True)
-                loss = loss_function(dec_outputs_real, predictions)
+            for (batch, (enc_inputs, targets)) in enumerate(dataset):
+                dec_inputs = targets[:, :-1]
+                dec_outputs_real = targets[:, 1:]
 
-            gradients = tape.gradient(loss, transformer.trainable_variables)
-            optimizer.apply_gradients(zip(gradients, transformer.trainable_variables))
+                loss = train_step(enc_inputs, dec_inputs, dec_outputs_real)
+                train_loss(loss)
 
-            train_loss(loss)
-            train_accuracy(dec_outputs_real, predictions)
+                if batch % 50 == 0:
+                    print("Epoch {} Lote {} Pérdida {:.4f} Precisión {:.4f}".format(
+                        epoch+1, batch, train_loss.result(), train_accuracy.result()))
 
-            if batch % 50 == 0:
-                print("Epoch {} Lote {} Pérdida {:.4f} Precisión {:.4f}".format(
-                    epoch+1, batch, train_loss.result(), train_accuracy.result()))
-
-        ckpt_save_path = ckpt_manager.save()
-        print("Guardando checkpoint para el epoch {} en {}".format(epoch+1,
-                                                                    ckpt_save_path))
-        print("Tiempo que ha tardado 1 epoch: {} segs\n".format(time.time() - start))
+            ckpt_save_path = ckpt_manager.save()
+            print("Guardando checkpoint para el epoch {} en {}".format(epoch+1,
+                                                                        ckpt_save_path))
+            print("Tiempo que ha tardado 1 epoch: {} segs\n".format(time.time() - start))
