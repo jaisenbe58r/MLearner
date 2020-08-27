@@ -606,7 +606,7 @@ def Transformer_train(Transformer,
     # Checkpoints
     ckpt_manager = keras_checkpoint(Transformer,
                                     optimizer,
-                                    checkpoint_path="ckpt/",
+                                    checkpoint_path=checkpoint_path,
                                     max_to_keep=5)
     # Grafo estatico
     @tf.function
