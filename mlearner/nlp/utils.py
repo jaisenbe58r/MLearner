@@ -13,7 +13,6 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 
 import re
-from bs4 import BeautifulSoup
 
 
 class Processor_data():
@@ -139,7 +138,7 @@ class Processor_data():
             """
             Función por defecto
             """
-            text = BeautifulSoup(text, "lxml").get_text()
+            # text = BeautifulSoup(text, "lxml").get_text()
             # Eliminamos la @ y su mención
             text = re.sub(r"@[A-Za-z0-9]+", ' ', text)
             # Eliminamos los links de las URLs
