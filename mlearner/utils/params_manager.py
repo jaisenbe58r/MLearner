@@ -22,7 +22,7 @@ class ParamsManager(object):
 
         - get_params(): obtener parametros a partir del "key" especificado
         - update_params(): actualizacion de los valores de un "key" especificado.
-        - export_params(): Escribir parametros en un archivo
+        - export_params(): Escribir parametros en un archivo.
     """
 
     def __init__(self, params_file, key_read="info_json"):
