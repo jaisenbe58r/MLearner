@@ -134,22 +134,7 @@ class Processor_data():
             text = " "
             print(text)
 
-        def Function_clean(text):
-            """
-            Función por defecto
-            """
-            # text = BeautifulSoup(text, "lxml").get_text()
-            # Eliminamos la @ y su mención
-            text = re.sub(r"@[A-Za-z0-9]+", ' ', text)
-            # Eliminamos los links de las URLs
-            text = re.sub(r"https?://[A-Za-z0-9./]+", ' ', text)
-            # Nos quedamos solamente con los caracteres
-            text = re.sub(r"[^a-zA-Z.!?']", ' ', text)
-            return text
-
-        if self.function is None:
-            text = Function_clean(text)
-        else:
+        if self.function is not None:
             text = self.function(text)
 
         if non_breaking_prefix:
