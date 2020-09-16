@@ -119,7 +119,7 @@ class Processor_data():
         Regular expressions applied to text.
 
         ```python
-        def Function_clean(non_breaking_prefix_en):
+        def Function_clean(text):
             text = BeautifulSoup(text, "lxml").get_text()
             # Eliminamos la @ y su mención
             text = re.sub(r"@[A-Za-z0-9]+", ' ', text)

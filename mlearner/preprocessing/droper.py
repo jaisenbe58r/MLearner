@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.base import BaseEstimator, TransformerMixin
-from ..externals.estimator_checks import check_is_fitted
+from mlearner.externals import check_is_fitted
 # https://www.kaggle.com/funkyfrankie/sklearn-pipelines-and-transformers
 
 
