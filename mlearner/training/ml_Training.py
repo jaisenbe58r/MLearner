@@ -280,3 +280,4 @@ class Training(EvaluationModels):
             plt.show()
         if save_image:
             plt.savefig(logdir)
+        return feature_importances

@@ -23,7 +23,7 @@ from mlearner.utils import ParamsManager
 import warnings
 warnings.filterwarnings("ignore")
 
-param_file = "mlearner/classifier/config/models.json"
+# param_file = "mlearner/classifier/config/models.json"
 
 
 class FeatureSelection(object):
@@ -32,7 +32,7 @@ class FeatureSelection(object):
         Inicializacion e la clase de Seleccion de rasgos
         """
         self.random_state = random_state
-        self.manager_models = ParamsManager(param_file, key_read="Models")
+        # self.manager_models = ParamsManager(param_file, key_read="Models")
 
     def cor_pearson(self, X, y, k='all'):
         """

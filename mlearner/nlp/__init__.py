@@ -10,6 +10,7 @@ from .utils import Processor_data, open_txt
 from mlearner.nlp import helpers
 from .cnn_advanced import DCNN_Advanced
 from .transformer import Transformer, Transformer_train
+from .transformer_continuos import Transformer_continuos, Transformer_continuos_train
 
 __all__ = ["DCNN", "Processor_data", "open_txt", "helpers", "DCNN_Advanced",
             "Transformer", "Transformer_train"]
